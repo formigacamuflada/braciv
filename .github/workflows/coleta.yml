@@ -1,0 +1,32 @@
+name: Coleta diaria
+
+on:
+  schedule:
+    - cron: "0 11 * * *"   # 08h em Brasilia
+  workflow_dispatch:        # permite rodar na mao pelo site do GitHub
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Camara
+        run: python coletores/camara.py
+
+      - name: Senado
+        run: python coletores/senado.py
+
+      - name: Guardar o que mudou
+        run: |
+          git config user.name "coletor"
+          git config user.email "coletor@users.noreply.github.com"
+          git add dados/
+          git diff --staged --quiet || git commit -m "dados: coleta de $(date -u +%Y-%m-%d)"
+          git push
