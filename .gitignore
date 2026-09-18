@@ -1,0 +1,10 @@
+# nunca subir credenciais
+token.txt
+*.token
+.env
+
+# lixo de sistema
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
