@@ -3,13 +3,25 @@ name: Coleta diaria
 on:
   schedule:
     - cron: "0 11 * * *"   # 08h em Brasilia
-  workflow_dispatch:        # permite rodar na mao pelo site do GitHub
+  workflow_dispatch:
+    inputs:
+      diagnostico:
+        description: "So inspecionar a estrutura do XML do DOU, sem extrair"
+        type: boolean
+        default: false
+      data:
+        description: "Data do DOU a coletar (AAAA-MM-DD). Vazio = ontem"
+        type: string
+        default: ""
 
 jobs:
   coletar:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      INLABS_EMAIL: ${{ secrets.INLABS_EMAIL }}
+      INLABS_SENHA: ${{ secrets.INLABS_SENHA }}
     steps:
       - uses: actions/checkout@v4
 
@@ -17,11 +29,27 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Dependencias
+        run: pip install --quiet requests
+
       - name: Camara
         run: python coletores/camara.py
 
       - name: Senado
         run: python coletores/senado.py
+
+      - name: DOU (Diario Oficial da Uniao)
+        # so roda quando as credenciais do INLABS existirem nos secrets
+        if: env.INLABS_EMAIL != ''
+        continue-on-error: true
+        env:
+          DATA: ${{ inputs.data }}
+          DIAG: ${{ inputs.diagnostico }}
+        run: |
+          ARGS=""
+          [ -n "$DATA" ] && ARGS="$ARGS $DATA"
+          [ "$DIAG" = "true" ] && ARGS="$ARGS --diagnostico"
+          python coletores/dou.py $ARGS
 
       - name: Guardar o que mudou
         run: |
