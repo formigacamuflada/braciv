@@ -1,0 +1,69 @@
+SIORG - reconhecimento de endpoints (base https://estruturaorganizacional.dados.gov.br)
+
+[OK  ] /doc/unidade-organizacional/26
+        chaves: ['servico', 'unidade']
+        1116 bytes
+[OK  ] /doc/unidade-organizacional/26.json
+        chaves: ['servico', 'unidade']
+        1116 bytes
+[OK  ] /doc/unidade-organizacional/26/completa
+        chaves: ['servico', 'unidade']
+        5823 bytes
+[404] /doc/unidade-organizacional/completa/26
+[404] /doc/unidade-organizacional/lista/26
+[404] /doc/unidade-organizacional/filhas/26
+[404] /doc/unidade-organizacional/subordinadas/26
+[404] /doc/unidade-organizacional/codigoUnidadePai/26
+[OK  ] /doc/unidade-organizacional?codigoUnidadePai=26
+        chaves: ['servico', 'unidade']
+        197 bytes
+[404] /doc/estrutura-organizacional/26
+[404] /doc/estrutura-organizacional/completa/26
+[404] /doc/estrutura-organizacional/atual/26
+[OK  ] /doc/estrutura-organizacional
+        chaves: ['servico', 'unidades']
+        96858259 bytes
+[OK  ] /doc/cargo-funcao/alocados-estrutura.json
+        chaves: ['servico', 'cargosAlocadosEstrutura']
+        54539344 bytes
+[OK  ] /doc/cargo-funcao/alocados-estrutura
+        chaves: ['servico', 'cargosAlocadosEstrutura']
+        54539344 bytes
+[OK  ] /doc/esfera
+        chaves: ['servico', 'esfera']
+        363 bytes
+[OK  ] /doc/poder
+        chaves: ['servico', 'poder']
+        432 bytes
+[OK  ] /doc/tipo-unidade
+        chaves: ['servico', 'tipoUnidade']
+        493 bytes
+[OK  ] /doc/natureza-juridica
+        chaves: ['servico', 'naturezaJuridica']
+        738 bytes
+[404] /swagger-ui/index.html
+[404] /v3/api-docs
+[404] /openapi.json
+
+--- varredura de codigos vizinhos ---
+(para ver se da para percorrer a arvore so incrementando o codigo)
+  1: FINEP - Financiadora de Estudos e Projetos (pai: 267175)
+  2: BNDES - Banco Nacional de Desenvolvimento Econômico e Social (pai: 308814)
+  25: EMBRAPA - Empresa Brasileira de Pesquisa Agropecuária (pai: 308793)
+  26: PR - Presidência da República (pai: 208613)
+  27: GSI/PR - Gabinete de Segurança Institucional da Presidência da República (pai: 26)
+  100: DCEM - Diretoria de Controle de Efetivos e  Movimentações (pai: 98)
+  208613: PE - Poder Executivo (pai: 200001)
+
+endpoints que responderam 200: 11
+  /doc/unidade-organizacional/26
+  /doc/unidade-organizacional/26.json
+  /doc/unidade-organizacional/26/completa
+  /doc/unidade-organizacional?codigoUnidadePai=26
+  /doc/estrutura-organizacional
+  /doc/cargo-funcao/alocados-estrutura.json
+  /doc/cargo-funcao/alocados-estrutura
+  /doc/esfera
+  /doc/poder
+  /doc/tipo-unidade
+  /doc/natureza-juridica
