@@ -16533,6 +16533,17 @@
     "nomeResumido": null
   },
   {
+    "id": 103069,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/103069",
+    "sigla": "MPV139226",
+    "nome": "Comissão Mista da MPV 1392/2026",
+    "apelido": "MPV139226",
+    "codTipoOrgao": 9,
+    "tipoOrgao": "Comissão Medida Provisória",
+    "nomePublicacao": null,
+    "nomeResumido": null
+  },
+  {
     "id": 526390,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/526390",
     "sigla": "REP-0706",
