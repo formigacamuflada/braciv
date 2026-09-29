@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+
+# gerado por coletores/grafo.py a partir de dados/ (vai ser montado na publicacao do site)
+dados/grafo/
