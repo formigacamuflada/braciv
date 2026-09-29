@@ -38,6 +38,10 @@ jobs:
       - name: Senado
         run: python coletores/senado.py
 
+      - name: SIORG (orgaos e cargos do Executivo)
+        continue-on-error: true
+        run: python coletores/siorg.py
+
       - name: DOU (Diario Oficial da Uniao)
         # so roda quando as credenciais do INLABS existirem nos secrets
         if: env.INLABS_EMAIL != ''
