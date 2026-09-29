@@ -61,13 +61,16 @@ def grava(nome, registros):
 
 
 def codigo_cargo(c):
-    """Mesmo formato do DOU: CCE 1.13, FCE 2.11, FG 07, NE."""
+    """Mesmo formato do DOU: CCE 1.13, FCE 2.11, FG 7, NE."""
     sigla, cat, niv = c.get("siglaCargo"), c.get("categoriaCargo"), c.get("nivelCargo")
     if not sigla:
         return None
     if cat and niv:
         return f"{sigla} {cat}.{str(niv).zfill(2)}"
-    return f"{sigla} {niv}" if niv else sigla
+    if niv:
+        niv = str(int(niv)) if str(niv).isdigit() else niv
+        return f"{sigla} {niv}"
+    return sigla
 
 
 def main():

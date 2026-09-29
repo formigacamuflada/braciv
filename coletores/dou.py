@@ -134,6 +134,16 @@ def diagnostico(zf, limite=3):
     print(f"  total de materias: {vistos}")
 
 
+def codigo_cargo(cod):
+    """Mesmo formato do SIORG: nivel com ponto fica como veio (FCE 1.05); nivel simples sem zero (FG 07 -> FG 7)."""
+    if not cod:
+        return None
+    sigla, nivel = cod.group(1), cod.group(2)
+    if nivel.isdigit():
+        nivel = str(int(nivel))
+    return f"{sigla} {nivel}"
+
+
 def extrai(art, secao):
     ps = paragrafos(art)
     ident = filho(art, "Identifica")
@@ -160,7 +170,7 @@ def extrai(art, secao):
             "verbo": verbo,
             "pessoa": re.sub(r"\s+", " ", m.group(1)).title(),
             "cargo": cargo,
-            "codigoCargo": f"{cod.group(1)} {cod.group(2)}" if cod else None,
+            "codigoCargo": codigo_cargo(cod),
             "orgao": art.attrib.get("artCategory"),
             "secao": secao,
             "tipoAto": art.attrib.get("artType"),
