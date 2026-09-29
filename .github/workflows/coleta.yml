@@ -46,6 +46,10 @@ jobs:
         continue-on-error: true
         run: python coletores/siorg.py
 
+      - name: Planalto (Presidente, Vice e Ministros)
+        continue-on-error: true
+        run: python coletores/planalto.py
+
       - name: Portal da Transparencia (ocupantes, mensal)
         continue-on-error: true
         run: python coletores/transparencia.py

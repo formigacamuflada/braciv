@@ -1,7 +1,7 @@
 """Junta tudo num grafo: pessoas, cargos, unidades, orgaos, Poderes, partidos.
 
 Entradas (dados/): siorg_*, transparencia_ocupantes.json, ocupacao.json,
-dou_mudancas.json, camara_deputados.json, senado_senadores.json.
+dou_mudancas.json, planalto_cupula.json, camara_deputados.json, senado_senadores.json.
 
 Saidas (dados/grafo/), no formato {"nos": [...], "arestas": [...]}:
   nucleo.json            visao geral: Poderes, orgaos, a cupula de cada um (CCE/FCE 1.15 para
@@ -142,6 +142,24 @@ def main():
         pessoas[pid]["cargos"].append({"de": pid, "para": id_u(org), "tipo": "ocupa", "codigoCargo": m.get("codigoCargo"),
                                        "funcao": m.get("cargo"), "exata": False, "desde": m["data"], "fonte": "dou"})
     resumo.append(f"DOU depois de {fim_retrato}: {ligados} atos ligados a pessoas do retrato, {encerrados} cargos encerrados, {novos} pessoas novas")
+
+    # ---- Planalto: Presidente, Vice e Ministros (nao estao no SIAPE) ----
+    cupula = le("planalto_cupula.json") if (DADOS / "planalto_cupula.json").exists() else {"cargos": []}
+    n_cupula = 0
+    for c in cupula["cargos"]:
+        if not c.get("pessoa") or not c.get("orgaoSiorg"):
+            continue
+        ids = por_nome.get(norm(c["pessoa"]), [])
+        pid = ids[0] if len(ids) == 1 else f"pl:{norm(c['pessoa']).replace(' ', '-').lower()}"
+        if pid not in pessoas:
+            pessoas[pid] = {"no": {"id": pid, "tipo": "pessoa", "rotulo": c["pessoa"],
+                                   "fonte": f"Planalto (página atualizada em {cupula.get('atualizadoNaFonte') or '?'})"}, "cargos": []}
+            por_nome[norm(c["pessoa"])].append(pid)
+        pessoas[pid]["no"]["papel"] = c["cargo"]
+        pessoas[pid]["cargos"].append({"de": pid, "para": id_u(c["orgaoSiorg"]), "tipo": "ocupa", "codigoCargo": c["codigoCargo"],
+                                       "funcao": c["cargo"], "exata": True, "fonte": "planalto", "url": c.get("fonte") or cupula.get("fonte")})
+        n_cupula += 1
+    resumo.append(f"Planalto: {n_cupula} cargos da cupula ligados (fonte atualizada em {cupula.get('atualizadoNaFonte')})")
 
     # ---- arquivos por orgao ----
     if SAIDA.exists():
