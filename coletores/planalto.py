@@ -104,4 +104,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:          # o log do Actions nao e legivel daqui: o erro vai para um arquivo
+        (DADOS / "planalto_erro.txt").write_text(f"{type(e).__name__}: {e}\n", encoding="utf-8")
+        raise
