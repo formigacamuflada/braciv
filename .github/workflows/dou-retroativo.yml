@@ -1,0 +1,51 @@
+name: DOU retroativo
+
+# Baixa o DOU de um intervalo de datas (por padrao so a secao 1, onde saem os
+# decretos de nomeacao da cupula). Grava um relatorio por dia em dados/,
+# porque o log da execucao nao e legivel de onde trabalhamos.
+
+on:
+  workflow_dispatch:
+    inputs:
+      inicio:
+        description: "Primeiro dia (AAAA-MM-DD)"
+        required: true
+      fim:
+        description: "Ultimo dia (AAAA-MM-DD)"
+        required: true
+      secoes:
+        description: "Secoes separadas por virgula"
+        default: "DO1,DO1E"
+
+concurrency:
+  group: grava-dados      # nunca duas execucoes gravando dados ao mesmo tempo
+  cancel-in-progress: false
+
+jobs:
+  retroativo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    permissions:
+      contents: write
+    env:
+      INLABS_EMAIL: ${{ secrets.INLABS_EMAIL }}
+      INLABS_SENHA: ${{ secrets.INLABS_SENHA }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests
+      - name: Baixar e extrair
+        run: |
+          mkdir -p dados/retroativo
+          python coletores/dou.py "${{ inputs.inicio }}:${{ inputs.fim }}" --secoes=${{ inputs.secoes }} \
+            --relatorio=dados/retroativo/${{ inputs.inicio }}_${{ inputs.fim }}.txt
+      - name: Guardar
+        if: always()
+        run: |
+          git config user.name "coletor"
+          git config user.email "coletor@users.noreply.github.com"
+          git add dados/
+          git diff --staged --quiet || git commit -m "dados: DOU retroativo ${{ inputs.inicio }} a ${{ inputs.fim }}"
+          git pull --rebase -q && git push

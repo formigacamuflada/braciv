@@ -10,6 +10,7 @@ Uso:
     python coletores/dou.py                 # ontem
     python coletores/dou.py 2026-09-16      # data especifica
     python coletores/dou.py --diagnostico   # mostra a estrutura do XML sem extrair
+    python coletores/dou.py 2023-01-01:2023-12-31 --secoes=DO1,DO1E --relatorio=dados/x.txt   # retroativo
 
 Credenciais vem das variaveis de ambiente INLABS_EMAIL e INLABS_SENHA.
 """
@@ -183,32 +184,66 @@ def extrai(art, secao):
     return achados
 
 
+def datas_pedidas(args):
+    """AAAA-MM-DD (um dia) ou AAAA-MM-DD:AAAA-MM-DD (intervalo). Sem nada: ontem."""
+    saida = []
+    for a in args:
+        m = re.fullmatch(r"(\d{4}-\d{2}-\d{2})(?::(\d{4}-\d{2}-\d{2}))?", a)
+        if not m:
+            continue
+        ini = datetime.date.fromisoformat(m.group(1))
+        fim = datetime.date.fromisoformat(m.group(2)) if m.group(2) else ini
+        while ini <= fim:
+            saida.append(ini.isoformat())
+            ini += datetime.timedelta(days=1)
+    return saida or [(datetime.date.today() - datetime.timedelta(days=1)).isoformat()]
+
+
 def main():
-    args = [a for a in sys.argv[1:]]
+    args = sys.argv[1:]
     modo_diag = "--diagnostico" in args
-    datas = [a for a in args if re.fullmatch(r"\d{4}-\d{2}-\d{2}", a)]
-    data = datas[0] if datas else (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
+    secoes = SECOES
+    for a in args:
+        if a.startswith("--secoes="):
+            secoes = [x.strip().upper() for x in a.split("=", 1)[1].split(",") if x.strip()]
+    datas = datas_pedidas(args)
+    relatorio_path = next((a.split("=", 1)[1] for a in args if a.startswith("--relatorio=")), None)
+    relatorio = []
 
     email, senha = os.environ.get("INLABS_EMAIL"), os.environ.get("INLABS_SENHA")
     if not email or not senha:
         raise SystemExit("faltam INLABS_EMAIL e INLABS_SENHA no ambiente")
 
-    print(f"DOU de {data}")
     sessao = requests.Session()
     cookie = entrar(sessao, email, senha)
-
     mudancas = []
-    for secao in SECOES:
-        zf = baixa(sessao, cookie, data, secao)
-        if zf is None:
-            continue
-        if modo_diag:
-            print(f"--- estrutura de {secao} ---")
-            diagnostico(zf)
-            continue
-        for art in artigos(zf):
-            mudancas.extend(extrai(art, secao))
+    for i, data in enumerate(datas):
+        if i and i % 40 == 0:                      # a sessao do INLABS expira: renova de tempos em tempos
+            sessao = requests.Session()
+            cookie = entrar(sessao, email, senha)
+        print(f"DOU de {data}")
+        achados_dia, secoes_ok = 0, []
+        for secao in secoes:
+            try:
+                zf = baixa(sessao, cookie, data, secao)
+            except requests.RequestException as e:
+                print(f"  {secao}: erro de rede {e}")
+                zf = None
+            if zf is None:
+                continue
+            secoes_ok.append(secao)
+            if modo_diag:
+                print(f"--- estrutura de {secao} ---")
+                diagnostico(zf)
+                continue
+            for art in artigos(zf):
+                achados = extrai(art, secao)
+                achados_dia += len(achados)
+                mudancas.extend(achados)
+        relatorio.append(f"{data} {','.join(secoes_ok) or '-'} {achados_dia}")
 
+    if relatorio_path:
+        pathlib.Path(relatorio_path).write_text("\n".join(relatorio) + "\n", encoding="utf-8")
     if modo_diag:
         return
 
