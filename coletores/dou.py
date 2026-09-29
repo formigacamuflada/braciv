@@ -31,21 +31,23 @@ ORIGEM = {"origem": "736372697074"}
 SECOES = ["DO1", "DO2", "DO1E", "DO2E"]
 SAIDA = pathlib.Path(__file__).resolve().parent.parent / "dados"
 
-ENTRADA = ["NOMEAR", "DESIGNAR", "PROMOVER", "REINTEGRAR"]
-SAIDA_CARGO = ["EXONERAR", "DISPENSAR", "DESTITUIR", "DEMITIR", "APOSENTAR", "TORNAR SEM EFEITO"]
-VERBOS = ENTRADA + SAIDA_CARGO
+# Verbo no inicio do paragrafo (o DOU escreve "Nomear", "NOMEAR" ou "CONCEDER APOSENTADORIA")
+ENTRADA = ["nomear", "designar", "promover", "reintegrar"]
+SAIDA_CARGO = ["exonerar", "dispensar", "destituir", "demitir", "aposentar", "conceder aposentadoria"]
+OUTROS = ["tornar sem efeito", "remover", "ceder", "redistribuir"]
+VERBO = re.compile(r"^(" + "|".join(ENTRADA + SAIDA_CARGO + OUTROS) + r")\b", re.I)
 
-CONECTORES = r"(?:para exercer o cargo de|para exercer a fun[çc][ãa]o de|no cargo de|do cargo de|da fun[çc][ãa]o de|para o cargo de)"
-CODIGO = re.compile(r"\b(CCE|FCE|DAS|FCPE|CJ)\s*-?\s*(\d+[\.\d]*)", re.I)
-# NOME EM CAIXA ALTA seguido do conector e do cargo, ate ponto/virgula/ponto-e-virgula
-ATO = re.compile(
-    r"\b(" + "|".join(VERBOS) + r")\b"
-    r"(?P<meio>[^.;]{0,120}?)"
-    r"(?P<nome>[A-ZÁÂÃÀÉÊÍÓÔÕÚÇ][A-ZÁÂÃÀÉÊÍÓÔÕÚÇ\s]{6,80}?)\s*,?\s*"
-    + CONECTORES +
-    r"\s+(?P<cargo>[^.;]{3,200})",
-    re.S,
-)
+MAI, MIN = "A-ZÀÁÂÃÉÊÍÓÔÕÚÜÇ", "a-zàáâãéêíóôõúüç"
+# nome em CAIXA ALTA (padrao do DOU), com particulas DA/DE/DO/DOS/DAS/E
+NOME = re.compile(rf"\b([{MAI}][{MAI}'\-]+(?:\s+(?:D[AEO]S?|E|[{MAI}][{MAI}'\-]+))*\s+[{MAI}][{MAI}'\-]+)\b")
+# plano B: nome em Caixa De Titulo seguido de virgula (alguns orgaos publicam assim)
+NOME_TITULO = re.compile(rf"\b([{MAI}][{MIN}]+(?:\s+(?:d[aeo]s?|e|[{MAI}][{MIN}]+))*\s+[{MAI}][{MIN}]+)\s*,")
+# onde comeca o cargo: "para exercer a funcao..." tem prioridade sobre "ocupante do cargo..."
+CARGO_EXERCER = re.compile(r"\bexercer\s+(?:[oa]\s+)?(?:cargo|fun[çc][ãa]o|encargo)\b", re.I)
+CARGO_GERAL = re.compile(r"\b(?:d[oa]s?|para\s+[oa]|n[oa]|ao|à)\s+(?:cargo|fun[çc][ãa]o|encargo)\b", re.I)
+FIM_CARGO = re.compile(r";|\.\s+(?=[A-ZÀ-Ú])|\.$")
+CODIGO = re.compile(r"\b(CCE|FCE|CCT|CGE|CCA|CA|DAS|FCPE|CJ|FC|FG|CD)\s*-?\s*([IVX]+|\d+(?:\.\d+)?)\b")
+SIGLAS = {"SIAPE", "DOU", "CPF", "FCE", "CCE", "DAS"}
 
 
 def entrar(sessao, email, senha):
@@ -78,12 +80,30 @@ def baixa(sessao, cookie, data, secao):
     return zipfile.ZipFile(io.BytesIO(r.content))
 
 
-def texto_limpo(elemento):
-    if elemento is None:
-        return ""
-    bruto = "".join(elemento.itertext())
-    bruto = re.sub(r"<[^>]+>", " ", bruto)
+def filho(art, tag):
+    """Acha o filho pela tag sem depender de maiuscula. Nao usar `find(...) or find(...)`:
+    no ElementTree um elemento sem filhos e falso, e o <Texto> so tem CDATA."""
+    for el in art.iter():
+        if el.tag.lower() == tag.lower():
+            return el
+    return None
+
+
+def texto_limpo(bruto):
+    bruto = re.sub(r"<[^>]+>", " ", bruto or "")
     return re.sub(r"\s+", " ", bruto).strip()
+
+
+def paragrafos(art):
+    """O <Texto> traz HTML dentro de CDATA; cada ato fica num <p>."""
+    el = filho(art, "Texto")
+    html = el.text if el is not None else ""
+    return [texto_limpo(p) for p in re.split(r"</p>", html or "", flags=re.I) if texto_limpo(p)]
+
+
+def data_iso(br):
+    m = re.fullmatch(r"(\d{2})/(\d{2})/(\d{4})", br or "")
+    return f"{m.group(3)}-{m.group(2)}-{m.group(1)}" if m else br
 
 
 def artigos(zf):
@@ -101,45 +121,54 @@ def artigos(zf):
 
 
 def diagnostico(zf, limite=3):
-    """Mostra a estrutura real do XML - o schema nao e publicado pela Imprensa Nacional."""
+    """Mostra a estrutura real do XML e amostras do que a extracao pega."""
     vistos = 0
     for art in artigos(zf):
-        print("  atributos:", dict(art.attrib))
-        print("  filhos:", [f.tag for f in art])
-        corpo = texto_limpo(art.find(".//Texto") or art.find(".//texto"))
-        print("  identifica:", texto_limpo(art.find(".//Identifica") or art.find(".//identifica"))[:120])
-        print("  texto:", corpo[:400])
-        print("  ---")
+        if vistos < limite:
+            print("  atributos:", {k: v[:60] for k, v in art.attrib.items()})
+            print("  identifica:", texto_limpo((filho(art, "Identifica").text if filho(art, "Identifica") is not None else ""))[:120])
+            for m in extrai(art, "diag")[:2]:
+                print("  ->", m["verbo"], "|", m["pessoa"], "|", (m["cargo"] or "")[:100], "|", m["codigoCargo"])
+            print("  ---")
         vistos += 1
-        if vistos >= limite:
-            return
+    print(f"  total de materias: {vistos}")
 
 
 def extrai(art, secao):
-    corpo = texto_limpo(art.find(".//Texto") or art.find(".//texto"))
-    if not corpo:
-        return []
+    ps = paragrafos(art)
+    ident = filho(art, "Identifica")
     achados = []
-    for m in ATO.finditer(corpo):
-        verbo = m.group(1).upper()
-        nome = re.sub(r"\s+", " ", m.group("nome")).strip(" ,")
-        cargo = re.sub(r"\s+", " ", m.group("cargo")).strip(" ,")
-        if len(nome.split()) < 2:      # nome de gente tem ao menos duas palavras
+    for i, p in enumerate(ps):
+        v = VERBO.match(p)
+        if not v:
             continue
-        cod = CODIGO.search(corpo[m.start():m.start() + 600])
+        corpo = p[v.end():]
+        m = NOME.search(corpo) or NOME_TITULO.search(corpo)
+        # verbo sozinho num paragrafo ("EXONERAR") e o resto no seguinte
+        if not m and i + 1 < len(ps) and not VERBO.match(ps[i + 1]):
+            corpo += " " + ps[i + 1]
+            m = NOME.search(corpo) or NOME_TITULO.search(corpo)
+        if not m or m.group(1).split()[0] in SIGLAS:
+            continue
+        resto = corpo[m.end():]
+        c = CARGO_EXERCER.search(resto) or CARGO_GERAL.search(resto)
+        cargo = FIM_CARGO.split(resto[c.start():])[0][:250].strip(" ,") if c else None
+        cod = CODIGO.search(p)
+        verbo = v.group(1).lower()
         achados.append({
-            "tipo": "entrada" if verbo in ENTRADA else "saida",
+            "tipo": "entrada" if verbo in ENTRADA else "saida" if verbo in SAIDA_CARGO else "outro",
             "verbo": verbo,
-            "pessoa": nome.title(),
+            "pessoa": re.sub(r"\s+", " ", m.group(1)).title(),
             "cargo": cargo,
-            "codigoCargo": f"{cod.group(1).upper()} {cod.group(2)}" if cod else None,
+            "codigoCargo": f"{cod.group(1)} {cod.group(2)}" if cod else None,
             "orgao": art.attrib.get("artCategory"),
             "secao": secao,
             "tipoAto": art.attrib.get("artType"),
-            "identifica": texto_limpo(art.find(".//Identifica") or art.find(".//identifica")),
-            "data": art.attrib.get("pubDate"),
+            "identifica": texto_limpo(ident.text if ident is not None else ""),
+            "data": data_iso(art.attrib.get("pubDate")),
             "idAto": art.attrib.get("id"),
-            "url": f"https://www.in.gov.br/web/dou/-/{art.attrib.get('name', '')}",
+            "url": art.attrib.get("pdfPage"),
+            "trecho": p[:400],
         })
     return achados
 
