@@ -3,7 +3,8 @@
 Fonte: Portal da Transparencia (CGU), download "Servidores" -> AAAAMM_Servidores_SIAPE.
 Publico, sem chave. O zip traz AAAAMM_Cadastro.csv (dicionario de dados:
 portaldatransparencia.gov.br/dicionario-de-dados/servidores-cadastro), com
-SIGLA_FUNCAO, NIVEL_FUNCAO, FUNCAO, unidade de exercicio e data de nomeacao.
+SIGLA_FUNCAO, NIVEL_FUNCAO, FUNCAO e unidade de exercicio. A data de nomeacao
+vem vazia no arquivo (conferido em 2026-07): as datas saem do DOU.
 
 Complementa o DOU: o Portal da a foto do mes; o DOU, as mudancas do dia a dia.
 So grava quem tem funcao/cargo de confianca. CPF e matricula ficam de fora.
@@ -78,24 +79,32 @@ def normaliza(txt):
     return re.sub(r"[^A-Z0-9]+", " ", txt).strip()
 
 
+# O Portal usa siglas proprias do SIAPE para algumas funcoes; o SIORG e o DOU usam as oficiais.
+SIGLA_OFICIAL = {"FEX": "FCE", "CCX": "CCE", "FUC": "FCC"}
+COM_CATEGORIA = {"FCE", "CCE"}                          # nivel 0105 -> 1.05
+ROMANO = {"CCT", "CGE", "CA", "CAS", "CCD"}              # nivel 0004 -> IV (como no SIORG)
+SEM_NIVEL = {"FCC", "NE", "MEST"}
+SEM_FUNCAO = {"", "-1", "-11"}                           # "-11" = sem funcao (35 mil linhas em 2026-07)
+
+
+def romano(n):
+    return {1: "I", 2: "II", 3: "III", 4: "IV", 5: "V", 6: "VI", 7: "VII", 8: "VIII"}.get(n, str(n))
+
+
 def codigo_cargo(sigla, nivel):
-    """Mesmo formato do SIORG e do DOU: FCE 1.05, CCE 1.13, FG 7, NE.
-    O formato do NIVEL_FUNCAO no Portal nao e documentado: o relatorio mostra os formatos vistos."""
-    sigla = (sigla or "").strip().upper()
+    """Mesmo formato do SIORG e do DOU: FCE 1.05, CCE 1.13, CCT IV, FG 7, FCC.
+    NIVEL_FUNCAO vem sempre com 4 digitos (conferido no arquivo de 2026-07)."""
+    sigla = SIGLA_OFICIAL.get((sigla or "").strip().upper(), (sigla or "").strip().upper())
     nivel = (nivel or "").strip()
-    if not sigla or sigla in ("-1", "SEM INFORMACAO", "SEM INFORMAÇÃO"):
+    if sigla in SEM_FUNCAO:
         return None
-    if not nivel or nivel in ("-1", "0"):
+    if sigla in SEM_NIVEL or not nivel.isdigit() or int(nivel) == 0:
         return sigla
-    m = re.fullmatch(r"(\d)\.(\d{1,2})", nivel)
-    if m:
-        return f"{sigla} {m.group(1)}.{int(m.group(2)):02d}"
-    m = re.fullmatch(r"0?(\d)(\d{2})", nivel)          # 0113 ou 113 -> 1.13
-    if m and sigla in ("CCE", "FCE", "CCT", "CGE", "CCA"):
-        return f"{sigla} {m.group(1)}.{m.group(2)}"
-    if nivel.isdigit():
-        return f"{sigla} {int(nivel)}"
-    return f"{sigla} {nivel}"
+    if sigla in COM_CATEGORIA and len(nivel) == 4:
+        return f"{sigla} {int(nivel[:2])}.{nivel[2:]}"
+    if sigla in ROMANO:
+        return f"{sigla} {romano(int(nivel))}"
+    return f"{sigla} {int(nivel)}"
 
 
 def le_cadastro(caminho):
@@ -155,7 +164,7 @@ def main():
     for l in le_cadastro(zipado):
         linhas += 1
         sigla = (l.get("SIGLA_FUNCAO") or "").strip()
-        if not sigla or sigla == "-1":
+        if sigla in SEM_FUNCAO:
             continue
         com_funcao += 1
         nivel = (l.get("NIVEL_FUNCAO") or "").strip()
@@ -171,14 +180,14 @@ def main():
             "atividade": (l.get("ATIVIDADE") or "").strip() or None,
             "uorgExercicio": (l.get("COD_UORG_EXERCICIO") or "").strip() or None,
             "unidadeExercicio": uorg or None,
-            "orgaoExercicio": (l.get("ORGAO_EXERCICIO") or "").strip() or None,
+            "orgaoExercicio": (l.get("ORG_EXERCICIO") or "").strip() or None,
+            "codOrgaoExercicio": (l.get("COD_ORG_EXERCICIO") or "").strip() or None,
             "unidadeSiorg": casados[0] if len(casados) == 1 else None,
-            "dataNomeacao": (l.get("DATA_NOMEACAO_CARGOFUNCAO") or "").strip() or None,
             "situacao": (l.get("SITUACAO_VINCULO") or "").strip() or None,
             "uf": (l.get("UF_EXERCICIO") or "").strip() or None,
         })
         if len(ocupantes) <= 3:
-            diz("  exemplo:", {k: l.get(k) for k in ("SIGLA_FUNCAO", "NIVEL_FUNCAO", "FUNCAO", "ATIVIDADE", "UORG_EXERCICIO", "ORGAO_EXERCICIO", "DATA_NOMEACAO_CARGOFUNCAO")})
+            diz("  exemplo:", {k: l.get(k) for k in ("SIGLA_FUNCAO", "NIVEL_FUNCAO", "FUNCAO", "ATIVIDADE", "UORG_EXERCICIO", "ORG_EXERCICIO")})
 
     diz(f"\nmes {mes}: {linhas} vinculos no cadastro, {com_funcao} com funcao/cargo de confianca")
     diz("siglas mais comuns:", siglas.most_common(25))
