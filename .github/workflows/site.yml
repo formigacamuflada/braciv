@@ -1,0 +1,60 @@
+name: Publicar site
+
+# Gera o grafo a partir de dados/ e publica o site no GitHub Pages.
+# Roda depois de cada coleta diaria, quando o site muda, ou na mao.
+
+on:
+  workflow_run:
+    workflows: ["Coleta diaria"]
+    types: [completed]
+  push:
+    branches: [main]
+    paths: ["site/**", "coletores/grafo.py", "coletores/casamento.py", ".github/workflows/site.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  construir:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Gerar o grafo
+        run: python coletores/grafo.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - name: Construir o site
+        working-directory: site
+        run: |
+          npm ci
+          mkdir -p public/dados
+          cp -r ../dados/grafo/. public/dados/
+          npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  publicar:
+    needs: construir
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,40 @@
+// Formato dos arquivos gerados por coletores/grafo.py
+export type Ato = { data: string; verbo: string; cargo?: string | null; codigoCargo?: string | null; ato?: string; url?: string };
+
+export type No = {
+  id: string;
+  tipo: "poder" | "casa" | "orgao" | "unidade" | "pessoa" | "partido";
+  rotulo: string;
+  nome?: string;
+  sigla?: string | null;
+  tipoSiorg?: string;
+  poder?: string | null;
+  natureza?: string | null;
+  vagas?: Record<string, number>;
+  papel?: string;
+  uf?: string;
+  partido?: string;
+  foto?: string;
+  fonte?: string;
+  mesa?: boolean;
+  lideranca?: boolean;
+  dou?: Ato[];
+};
+
+export type Aresta = {
+  de: string;
+  para: string;
+  tipo: "subordinada" | "ocupa" | "membro" | "filiado";
+  codigoCargo?: string | null;
+  funcao?: string | null;
+  unidadePortal?: string | null;
+  exata?: boolean;
+  desde?: string;
+  ate?: string;
+  fonte?: string;
+  url?: string;
+};
+
+export type Grafo = { nos: No[]; arestas: Aresta[] };
+export type ItemBusca = [nome: string, id: string, orgao: number];
+export type Meta = { geradoEm: string; retratoPortal: string; planalto: string | null; douAte: string | null };

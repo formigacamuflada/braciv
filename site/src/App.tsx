@@ -1,0 +1,127 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
+import Grafo from "./Grafo";
+import Painel from "./Painel";
+import Busca from "./Busca";
+import { carregaMeta, carregaNucleo, carregaOrgao } from "./dados";
+import type { Grafo as DadosGrafo, Meta } from "./tipos";
+import { COR_PODER } from "./cores";
+
+// Endereços: #/  (visão geral) · #/orgao/308800 · qualquer um com ?no=<id> para abrir já selecionado
+function leHash() {
+  const [caminho, consulta] = location.hash.replace(/^#/, "").split("?");
+  const m = caminho.match(/^\/orgao\/(\d+)/);
+  const no = new URLSearchParams(consulta ?? "").get("no");
+  return { orgao: m ? Number(m[1]) : null, no };
+}
+function escreveHash(orgao: number | null, no: string | null) {
+  const h = `#/${orgao ? `orgao/${orgao}` : ""}${no ? `?no=${encodeURIComponent(no)}` : ""}`;
+  if (location.hash !== h) history.replaceState(null, "", h);
+}
+
+export default function App() {
+  const inicial = leHash();
+  const [orgao, setOrgao] = useState<number | null>(inicial.orgao);
+  const [selecionado, setSelecionado] = useState<string | null>(inicial.no);
+  const [dados, setDados] = useState<DadosGrafo | null>(null);
+  const [nucleo, setNucleo] = useState<DadosGrafo | null>(null);
+  const [erro, setErro] = useState<string | null>(null);
+  const [meta, setMeta] = useState<Meta | null>(null);
+  const [escuro, setEscuro] = useState(() => matchMedia("(prefers-color-scheme: dark)").matches);
+
+  useEffect(() => {
+    const mq = matchMedia("(prefers-color-scheme: dark)");
+    const f = () => setEscuro(mq.matches);
+    mq.addEventListener("change", f);
+    return () => mq.removeEventListener("change", f);
+  }, []);
+  useEffect(() => { carregaNucleo().then(setNucleo).catch((e) => setErro(String(e))); carregaMeta().then(setMeta).catch(() => {}); }, []);
+  useEffect(() => {
+    setDados(null);
+    setErro(null);
+    (orgao ? carregaOrgao(orgao) : carregaNucleo()).then(setDados).catch((e) => setErro(String(e)));
+  }, [orgao]);
+  useEffect(() => escreveHash(orgao, selecionado), [orgao, selecionado]);
+  useEffect(() => {
+    const f = () => { const h = leHash(); setOrgao(h.orgao); setSelecionado(h.no); };
+    addEventListener("hashchange", f);
+    return () => removeEventListener("hashchange", f);
+  }, []);
+
+  const nomesOrgao = useMemo(() => new Map((nucleo?.nos ?? []).filter((n) => n.tipo === "orgao").map((n) => [Number(n.id.slice(2)), n.sigla ?? n.rotulo])), [nucleo]);
+  const nomeOrgao = useCallback((c: number) => nomesOrgao.get(c) ?? `órgão ${c}`, [nomesOrgao]);
+  const aoSelecionar = useCallback((id: string | null) => setSelecionado(id), []);
+  const abreOrgao = useCallback((c: number) => { setOrgao(c); setSelecionado(`u:${c}`); }, []);
+
+  const contagem = useMemo(() => {
+    if (!dados) return null;
+    const pessoas = dados.nos.filter((n) => n.tipo === "pessoa").length;
+    const raiz = orgao ? `u:${orgao}` : null;
+    const soltas = raiz ? new Set(dados.arestas.filter((a) => a.tipo === "ocupa" && a.exata === false && a.para === raiz).map((a) => a.de)).size : 0;
+    return {
+      texto: `${dados.nos.length.toLocaleString("pt-BR")} nós · ${pessoas.toLocaleString("pt-BR")} pessoas`,
+      soltas: soltas ? `${soltas.toLocaleString("pt-BR")} pessoas sem unidade identificada aparecem só na lista do órgão` : null,
+    };
+  }, [dados, orgao]);
+
+  return (
+    <div className="flex h-full flex-col">
+      <header className="flex flex-wrap items-center gap-3 border-b border-stone-200 px-4 py-3 dark:border-stone-800">
+        <button onClick={() => { setOrgao(null); setSelecionado(null); }} className="text-left">
+          <h1 className="text-lg font-bold tracking-tight">BRA.CIV</h1>
+          <p className="-mt-0.5 text-xs text-stone-500">Grafo dos 3 Poderes · dados oficiais</p>
+        </button>
+        <div className="order-3 w-full sm:order-2 sm:ml-6 sm:w-auto sm:flex-1">
+          <Busca
+            dados={dados}
+            nomeOrgao={nomeOrgao}
+            aoEscolher={(r) => {
+              if (r.orgao && r.orgao !== orgao && !dados?.nos.some((n) => n.id === r.id)) setOrgao(r.orgao);
+              setSelecionado(r.id);
+            }}
+          />
+        </div>
+        {orgao && (
+          <button onClick={() => { setOrgao(null); setSelecionado(`u:${orgao}`); }} className="order-2 ml-auto rounded-lg border border-stone-300 px-3 py-1.5 text-sm hover:bg-stone-100 sm:order-3 dark:border-stone-700 dark:hover:bg-stone-800">
+            ← Visão geral
+          </button>
+        )}
+      </header>
+
+      <main className="relative flex min-h-0 flex-1 flex-col md:flex-row">
+        <div className="relative min-h-[50vh] flex-1">
+          {dados && <Grafo dados={dados} raiz={orgao ? `u:${orgao}` : null} selecionado={selecionado} aoSelecionar={aoSelecionar} escuro={escuro} />}
+          {!dados && !erro && <p className="absolute inset-0 grid place-items-center text-sm text-stone-500">Carregando o grafo…</p>}
+          {erro && <p className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-red-700">{erro}</p>}
+
+          <div className={`pointer-events-none absolute bottom-3 left-3 rounded-lg ${selecionado ? "hidden md:block" : ""} bg-white/85 p-3 text-xs shadow-sm backdrop-blur dark:bg-stone-900/85`}>
+            <p className="font-semibold">{orgao ? `Órgão: ${nomeOrgao(orgao)}` : "Visão geral"}</p>
+            {contagem && <p className="text-stone-500">{contagem.texto}</p>}
+            {contagem?.soltas && <p className="max-w-56 text-stone-500">{contagem.soltas}</p>}
+            <ul className="mt-2 space-y-0.5">
+              {Object.entries(COR_PODER).map(([p, c]) => (
+                <li key={p} className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: c }} />{p}</li>
+              ))}
+              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#e11d48" }} />Ocupante de cargo</li>
+              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#60a5fa" }} />Parlamentar</li>
+              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#0891b2" }} />Partido</li>
+            </ul>
+          </div>
+        </div>
+
+        {selecionado && dados && dados.nos.some((n) => n.id === selecionado) && (
+          <div className="max-h-[50vh] border-t border-stone-200 bg-white md:max-h-none md:w-[380px] md:border-l md:border-t-0 dark:border-stone-800 dark:bg-stone-900">
+            <Painel dados={dados} id={selecionado} aoSelecionar={setSelecionado} aoAbrirOrgao={orgao ? undefined : abreOrgao} aoFechar={() => setSelecionado(null)} />
+          </div>
+        )}
+      </main>
+
+      <footer className="border-t border-stone-200 px-4 py-2 text-[11px] leading-relaxed text-stone-500 dark:border-stone-800">
+        Fontes: SIORG (estrutura e vagas), Portal da Transparência (ocupantes{meta?.retratoPortal ? `, retrato de ${meta.retratoPortal}` : ""}),
+        Diário Oficial da União via INLABS (nomeações e exonerações{meta?.douAte ? ` até ${meta.douAte}` : ""}), Planalto (Presidente, Vice e Ministros{meta?.planalto ? `, página de ${meta.planalto}` : ""}),
+        Câmara e Senado (parlamentares).{meta?.geradoEm ? ` Atualizado em ${meta.geradoEm}.` : ""}{" "}
+        Ligações entre fontes são feitas por nome e código de cargo e podem conter erros.{" "}
+        <a className="underline" href="https://github.com/formigacamuflada/braciv">Código e dados</a>
+      </footer>
+    </div>
+  );
+}

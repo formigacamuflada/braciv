@@ -273,6 +273,12 @@ def main():
     resumo.append(f"arquivos por orgao: {len(por_orgao_u)} | pessoas na busca: {len(busca)}")
     resumo.append(f"vagas de Presidente/Vice/Ministro/Natureza Especial: {dict(especiais)} | com ocupante conhecido: {dict(com_dono)}")
     (SAIDA / "resumo.txt").write_text("\n".join(resumo) + "\n", encoding="utf-8")
+    datas_dou = sorted(m["data"] for m in DOU if m.get("data"))
+    meta = {"geradoEm": __import__("datetime").date.today().strftime("%d/%m/%Y"),
+            "retratoPortal": f"{mes[4:]}/{mes[:4]}" if mes else None,
+            "planalto": cupula.get("atualizadoNaFonte"),
+            "douAte": "/".join(reversed(datas_dou[-1].split("-"))) if datas_dou else None}
+    (SAIDA / "meta.json").write_text(json.dumps(meta, ensure_ascii=False), encoding="utf-8")
     print("\n".join(resumo))
 
 
