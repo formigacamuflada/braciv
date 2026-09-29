@@ -1,0 +1,287 @@
+{
+ "fonte": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/ministros-e-ministras",
+ "atualizadoNaFonte": "05/05/2026",
+ "cargos": [
+  {
+   "cargo": "Presidente da República",
+   "pessoa": "Luiz Inácio Lula da Silva",
+   "codigoCargo": "PR",
+   "orgaoSiorg": 26,
+   "fonte": "https://www.gov.br/planalto/pt-br/conheca-a-presidencia/biografia-do-presidente"
+  },
+  {
+   "cargo": "Vice-Presidente da República",
+   "pessoa": "Geraldo José Rodrigues Alckmin Filho",
+   "codigoCargo": "VPR",
+   "orgaoSiorg": 1408,
+   "fonte": "https://www.gov.br/planalto/pt-br/vice-presidencia/acesso-a-informacao/institucional/biografia-do-vice-presidente-da-republica-1"
+  },
+  {
+   "cargo": "Ministra de Estado da Casa Civil da Presidência da República",
+   "pessoa": "Miriam Belchior",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 2837,
+   "orgaoProcurado": "Casa Civil da Presidência da República"
+  },
+  {
+   "cargo": "Ministro de Estado da Secretaria-Geral da Presidência da República",
+   "pessoa": "Guilherme Castro Boulos",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 219924,
+   "orgaoProcurado": "Secretaria-Geral da Presidência da República"
+  },
+  {
+   "cargo": "Ministro de Estado da Secretaria de Relações Institucionais da Presidência da República",
+   "pessoa": "José Nobre Guimarães",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 42673,
+   "orgaoProcurado": "Secretaria de Relações Institucionais da Presidência da República"
+  },
+  {
+   "cargo": "Ministro de Estado da Secretaria de Comunicação Social da Presidência da República",
+   "pessoa": "Sidônio Palmeira",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308822,
+   "orgaoProcurado": "Secretaria de Comunicação Social da Presidência da República"
+  },
+  {
+   "cargo": "Ministro de Estado Chefe do Gabinete de Segurança Institucional da Presidência da República",
+   "pessoa": "Marcos Antonio Amaro dos Santos",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 27,
+   "orgaoProcurado": "Gabinete de Segurança Institucional da Presidência da República"
+  },
+  {
+   "cargo": "Advocacia-Geral da União",
+   "pessoa": "Jorge Rodrigo Araújo Messias",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 46,
+   "orgaoProcurado": "Advocacia-Geral da União"
+  },
+  {
+   "cargo": "Controladoria-Geral da União",
+   "pessoa": "Vinícius Marques de Carvalho",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 214460,
+   "orgaoProcurado": "Controladoria-Geral da União"
+  },
+  {
+   "cargo": "Ministro de Estado da Agricultura e Pecuária",
+   "pessoa": "André Carlos Alves de Paula Filho",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308793,
+   "orgaoProcurado": "Ministério da Agricultura e Pecuária"
+  },
+  {
+   "cargo": "Ministro de Estado das Cidades",
+   "pessoa": "Antonio Vladimir Moura Lima",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308798,
+   "orgaoProcurado": "Ministério das Cidades"
+  },
+  {
+   "cargo": "Ministra de Estado da Ciência, Tecnologia e Inovação",
+   "pessoa": "Luciana Barbosa de Oliveira Santos",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 267175,
+   "orgaoProcurado": "Ministério da Ciência, Tecnologia e Inovação"
+  },
+  {
+   "cargo": "Ministro de Estado das Comunicações",
+   "pessoa": "Frederico de Siqueira Filho",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 264359,
+   "orgaoProcurado": "Ministério das Comunicações"
+  },
+  {
+   "cargo": "Ministra de Estado da Cultura",
+   "pessoa": "Margareth Menezes da Purificação Costa",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308821,
+   "orgaoProcurado": "Ministério da Cultura"
+  },
+  {
+   "cargo": "Ministro de Estado da Defesa",
+   "pessoa": "José Mucio Monteiro Filho",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 41066,
+   "orgaoProcurado": "Ministério da Defesa"
+  },
+  {
+   "cargo": "Ministra de Estado do Desenvolvimento Agrário e Agricultura Familiar",
+   "pessoa": "Fernanda Machiaveli Morão de Oliveira",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308794,
+   "orgaoProcurado": "Ministério do Desenvolvimento Agrário e Agricultura Familiar"
+  },
+  {
+   "cargo": "Ministro de Estado do Desenvolvimento e Assistência Social, Família e Combate à Fome",
+   "pessoa": "José Wellington Barroso de Araujo Dias",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308796,
+   "orgaoProcurado": "Ministério do Desenvolvimento e Assistência Social, Família e Combate à Fome"
+  },
+  {
+   "cargo": "Ministro de Estado do Desenvolvimento, Indústria, Comércio e Serviços",
+   "pessoa": "Márcio Fernando Elias Rosa",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308814,
+   "orgaoProcurado": "Ministério do Desenvolvimento, Indústria, Comércio e Serviços"
+  },
+  {
+   "cargo": "Ministra de Estado dos Direitos Humanos e da Cidadania",
+   "pessoa": "Janine Mello dos Santos",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308816,
+   "orgaoProcurado": "Ministério dos Direitos Humanos e da Cidadania"
+  },
+  {
+   "cargo": "Ministro de Estado da Educação",
+   "pessoa": "Leonardo Osvaldo Barchini Rosa",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 244,
+   "orgaoProcurado": "Ministério da Educação"
+  },
+  {
+   "cargo": "Ministro de Estado do Empreendedorismo, da Microempresa e da Empresa de Pequeno Porte",
+   "pessoa": "Paulo Henrique Rodrigues Pereira",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 330683,
+   "orgaoProcurado": "Ministério do Empreendedorismo, da Microempresa e da Empresa de Pequeno Porte"
+  },
+  {
+   "cargo": "Ministro de Estado do Esporte",
+   "pessoa": "Paulo Henrique Perna Cordeiro",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308797,
+   "orgaoProcurado": "Ministério do Esporte"
+  },
+  {
+   "cargo": "Ministro de Estado da Fazenda",
+   "pessoa": "Dario Carnevalli Durigan",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308800,
+   "orgaoProcurado": "Ministério da Fazenda"
+  },
+  {
+   "cargo": "Ministra de Estado da Gestão e da Inovação em Serviços Públicos",
+   "pessoa": "Esther Dweck",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308803,
+   "orgaoProcurado": "Ministério da Gestão e da Inovação em Serviços Públicos"
+  },
+  {
+   "cargo": "Ministra de Estado da Igualdade Racial",
+   "pessoa": "Rachel Barros de Oliveira",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308823,
+   "orgaoProcurado": "Ministério da Igualdade Racial"
+  },
+  {
+   "cargo": "Ministro de Estado da Integração e do Desenvolvimento Regional",
+   "pessoa": "Antônio Waldez Góes da Silva",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308799,
+   "orgaoProcurado": "Ministério da Integração e do Desenvolvimento Regional"
+  },
+  {
+   "cargo": "Ministro de Estado da Justiça e Segurança Pública",
+   "pessoa": "Wellington César Lima e Silva",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 235881,
+   "orgaoProcurado": "Ministério da Justiça e Segurança Pública"
+  },
+  {
+   "cargo": "Ministro de Estado do Meio Ambiente e Mudança do Clima",
+   "pessoa": "João Paulo Ribeiro Capobianco",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 1927,
+   "orgaoProcurado": "Ministério do Meio Ambiente e Mudança do Clima"
+  },
+  {
+   "cargo": "Ministro de Estado de Minas e Energia",
+   "pessoa": "Alexandre Silveira de Oliveira",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 2852,
+   "orgaoProcurado": "Ministério de Minas e Energia"
+  },
+  {
+   "cargo": "Ministra de Estado das Mulheres",
+   "pessoa": "Márcia Helena Carvalho Lopes",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308815,
+   "orgaoProcurado": "Ministério das Mulheres"
+  },
+  {
+   "cargo": "Ministro de Estado da Pesca e Aquicultura",
+   "pessoa": "Rivetla Edipo Araujo Cruz",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308795,
+   "orgaoProcurado": "Ministério da Pesca e Aquicultura"
+  },
+  {
+   "cargo": "Ministro de Estado do Planejamento e Orçamento",
+   "pessoa": "Bruno Moretti",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308804,
+   "orgaoProcurado": "Ministério do Planejamento e Orçamento"
+  },
+  {
+   "cargo": "Ministro de Estado de Portos e Aeroportos",
+   "pessoa": "Tomé Monteiro da Franca",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308817,
+   "orgaoProcurado": "Ministério de Portos e Aeroportos"
+  },
+  {
+   "cargo": "Ministro de Estado dos Povos Indígenas",
+   "pessoa": "Luiz Henrique Eloy Amado",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308824,
+   "orgaoProcurado": "Ministério dos Povos Indígenas"
+  },
+  {
+   "cargo": "Ministro de Estado da Previdência Social",
+   "pessoa": "Wolney Queiroz Maciel",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308819,
+   "orgaoProcurado": "Ministério da Previdência Social"
+  },
+  {
+   "cargo": "Ministro de Estado das Relações Exteriores",
+   "pessoa": "Mauro Luiz Iecker Vieira",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 263,
+   "orgaoProcurado": "Ministério das Relações Exteriores"
+  },
+  {
+   "cargo": "Ministro de Estado da Saúde",
+   "pessoa": "Alexandre Rocha Santos Padilha",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 304,
+   "orgaoProcurado": "Ministério da Saúde"
+  },
+  {
+   "cargo": "Ministro de Estado do Trabalho e Emprego",
+   "pessoa": "Luiz Marinho",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308820,
+   "orgaoProcurado": "Ministério do Trabalho e Emprego"
+  },
+  {
+   "cargo": "Ministro de Estado dos Transportes",
+   "pessoa": "George Santoro",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 308818,
+   "orgaoProcurado": "Ministério dos Transportes"
+  },
+  {
+   "cargo": "Ministro de Estado do Turismo",
+   "pessoa": "Gustavo Costa Feliciano",
+   "codigoCargo": "MEST",
+   "orgaoSiorg": 72084,
+   "orgaoProcurado": "Ministério do Turismo"
+  }
+ ],
+ "semCasamento": []
+}
