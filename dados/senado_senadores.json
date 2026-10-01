@@ -4822,6 +4822,74 @@
   },
   {
     "IdentificacaoParlamentar": {
+      "CodigoParlamentar": "5257",
+      "CodigoPublicoNaLegAtual": "898",
+      "NomeParlamentar": "Renzo Braz",
+      "NomeCompletoParlamentar": "Renzo do Amaral Braz",
+      "SexoParlamentar": "Masculino",
+      "FormaTratamento": "Senador ",
+      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5257.jpg",
+      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5257",
+      "Telefones": {
+        "Telefone": [
+          {
+            "NumeroTelefone": "33032794",
+            "OrdemPublicacao": "1",
+            "IndicadorFax": "Não"
+          }
+        ]
+      },
+      "SiglaPartidoParlamentar": "PP",
+      "UfParlamentar": "MG",
+      "Bloco": {
+        "CodigoBloco": "346",
+        "NomeBloco": "Bloco Parlamentar Aliança",
+        "NomeApelido": "BLALIANÇA",
+        "DataCriacao": "2023-03-20"
+      },
+      "MembroMesa": "Não",
+      "MembroLideranca": "Não"
+    },
+    "Mandato": {
+      "CodigoMandato": "562",
+      "UfParlamentar": "MG",
+      "PrimeiraLegislaturaDoMandato": {
+        "NumeroLegislatura": "56",
+        "DataInicio": "2019-02-01",
+        "DataFim": "2023-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+        "NumeroLegislatura": "57",
+        "DataInicio": "2023-02-01",
+        "DataFim": "2027-01-31"
+      },
+      "DescricaoParticipacao": "1º Suplente",
+      "Titular": {
+        "DescricaoParticipacao": "Titular",
+        "CodigoParlamentar": "5732",
+        "NomeParlamentar": "Rodrigo Pacheco"
+      },
+      "Suplentes": {
+        "Suplente": [
+          {
+            "DescricaoParticipacao": "2º Suplente",
+            "CodigoParlamentar": "5989",
+            "NomeParlamentar": "Ana Maria"
+          }
+        ]
+      },
+      "Exercicios": {
+        "Exercicio": [
+          {
+            "CodigoExercicio": "3110",
+            "DataInicio": "2026-09-30"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "IdentificacaoParlamentar": {
       "CodigoParlamentar": "6025",
       "CodigoPublicoNaLegAtual": "927",
       "NomeParlamentar": "Roberta Acioly",
@@ -4889,75 +4957,6 @@
           {
             "CodigoExercicio": "3097",
             "DataInicio": "2026-03-11"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "IdentificacaoParlamentar": {
-      "CodigoParlamentar": "5732",
-      "CodigoPublicoNaLegAtual": "844",
-      "NomeParlamentar": "Rodrigo Pacheco",
-      "NomeCompletoParlamentar": "Rodrigo Otavio Soares Pacheco",
-      "SexoParlamentar": "Masculino",
-      "FormaTratamento": "Senador ",
-      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5732.jpg",
-      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5732",
-      "EmailParlamentar": "sen.rodrigopacheco@senado.leg.br",
-      "Telefones": {
-        "Telefone": [
-          {
-            "NumeroTelefone": "33032794",
-            "OrdemPublicacao": "1",
-            "IndicadorFax": "Não"
-          }
-        ]
-      },
-      "SiglaPartidoParlamentar": "PSB",
-      "UfParlamentar": "MG",
-      "Bloco": {
-        "CodigoBloco": "335",
-        "NomeBloco": "Bloco Parlamentar da Resistência Democrática",
-        "NomeApelido": "BLPRD",
-        "DataCriacao": "2023-02-01"
-      },
-      "MembroMesa": "Não",
-      "MembroLideranca": "Não"
-    },
-    "Mandato": {
-      "CodigoMandato": "562",
-      "UfParlamentar": "MG",
-      "PrimeiraLegislaturaDoMandato": {
-        "NumeroLegislatura": "56",
-        "DataInicio": "2019-02-01",
-        "DataFim": "2023-01-31"
-      },
-      "SegundaLegislaturaDoMandato": {
-        "NumeroLegislatura": "57",
-        "DataInicio": "2023-02-01",
-        "DataFim": "2027-01-31"
-      },
-      "DescricaoParticipacao": "Titular",
-      "Suplentes": {
-        "Suplente": [
-          {
-            "DescricaoParticipacao": "1º Suplente",
-            "CodigoParlamentar": "5257",
-            "NomeParlamentar": "Renzo Braz"
-          },
-          {
-            "DescricaoParticipacao": "2º Suplente",
-            "CodigoParlamentar": "5989",
-            "NomeParlamentar": "Ana Maria"
-          }
-        ]
-      },
-      "Exercicios": {
-        "Exercicio": [
-          {
-            "CodigoExercicio": "2931",
-            "DataInicio": "2019-02-01"
           }
         ]
       }
