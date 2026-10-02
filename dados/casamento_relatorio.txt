@@ -4,8 +4,8 @@ orgaos do Portal casados com o SIORG: 217/219 (pessoas: 104445/104557)
 
 resultado por pessoa:
   sigla                     2110  (2.0%)
-  cargo+nome               55255  (52.8%)
+  cargo+nome               55181  (52.8%)
   so nome                   1047  (1.0%)
-  so orgao                 46033  (44.0%)
+  so orgao                 46107  (44.1%)
   sem orgao                  112  (0.1%)
-  ligados a uma unidade do SIORG: 58412 (55.9%)
+  ligados a uma unidade do SIORG: 58338 (55.8%)
