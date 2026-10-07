@@ -401,13 +401,16 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
           className={`absolute inset-0 h-full w-full touch-none px-2 pb-2 pt-20 ${vista.w < 680 ? "cursor-grab active:cursor-grabbing" : ""}`} onClick={() => aoEscolherUf(null)} role="img" aria-label="Mapa do Brasil">
           <defs>
             {aba === "senado" && formas.map((f) => {
-              // uma faixa por partido diferente: 3 partidos = 3 cores, 2 = 2, 1 = cor única
+              // uma faixa diagonal por partido diferente, cobrindo o estado inteiro: 3 partidos = 3 faixas, 2 = 2, 1 = cor única
               const cs = coresSenado(f.sigla);
-              const L = 36 * esc, w = L / Math.max(1, cs.length);
+              const lista = cs.length ? cs : ["#44403c"];
               return (
-                <pattern key={f.sigla} id={`sen-${f.sigla}`} patternUnits="userSpaceOnUse" width={L} height={L} patternTransform="rotate(45)">
-                  {(cs.length ? cs : ["#44403c"]).map((c, i) => <rect key={i} x={i * w} width={w} height={L} fill={c} />)}
-                </pattern>
+                <linearGradient key={f.sigla} id={`sen-${f.sigla}`} x1="0" y1="0" x2="1" y2="1">
+                  {lista.flatMap((c, i) => [
+                    <stop key={`${i}a`} offset={i / lista.length} stopColor={c} />,
+                    <stop key={`${i}b`} offset={(i + 1) / lista.length} stopColor={c} />,
+                  ])}
+                </linearGradient>
               );
             })}
             <clipPath id="circulo" clipPathUnits="objectBoundingBox"><circle cx="0.5" cy="0.5" r="0.5" /></clipPath>
@@ -453,7 +456,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
               <g key={f.sigla} style={{ cursor: "pointer" }} onClick={(e) => { e.stopPropagation(); aoEscolherUf(uf === f.sigla ? null : f.sigla); }}
                 onMouseEnter={() => setHover(f.sigla)} onMouseLeave={() => setHover(null)}>
                 <line x1={f.centro[0]} y1={f.centro[1]} x2={x} y2={y + 11} stroke="#a8a29e" strokeOpacity={0.6} strokeWidth={0.8} />
-                <rect x={x} y={y} width={larg} height={22} rx={4} fill={cor} fillOpacity={0.9} stroke={uf === f.sigla || hover === f.sigla ? "#fff" : "none"} />
+                <rect x={x} y={y} width={larg} height={22} rx={4} fill={aba === "senado" ? `url(#sen-${f.sigla})` : cor} fillOpacity={0.9} stroke={uf === f.sigla || hover === f.sigla ? "#fff" : "none"} />
                 {fotos.map((p, i) => {
                   const u = urlFoto(p.foto);
                   return u ? <image key={p.id} href={u} x={x + 3 + i * 16} y={y + 3} width={16} height={16} clipPath="url(#circulo)" preserveAspectRatio="xMidYMin slice" /> : null;
