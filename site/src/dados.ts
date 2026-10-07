@@ -24,3 +24,14 @@ export const carregaMeta = () => busca<Meta>("meta.json");
 export function normaliza(t: string) {
   return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 }
+
+export type Parlamentar = { id: string; nome: string; partido?: string; foto?: string | null };
+export type Destaque = { nivel: number; codigoCargo?: string; cargo: string; nome: string; orgao: string; orgaoCodigo: number; cargoId: string; unidade?: string };
+export type DadosUf = {
+  senadores: Parlamentar[]; deputados: Parlamentar[]; cargos: number; ocupantes: number;
+  porOrgao: Record<string, number>; destaques: Destaque[]; sedes: { codigo: number; sigla?: string; nome: string; poder?: string }[];
+};
+export type PorUf = { ufs: Record<string, DadosUf>; nacional: { cargo: string; nome: string; codigoCargo: string; orgaoCodigo?: number }[] };
+export type Feicao = { type: "Feature"; properties: { sigla: string; nome: string; regiao: string }; geometry: { type: "Polygon" | "MultiPolygon"; coordinates: any } };
+export const carregaPorUf = () => busca<PorUf>("por_uf.json");
+export const carregaUfs = () => busca<{ features: Feicao[] }>("ufs.geojson");

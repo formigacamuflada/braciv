@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Grafo from "./Grafo";
 import Roda from "./Roda";
+import Mapa from "./Mapa";
 import Painel, { type Conexao } from "./Painel";
 import { COBERTURA, COBERTURA_PODER, DESCRICAO, DESCRICAO_POR_SIGLA, montaRoda } from "./layoutRoda";
 import Busca from "./Busca";
@@ -12,11 +13,14 @@ import { COR_PODER } from "./cores";
 function leHash() {
   const [caminho, consulta] = location.hash.replace(/^#/, "").split("?");
   const m = caminho.match(/^\/orgao\/(\d+)/);
+  const u = caminho.match(/^\/uf\/([A-Z]{2})/);
+  const v = caminho.match(/^\/(roda|grafo)/);
   const no = new URLSearchParams(consulta ?? "").get("no");
-  return { orgao: m ? Number(m[1]) : null, no };
+  return { orgao: m ? Number(m[1]) : null, no, uf: u ? u[1] : null, vista: (v ? v[1] : no ? "roda" : "mapa") as "mapa" | "roda" | "grafo" };
 }
-function escreveHash(orgao: number | null, no: string | null) {
-  const h = `#/${orgao ? `orgao/${orgao}` : ""}${no ? `?no=${encodeURIComponent(no)}` : ""}`;
+function escreveHash(orgao: number | null, no: string | null, vista: string, uf: string | null) {
+  const base = orgao ? `orgao/${orgao}` : vista === "mapa" ? (uf ? `uf/${uf}` : "") : vista;
+  const h = `#/${base}${no && vista !== "mapa" || orgao ? (no ? `?no=${encodeURIComponent(no)}` : "") : ""}`;
   if (location.hash !== h) history.replaceState(null, "", h);
 }
 
@@ -29,7 +33,8 @@ export default function App() {
   const [erro, setErro] = useState<string | null>(null);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [escuro, setEscuro] = useState(() => matchMedia("(prefers-color-scheme: dark)").matches);
-  const [vista, setVista] = useState<"roda" | "grafo">("roda");
+  const [vista, setVista] = useState<"mapa" | "roda" | "grafo">(inicial.vista);
+  const [uf, setUf] = useState<string | null>(inicial.uf);
 
   useEffect(() => {
     const mq = matchMedia("(prefers-color-scheme: dark)");
@@ -43,9 +48,9 @@ export default function App() {
     setErro(null);
     (orgao ? carregaOrgao(orgao) : carregaNucleo()).then(setDados).catch((e) => setErro(String(e)));
   }, [orgao]);
-  useEffect(() => escreveHash(orgao, selecionado), [orgao, selecionado]);
+  useEffect(() => escreveHash(orgao, selecionado, vista, uf), [orgao, selecionado, vista, uf]);
   useEffect(() => {
-    const f = () => { const h = leHash(); setOrgao(h.orgao); setSelecionado(h.no); };
+    const f = () => { const h = leHash(); setOrgao(h.orgao); setSelecionado(h.no); setVista(h.vista); setUf(h.uf); };
     addEventListener("hashchange", f);
     return () => removeEventListener("hashchange", f);
   }, []);
@@ -108,6 +113,7 @@ export default function App() {
             dados={dados}
             nomeOrgao={nomeOrgao}
             aoEscolher={(r) => {
+              if (vista === "mapa") setVista("roda");
               if (!dados?.nos.some((n) => n.id === r.id)) setOrgao(r.orgao ? r.orgao : null);
               setSelecionado(r.id);
             }}
@@ -122,13 +128,18 @@ export default function App() {
 
       <main className="relative flex min-h-0 flex-1 flex-col md:flex-row">
         <div className="relative min-h-[50vh] flex-1">
+          {!orgao && vista === "mapa" && (
+            <Mapa uf={uf} aoEscolherUf={setUf}
+              aoAbrirCargo={(o, c) => { setOrgao(o); setSelecionado(c); }}
+              aoAbrirNo={(id) => { setVista("roda"); setSelecionado(id); }} />
+          )}
           {dados && !orgao && vista === "roda" && <Roda dados={dados} selecionado={selecionado} aoSelecionar={aoSelecionar} />}
           {dados && (orgao || vista === "grafo") && <Grafo dados={dados} raiz={orgao ? `u:${orgao}` : null} selecionado={selecionado} aoSelecionar={aoSelecionar} escuro={escuro} />}
           {!orgao && (
-            <div className="absolute bottom-3 right-3 flex overflow-hidden rounded-lg border border-stone-300 bg-white text-sm dark:border-stone-700 dark:bg-stone-900">
-              {(["roda", "grafo"] as const).map((v) => (
+            <div className={`absolute z-20 flex ${vista === "mapa" ? "left-3 bottom-3 lg:left-auto lg:right-[436px]" : "bottom-3 right-3"} overflow-hidden rounded-lg border border-stone-300 bg-white text-sm dark:border-stone-700 dark:bg-stone-900`}>
+              {(["mapa", "roda", "grafo"] as const).map((v) => (
                 <button key={v} onClick={() => setVista(v)} className={`px-3 py-1.5 ${vista === v ? "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900" : "text-stone-500 hover:text-stone-900 dark:hover:text-white"}`}>
-                  {v === "roda" ? "Roda dos Poderes" : "Grafo"}
+                  {v === "mapa" ? "Mapa" : v === "roda" ? "Estrutura" : "Grafo"}
                 </button>
               ))}
             </div>
@@ -136,7 +147,7 @@ export default function App() {
           {!dados && !erro && <p className="absolute inset-0 grid place-items-center text-sm text-stone-500">Carregando o grafo…</p>}
           {erro && <p className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-red-700">{erro}</p>}
 
-          <div className={`pointer-events-none absolute bottom-3 left-3 rounded-lg ${selecionado ? "hidden md:block" : ""} ${!orgao && vista === "roda" ? "!hidden" : ""} bg-white/85 p-3 text-xs shadow-sm backdrop-blur dark:bg-stone-900/85`}>
+          <div className={`pointer-events-none absolute bottom-3 left-3 rounded-lg ${selecionado ? "hidden md:block" : ""} ${!orgao && vista !== "grafo" ? "!hidden" : ""} bg-white/85 p-3 text-xs shadow-sm backdrop-blur dark:bg-stone-900/85`}>
             <p className="font-semibold">{orgao ? `Órgão: ${nomeOrgao(orgao)}` : "Visão geral"}</p>
             {contagem && <p className="text-stone-500">{contagem.texto}</p>}
             {contagem?.soltas && <p className="max-w-56 text-stone-500">{contagem.soltas}</p>}
@@ -151,7 +162,7 @@ export default function App() {
           </div>
         </div>
 
-        {selecionado && dadosPainel && dadosPainel.nos.some((n) => n.id === selecionado) && (
+        {(orgao || vista !== "mapa") && selecionado && dadosPainel && dadosPainel.nos.some((n) => n.id === selecionado) && (
           <div className="max-h-[50vh] border-t border-stone-200 bg-white md:max-h-none md:w-[400px] md:border-l md:border-t-0 dark:border-stone-800 dark:bg-stone-900">
             <Painel dados={dadosPainel} id={selecionado} {...extras} aoSelecionar={setSelecionado} aoAbrirOrgao={orgao ? undefined : abreOrgao} aoFechar={() => setSelecionado(null)} />
           </div>
