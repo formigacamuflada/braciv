@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import BotoesZoom from "./Zoom";
 import { carregaPorUf, carregaUfs, urlFoto, type Feicao, type Parlamentar, type PorUf } from "./dados";
 import Hemiciclo from "./Hemiciclo";
 import { corPartido, notaPartido, campo, COR_CAMPO, FONTE_IDEOLOGIA, NOTA_CENTRAO, type Campo } from "./partidos";
@@ -27,8 +28,10 @@ function projetor(feicoes: Feicao[], L = 620, A = 620) {
   const proj = (p: number[]) => { const [x, y] = merc(p); return [(x - x0) * k + 10, (y - y0) * k + dy]; };
   return feicoes.map((f) => {
     let d = "", maior = 0, centro = [0, 0];
+    const caixa = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity };
     for (const pol of aneis(f)) {
       const pts = pol[0].map(proj);
+      for (const [px, py] of pts) { caixa.x0 = Math.min(caixa.x0, px); caixa.y0 = Math.min(caixa.y0, py); caixa.x1 = Math.max(caixa.x1, px); caixa.y1 = Math.max(caixa.y1, py); }
       d += pol.map((r) => "M" + r.map(proj).map((q) => q.map((v) => v.toFixed(1)).join(",")).join("L") + "Z").join("");
       let area = 0, cx = 0, cy = 0;
       for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
@@ -37,7 +40,7 @@ function projetor(feicoes: Feicao[], L = 620, A = 620) {
       }
       if (Math.abs(area) > maior) { maior = Math.abs(area); centro = [cx / (3 * area), cy / (3 * area)]; }
     }
-    return { sigla: f.properties.sigla, nome: f.properties.nome, d, centro, area: maior };
+    return { sigla: f.properties.sigla, nome: f.properties.nome, d, centro, area: maior, caixa };
   });
 }
 
@@ -118,6 +121,78 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
   const [hover, setHover] = useState<string | null>(null);
   useEffect(() => { carregaUfs().then(setGeo).catch(() => {}); carregaPorUf().then(setDados).catch(() => {}); }, []);
   const formas = useMemo(() => (geo ? projetor(geo.features) : []), [geo]);
+  // ---- zoom: roda do mouse, arrastar, botões e aproximação suave ao escolher um estado ----
+  const CHEIO = { x: 0, y: 0, w: 680, h: 640 };
+  const [vista, setVista] = useState(CHEIO);
+  const vistaRef = useRef(vista);
+  vistaRef.current = vista;
+  const svgRef = useRef<SVGSVGElement>(null);
+  const anima = useRef(0);
+  const arrastou = useRef(false);
+  const animaPara = (alvo: typeof CHEIO) => {
+    cancelAnimationFrame(anima.current);
+    const de = { ...vistaRef.current }, t0 = performance.now();
+    const passo = (t: number) => {
+      const k = Math.min(1, (t - t0) / 700), e = 1 - Math.pow(1 - k, 3);
+      setVista({ x: de.x + (alvo.x - de.x) * e, y: de.y + (alvo.y - de.y) * e, w: de.w + (alvo.w - de.w) * e, h: de.h + (alvo.h - de.h) * e });
+      if (k < 1) anima.current = requestAnimationFrame(passo);
+    };
+    anima.current = requestAnimationFrame(passo);
+  };
+  const limita = (v: typeof CHEIO) => {
+    const w = Math.min(680, Math.max(60, v.w)), h = (w * 640) / 680;
+    return { w, h, x: Math.min(680 - w * 0.4, Math.max(-w * 0.6, v.x)), y: Math.min(640 - h * 0.4, Math.max(-h * 0.6, v.y)) };
+  };
+  const zoomEm = (fator: number, cx?: number, cy?: number, suave = false) => {
+    const v = vistaRef.current;
+    const w = Math.min(680, Math.max(60, v.w / fator)), k = w / v.w;
+    const px = cx ?? v.x + v.w / 2, py = cy ?? v.y + v.h / 2;
+    const alvo = limita({ w, h: v.h * k, x: px - (px - v.x) * k, y: py - (py - v.y) * k });
+    if (suave) animaPara(alvo); else { cancelAnimationFrame(anima.current); setVista(alvo); }
+  };
+  const paraSvg = (x: number, y: number) => {
+    const svg = svgRef.current, m = svg?.getScreenCTM();
+    if (!svg || !m) return null;
+    const pt = svg.createSVGPoint(); pt.x = x; pt.y = y;
+    return pt.matrixTransform(m.inverse());
+  };
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const roda = (e: WheelEvent) => { e.preventDefault(); const q = paraSvg(e.clientX, e.clientY); zoomEm(Math.exp(-e.deltaY * 0.0015), q?.x, q?.y); };
+    svg.addEventListener("wheel", roda, { passive: false });
+    return () => svg.removeEventListener("wheel", roda);
+  });
+  const aoApertar = (e: React.PointerEvent) => {
+    arrastou.current = false;
+    let ult = { x: e.clientX, y: e.clientY };
+    const ini = { ...ult };
+    const mover = (ev: PointerEvent) => {
+      if (Math.hypot(ev.clientX - ini.x, ev.clientY - ini.y) > 5) arrastou.current = true;
+      if (!arrastou.current || !svgRef.current) return;
+      const m = svgRef.current.getScreenCTM();
+      if (!m) return;
+      const v = vistaRef.current;
+      cancelAnimationFrame(anima.current);
+      setVista(limita({ ...v, x: v.x - (ev.clientX - ult.x) / m.a, y: v.y - (ev.clientY - ult.y) / m.d }));
+      ult = { x: ev.clientX, y: ev.clientY };
+    };
+    const soltar = () => { removeEventListener("pointermove", mover); removeEventListener("pointerup", soltar); };
+    addEventListener("pointermove", mover); addEventListener("pointerup", soltar);
+  };
+  // ao escolher um estado, aproxima suavemente até ele; ao voltar para o Brasil, afasta
+  useEffect(() => {
+    if (!formas.length) return;
+    const f = uf ? formas.find((x) => x.sigla === uf) : null;
+    if (!f) { animaPara(CHEIO); return; }
+    const { x0, y0, x1, y1 } = f.caixa;
+    const w = Math.min(680, Math.max(110, Math.max(x1 - x0, ((y1 - y0) * 680) / 640) * 1.7)), h = (w * 640) / 680;
+    animaPara(limita({ w, h, x: (x0 + x1) / 2 - w / 2, y: (y0 + y1) / 2 - h / 2 }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [uf, formas]);
+  const esc = Math.max(0.3, vista.w / 680);          // fotos e textos mantêm o tamanho na tela
+  const perto = vista.w < 420;                        // perto: estados pequenos mostram as fotos no próprio mapa
+
   const coresSenado = (s: string) => [...new Set((dados?.ufs[s]?.senadores ?? []).sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido)).map((p) => corPartido(p.partido)))];
 
   const deps = (s: string) => (esfera === "federais" ? dados?.ufs[s]?.deputados : dados?.ufs[s]?.estaduais) ?? [];
@@ -320,15 +395,18 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
             <span className="text-stone-500">{aba === "senado" ? "cadeiras" : "estados"}</span>
           </p>
         )}
-        <svg viewBox="0 0 680 640" className="absolute inset-0 h-full w-full px-2 pb-2 pt-20" onClick={() => aoEscolherUf(null)} role="img" aria-label="Mapa do Brasil">
+        <BotoesZoom mais={() => zoomEm(1.6, undefined, undefined, true)} menos={() => zoomEm(1 / 1.6, undefined, undefined, true)} inicio={() => { aoEscolherUf(null); animaPara(CHEIO); }} />
+        <svg ref={svgRef} viewBox={`${vista.x} ${vista.y} ${vista.w} ${vista.h}`} onPointerDown={aoApertar}
+          onClickCapture={(e) => { if (arrastou.current) { e.stopPropagation(); e.preventDefault(); arrastou.current = false; } }}
+          className={`absolute inset-0 h-full w-full touch-none px-2 pb-2 pt-20 ${vista.w < 680 ? "cursor-grab active:cursor-grabbing" : ""}`} onClick={() => aoEscolherUf(null)} role="img" aria-label="Mapa do Brasil">
           <defs>
             {aba === "senado" && formas.map((f) => {
               // uma faixa por partido diferente: 3 partidos = 3 cores, 2 = 2, 1 = cor única
               const cs = coresSenado(f.sigla);
-              const w = 36 / Math.max(1, cs.length);
+              const L = 36 * esc, w = L / Math.max(1, cs.length);
               return (
-                <pattern key={f.sigla} id={`sen-${f.sigla}`} patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="rotate(45)">
-                  {(cs.length ? cs : ["#44403c"]).map((c, i) => <rect key={i} x={i * w} width={w} height="36" fill={c} />)}
+                <pattern key={f.sigla} id={`sen-${f.sigla}`} patternUnits="userSpaceOnUse" width={L} height={L} patternTransform="rotate(45)">
+                  {(cs.length ? cs : ["#44403c"]).map((c, i) => <rect key={i} x={i * w} width={w} height={L} fill={c} />)}
                 </pattern>
               );
             })}
@@ -338,35 +416,35 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
             const sel = uf === f.sigla, over = hover === f.sigla;
             return (
               <path key={f.sigla} d={f.d} fill={aba === "senado" ? `url(#sen-${f.sigla})` : corUf(f.sigla)} fillOpacity={uf && !sel ? 0.4 : 0.9}
-                stroke={sel || over ? "#fff" : "#0c0a09"} strokeWidth={sel ? 2.2 : over ? 1.6 : 0.7} style={{ cursor: "pointer" }}
+                stroke={sel || over ? "#fff" : "#0c0a09"} strokeWidth={(sel ? 2.2 : over ? 1.6 : 0.7) * esc} style={{ cursor: "pointer" }}
                 onClick={(e) => { e.stopPropagation(); aoEscolherUf(sel ? null : f.sigla); }} onMouseEnter={() => setHover(f.sigla)} onMouseLeave={() => setHover(null)} />
             );
           })}
           {/* siglas e fotos */}
           {formas.map((f) => {
             const fotos = fotosNoMapa(f.sigla);
-            const pequeno = ETIQUETAS.includes(f.sigla);
+            const pequeno = ETIQUETAS.includes(f.sigla) && !perto;
             const [cx, cy] = f.centro;
             if (pequeno) return null;
             return (
               <g key={f.sigla} pointerEvents="none">
                 {fotos.map((p, i) => {
-                  const t = fotos.length === 1 ? 30 : 22, x = cx - (fotos.length * (t - 6)) / 2 + i * (t - 6) - 3;
+                  const t = (fotos.length === 1 ? 30 : 22) * esc, x = cx - (fotos.length * (t - 6 * esc)) / 2 + i * (t - 6 * esc) - 3 * esc;
                   const u = urlFoto(p.foto);
                   return (
                     <g key={p.id}>
-                      <circle cx={x + t / 2} cy={cy - 6} r={t / 2 + 1.5} fill={corPartido(p.partido)} />
-                      {u ? <image href={u} x={x} y={cy - 6 - t / 2} width={t} height={t} clipPath="url(#circulo)" preserveAspectRatio="xMidYMin slice" />
-                        : <circle cx={x + t / 2} cy={cy - 6} r={t / 2} fill="#292524" />}
+                      <circle cx={x + t / 2} cy={cy - 6 * esc} r={t / 2 + 1.5 * esc} fill={corPartido(p.partido)} />
+                      {u ? <image href={u} x={x} y={cy - 6 * esc - t / 2} width={t} height={t} clipPath="url(#circulo)" preserveAspectRatio="xMidYMin slice" />
+                        : <circle cx={x + t / 2} cy={cy - 6 * esc} r={t / 2} fill="#292524" />}
                     </g>
                   );
                 })}
-                <text x={cx} y={cy + (fotos.length === 1 ? 24 : fotos.length ? 20 : 4)} textAnchor="middle" fontSize="10" fontWeight="700" fill="#fff" stroke="#0c0a09" strokeWidth="2.5" paintOrder="stroke">{f.sigla}</text>
+                <text x={cx} y={cy + (fotos.length === 1 ? 24 : fotos.length ? 20 : 4) * esc} textAnchor="middle" fontSize={10 * esc} fontWeight="700" fill="#fff" stroke="#0c0a09" strokeWidth={2.5 * esc} paintOrder="stroke">{f.sigla}</text>
               </g>
             );
           })}
           {/* etiquetas dos estados pequenos, ao lado do mapa */}
-          {formas.filter((f) => ETIQUETAS.includes(f.sigla)).map((f) => {
+          {!perto && formas.filter((f) => ETIQUETAS.includes(f.sigla)).map((f) => {
             const { x, y } = posEtiqueta(f.sigla);
             const fotos = fotosNoMapa(f.sigla);
             const cor = aba === "senado" ? corPartido(dados.ufs[f.sigla]?.senadores[0]?.partido) : corUf(f.sigla);
