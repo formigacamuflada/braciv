@@ -44,6 +44,10 @@ jobs:
         continue-on-error: true
         run: python coletores/senado.py
 
+      - name: Legislativo (Mesa do Congresso, liderancas, comissoes e servidores)
+        continue-on-error: true
+        run: python coletores/legislativo.py
+
       - name: IBGE (contorno dos estados)
         continue-on-error: true
         run: python coletores/ibge.py
