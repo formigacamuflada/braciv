@@ -1,0 +1,245 @@
+{
+ "RS": {
+  "sq": "210001610440",
+  "uf": "RS",
+  "nome": "Liziane Bayer",
+  "nomeCompleto": "Liziane Bayer Da Costa",
+  "partido": "REPUBLICANOS",
+  "numero": "100",
+  "foto": "fotos/tse/210001610440.jpg"
+ },
+ "GO": {
+  "sq": "90001652053",
+  "uf": "GO",
+  "nome": "Izaura Cardoso",
+  "nomeCompleto": "Izaura Cristina Cantanhede Peres Cardoso",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/90001652053.jpg"
+ },
+ "AM": {
+  "sq": "40001618515",
+  "uf": "AM",
+  "nome": "Cheila Moreira",
+  "nomeCompleto": "Cheila Vieira Moreira",
+  "partido": "PT",
+  "numero": "555",
+  "foto": "fotos/tse/40001618515.jpg"
+ },
+ "BA": {
+  "sq": "50001605791",
+  "uf": "BA",
+  "nome": "Terence Lessa",
+  "nomeCompleto": "Claudir Terence Lessa Lopes De Oliveira",
+  "partido": "PT",
+  "numero": "555",
+  "foto": "fotos/tse/50001605791.jpg"
+ },
+ "PA": {
+  "sq": "140001611662",
+  "uf": "PA",
+  "nome": "Josenir",
+  "nomeCompleto": "Josenir Gonçalves Nascimento",
+  "partido": "PT",
+  "numero": "131",
+  "foto": "fotos/tse/140001611662.jpg"
+ },
+ "SC": {
+  "sq": "240001611129",
+  "uf": "SC",
+  "nome": "Hermes Klann",
+  "nomeCompleto": "Hermes Artur Klann",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/240001611129.jpg"
+ },
+ "ES": {
+  "sq": "80001727033",
+  "uf": "ES",
+  "nome": "Marcinha Macedo",
+  "nomeCompleto": "Marcia Cristina Macedo Silva",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/80001727033.jpg"
+ },
+ "RO": {
+  "sq": "220001713731",
+  "uf": "RO",
+  "nome": "Pastor Sebastião Valadares",
+  "nomeCompleto": "Sebastião Valadares Neto",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/220001713731.jpg"
+ },
+ "RJ": {
+  "sq": "190001612456",
+  "uf": "RJ",
+  "nome": "Bruno Bonetti",
+  "nomeCompleto": "Bruno Bierrenbach Bonetti",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/190001612456.jpg"
+ },
+ "MA": {
+  "sq": "100001607044",
+  "uf": "MA",
+  "nome": "Ana Paula Lobato",
+  "nomeCompleto": "Ana Paula Dias Lobato Nova Alves",
+  "partido": "PSB",
+  "numero": "400",
+  "foto": "fotos/tse/100001607044.jpg"
+ },
+ "RR": {
+  "sq": "230001604257",
+  "uf": "RR",
+  "nome": "Jr Rodrigues",
+  "nomeCompleto": "José Raimundo Rodrigues Silva",
+  "partido": "REPUBLICANOS",
+  "numero": "111",
+  "foto": "fotos/tse/230001604257.jpg"
+ },
+ "RN": {
+  "sq": "200001603038",
+  "uf": "RN",
+  "nome": "Flávio Azevedo",
+  "nomeCompleto": "Flávio José Cavalcanti De Azevedo",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/200001603038.jpg"
+ },
+ "MG": {
+  "sq": "130001671679",
+  "uf": "MG",
+  "nome": "Alex Diniz",
+  "nomeCompleto": "Alex Sandro Coelho Diniz",
+  "partido": "PSC",
+  "numero": "200",
+  "foto": "fotos/tse/130001671679.jpg"
+ },
+ "AP": {
+  "sq": "30001607749",
+  "uf": "AP",
+  "nome": "Josiel",
+  "nomeCompleto": "José Samuel Alcolumbre Tobelem",
+  "partido": "UNIÃO",
+  "numero": "444",
+  "foto": "fotos/tse/30001607749.jpg"
+ },
+ "CE": {
+  "sq": "60001633584",
+  "uf": "CE",
+  "nome": "Augusta Brito",
+  "nomeCompleto": "Augusta Brito De Paula",
+  "partido": "PT",
+  "numero": "131",
+  "foto": "fotos/tse/60001633584.jpg"
+ },
+ "SE": {
+  "sq": "260001635425",
+  "uf": "SE",
+  "nome": "Janier",
+  "nomeCompleto": "Janier Mota Santos Primo",
+  "partido": "PSD",
+  "numero": "111",
+  "foto": "fotos/tse/260001635425.jpg"
+ },
+ "SP": {
+  "sq": "250001612470",
+  "uf": "SP",
+  "nome": "Professor Alberto",
+  "nomeCompleto": "Alberto Alves Da Fonseca",
+  "partido": "PL",
+  "numero": "222",
+  "foto": "fotos/tse/250001612470.jpg"
+ },
+ "AC": {
+  "sq": "10001714548",
+  "uf": "AC",
+  "nome": "Gemil Junior",
+  "nomeCompleto": "Gemil Salim De Abreu Junior",
+  "partido": "UNIÃO",
+  "numero": "444",
+  "foto": "fotos/tse/10001714548.jpg"
+ },
+ "DF": {
+  "sq": "70001729074",
+  "uf": "DF",
+  "nome": "Manoel Arruda",
+  "nomeCompleto": "Manoel Coelho Arruda Junior",
+  "partido": "UNIÃO",
+  "numero": "100",
+  "foto": "fotos/tse/70001729074.jpg"
+ },
+ "PI": {
+  "sq": "180001605664",
+  "uf": "PI",
+  "nome": "Jussara Lima",
+  "nomeCompleto": "Antônia Jussara Gomes Alves Sousa Lima",
+  "partido": "PT",
+  "numero": "131",
+  "foto": "fotos/tse/180001605664.jpg"
+ },
+ "AL": {
+  "sq": "20001698126",
+  "uf": "AL",
+  "nome": "Fernando Farias",
+  "nomeCompleto": "Fernando Lopes De Farias",
+  "partido": "MDB",
+  "numero": "151",
+  "foto": "fotos/tse/20001698126.jpg"
+ },
+ "PR": {
+  "sq": "160001621845",
+  "uf": "PR",
+  "nome": "Luis Felipe Cunha",
+  "nomeCompleto": "Luis Felipe Cunha",
+  "partido": "UNIÃO",
+  "numero": "444",
+  "foto": "fotos/tse/160001621845.jpg"
+ },
+ "MT": {
+  "sq": "110001676177",
+  "uf": "MT",
+  "nome": "Mauro Carvalho",
+  "nomeCompleto": "Mauro Carvalho Junior",
+  "partido": "UNIÃO",
+  "numero": "222",
+  "foto": "fotos/tse/110001676177.jpg"
+ },
+ "PB": {
+  "sq": "150001621389",
+  "uf": "PB",
+  "nome": "Andre Amaral",
+  "nomeCompleto": "Andre Augusto Castro Do Amaral",
+  "partido": "PROS",
+  "numero": "444",
+  "foto": "fotos/tse/150001621389.jpg"
+ },
+ "MS": {
+  "sq": "120001651639",
+  "uf": "MS",
+  "nome": "Tenente Portela",
+  "nomeCompleto": "Aparecido Andrade Portela",
+  "partido": "PL",
+  "numero": "111",
+  "foto": "fotos/tse/120001651639.jpg"
+ },
+ "TO": {
+  "sq": "270001649253",
+  "uf": "TO",
+  "nome": "Professora Lu",
+  "nomeCompleto": "Lucineide Parizi Freitas",
+  "partido": "UNIÃO",
+  "numero": "444",
+  "foto": "fotos/tse/270001649253.jpg"
+ },
+ "PE": {
+  "sq": "170001618132",
+  "uf": "PE",
+  "nome": "Silvio Costa",
+  "nomeCompleto": "Silvio Serafim Costa",
+  "partido": "REPUBLICANOS",
+  "numero": "130",
+  "foto": "fotos/tse/170001618132.jpg"
+ }
+}
