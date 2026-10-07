@@ -16,7 +16,7 @@ concurrency:
 jobs:
   convergencia:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     permissions:
       contents: write
     steps:
@@ -24,14 +24,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install --quiet requests
+      - run: pip install --quiet requests pillow
       - name: Cruzar
         run: python coletores/convergencia.py
+      - name: Suplentes das vagas (Codigo Eleitoral, art. 112)
+        continue-on-error: true
+        run: python coletores/suplentes.py
       - name: Guardar
         if: always()
         run: |
           git config user.name "coletor"
           git config user.email "coletor@users.noreply.github.com"
-          for f in dados/convergencia.json dados/convergencia_relatorio.txt; do [ -e "$f" ] && git add "$f"; done
+          for f in dados/convergencia.json dados/convergencia_relatorio.txt dados/suplentes_2022.json dados/suplentes_relatorio.txt dados/fotos/tse; do [ -e "$f" ] && git add "$f"; done
           git diff --staged --quiet || git commit -m "dados: convergencia entre cargos"
           git pull --rebase -q && git push
