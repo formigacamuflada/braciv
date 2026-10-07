@@ -4,9 +4,52 @@ baixando candidatos de 2022 ...
   eleitos 2022: {'DEPUTADO ESTADUAL': 1035, 'GOVERNADOR': 27, 'DEPUTADO DISTRITAL': 24, 'VICE-GOVERNADOR': 27}
 baixando candidatos de 2024 ...
   2024: 463673 candidaturas lidas
+  2024: CPF publicado em 0 linhas; DT_NASCIMENTO em 463627
 baixando candidatos de 2026 ...
   2026: 20989 candidaturas lidas
-eleitos de 2022 que se elegeram em 2024: {}
+eleitos de 2022 que se elegeram em 2024: {('Deputado Estadual', 'Prefeito'): 38, ('Deputado Estadual', 'Vice-prefeito'): 4}
+  SP Deputado Estadual Helinho Zanatta -> Prefeito de Piracicaba
+  RJ Deputado Estadual Eduardo Cavaliere -> Vice-prefeito de Rio De Janeiro
+  GO Deputado Estadual Renato De Castro -> Prefeito de Goianésia
+  ES Deputado Estadual Lucas Scaramussa -> Prefeito de Linhares
+  MA Deputado Estadual Rildo Amaral -> Prefeito de Imperatriz
+  MA Deputado Estadual Juscelino Marreca -> Prefeito de Santa Luzia
+  SP Deputado Estadual Edmir Chedid -> Prefeito de Bragança Paulista
+  TO Deputado Estadual Fabion Gomes -> Prefeito de Tocantinópolis
+  PI Deputado Estadual Dr Pablo Santos -> Prefeito de Picos
+  PR Deputado Estadual Marcel Micheletto -> Prefeito de Assis Chateaubriand
+  PR Deputado Estadual Douglas Fabricio -> Prefeito de Campo Mourão
+  RO Deputado Estadual Affonso Candido -> Prefeito de Ji-Paraná
+  PA Deputado Estadual Delegado Toni Cunha -> Prefeito de Marabá
+  RJ Deputado Estadual Leo Vieira -> Prefeito de São João De Meriti
+  BA Deputado Estadual Eures Ribeiro -> Prefeito de Bom Jesus Da Lapa
+  SP Deputado Estadual Vinicius Camarinha -> Prefeito de Marília
+  CE Deputado Estadual Evandro Leitão -> Prefeito de Fortaleza
+  RJ Deputado Estadual Dr Serginho -> Prefeito de Cabo Frio
+  AP Deputado Estadual Delegado Inacio -> Prefeito de Oiapoque
+  PA Deputado Estadual Igor Normando -> Prefeito de Belém
+  MA Deputado Estadual Rafael Leitoa -> Prefeito de Timon
+  MA Deputado Estadual Roberto Costa -> Prefeito de Bacabal
+  SC Deputado Estadual Massocco -> Prefeito de Concórdia
+  BA Deputado Estadual Pablo Roberto  -> Vice-prefeito de Feira De Santana
+  RS Deputado Estadual Mainardi -> Prefeito de Bagé
+  PE Deputado Estadual Lula Cabral -> Prefeito de Cabo De Santo Agostinho
+  PE Deputado Estadual Chaparral -> Prefeito de Surubim
+  RJ Deputado Estadual Andrezinho Ceciliano -> Prefeito de Paracambi
+  ES Deputado Estadual Ferraço -> Prefeito de Cachoeiro De Itapemirim
+  MG Deputado Estadual Fábio Avelar -> Prefeito de Nova Serrana
+  MG Deputado Estadual Douglas Melo -> Prefeito de Sete Lagoas
+  PR Deputado Estadual Tiago Amaral -> Prefeito de Londrina
+  SP Deputado Estadual Gerson Pessoa -> Prefeito de Osasco
+  CE Deputado Estadual Gabriella Aguiar -> Vice-prefeito de Fortaleza
+  CE Deputado Estadual Dr. Oscar Rodrigues -> Prefeito de Sobral
+  RJ Deputado Estadual Márcio Canella -> Prefeito de Belford Roxo
+  SC Deputado Estadual Delegado Egidio Ferrari -> Prefeito de Blumenau
+  RJ Deputado Estadual Tande Vieira -> Prefeito de Resende
+  SC Deputado Estadual Soratto -> Prefeito de Tubarão
+  MG Deputado Estadual Coronel Sandro -> Prefeito de Governador Valadares
+  PI Deputado Estadual Jeová Alencar -> Vice-prefeito de Teresina
+  MT Deputado Estadual Claudio Ferreira -> Prefeito de Rondonópolis
 governadores de 2022 candidatos a OUTRO cargo em 2026 (renuncia obrigatoria): 8
   ES Governador RENATO CASAGRANDE: 2026 {'cargo': 'Senador', 'uf': 'ES', 'situacao': 'eleito', 'candidatura': '#Ne'}
   MT Governador MAURO MENDES: 2026 {'cargo': 'Senador', 'uf': 'MT', 'situacao': 'eleito', 'candidatura': '#Ne'}

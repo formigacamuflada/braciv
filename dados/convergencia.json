@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-10-07T20:59+00:00",
+ "geradoEm": "2026-10-07T21:05+00:00",
  "federais": {
   "dep:204379": {
    "2026": {
@@ -3987,6 +3987,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "André Da Droga Vale",
    "uf": "AC"
   },
   "10001650033": {
@@ -3997,6 +3998,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fagner Calegário",
    "uf": "AC"
   },
   "10001649326": {
@@ -4007,6 +4009,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Arlenilson Cunha",
    "uf": "AC"
   },
   "100001614815": {
@@ -4017,6 +4020,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leandro Bello",
    "uf": "MA"
   },
   "100001603166": {
@@ -4027,6 +4031,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Solange Almeida",
    "uf": "MA"
   },
   "100001599591": {
@@ -4037,6 +4042,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudia Coutinho",
    "uf": "MA"
   },
   "100001608090": {
@@ -4047,6 +4053,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Arnaldo Melo",
    "uf": "MA"
   },
   "210001610611": {
@@ -4057,6 +4064,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pepe Vargas",
    "uf": "RS"
   },
   "210001648951": {
@@ -4067,6 +4075,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Kelly Moraes",
    "uf": "RS"
   },
   "210001601925": {
@@ -4077,6 +4086,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Thiago",
    "uf": "RS"
   },
   "50001648293": {
@@ -4087,6 +4097,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcinho Oliveira",
    "uf": "BA"
   },
   "50001610379": {
@@ -4097,6 +4108,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Binho Galinha",
    "uf": "BA"
   },
   "40001620692": {
@@ -4107,6 +4119,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipe Souza",
    "uf": "AM"
   },
   "50001606437": {
@@ -4117,6 +4130,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fatima Nunes",
    "uf": "BA"
   },
   "50001647074": {
@@ -4127,6 +4141,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipe Duarte",
    "uf": "BA"
   },
   "210001620212": {
@@ -4137,6 +4152,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Kaká D Ávila",
    "uf": "RS"
   },
   "250001611431": {
@@ -4147,6 +4163,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rogério Nogueira",
    "uf": "SP"
   },
   "250001611460": {
@@ -4157,6 +4174,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rafa Zimbaldi",
    "uf": "SP"
   },
   "120001643162": {
@@ -4167,6 +4185,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Junior Mochi",
    "uf": "MS"
   },
   "250001619350": {
@@ -4177,6 +4196,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ediane Maria",
    "uf": "SP"
   },
   "120001614728": {
@@ -4187,7 +4207,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel David",
    "uf": "MS"
+  },
+  "250001643762": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Piracicaba",
+    "uf": "SP",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Helinho Zanatta",
+   "uf": "SP"
   },
   "250001602098": {
    "2026": {
@@ -4197,6 +4229,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Daniel Soares",
    "uf": "SP"
   },
   "250001611811": {
@@ -4207,6 +4240,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Emídio De Souza",
    "uf": "SP"
   },
   "250001611800": {
@@ -4217,6 +4251,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professora Bebel",
    "uf": "SP"
   },
   "250001620622": {
@@ -4227,6 +4262,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Andréa Werner",
    "uf": "SP"
   },
   "60001603518": {
@@ -4237,6 +4273,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Salmito",
    "uf": "CE"
   },
   "60001603529": {
@@ -4247,6 +4284,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cláudio Pinho",
    "uf": "CE"
   },
   "250001610136": {
@@ -4257,6 +4295,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tenente Coimbra",
    "uf": "SP"
   },
   "250001610109": {
@@ -4267,6 +4306,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gil Diniz",
    "uf": "SP"
   },
   "60001608946": {
@@ -4277,6 +4317,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipe Mota",
    "uf": "CE"
   },
   "250001610193": {
@@ -4287,6 +4328,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Damasio",
    "uf": "SP"
   },
   "60001723722": {
@@ -4297,6 +4339,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Emilia Pessoa",
    "uf": "CE"
   },
   "250001610005": {
@@ -4307,6 +4350,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leo Oliveira",
    "uf": "SP"
   },
   "60001613104": {
@@ -4317,6 +4361,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Roseno",
    "uf": "CE"
   },
   "260001636402": {
@@ -4327,6 +4372,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Bispo",
    "uf": "SE"
   },
   "170001608952": {
@@ -4337,6 +4383,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Paulo Costa",
    "uf": "PE"
   },
   "260001646921": {
@@ -4347,6 +4394,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelo Sobral",
    "uf": "SE"
   },
   "260001668323": {
@@ -4357,6 +4405,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chico Do Correio",
    "uf": "SE"
   },
   "170001605464": {
@@ -4367,6 +4416,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alvaro Porto",
    "uf": "PE"
   },
   "170001619685": {
@@ -4377,6 +4427,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Alberto Feitosa",
    "uf": "PE"
   },
   "170001619710": {
@@ -4387,6 +4438,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Antunes",
    "uf": "PE"
   },
   "80001649123": {
@@ -4397,6 +4449,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Renato Casagrande",
    "uf": "ES"
   },
   "150001619558": {
@@ -4407,6 +4460,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jutay Meneses",
    "uf": "PB"
   },
   "150001619566": {
@@ -4417,6 +4471,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Branco Mendes",
    "uf": "PB"
   },
   "150001620828": {
@@ -4427,6 +4482,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Eduardo Brito",
    "uf": "PB"
   },
   "150001718216": {
@@ -4437,6 +4493,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wallber Virgolino",
    "uf": "PB"
   },
   "150001621370": {
@@ -4447,7 +4504,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tovar",
    "uf": "PB"
+  },
+  "190001612207": {
+   "2024": {
+    "cargo": "Vice-prefeito",
+    "municipio": "Rio De Janeiro",
+    "uf": "RJ",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Cavaliere",
+   "uf": "RJ"
   },
   "190001612222": {
    "2026": {
@@ -4457,6 +4526,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudio Caiado",
    "uf": "RJ"
   },
   "190001612210": {
@@ -4467,6 +4537,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Guilherme Schleder",
    "uf": "RJ"
   },
   "110001643543": {
@@ -4477,6 +4548,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Mauro Mendes",
    "uf": "MT"
   },
   "190001596746": {
@@ -4487,6 +4559,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Anderson Moraes",
    "uf": "RJ"
   },
   "90001644180": {
@@ -4497,6 +4570,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zeli",
    "uf": "GO"
   },
   "90001644216": {
@@ -4507,6 +4581,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wagner Neto",
    "uf": "GO"
   },
   "240001605920": {
@@ -4517,6 +4592,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jerry Comper",
    "uf": "SC"
   },
   "90001695749": {
@@ -4527,6 +4603,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wilde Cambão",
    "uf": "GO"
   },
   "240001679646": {
@@ -4537,6 +4614,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neodi Saretta",
    "uf": "SC"
   },
   "240001679627": {
@@ -4547,6 +4625,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabiano Da Luz",
    "uf": "SC"
   },
   "90001653593": {
@@ -4557,6 +4636,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Veter Martins",
    "uf": "GO"
   },
   "240001612502": {
@@ -4567,6 +4647,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Vieira",
    "uf": "SC"
   },
   "240001614348": {
@@ -4577,6 +4658,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Campagnolo",
    "uf": "SC"
   },
   "240001614335": {
@@ -4587,6 +4669,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Berlanda",
    "uf": "SC"
   },
   "80001609893": {
@@ -4597,6 +4680,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Denninho Silva",
    "uf": "ES"
   },
   "190001620484": {
@@ -4607,6 +4691,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zeidan",
    "uf": "RJ"
   },
   "90001648411": {
@@ -4617,6 +4702,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Talles Barreto",
+   "uf": "GO"
+  },
+  "90001648408": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Goianésia",
+    "uf": "GO",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Renato De Castro",
    "uf": "GO"
   },
   "90001653166": {
@@ -4627,6 +4724,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Calil",
    "uf": "GO"
   },
   "90001712193": {
@@ -4637,6 +4735,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jamil Calife",
    "uf": "GO"
   },
   "90001712179": {
@@ -4647,6 +4746,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vivian Naves",
    "uf": "GO"
   },
   "80001648804": {
@@ -4657,6 +4757,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Callegari",
    "uf": "ES"
   },
   "80001648800": {
@@ -4667,6 +4768,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Polese",
+   "uf": "ES"
+  },
+  "80001609612": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Linhares",
+    "uf": "ES",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Scaramussa",
    "uf": "ES"
   },
   "80001602763": {
@@ -4677,6 +4790,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mazinho Dos Anjos",
    "uf": "ES"
   },
   "80001653393": {
@@ -4687,6 +4801,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Weliton",
    "uf": "ES"
   },
   "70001600818": {
@@ -4697,6 +4812,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Rogério Morro Da Cruz",
    "uf": "DF"
   },
   "30001606516": {
@@ -4707,6 +4823,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Roberto",
    "uf": "AP"
   },
   "80001720062": {
@@ -4717,6 +4834,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adilson Espindula",
    "uf": "ES"
   },
   "190001654227": {
@@ -4727,6 +4845,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegada Martha Rocha",
    "uf": "RJ"
   },
   "50001603639": {
@@ -4737,6 +4856,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Geraldo Júnior",
    "uf": "BA"
   },
   "120001635629": {
@@ -4747,6 +4867,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Barbosinha",
    "uf": "MS"
   },
   "190001613667": {
@@ -4757,6 +4878,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Pedro Ricardo",
    "uf": "RJ"
   },
   "250001615967": {
@@ -4767,6 +4889,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Tarcísio",
    "uf": "SP"
   },
   "270001654142": {
@@ -4777,6 +4900,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cleiton Cardoso",
    "uf": "TO"
   },
   "270001654154": {
@@ -4787,6 +4911,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Valdemar Junior",
    "uf": "TO"
   },
   "270001672845": {
@@ -4797,6 +4922,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Junior Geo",
    "uf": "TO"
   },
   "130001607412": {
@@ -4807,6 +4933,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lohanna",
    "uf": "MG"
   },
   "130001607410": {
@@ -4817,6 +4944,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Cleiton (Cleitinho)",
    "uf": "MG"
   },
   "270001697210": {
@@ -4827,6 +4955,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gutierres",
    "uf": "TO"
   },
   "270001697338": {
@@ -4837,6 +4966,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wiston Gomes",
    "uf": "TO"
   },
   "80001649124": {
@@ -4847,6 +4977,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Ricardo Ferraço",
    "uf": "ES"
   },
   "90001646327": {
@@ -4857,6 +4988,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Daniel Vilela",
    "uf": "GO"
   },
   "130001619046": {
@@ -4867,6 +4999,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Henrique",
    "uf": "MG"
   },
   "130001615219": {
@@ -4877,6 +5010,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Paula Siqueira",
    "uf": "MG"
   },
   "180001605751": {
@@ -4887,6 +5021,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Paula",
    "uf": "PI"
   },
   "160001622206": {
@@ -4897,6 +5032,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabio Oliveira",
    "uf": "PR"
   },
   "160001623126": {
@@ -4907,6 +5043,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcio Nunes",
    "uf": "PR"
   },
   "160001623131": {
@@ -4917,6 +5054,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hussein Bakri",
    "uf": "PR"
   },
   "160001623106": {
@@ -4927,6 +5065,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cloara Pinheiro",
    "uf": "PR"
   },
   "160001623100": {
@@ -4937,6 +5076,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alexandre Curi",
    "uf": "PR"
   },
   "160001623107": {
@@ -4947,6 +5087,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Artagão Júnior",
    "uf": "PR"
   },
   "160001623125": {
@@ -4957,6 +5098,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Romanelli",
    "uf": "PR"
   },
   "160001654969": {
@@ -4967,6 +5109,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilberto Ribeiro",
    "uf": "PR"
   },
   "160001614852": {
@@ -4977,6 +5120,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Batatinha",
    "uf": "PR"
   },
   "160001622180": {
@@ -4987,6 +5131,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alisson Wandscheer",
    "uf": "PR"
   },
   "160001603357": {
@@ -4997,6 +5142,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maria Victoria",
    "uf": "PR"
   },
   "160001716023": {
@@ -5007,6 +5153,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Flavia Francischini",
    "uf": "PR"
   },
   "220001643480": {
@@ -5017,6 +5164,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cláudia De Jesus",
    "uf": "RO"
   },
   "220001609488": {
@@ -5027,6 +5175,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Luis Do Hospital",
    "uf": "RO"
   },
   "220001614408": {
@@ -5037,6 +5186,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelo Cruz",
    "uf": "RO"
   },
   "110001621200": {
@@ -5047,6 +5197,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Araujo",
    "uf": "MT"
   },
   "110001635657": {
@@ -5057,6 +5208,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Diego Guimarães",
    "uf": "MT"
   },
   "200001605989": {
@@ -5067,6 +5219,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Bernardo Amorim",
    "uf": "RN"
   },
   "200001603631": {
@@ -5077,6 +5230,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Divaneide",
    "uf": "RN"
   },
   "200001604203": {
@@ -5087,6 +5241,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristiane Dantas",
    "uf": "RN"
   },
   "140001611039": {
@@ -5097,6 +5252,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fábio Figueiras",
    "uf": "PA"
   },
   "140001676625": {
@@ -5107,6 +5263,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maria",
    "uf": "PA"
   },
   "140001601514": {
@@ -5117,6 +5274,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Josué Paiva",
    "uf": "PA"
   },
   "140001676883": {
@@ -5127,6 +5285,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paula Titan",
    "uf": "PA"
   },
   "140001676904": {
@@ -5137,6 +5296,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eraldo Pimenta",
    "uf": "PA"
   },
   "140001611628": {
@@ -5147,6 +5307,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luth Rebelo",
    "uf": "PA"
   },
   "140001611626": {
@@ -5157,6 +5318,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Tonheiro",
    "uf": "PA"
   },
   "140001611691": {
@@ -5167,6 +5329,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Victor Dias",
    "uf": "PA"
   },
   "20001636056": {
@@ -5177,6 +5340,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gabi Goncalves",
    "uf": "AL"
   },
   "20001612381": {
@@ -5187,6 +5351,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Leonam",
    "uf": "AL"
   },
   "250001615968": {
@@ -5197,6 +5362,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Felicio Ramuth",
    "uf": "SP"
   },
   "110001643542": {
@@ -5207,6 +5373,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Otaviano Pivetta",
    "uf": "MT"
   },
   "100001613752": {
@@ -5217,6 +5384,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Júlio Mendonça",
    "uf": "MA"
   },
   "10001643440": {
@@ -5227,6 +5395,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Manoel Moraes",
    "uf": "AC"
   },
   "10001643428": {
@@ -5237,6 +5406,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nicolau Junior",
    "uf": "AC"
   },
   "10001635537": {
@@ -5247,6 +5417,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Clodoaldo Rodrigues",
    "uf": "AC"
   },
   "100001599573": {
@@ -5257,6 +5428,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Glalbert Cutrim ",
    "uf": "MA"
   },
   "50001607305": {
@@ -5267,7 +5439,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cafu Barreto",
    "uf": "BA"
+  },
+  "100001608087": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Imperatriz",
+    "uf": "MA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Rildo Amaral",
+   "uf": "MA"
   },
   "50001609449": {
    "2026": {
@@ -5277,7 +5461,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vitor Azevedo",
    "uf": "BA"
+  },
+  "100001608131": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Santa Luzia",
+    "uf": "MA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Juscelino Marreca",
+   "uf": "MA"
   },
   "100001607085": {
    "2026": {
@@ -5287,6 +5483,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Francisco Nagib",
    "uf": "MA"
   },
   "50001605968": {
@@ -5297,6 +5494,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Angelo Almeida",
    "uf": "BA"
   },
   "210001610590": {
@@ -5307,6 +5505,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Stela Farias",
    "uf": "RS"
   },
   "210001610626": {
@@ -5317,6 +5516,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Laura Sito",
    "uf": "RS"
   },
   "50001619298": {
@@ -5327,6 +5527,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jurailton Santos",
    "uf": "BA"
   },
   "40001633265": {
@@ -5337,6 +5538,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Sinésio",
    "uf": "AM"
   },
   "40001609189": {
@@ -5347,6 +5549,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wanderley Monteiro",
    "uf": "AM"
   },
   "210001647167": {
@@ -5357,6 +5560,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Frederico Antunes",
    "uf": "RS"
   },
   "50001606417": {
@@ -5367,6 +5571,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Robinson",
    "uf": "BA"
   },
   "50001606433": {
@@ -5377,6 +5582,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Olivia Santana",
    "uf": "BA"
   },
   "50001606428": {
@@ -5387,6 +5593,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Osni",
    "uf": "BA"
   },
   "50001647026": {
@@ -5397,6 +5604,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hassan De Zé Cocá",
    "uf": "BA"
   },
   "210001620220": {
@@ -5407,6 +5615,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neri O Carteiro",
    "uf": "RS"
   },
   "250001611490": {
@@ -5417,6 +5626,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maria Lucia Amary",
    "uf": "SP"
   },
   "250001619401": {
@@ -5427,6 +5637,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Guilherme Cortez",
    "uf": "SP"
   },
   "250001619311": {
@@ -5437,6 +5648,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marina Helou",
    "uf": "SP"
   },
   "120001613609": {
@@ -5447,6 +5659,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Caravina",
    "uf": "MS"
   },
   "250001610528": {
@@ -5457,6 +5670,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Clarice Ganem",
    "uf": "SP"
   },
   "250001610539": {
@@ -5467,6 +5681,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo França",
    "uf": "SP"
   },
   "230001602827": {
@@ -5477,7 +5692,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Meton",
    "uf": "RR"
+  },
+  "250001602151": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Bragança Paulista",
+    "uf": "SP",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Edmir Chedid",
+   "uf": "SP"
   },
   "250001612298": {
    "2026": {
@@ -5487,6 +5714,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Olim",
    "uf": "SP"
   },
   "250001639551": {
@@ -5497,6 +5725,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vitão Do Cachorrão",
    "uf": "SP"
   },
   "250001611798": {
@@ -5507,6 +5736,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Beth Sahão",
    "uf": "SP"
   },
   "250001611769": {
@@ -5517,6 +5747,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thainara Faria",
    "uf": "SP"
   },
   "60001603536": {
@@ -5527,6 +5758,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Queiroz Filho",
    "uf": "CE"
   },
   "250001610124": {
@@ -5537,6 +5769,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Bove",
    "uf": "SP"
   },
   "250001610167": {
@@ -5547,6 +5780,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Valeria Bolsonaro",
    "uf": "SP"
   },
   "250001610117": {
@@ -5557,6 +5791,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Agente Federal Danilo Balas",
    "uf": "SP"
   },
   "250001610018": {
@@ -5567,6 +5802,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Itamar Borges",
    "uf": "SP"
   },
   "260001669431": {
@@ -5577,6 +5813,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Garibalde",
    "uf": "SE"
   },
   "60001619179": {
@@ -5587,6 +5824,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zezinho Albuquerque",
    "uf": "CE"
   },
   "250001609973": {
@@ -5597,6 +5835,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Caruso",
    "uf": "SP"
   },
   "60001633642": {
@@ -5607,6 +5846,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Moises Braz",
    "uf": "CE"
   },
   "260001712262": {
@@ -5617,6 +5857,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Netinho Guimarães",
    "uf": "SE"
   },
   "60001633656": {
@@ -5627,6 +5868,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Larissa Gaspar",
    "uf": "CE"
   },
   "60001633653": {
@@ -5637,6 +5879,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jô Farias",
    "uf": "CE"
   },
   "170001608972": {
@@ -5647,6 +5890,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilmar Junior",
    "uf": "PE"
   },
   "170001608960": {
@@ -5657,6 +5901,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rosa Amorim",
    "uf": "PE"
   },
   "170001608984": {
@@ -5667,6 +5912,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Paulo",
    "uf": "PE"
   },
   "260001668327": {
@@ -5677,6 +5923,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Jr",
    "uf": "SE"
   },
   "260001644221": {
@@ -5687,6 +5934,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neto Batalha",
    "uf": "SE"
   },
   "150001621658": {
@@ -5697,6 +5945,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tanilson Soares",
    "uf": "PB"
   },
   "170001618395": {
@@ -5707,6 +5956,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dani Portela",
    "uf": "PE"
   },
   "150001621377": {
@@ -5717,6 +5967,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabio Ramalho",
    "uf": "PB"
   },
   "150001621355": {
@@ -5727,6 +5978,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Camila Toscano",
    "uf": "PB"
   },
   "150001718105": {
@@ -5737,6 +5989,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Anderson Monteiro",
    "uf": "PB"
   },
   "150001643182": {
@@ -5747,6 +6000,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cida Ramos",
    "uf": "PB"
   },
   "190001596761": {
@@ -5757,6 +6011,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Valdecy Da Saúde",
    "uf": "RJ"
   },
   "190001596754": {
@@ -5767,6 +6022,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Célia Jordão",
    "uf": "RJ"
   },
   "190001601358": {
@@ -5777,6 +6033,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Giovani Ratinho",
    "uf": "RJ"
   },
   "240001614390": {
@@ -5787,6 +6044,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Julio Garcia",
    "uf": "SC"
   },
   "90001611924": {
@@ -5797,6 +6055,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr George Morais",
    "uf": "GO"
   },
   "240001614384": {
@@ -5807,6 +6066,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Napoleão Bernardes",
    "uf": "SC"
   },
   "240001614375": {
@@ -5817,6 +6077,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mario Motta",
    "uf": "SC"
   },
   "90001649538": {
@@ -5827,6 +6088,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antônio Gomide",
    "uf": "GO"
   },
   "240001644398": {
@@ -5837,6 +6099,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rodrigo Minotto",
    "uf": "SC"
   },
   "240001610066": {
@@ -5847,6 +6110,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marquito Marcos José Abreu",
    "uf": "SC"
   },
   "240001679648": {
@@ -5857,6 +6121,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Padre Pedro",
    "uf": "SC"
   },
   "190001636600": {
@@ -5867,6 +6132,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Danniel Librelon",
    "uf": "RJ"
   },
   "90001651107": {
@@ -5877,6 +6143,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Andre Do Premium",
    "uf": "GO"
   },
   "190001620492": {
@@ -5887,6 +6154,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marina Do Mst",
    "uf": "RJ"
   },
   "240001612510": {
@@ -5897,6 +6165,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Vicente",
    "uf": "SC"
   },
   "80001604499": {
@@ -5907,6 +6176,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hudson Leal",
    "uf": "ES"
   },
   "190001620481": {
@@ -5917,6 +6187,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Elika Takimoto",
    "uf": "RJ"
   },
   "190001620519": {
@@ -5927,6 +6198,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dani Balbi",
    "uf": "RJ"
   },
   "190001620466": {
@@ -5937,6 +6209,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Verônica Lima",
    "uf": "RJ"
   },
   "80001649890": {
@@ -5947,6 +6220,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Raquel Lessa",
    "uf": "ES"
   },
   "80001648792": {
@@ -5957,6 +6231,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Capitão Assumção",
    "uf": "ES"
   },
   "240001610835": {
@@ -5967,6 +6242,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Camilo Martins",
    "uf": "SC"
   },
   "240001611127": {
@@ -5977,6 +6253,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Jorginho Mello",
    "uf": "SC"
   },
   "80001609613": {
@@ -5987,6 +6264,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelo Santos",
    "uf": "ES"
   },
   "30001605447": {
@@ -5997,6 +6275,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Junior Favacho",
    "uf": "AP"
   },
   "30001596679": {
@@ -6007,6 +6286,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rayfran Beirão",
    "uf": "AP"
   },
   "30001604007": {
@@ -6017,6 +6297,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jesus Pontes",
    "uf": "AP"
   },
   "30001595396": {
@@ -6027,6 +6308,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pastor Oliveira",
    "uf": "AP"
   },
   "190001613853": {
@@ -6037,6 +6319,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fred Pacheco Banda Dom",
    "uf": "RJ"
   },
   "30001636448": {
@@ -6047,6 +6330,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dayse Marques",
    "uf": "AP"
   },
   "40001619528": {
@@ -6057,6 +6341,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Wilson Lima",
    "uf": "AM"
   },
   "60001633585": {
@@ -6067,6 +6352,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Elmano De Freitas",
    "uf": "CE"
   },
   "40001619527": {
@@ -6077,6 +6363,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Tadeu De Souza",
    "uf": "AM"
   },
   "200001608811": {
@@ -6087,6 +6374,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Walter Alves",
    "uf": "RN"
   },
   "70001611506": {
@@ -6097,6 +6385,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Joao Cardoso Professor Auditor",
    "uf": "DF"
   },
   "70001615877": {
@@ -6107,6 +6396,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Roosevelt Vilela",
    "uf": "DF"
   },
   "70001650810": {
@@ -6117,6 +6407,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Iolando",
    "uf": "DF"
   },
   "70001654541": {
@@ -6127,6 +6418,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Robério Negreiros",
    "uf": "DF"
   },
   "190001609545": {
@@ -6137,6 +6429,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "André Correa",
    "uf": "RJ"
   },
   "190001639136": {
@@ -6147,6 +6440,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Minc",
    "uf": "RJ"
   },
   "150001613757": {
@@ -6157,6 +6451,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "João",
    "uf": "PB"
   },
   "130001605806": {
@@ -6167,7 +6462,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Grego",
    "uf": "MG"
+  },
+  "270001643584": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Tocantinópolis",
+    "uf": "TO",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Fabion Gomes",
+   "uf": "TO"
   },
   "270001643541": {
    "2026": {
@@ -6177,6 +6484,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jair Farias",
    "uf": "TO"
   },
   "270001651895": {
@@ -6187,6 +6495,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vilmar",
    "uf": "TO"
   },
   "130001634019": {
@@ -6197,6 +6506,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Henrique",
    "uf": "MG"
   },
   "210001609848": {
@@ -6207,6 +6517,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Gabriel Souza",
    "uf": "RS"
   },
   "130001615632": {
@@ -6217,6 +6528,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vitorio Junior",
    "uf": "MG"
   },
   "130001603710": {
@@ -6227,6 +6539,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Arlen Santiago",
    "uf": "MG"
   },
   "130001604376": {
@@ -6237,6 +6550,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Doutor Wilson Batista",
    "uf": "MG"
   },
   "130001604390": {
@@ -6247,6 +6561,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Duarte",
    "uf": "MG"
   },
   "130001604370": {
@@ -6257,6 +6572,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leandro Genaro",
    "uf": "MG"
   },
   "130001619045": {
@@ -6267,6 +6583,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bruno Engler",
    "uf": "MG"
   },
   "130001619055": {
@@ -6277,6 +6594,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Santana",
    "uf": "MG"
   },
   "130001673951": {
@@ -6287,7 +6605,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Lasmar",
    "uf": "MG"
+  },
+  "180001605769": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Picos",
+    "uf": "PI",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Dr Pablo Santos",
+   "uf": "PI"
   },
   "180001605763": {
    "2026": {
@@ -6297,6 +6627,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Georgiano",
    "uf": "PI"
   },
   "180001605687": {
@@ -6307,6 +6638,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Firmino Paulo",
    "uf": "PI"
   },
   "180001605673": {
@@ -6317,6 +6649,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hélio Isaias",
    "uf": "PI"
   },
   "160001623113": {
@@ -6327,6 +6660,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Traiano",
+   "uf": "PR"
+  },
+  "160001654935": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Assis Chateaubriand",
+    "uf": "PR",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Marcel Micheletto",
    "uf": "PR"
   },
   "160001615006": {
@@ -6337,6 +6682,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Requião Filho",
    "uf": "PR"
   },
   "160001615024": {
@@ -6347,6 +6693,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Júlia",
    "uf": "PR"
   },
   "160001622185": {
@@ -6357,6 +6704,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Samuel Dantas",
    "uf": "PR"
   },
   "160001612397": {
@@ -6367,6 +6715,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristina Silvestri",
+   "uf": "PR"
+  },
+  "160001612410": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Campo Mourão",
+    "uf": "PR",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Douglas Fabricio",
    "uf": "PR"
   },
   "160001716002": {
@@ -6377,6 +6737,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Tito Barichello",
    "uf": "PR"
   },
   "220001643229": {
@@ -6387,6 +6748,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cássio Gois",
    "uf": "RO"
   },
   "220001600704": {
@@ -6397,6 +6759,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cirone Deiró",
    "uf": "RO"
   },
   "220001605549": {
@@ -6407,6 +6770,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rosangela Donadon",
    "uf": "RO"
   },
   "220001713749": {
@@ -6417,6 +6781,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jean Mendonça",
+   "uf": "RO"
+  },
+  "220001713754": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Ji-Paraná",
+    "uf": "RO",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Affonso Candido",
    "uf": "RO"
   },
   "110001612939": {
@@ -6427,6 +6803,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eng. Sebastião Machado Rezende",
    "uf": "MT"
   },
   "110001623188": {
@@ -6437,6 +6814,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Juca Do Guaraná Filho",
    "uf": "MT"
   },
   "110001623190": {
@@ -6447,6 +6825,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thiago Silva",
    "uf": "MT"
   },
   "110001719779": {
@@ -6457,6 +6836,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lúdio Cabral",
    "uf": "MT"
   },
   "110001643414": {
@@ -6467,6 +6847,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wilson Santos",
    "uf": "MT"
   },
   "200001603625": {
@@ -6477,6 +6858,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hermano Morais",
    "uf": "RN"
   },
   "200001604694": {
@@ -6487,7 +6869,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Terezinha Maia",
    "uf": "RN"
+  },
+  "140001600261": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Marabá",
+    "uf": "PA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Toni Cunha",
+   "uf": "PA"
   },
   "140001650086": {
    "2026": {
@@ -6497,6 +6891,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Nilton Neves",
    "uf": "PA"
   },
   "140001676907": {
@@ -6507,6 +6902,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Andreia Xarão",
    "uf": "PA"
   },
   "140001676896": {
@@ -6517,6 +6913,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zeca Pirao",
    "uf": "PA"
   },
   "140001615505": {
@@ -6527,6 +6924,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cilene Couto",
    "uf": "PA"
   },
   "140001615526": {
@@ -6537,6 +6935,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thiago Araujo",
    "uf": "PA"
   },
   "140001651424": {
@@ -6547,6 +6946,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Oliveira",
    "uf": "PA"
   },
   "20001652535": {
@@ -6557,6 +6957,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Andre Silva",
    "uf": "AL"
   },
   "70001651045": {
@@ -6567,6 +6968,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Celina Leão",
    "uf": "DF"
   },
   "150001613756": {
@@ -6577,6 +6979,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Lucas Ribeiro",
    "uf": "PB"
   },
   "10001635531": {
@@ -6587,6 +6990,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tadeu Hassem",
    "uf": "AC"
   },
   "10001635539": {
@@ -6597,6 +7001,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gene Diniz",
    "uf": "AC"
   },
   "100001607118": {
@@ -6607,6 +7012,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eric Costa",
    "uf": "MA"
   },
   "50001607294": {
@@ -6617,6 +7023,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Angelo Coronel Filho",
    "uf": "BA"
   },
   "100001607060": {
@@ -6627,6 +7034,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Iracema Vale",
    "uf": "MA"
   },
   "40001618475": {
@@ -6637,6 +7045,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr George Lins",
    "uf": "AM"
   },
   "40001609186": {
@@ -6647,6 +7056,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mayra Dias",
    "uf": "AM"
   },
   "50001606436": {
@@ -6657,6 +7067,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marquinho Viana",
    "uf": "BA"
   },
   "40001650506": {
@@ -6667,6 +7078,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wilker Barreto",
    "uf": "AM"
   },
   "40001612909": {
@@ -6677,6 +7089,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristiano Dangelo",
    "uf": "AM"
   },
   "210001649774": {
@@ -6687,6 +7100,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Elizandro Sabino",
    "uf": "RS"
   },
   "50001603638": {
@@ -6697,6 +7111,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Jerônimo",
    "uf": "BA"
   },
   "250001611436": {
@@ -6707,6 +7122,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dalben",
    "uf": "SP"
   },
   "250001611444": {
@@ -6717,6 +7133,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bruna Furlan",
    "uf": "SP"
   },
   "120001615778": {
@@ -6727,6 +7144,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Rinaldo Modesto",
    "uf": "MS"
   },
   "120001652317": {
@@ -6737,6 +7155,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pedro Kemp",
    "uf": "MS"
   },
   "120001613590": {
@@ -6747,6 +7166,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Teixeira",
    "uf": "MS"
   },
   "120001613597": {
@@ -6757,6 +7177,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jamilson Name",
    "uf": "MS"
   },
   "250001610496": {
@@ -6767,6 +7188,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Eduardo Nóbrega",
    "uf": "SP"
   },
   "250001605001": {
@@ -6777,6 +7199,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marta Costa",
    "uf": "SP"
   },
   "230001602221": {
@@ -6787,6 +7210,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcinho Belota",
    "uf": "RR"
   },
   "230001600128": {
@@ -6797,6 +7221,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rárison Barbosa",
    "uf": "RR"
   },
   "230001642286": {
@@ -6807,6 +7232,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelo Cabral",
    "uf": "RR"
   },
   "250001643810": {
@@ -6817,6 +7243,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Elton",
    "uf": "SP"
   },
   "250001612280": {
@@ -6827,6 +7254,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Letícia Aguiar",
    "uf": "SP"
   },
   "250001639557": {
@@ -6837,6 +7265,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tomé Abduch",
    "uf": "SP"
   },
   "250001639572": {
@@ -6847,6 +7276,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rui Alves",
    "uf": "SP"
   },
   "250001611797": {
@@ -6857,6 +7287,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Suplicy",
    "uf": "SP"
   },
   "250001611773": {
@@ -6867,6 +7298,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Jorge Do Carmo",
    "uf": "SP"
   },
   "60001603545": {
@@ -6877,6 +7309,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Sobreira",
    "uf": "CE"
   },
   "60001646075": {
@@ -6887,6 +7320,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucinildo Frota",
    "uf": "CE"
   },
   "250001610113": {
@@ -6897,6 +7331,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dani Alonso",
    "uf": "SP"
   },
   "60001723725": {
@@ -6907,6 +7342,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luana Ribeiro",
    "uf": "CE"
   },
   "60001619175": {
@@ -6917,6 +7353,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leonardo Pinheiro",
    "uf": "CE"
   },
   "170001604087": {
@@ -6927,6 +7364,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Raquel Lyra",
    "uf": "PE"
   },
   "60001633648": {
@@ -6937,6 +7375,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Missias Do Mst",
    "uf": "CE"
   },
   "260001636403": {
@@ -6947,6 +7386,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adailton Martins",
    "uf": "SE"
   },
   "260001636408": {
@@ -6957,6 +7397,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jorginho Araujo",
    "uf": "SE"
   },
   "260001712249": {
@@ -6967,6 +7408,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pato Maravilha",
    "uf": "SE"
   },
   "260001644231": {
@@ -6977,6 +7419,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Pimentel",
    "uf": "SE"
   },
   "170001620402": {
@@ -6987,6 +7430,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jarbas Filho",
    "uf": "PE"
   },
   "170001620380": {
@@ -6997,6 +7441,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sileno",
    "uf": "PE"
   },
   "170001618752": {
@@ -7007,6 +7452,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pastor Junior Tercio",
    "uf": "PE"
   },
   "170001618728": {
@@ -7017,6 +7463,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pastor Cleiton Collins",
    "uf": "PE"
   },
   "170001618730": {
@@ -7027,6 +7474,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jeferson Timóteo",
    "uf": "PE"
   },
   "170001618738": {
@@ -7037,6 +7485,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Moraes",
    "uf": "PE"
   },
   "170001610732": {
@@ -7047,6 +7496,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Gouveia",
    "uf": "PE"
   },
   "170001595443": {
@@ -7057,6 +7507,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mario Ricardo",
    "uf": "PE"
   },
   "170001595431": {
@@ -7067,6 +7518,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "William Brigido",
    "uf": "PE"
   },
   "150001603138": {
@@ -7077,7 +7529,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilbertinho",
    "uf": "PB"
+  },
+  "190001639049": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "São João De Meriti",
+    "uf": "RJ",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Leo Vieira",
+   "uf": "RJ"
   },
   "170001609284": {
    "2026": {
@@ -7087,6 +7551,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Socorro Pimentel",
    "uf": "PE"
   },
   "150001621578": {
@@ -7097,6 +7562,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chió",
    "uf": "PB"
   },
   "260001612779": {
@@ -7107,6 +7573,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Fábio",
    "uf": "SE"
   },
   "90001647409": {
@@ -7117,6 +7584,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. José Machado",
    "uf": "GO"
   },
   "190001596745": {
@@ -7127,6 +7595,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Índia Armelau",
    "uf": "RJ"
   },
   "190001596741": {
@@ -7137,6 +7606,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Douglas Ruas",
    "uf": "RJ"
   },
   "190001600457": {
@@ -7147,6 +7617,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Flavio Serafini",
    "uf": "RJ"
   },
   "190001600427": {
@@ -7157,6 +7628,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Yuri",
    "uf": "RJ"
   },
   "10001612476": {
@@ -7167,6 +7639,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Gladson Cameli",
    "uf": "AC"
   },
   "240001597559": {
@@ -7177,6 +7650,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Matheus Cadorin",
    "uf": "SC"
   },
   "190001638495": {
@@ -7187,6 +7661,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Macedo",
    "uf": "RJ"
   },
   "90001605405": {
@@ -7197,6 +7672,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Karlos Cabral",
    "uf": "GO"
   },
   "190001636612": {
@@ -7207,6 +7683,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tia Ju",
    "uf": "RJ"
   },
   "240001644767": {
@@ -7217,6 +7694,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Altair Silva",
    "uf": "SC"
   },
   "90001653165": {
@@ -7227,6 +7705,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Do Vale",
    "uf": "GO"
   },
   "90001653191": {
@@ -7237,6 +7716,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Amilton Filho",
    "uf": "GO"
   },
   "90001648400": {
@@ -7247,6 +7727,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bruno Peixoto",
    "uf": "GO"
   },
   "240001610824": {
@@ -7257,6 +7738,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulinha",
    "uf": "SC"
   },
   "30001606520": {
@@ -7267,6 +7749,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hildegard",
    "uf": "AP"
   },
   "80001621165": {
@@ -7277,6 +7760,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Janete De Sá",
    "uf": "ES"
   },
   "70001650204": {
@@ -7287,6 +7771,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Pepa",
    "uf": "DF"
   },
   "270001654146": {
@@ -7297,6 +7782,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leo Barbosa",
    "uf": "TO"
   },
   "270001643572": {
@@ -7307,6 +7793,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcus Marcelo",
    "uf": "TO"
   },
   "270001643578": {
@@ -7317,6 +7804,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gipão",
    "uf": "TO"
   },
   "130001607392": {
@@ -7327,6 +7815,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Beatriz Cerqueira",
    "uf": "MG"
   },
   "130001607388": {
@@ -7337,6 +7826,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Betão",
    "uf": "MG"
   },
   "130001607390": {
@@ -7347,6 +7837,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ulysses Gomes",
    "uf": "MG"
   },
   "130001607416": {
@@ -7357,6 +7848,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mário Henrique Caixa",
    "uf": "MG"
   },
   "270001643143": {
@@ -7367,6 +7859,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Do Dertins",
    "uf": "TO"
   },
   "130001603688": {
@@ -7377,6 +7870,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bim Da Ambulância",
    "uf": "MG"
   },
   "130001604368": {
@@ -7387,6 +7881,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gil Pereira",
    "uf": "MG"
   },
   "130001604380": {
@@ -7397,6 +7892,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rafael Martins",
    "uf": "MG"
   },
   "180001604038": {
@@ -7407,6 +7903,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Neiva",
    "uf": "PI"
   },
   "180001605752": {
@@ -7417,6 +7914,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Henrique Pires",
    "uf": "PI"
   },
   "180001605766": {
@@ -7427,6 +7925,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Hélio",
    "uf": "PI"
   },
   "180001605668": {
@@ -7437,6 +7936,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rubens Vieira",
    "uf": "PI"
   },
   "180001605682": {
@@ -7447,6 +7947,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabio Xavier",
    "uf": "PI"
   },
   "180001605683": {
@@ -7457,6 +7958,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Vinicius",
    "uf": "PI"
   },
   "160001623109": {
@@ -7467,6 +7969,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Secretária Márcia",
    "uf": "PR"
   },
   "160001623097": {
@@ -7477,6 +7980,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gugu Bueno",
    "uf": "PR"
   },
   "160001615032": {
@@ -7487,6 +7991,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Lemos",
    "uf": "PR"
   },
   "160001614823": {
@@ -7497,6 +8002,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Anibelli Neto",
    "uf": "PR"
   },
   "160001623073": {
@@ -7507,6 +8013,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Goura",
    "uf": "PR"
   },
   "160001603347": {
@@ -7517,6 +8024,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Matheus Vermelho",
    "uf": "PR"
   },
   "160001716007": {
@@ -7527,6 +8035,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ney Leprevost",
    "uf": "PR"
   },
   "160001716038": {
@@ -7537,6 +8046,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mauro Moraes",
    "uf": "PR"
   },
   "220001635546": {
@@ -7547,6 +8057,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Rodrigo Camargo",
    "uf": "RO"
   },
   "220001635562": {
@@ -7557,6 +8068,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alex Redano",
    "uf": "RO"
   },
   "220001609500": {
@@ -7567,6 +8079,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jean Oliveira",
    "uf": "RO"
   },
   "220001605538": {
@@ -7577,6 +8090,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gislaine Lebrinha",
    "uf": "RO"
   },
   "220001605539": {
@@ -7587,6 +8101,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ieda Chaves",
    "uf": "RO"
   },
   "220001614419": {
@@ -7597,6 +8112,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Edevaldo Neves",
    "uf": "RO"
   },
   "110001655607": {
@@ -7607,6 +8123,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Faissal",
    "uf": "MT"
   },
   "110001655604": {
@@ -7617,6 +8134,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Avalone",
    "uf": "MT"
   },
   "110001604908": {
@@ -7627,6 +8145,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Eugênio",
    "uf": "MT"
   },
   "200001652910": {
@@ -7637,6 +8156,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ivanilson Oliveira",
    "uf": "RN"
   },
   "200001605990": {
@@ -7647,6 +8167,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ubaldo Fernandes",
    "uf": "RN"
   },
   "140001676604": {
@@ -7657,6 +8178,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bordalo",
    "uf": "PA"
   },
   "140001676609": {
@@ -7667,6 +8189,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Elias Santiago",
    "uf": "PA"
   },
   "140001676889": {
@@ -7677,6 +8200,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Vinicios",
    "uf": "PA"
   },
   "140001676901": {
@@ -7687,6 +8211,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Iran Lima",
    "uf": "PA"
   },
   "140001676909": {
@@ -7697,6 +8222,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Diana Belo",
    "uf": "PA"
   },
   "140001676913": {
@@ -7707,6 +8233,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chicão",
    "uf": "PA"
   },
   "140001676893": {
@@ -7717,6 +8244,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Martinho Carmona",
    "uf": "PA"
   },
   "140001676888": {
@@ -7727,6 +8255,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chamonzinho",
    "uf": "PA"
   },
   "140001615530": {
@@ -7737,6 +8266,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Cunha",
    "uf": "PA"
   },
   "20001653508": {
@@ -7747,6 +8277,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelo Victor",
    "uf": "AL"
   },
   "20001653527": {
@@ -7757,6 +8288,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dudu Ronalsa",
    "uf": "AL"
   },
   "10001622763": {
@@ -7767,6 +8299,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pedro Longo",
    "uf": "AC"
   },
   "100001602653": {
@@ -7777,6 +8310,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Janaina Ramos",
    "uf": "MA"
   },
   "100001613728": {
@@ -7787,6 +8321,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Do Gás",
    "uf": "MA"
   },
   "10001601427": {
@@ -7797,6 +8332,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pablo Bregense",
    "uf": "AC"
   },
   "10001601430": {
@@ -7807,6 +8343,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Ribeiro",
    "uf": "AC"
   },
   "10001643315": {
@@ -7817,6 +8354,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adailton Cruz",
    "uf": "AC"
   },
   "10001723800": {
@@ -7827,6 +8365,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Gonzaga",
    "uf": "AC"
   },
   "100001603187": {
@@ -7837,7 +8376,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Aluizio Santos",
    "uf": "MA"
+  },
+  "50001607295": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Bom Jesus Da Lapa",
+    "uf": "BA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Eures Ribeiro",
+   "uf": "BA"
   },
   "100001599582": {
    "2026": {
@@ -7847,6 +8398,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Osmar Filho",
    "uf": "MA"
   },
   "100001607076": {
@@ -7857,6 +8409,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Yglésio",
    "uf": "MA"
   },
   "100001607069": {
@@ -7867,6 +8420,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ariston Gonçalo",
    "uf": "MA"
   },
   "210001597019": {
@@ -7877,6 +8431,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipe Camozzato",
    "uf": "RS"
   },
   "50001620926": {
@@ -7887,6 +8442,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Emerson Penalva",
    "uf": "BA"
   },
   "210001610623": {
@@ -7897,6 +8453,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Nunes",
    "uf": "RS"
   },
   "210001610627": {
@@ -7907,6 +8464,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leonel Radde",
    "uf": "RS"
   },
   "210001610601": {
@@ -7917,6 +8475,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bruna Rodrigues",
    "uf": "RS"
   },
   "210001610633": {
@@ -7927,6 +8486,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Miguel Rossetto",
    "uf": "RS"
   },
   "40001618467": {
@@ -7937,6 +8497,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adjuto Afonso",
    "uf": "AM"
   },
   "210001648963": {
@@ -7947,6 +8508,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudio Tatsch",
    "uf": "RS"
   },
   "50001619281": {
@@ -7957,6 +8519,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jose De Arimateia",
    "uf": "BA"
   },
   "210001601953": {
@@ -7967,6 +8530,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Classmann",
    "uf": "RS"
   },
   "210001601638": {
@@ -7977,6 +8541,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Zucco",
    "uf": "RS"
   },
   "40001618658": {
@@ -7987,6 +8552,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alessandra Campelo",
    "uf": "AM"
   },
   "210001647169": {
@@ -7997,6 +8563,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Guilherme Pasin",
    "uf": "RS"
   },
   "210001601642": {
@@ -8007,6 +8574,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Capitão Martim",
    "uf": "RS"
   },
   "210001647164": {
@@ -8017,6 +8585,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ernani Polo",
    "uf": "RS"
   },
   "50001606406": {
@@ -8027,6 +8596,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vitor Bonfim",
    "uf": "BA"
   },
   "40001633325": {
@@ -8037,6 +8607,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cabo Maciel",
    "uf": "AM"
   },
   "40001633336": {
@@ -8047,6 +8618,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Debora Menezes",
    "uf": "AM"
   },
   "210001620198": {
@@ -8057,6 +8629,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Bonatto",
    "uf": "RS"
   },
   "40001609324": {
@@ -8067,6 +8640,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Luiz",
    "uf": "AM"
   },
   "210001621287": {
@@ -8077,6 +8651,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sossella",
    "uf": "RS"
   },
   "30001619676": {
@@ -8087,7 +8662,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Clécio",
    "uf": "AP"
+  },
+  "250001611455": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Marília",
+    "uf": "SP",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Vinicius Camarinha",
+   "uf": "SP"
   },
   "120001609587": {
    "2026": {
@@ -8097,6 +8684,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Roberto Hashioka",
    "uf": "MS"
   },
   "250001611505": {
@@ -8107,6 +8695,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Carolina Serra",
    "uf": "SP"
   },
   "210001648001": {
@@ -8117,6 +8706,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Patricia Alba",
    "uf": "RS"
   },
   "210001647995": {
@@ -8127,6 +8717,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Silveira",
    "uf": "RS"
   },
   "120001652312": {
@@ -8137,6 +8728,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zeca Do Pt",
    "uf": "MS"
   },
   "210001647982": {
@@ -8147,6 +8739,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vilmar Zanchin",
    "uf": "RS"
   },
   "120001614724": {
@@ -8157,6 +8750,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Henrique",
    "uf": "MS"
   },
   "230001595290": {
@@ -8167,6 +8761,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Catarina Guerra",
    "uf": "RR"
   },
   "230001595304": {
@@ -8177,6 +8772,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jorge Everton",
    "uf": "RR"
   },
   "250001605044": {
@@ -8187,6 +8783,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Corrêa Jr",
    "uf": "SP"
   },
   "230001600060": {
@@ -8197,6 +8794,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gabriel Picanço",
    "uf": "RR"
   },
   "250001605013": {
@@ -8207,6 +8805,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Oseias De Madureira",
    "uf": "SP"
   },
   "230001605891": {
@@ -8217,6 +8816,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Odilon",
    "uf": "RR"
   },
   "250001602162": {
@@ -8227,6 +8827,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Solange Freitas",
    "uf": "SP"
   },
   "250001602101": {
@@ -8237,6 +8838,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rafael Saraiva",
    "uf": "SP"
   },
   "250001602177": {
@@ -8247,6 +8849,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Guto Zacarias",
    "uf": "SP"
   },
   "250001612252": {
@@ -8257,6 +8860,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Capitão Telhada",
    "uf": "SP"
   },
   "250001611768": {
@@ -8267,6 +8871,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Barba",
    "uf": "SP"
   },
   "250001611733": {
@@ -8277,7 +8882,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Fernando",
    "uf": "SP"
+  },
+  "60001603535": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Fortaleza",
+    "uf": "CE",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Evandro Leitão",
+   "uf": "CE"
   },
   "60001603528": {
    "2026": {
@@ -8287,6 +8904,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Romeu Aldigueri",
    "uf": "CE"
   },
   "60001613535": {
@@ -8297,6 +8915,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Lucílvio Girão",
    "uf": "CE"
   },
   "60001633816": {
@@ -8307,6 +8926,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marta Gonçalves",
    "uf": "CE"
   },
   "250001610181": {
@@ -8317,6 +8937,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Major Mecca",
    "uf": "SP"
   },
   "250001610126": {
@@ -8327,6 +8948,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Mansur",
    "uf": "SP"
   },
   "60001619178": {
@@ -8337,6 +8959,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Jaime",
    "uf": "CE"
   },
   "260001636409": {
@@ -8347,6 +8970,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maisa Mitidieri",
    "uf": "SE"
   },
   "260001712248": {
@@ -8357,6 +8981,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Oliveira",
    "uf": "SE"
   },
   "260001646927": {
@@ -8367,6 +8992,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luizao Dona Trampi",
    "uf": "SE"
   },
   "60001633655": {
@@ -8377,6 +9003,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fernando Santana",
    "uf": "CE"
   },
   "60001633659": {
@@ -8387,6 +9014,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Julinho",
    "uf": "CE"
   },
   "170001608973": {
@@ -8397,6 +9025,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joaquim Lira",
    "uf": "PE"
   },
   "170001605490": {
@@ -8407,6 +9036,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Izaias Regis",
    "uf": "PE"
   },
   "170001620394": {
@@ -8417,6 +9047,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eriberto Filho",
    "uf": "PE"
   },
   "170001620383": {
@@ -8427,6 +9058,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rodrigo Farias",
    "uf": "PE"
   },
   "170001620376": {
@@ -8437,6 +9069,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "France Hacker",
    "uf": "PE"
   },
   "170001619693": {
@@ -8447,6 +9080,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Abimael Santos",
    "uf": "PE"
   },
   "150001612058": {
@@ -8457,6 +9091,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Jane Panta",
    "uf": "PB"
   },
   "150001620790": {
@@ -8467,6 +9102,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipe Leitão",
    "uf": "PB"
   },
   "150001718095": {
@@ -8477,6 +9113,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Romualdo",
    "uf": "PB"
   },
   "190001619416": {
@@ -8487,6 +9124,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bruno Dauaire",
    "uf": "RJ"
   },
   "90001647430": {
@@ -8497,6 +9135,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Sebba",
    "uf": "GO"
   },
   "190001596756": {
@@ -8507,6 +9146,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delaroli",
    "uf": "RJ"
   },
   "190001596718": {
@@ -8517,6 +9157,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Miranda",
    "uf": "RJ"
   },
   "190001596743": {
@@ -8527,6 +9168,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alan Lopes",
+   "uf": "RJ"
+  },
+  "190001596716": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Cabo Frio",
+    "uf": "RJ",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Dr Serginho",
    "uf": "RJ"
   },
   "190001596733": {
@@ -8537,6 +9190,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Deodalto",
    "uf": "RJ"
   },
   "240001616203": {
@@ -8547,6 +9201,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jair Miotto",
    "uf": "SC"
   },
   "240001605913": {
@@ -8557,6 +9212,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mauro De Nadal",
    "uf": "SC"
   },
   "190001600421": {
@@ -8567,6 +9223,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renata Souza",
    "uf": "RJ"
   },
   "90001651106": {
@@ -8577,6 +9234,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Anderson Teodoro",
    "uf": "GO"
   },
   "80001604502": {
@@ -8587,6 +9245,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alcântaro",
    "uf": "ES"
   },
   "240001614337": {
@@ -8597,6 +9256,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Humberto",
    "uf": "SC"
   },
   "240001644772": {
@@ -8607,6 +9267,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pepê Collaço",
    "uf": "SC"
   },
   "90001653187": {
@@ -8617,6 +9278,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lineu Olimpio",
    "uf": "GO"
   },
   "240001610226": {
@@ -8627,6 +9289,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sergio Motta",
    "uf": "SC"
   },
   "90001648401": {
@@ -8637,6 +9300,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Virmondes Cruvinel",
    "uf": "GO"
   },
   "80001651652": {
@@ -8647,6 +9311,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pablo Muribeca",
    "uf": "ES"
   },
   "80001602777": {
@@ -8657,6 +9322,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vandinho Leite",
    "uf": "ES"
   },
   "30001604789": {
@@ -8667,6 +9333,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Victor Amoras",
    "uf": "AP"
   },
   "80001719711": {
@@ -8677,6 +9344,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Coser",
    "uf": "ES"
   },
   "30001615060": {
@@ -8687,6 +9355,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Edna Auzier",
+   "uf": "AP"
+  },
+  "30001604018": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Oiapoque",
+    "uf": "AP",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Inacio",
    "uf": "AP"
   },
   "30001648127": {
@@ -8697,6 +9377,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "R Nelson",
    "uf": "AP"
   },
   "30001636455": {
@@ -8707,6 +9388,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jack Jk",
    "uf": "AP"
   },
   "190001716378": {
@@ -8717,6 +9399,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Julio Rocha",
    "uf": "RJ"
   },
   "30001619655": {
@@ -8727,6 +9410,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zeneide Costa",
    "uf": "AP"
   },
   "70001616707": {
@@ -8737,6 +9421,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Martins Machado",
    "uf": "DF"
   },
   "70001636075": {
@@ -8747,6 +9432,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Dayse Amarilio",
    "uf": "DF"
   },
   "70001601757": {
@@ -8757,6 +9443,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Max Maciel",
    "uf": "DF"
   },
   "270001643585": {
@@ -8767,6 +9454,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professora Janad Valcari",
    "uf": "TO"
   },
   "130001607397": {
@@ -8777,6 +9465,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo Campos",
    "uf": "MG"
   },
   "270001620118": {
@@ -8787,6 +9476,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ivory De Lira",
    "uf": "TO"
   },
   "270001620107": {
@@ -8797,6 +9487,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudia Lelis",
    "uf": "TO"
   },
   "270001652199": {
@@ -8807,6 +9498,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Laurez Moreira",
    "uf": "TO"
   },
   "170001728608": {
@@ -8817,6 +9509,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Priscila Krause",
    "uf": "PE"
   },
   "130001613323": {
@@ -8827,6 +9520,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Raul Belém",
    "uf": "MG"
   },
   "130001615639": {
@@ -8837,6 +9531,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Guilherme",
    "uf": "MG"
   },
   "130001615623": {
@@ -8847,6 +9542,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nayara Rocha",
    "uf": "MG"
   },
   "130001596308": {
@@ -8857,6 +9553,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Doorgal Andrada",
    "uf": "MG"
   },
   "130001604379": {
@@ -8867,6 +9564,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cassio Soares",
    "uf": "MG"
   },
   "130001619030": {
@@ -8877,6 +9575,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Carlos Arantes",
    "uf": "MG"
   },
   "180001604051": {
@@ -8887,6 +9586,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marden Menezes",
    "uf": "PI"
   },
   "180001605765": {
@@ -8897,6 +9597,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Madison",
    "uf": "PI"
   },
   "160001623135": {
@@ -8907,6 +9608,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelo Rangel",
    "uf": "PR"
   },
   "160001716131": {
@@ -8917,6 +9619,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alexandre Amaro",
    "uf": "PR"
   },
   "160001654963": {
@@ -8927,6 +9630,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Jacovos",
    "uf": "PR"
   },
   "160001654944": {
@@ -8937,6 +9641,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilson De Souza",
    "uf": "PR"
   },
   "160001615035": {
@@ -8947,6 +9652,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciana Rafagnin",
    "uf": "PR"
   },
   "160001614782": {
@@ -8957,6 +9663,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marli Paulino",
    "uf": "PR"
   },
   "160001716016": {
@@ -8967,6 +9674,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thiago Bührer",
    "uf": "PR"
   },
   "220001596834": {
@@ -8977,6 +9685,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr.. Taíssa Sousa",
    "uf": "RO"
   },
   "110001719771": {
@@ -8987,6 +9696,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Valdir Barranco",
    "uf": "MT"
   },
   "200001606006": {
@@ -8997,6 +9707,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ezequiel Ferreira",
    "uf": "RN"
   },
   "200001606001": {
@@ -9007,6 +9718,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nelter Queiroz",
    "uf": "RN"
   },
   "200001605992": {
@@ -9017,6 +9729,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Keginaldo Jacome",
    "uf": "RN"
   },
   "200001605998": {
@@ -9027,6 +9740,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tomba Farias",
    "uf": "RN"
   },
   "200001603626": {
@@ -9037,6 +9751,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Isolda Dantas",
    "uf": "RN"
   },
   "140001651027": {
@@ -9047,6 +9762,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lívia Duarte",
    "uf": "PA"
   },
   "140001676608": {
@@ -9057,6 +9773,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dirceu Ten Caten",
    "uf": "PA"
   },
   "140001601526": {
@@ -9067,6 +9784,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fábio Freitas",
    "uf": "PA"
   },
   "140001601810": {
@@ -9077,6 +9795,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rogerio Barra",
+   "uf": "PA"
+  },
+  "140001651435": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Belém",
+    "uf": "PA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Igor Normando",
    "uf": "PA"
   },
   "20001653531": {
@@ -9087,6 +9817,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Breno Albuquerque",
    "uf": "AL"
   },
   "20001636052": {
@@ -9097,6 +9828,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rose Davino",
    "uf": "AL"
   },
   "30001619677": {
@@ -9107,6 +9839,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Teles Jr",
    "uf": "AP"
   },
   "10001622761": {
@@ -9117,6 +9850,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tchê",
    "uf": "AC"
   },
   "10001643427": {
@@ -9127,6 +9861,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maria Antônia",
    "uf": "AC"
   },
   "100001613745": {
@@ -9137,6 +9872,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Othelino Neto",
    "uf": "MA"
   },
   "10001642313": {
@@ -9147,6 +9883,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tanizio Sá",
    "uf": "AC"
   },
   "10001642327": {
@@ -9157,6 +9894,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Emerson Jarude",
    "uf": "AC"
   },
   "100001607113": {
@@ -9167,6 +9905,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mical Damasceno",
    "uf": "MA"
   },
   "100001607072": {
@@ -9177,6 +9916,29 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Daniella",
+   "uf": "MA"
+  },
+  "100001607074": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Timon",
+    "uf": "MA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Rafael Leitoa",
+   "uf": "MA"
+  },
+  "100001606627": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Bacabal",
+    "uf": "MA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Roberto Costa",
    "uf": "MA"
   },
   "100001606625": {
@@ -9187,6 +9949,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo Arruda",
    "uf": "MA"
   },
   "40001618459": {
@@ -9197,6 +9960,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joana Darc",
    "uf": "AM"
   },
   "50001619261": {
@@ -9207,6 +9971,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Samuel Junior",
    "uf": "BA"
   },
   "50001620017": {
@@ -9217,6 +9982,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pancadinha",
    "uf": "BA"
   },
   "50001648327": {
@@ -9227,6 +9993,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pedro Tavares",
    "uf": "BA"
   },
   "210001601942": {
@@ -9237,6 +10004,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dirceu Franciscon",
    "uf": "RS"
   },
   "50001648300": {
@@ -9247,6 +10015,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Junior Nascimento",
    "uf": "BA"
   },
   "40001618664": {
@@ -9257,6 +10026,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Gomes",
    "uf": "AM"
   },
   "50001606438": {
@@ -9267,6 +10037,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Euclides Fernandes",
    "uf": "BA"
   },
   "50001606389": {
@@ -9277,6 +10048,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ludmilla Fiscina",
    "uf": "BA"
   },
   "50001606408": {
@@ -9287,6 +10059,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabrício",
    "uf": "BA"
   },
   "50001606432": {
@@ -9297,6 +10070,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zó",
    "uf": "BA"
   },
   "50001606416": {
@@ -9307,6 +10081,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Junior Muniz",
    "uf": "BA"
   },
   "50001647027": {
@@ -9317,6 +10092,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antônio Henrique Jr.",
    "uf": "BA"
   },
   "210001621326": {
@@ -9327,6 +10103,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gerson Burmann",
    "uf": "RS"
   },
   "210001596147": {
@@ -9337,6 +10114,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Santini",
    "uf": "RS"
   },
   "210001596186": {
@@ -9347,6 +10125,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Claudio",
    "uf": "RS"
   },
   "210001647977": {
@@ -9357,6 +10136,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Edivilson Brum",
    "uf": "RS"
   },
   "120001643159": {
@@ -9367,6 +10147,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcio Fernandes",
    "uf": "MS"
   },
   "250001619379": {
@@ -9377,6 +10158,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Monica Do Movimento Pretas",
    "uf": "SP"
   },
   "120001615139": {
@@ -9387,6 +10169,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Vaz",
    "uf": "MS"
   },
   "120001645377": {
@@ -9397,6 +10180,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gerson Claro",
    "uf": "MS"
   },
   "230001600049": {
@@ -9407,6 +10191,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tayla Peres",
    "uf": "RR"
   },
   "230001600062": {
@@ -9417,6 +10202,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Jorge",
    "uf": "RR"
   },
   "250001602160": {
@@ -9427,6 +10213,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipe Franco",
    "uf": "SP"
   },
   "250001611732": {
@@ -9437,6 +10224,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Claudio Marcolino",
    "uf": "SP"
   },
   "250001611791": {
@@ -9447,6 +10235,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Donato",
    "uf": "SP"
   },
   "250001611805": {
@@ -9457,6 +10246,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rômulo Fernandes",
    "uf": "SP"
   },
   "60001603516": {
@@ -9467,6 +10257,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sergio Aguiar",
    "uf": "CE"
   },
   "60001613523": {
@@ -9477,6 +10268,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dep Fernando Hugo - Dr Hugo",
    "uf": "CE"
   },
   "250001610201": {
@@ -9487,6 +10279,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegada Graciela",
    "uf": "SP"
   },
   "250001610134": {
@@ -9497,6 +10290,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thiago Auricchio",
    "uf": "SP"
   },
   "250001610129": {
@@ -9507,6 +10301,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alex De Madureira",
    "uf": "SP"
   },
   "250001610141": {
@@ -9517,6 +10312,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Capitão Conte Lopes",
    "uf": "SP"
   },
   "90001646326": {
@@ -9527,6 +10323,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Ronaldo Caiado",
    "uf": "GO"
   },
   "150001621669": {
@@ -9537,6 +10334,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joao Gonçalves",
    "uf": "PB"
   },
   "150001621671": {
@@ -9547,6 +10345,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chico Mendes",
    "uf": "PB"
   },
   "150001619574": {
@@ -9557,6 +10356,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wilson Filho",
    "uf": "PB"
   },
   "150001619559": {
@@ -9567,6 +10367,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcio Roberto",
    "uf": "PB"
   },
   "150001619565": {
@@ -9577,6 +10378,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adriano Galdino",
    "uf": "PB"
   },
   "150001620808": {
@@ -9587,6 +10389,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Carneiro",
    "uf": "PB"
   },
   "190001612214": {
@@ -9597,6 +10400,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Munir Neto",
    "uf": "RJ"
   },
   "170001609285": {
@@ -9607,6 +10411,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Coelho",
    "uf": "PE"
   },
   "150001643210": {
@@ -9617,6 +10422,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Inácio Falcão",
    "uf": "PB"
   },
   "90001653000": {
@@ -9627,6 +10433,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Quirino",
    "uf": "GO"
   },
   "240001616196": {
@@ -9637,6 +10444,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Repórter Sérgio Guimarães",
    "uf": "SC"
   },
   "90001649546": {
@@ -9647,6 +10455,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bia De Lima",
    "uf": "GO"
   },
   "90001649533": {
@@ -9657,6 +10466,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mauro Rubem",
    "uf": "GO"
   },
   "90001695741": {
@@ -9667,6 +10477,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cairo Salim",
    "uf": "GO"
   },
   "240001679643": {
@@ -9677,6 +10488,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciane Carminatti",
    "uf": "SC"
   },
   "90001653595": {
@@ -9687,6 +10499,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristóvão",
    "uf": "GO"
   },
   "190001645656": {
@@ -9697,9 +10510,16 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rosenverg Reis",
    "uf": "RJ"
   },
   "240001614342": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Concórdia",
+    "uf": "SC",
+    "ano": 2024
+   },
    "2026": {
     "cargo": "Deputado Estadual",
     "uf": "SC",
@@ -9707,6 +10527,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Massocco",
    "uf": "SC"
   },
   "240001644756": {
@@ -9717,6 +10538,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Milton",
    "uf": "SC"
   },
   "90001648384": {
@@ -9727,6 +10549,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Amauri Ribeiro",
    "uf": "GO"
   },
   "240001610819": {
@@ -9737,6 +10560,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Neves",
    "uf": "SC"
   },
   "30001605443": {
@@ -9747,6 +10571,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Diogo Senior",
    "uf": "AP"
   },
   "190001609806": {
@@ -9757,6 +10582,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jorge Felippe Neto",
    "uf": "RJ"
   },
   "190001649568": {
@@ -9767,6 +10593,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Val Ceasa",
    "uf": "RJ"
   },
   "30001640013": {
@@ -9777,6 +10604,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Telma Nery",
    "uf": "AP"
   },
   "30001600726": {
@@ -9787,6 +10615,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jory Oeiras",
    "uf": "AP"
   },
   "230001604254": {
@@ -9797,6 +10626,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Edilson Damião",
    "uf": "RR"
   },
   "70001650805": {
@@ -9807,6 +10637,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Wellington Luiz ",
    "uf": "DF"
   },
   "70001654552": {
@@ -9817,6 +10648,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Jorge Vianna",
    "uf": "DF"
   },
   "190001609544": {
@@ -9827,6 +10659,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Tutuca",
    "uf": "RJ"
   },
   "70001596090": {
@@ -9837,6 +10670,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Gabriel Magno",
    "uf": "DF"
   },
   "190001609570": {
@@ -9847,6 +10681,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlinhos Bnh",
    "uf": "RJ"
   },
   "70001596094": {
@@ -9857,6 +10692,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Ricardo Vale",
    "uf": "DF"
   },
   "70001650210": {
@@ -9867,6 +10703,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Pastor Daniel De Castro",
    "uf": "DF"
   },
   "120001635628": {
@@ -9877,6 +10714,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Eduardo Riedel",
    "uf": "MS"
   },
   "130001607391": {
@@ -9887,6 +10725,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Andreia De Jesus",
    "uf": "MG"
   },
   "130001607376": {
@@ -9897,6 +10736,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leninha",
    "uf": "MG"
   },
   "130001607423": {
@@ -9907,6 +10747,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Jean Freire",
    "uf": "MG"
   },
   "130001607407": {
@@ -9917,6 +10758,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Betinho Pinto Coelho Alberto",
    "uf": "MG"
   },
   "130001607426": {
@@ -9927,6 +10769,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Macaé Evaristo",
    "uf": "MG"
   },
   "130001701691": {
@@ -9937,6 +10780,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Professor Mateus ",
    "uf": "MG"
   },
   "130001671880": {
@@ -9947,6 +10791,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Azevedo",
    "uf": "MG"
   },
   "130001613319": {
@@ -9957,6 +10802,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bosco",
    "uf": "MG"
   },
   "180001604028": {
@@ -9967,6 +10813,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Themistocles Filho",
    "uf": "PI"
   },
   "130001615635": {
@@ -9977,6 +10824,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adriano Alvarenga",
    "uf": "MG"
   },
   "130001607673": {
@@ -9987,6 +10835,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Arnaldo",
    "uf": "MG"
   },
   "130001619068": {
@@ -9997,6 +10846,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sargento Rodrigues",
    "uf": "MG"
   },
   "130001607547": {
@@ -10007,6 +10857,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Elismar Prado",
    "uf": "MG"
   },
   "180001604037": {
@@ -10017,6 +10868,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gracinha Mão Santa",
    "uf": "PI"
   },
   "180001605754": {
@@ -10027,6 +10879,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cel Carlos Augusto",
    "uf": "PI"
   },
   "180001605692": {
@@ -10037,6 +10890,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Janainna Marques",
    "uf": "PI"
   },
   "180001605670": {
@@ -10047,6 +10901,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Franzé Silva",
    "uf": "PI"
   },
   "160001623098": {
@@ -10057,6 +10912,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Evandro Araujo",
    "uf": "PR"
   },
   "160001716141": {
@@ -10067,6 +10923,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cantora Mara Lima",
    "uf": "PR"
   },
   "160001615010": {
@@ -10077,6 +10934,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Arilson Chiorato",
    "uf": "PR"
   },
   "160001603358": {
@@ -10087,6 +10945,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Gomes Da Tv",
    "uf": "PR"
   },
   "160001603349": {
@@ -10097,6 +10956,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Soldado Adriano José",
    "uf": "PR"
   },
   "220001614399": {
@@ -10107,6 +10967,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ismael Crispin",
    "uf": "RO"
   },
   "220001609401": {
@@ -10117,6 +10978,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Lucas Torres",
    "uf": "RO"
   },
   "220001643243": {
@@ -10127,6 +10989,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nim Barroso",
    "uf": "RO"
   },
   "220001643234": {
@@ -10137,6 +11000,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Laerte Gomes",
    "uf": "RO"
   },
   "220001600356": {
@@ -10147,6 +11011,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pedro Fernandes",
    "uf": "RO"
   },
   "220001713671": {
@@ -10157,6 +11022,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alan Queiroz",
    "uf": "RO"
   },
   "220001605542": {
@@ -10167,6 +11033,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ezequiel Neiva",
    "uf": "RO"
   },
   "110001620557": {
@@ -10177,6 +11044,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilberto Cattani",
    "uf": "MT"
   },
   "110001612944": {
@@ -10187,6 +11055,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dilmar Dal Bosco",
    "uf": "MT"
   },
   "110001635660": {
@@ -10197,6 +11066,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Valmir Moretto",
    "uf": "MT"
   },
   "110001604919": {
@@ -10207,6 +11077,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabinho",
    "uf": "MT"
   },
   "200001653268": {
@@ -10217,6 +11088,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adjuto Dias",
    "uf": "RN"
   },
   "200001604696": {
@@ -10227,6 +11099,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Azevedo",
    "uf": "RN"
   },
   "140001676886": {
@@ -10237,6 +11110,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Wanderlan",
    "uf": "PA"
   },
   "140001615508": {
@@ -10247,6 +11121,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Erick Monteiro",
    "uf": "PA"
   },
   "20001653517": {
@@ -10257,6 +11132,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alexandre Ayres",
    "uf": "AL"
   },
   "20001653528": {
@@ -10267,6 +11143,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Remi Calheiros",
    "uf": "AL"
   },
   "20001636046": {
@@ -10277,6 +11154,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Francisco Tenorio",
    "uf": "AL"
   },
   "20001612369": {
@@ -10287,6 +11165,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mesaque Padilha",
    "uf": "AL"
   },
   "20001652534": {
@@ -10297,6 +11176,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Albuquerque",
    "uf": "AL"
   },
   "140001651992": {
@@ -10307,6 +11187,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Hana",
    "uf": "PA"
   },
   "60001633586": {
@@ -10317,6 +11198,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Jade Romero",
    "uf": "CE"
   },
   "10001635777": {
@@ -10327,6 +11209,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Edvaldo Magalhães",
    "uf": "AC"
   },
   "100001620079": {
@@ -10337,6 +11220,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fernando Braide",
    "uf": "MA"
   },
   "10001649310": {
@@ -10347,6 +11231,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Afonso Fernandes",
    "uf": "AC"
   },
   "50001607296": {
@@ -10357,6 +11242,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Alencar",
    "uf": "BA"
   },
   "50001607307": {
@@ -10367,6 +11253,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ivana Bastos",
    "uf": "BA"
   },
   "50001607297": {
@@ -10377,6 +11264,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo Rodrigues",
    "uf": "BA"
   },
   "50001609456": {
@@ -10387,6 +11275,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leandro De Jesus",
    "uf": "BA"
   },
   "100001608121": {
@@ -10397,6 +11286,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Guilherme Paz",
    "uf": "MA"
   },
   "100001607064": {
@@ -10407,6 +11297,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Davi Brandão",
    "uf": "MA"
   },
   "50001614689": {
@@ -10417,6 +11308,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Matheus De Geraldo Júnior",
    "uf": "BA"
   },
   "50001614699": {
@@ -10427,6 +11319,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rogério Andrade",
+   "uf": "BA"
+  },
+  "50001613913": {
+   "2024": {
+    "cargo": "Vice-prefeito",
+    "municipio": "Feira De Santana",
+    "uf": "BA",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Pablo Roberto ",
    "uf": "BA"
   },
   "210001610589": {
@@ -10437,6 +11341,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sofia Cavedon",
+   "uf": "RS"
+  },
+  "210001610629": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Bagé",
+    "uf": "RS",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Mainardi",
    "uf": "RS"
   },
   "210001610599": {
@@ -10447,6 +11363,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Valdeci Oliveira",
    "uf": "RS"
   },
   "40001618455": {
@@ -10457,6 +11374,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mário César Filho",
    "uf": "AM"
   },
   "210001648959": {
@@ -10467,6 +11385,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adriana Lara",
    "uf": "RS"
   },
   "210001648938": {
@@ -10477,6 +11396,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paparico Bacchi",
    "uf": "RS"
   },
   "50001648297": {
@@ -10487,6 +11407,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sandro Régis",
    "uf": "BA"
   },
   "50001648313": {
@@ -10497,6 +11418,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Simões",
    "uf": "BA"
   },
   "210001647147": {
@@ -10507,6 +11429,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adolfo Brito",
    "uf": "RS"
   },
   "40001618661": {
@@ -10517,6 +11440,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Comandante Dan",
    "uf": "AM"
   },
   "210001601643": {
@@ -10527,6 +11451,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sergio Peres",
    "uf": "RS"
   },
   "210001601660": {
@@ -10537,6 +11462,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Victorino",
    "uf": "RS"
   },
   "50001606402": {
@@ -10547,6 +11473,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rosemberg",
    "uf": "BA"
   },
   "210001602904": {
@@ -10557,6 +11484,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Elton Weber",
    "uf": "RS"
   },
   "210001620221": {
@@ -10567,6 +11495,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pedro Pereira ",
    "uf": "RS"
   },
   "50001604617": {
@@ -10577,6 +11506,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Laerte Do Vando",
    "uf": "BA"
   },
   "250001611434": {
@@ -10587,6 +11517,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Barros Munhoz",
    "uf": "SP"
   },
   "250001611452": {
@@ -10597,6 +11528,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Analice Fernandes",
    "uf": "SP"
   },
   "120001598645": {
@@ -10607,6 +11539,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Duarte",
    "uf": "MS"
   },
   "120001613595": {
@@ -10617,6 +11550,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Corrêa",
    "uf": "MS"
   },
   "120001613592": {
@@ -10627,6 +11561,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mara Caseiro",
    "uf": "MS"
   },
   "120001650962": {
@@ -10637,6 +11572,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pedrossian Neto",
    "uf": "MS"
   },
   "230001600071": {
@@ -10647,6 +11583,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas Souza",
    "uf": "RR"
   },
   "250001643626": {
@@ -10657,6 +11594,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcio Nakashima",
    "uf": "SP"
   },
   "250001639568": {
@@ -10667,6 +11605,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilmaci Santos",
    "uf": "SP"
   },
   "250001611813": {
@@ -10677,6 +11616,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leci Brandão",
    "uf": "SP"
   },
   "250001611809": {
@@ -10687,6 +11627,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ana Perugini",
    "uf": "SP"
   },
   "250001639542": {
@@ -10697,6 +11638,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jorge Wilson Xerife Consumidor",
    "uf": "SP"
   },
   "250001611754": {
@@ -10707,6 +11649,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maurici",
    "uf": "SP"
   },
   "250001611759": {
@@ -10717,6 +11660,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Fiorilo",
    "uf": "SP"
   },
   "250001611775": {
@@ -10727,6 +11671,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcia Lia",
    "uf": "SP"
   },
   "250001620641": {
@@ -10737,6 +11682,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Caio França",
    "uf": "SP"
   },
   "60001603522": {
@@ -10747,6 +11693,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jeová Mota",
    "uf": "CE"
   },
   "60001603525": {
@@ -10757,6 +11704,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Guilherme Landim",
    "uf": "CE"
   },
   "250001620642": {
@@ -10767,6 +11715,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Prof. Camila Godoi",
    "uf": "SP"
   },
   "60001608940": {
@@ -10777,6 +11726,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Firmo Camurça",
    "uf": "CE"
   },
   "250001610138": {
@@ -10787,6 +11737,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo Madalena",
    "uf": "SP"
   },
   "260001600214": {
@@ -10797,6 +11748,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Georgeo Passos",
    "uf": "SE"
   },
   "260001636411": {
@@ -10807,6 +11759,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jeferson Andrade",
    "uf": "SE"
   },
   "170001608977": {
@@ -10817,6 +11770,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Doriel",
    "uf": "PE"
   },
   "260001646915": {
@@ -10827,6 +11781,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristiano Cavalcante",
    "uf": "SE"
   },
   "260001646916": {
@@ -10837,6 +11792,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Kaká Santos",
    "uf": "SE"
   },
   "170001620384": {
@@ -10847,6 +11803,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dannilo Godoy",
    "uf": "PE"
   },
   "260001636118": {
@@ -10857,6 +11814,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Linda Brasil",
    "uf": "SE"
   },
   "150001612051": {
@@ -10867,6 +11825,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Galego De Souza ",
    "uf": "PB"
   },
   "150001612056": {
@@ -10877,6 +11836,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Paulo",
    "uf": "PB"
   },
   "150001621672": {
@@ -10887,6 +11847,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Junior Araujo",
    "uf": "PB"
   },
   "150001619577": {
@@ -10897,6 +11858,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Michel Henrique",
    "uf": "PB"
   },
   "170001618735": {
@@ -10907,6 +11869,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adalto Santos",
    "uf": "PE"
   },
   "170001618756": {
@@ -10917,6 +11880,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudiano Filho",
    "uf": "PE"
   },
   "150001718221": {
@@ -10927,6 +11891,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sargento Neto",
    "uf": "PB"
   },
   "170001609868": {
@@ -10937,6 +11902,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joãozinho Tenório",
    "uf": "PE"
   },
   "150001718195": {
@@ -10947,7 +11913,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Caio Roberto",
    "uf": "PB"
+  },
+  "170001610753": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Cabo De Santo Agostinho",
+    "uf": "PE",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Lula Cabral",
+   "uf": "PE"
   },
   "170001610741": {
    "2026": {
@@ -10957,6 +11935,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Duque",
    "uf": "PE"
   },
   "190001612173": {
@@ -10967,6 +11946,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Paulo",
    "uf": "RJ"
   },
   "150001603122": {
@@ -10977,7 +11957,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "George Morais",
    "uf": "PB"
+  },
+  "170001609297": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Surubim",
+    "uf": "PE",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Chaparral",
+   "uf": "PE"
   },
   "170001609264": {
    "2026": {
@@ -10987,6 +11979,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Romero Sales Filho",
    "uf": "PE"
   },
   "190001596713": {
@@ -10997,6 +11990,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jair Bittencourt",
    "uf": "RJ"
   },
   "190001596721": {
@@ -11007,6 +12001,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Márcio Gualberto",
    "uf": "RJ"
   },
   "190001596738": {
@@ -11017,6 +12012,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Filippe Poubel",
    "uf": "RJ"
   },
   "90001645561": {
@@ -11027,6 +12023,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Henrique César",
    "uf": "GO"
   },
   "240001605911": {
@@ -11037,6 +12034,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tiago Zilli",
    "uf": "SC"
   },
   "90001643080": {
@@ -11047,6 +12045,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristiano Galindo",
    "uf": "GO"
   },
   "90001653821": {
@@ -11057,7 +12056,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paulo Cezar Martins",
    "uf": "GO"
+  },
+  "190001620476": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Paracambi",
+    "uf": "RJ",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Andrezinho Ceciliano",
+   "uf": "RJ"
   },
   "240001614350": {
    "2026": {
@@ -11067,6 +12078,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jessé Lopes",
    "uf": "SC"
   },
   "240001614356": {
@@ -11077,7 +12089,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ivan Naatz",
    "uf": "SC"
+  },
+  "80001649877": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Cachoeiro De Itapemirim",
+    "uf": "ES",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Ferraço",
+   "uf": "ES"
   },
   "90001653182": {
    "2026": {
@@ -11087,6 +12111,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Charles Bento",
    "uf": "GO"
   },
   "90001648385": {
@@ -11097,6 +12122,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lincoln Tejota",
    "uf": "GO"
   },
   "90001712181": {
@@ -11107,6 +12133,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alessandro Moreira",
    "uf": "GO"
   },
   "30001604014": {
@@ -11117,6 +12144,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Aldilene Souza",
    "uf": "AP"
   },
   "30001606514": {
@@ -11127,6 +12155,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alliny Serrão",
    "uf": "AP"
   },
   "70001615870": {
@@ -11137,6 +12166,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Joaquim Roriz Neto",
    "uf": "DF"
   },
   "10001612477": {
@@ -11147,6 +12177,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Mailza",
    "uf": "AC"
   },
   "70001650807": {
@@ -11157,6 +12188,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Hermeto",
    "uf": "DF"
   },
   "70001620311": {
@@ -11167,6 +12199,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Doutora Jane",
    "uf": "DF"
   },
   "70001596100": {
@@ -11177,6 +12210,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Chico Vigilante",
    "uf": "DF"
   },
   "190001639134": {
@@ -11187,6 +12221,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jari",
    "uf": "RJ"
   },
   "270001654140": {
@@ -11197,6 +12232,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Amelio Cayres",
    "uf": "TO"
   },
   "270001654141": {
@@ -11207,6 +12243,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jorge Frederico",
    "uf": "TO"
   },
   "270001676100": {
@@ -11217,6 +12254,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Moisemar Marinho",
    "uf": "TO"
   },
   "130001607378": {
@@ -11227,6 +12265,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leleco Pimentel",
    "uf": "MG"
   },
   "130001607427": {
@@ -11237,6 +12276,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marquinho Lemos",
    "uf": "MG"
   },
   "130001607361": {
@@ -11247,6 +12287,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cristiano Silveira",
    "uf": "MG"
   },
   "130001613144": {
@@ -11257,6 +12298,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neilando Pimenta",
    "uf": "MG"
   },
   "270001697331": {
@@ -11267,6 +12309,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Oliveira",
    "uf": "TO"
   },
   "260001612778": {
@@ -11277,6 +12320,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Zezinho",
    "uf": "SE"
   },
   "130001613290": {
@@ -11287,6 +12331,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leonídio Bouças",
    "uf": "MG"
   },
   "130001615642": {
@@ -11297,6 +12342,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chiara Biondini",
    "uf": "MG"
   },
   "130001596299": {
@@ -11307,6 +12353,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Paulo",
    "uf": "MG"
   },
   "130001607705": {
@@ -11317,6 +12364,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rodrigo Lopes",
    "uf": "MG"
   },
   "130001678188": {
@@ -11327,6 +12375,29 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João Magalhães",
+   "uf": "MG"
+  },
+  "130001603664": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Nova Serrana",
+    "uf": "MG",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Fábio Avelar",
+   "uf": "MG"
+  },
+  "130001604374": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Sete Lagoas",
+    "uf": "MG",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Douglas Melo",
    "uf": "MG"
   },
   "130001604353": {
@@ -11337,6 +12408,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tito Torres",
    "uf": "MG"
   },
   "130001604365": {
@@ -11347,6 +12419,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Christiano Xavier",
    "uf": "MG"
   },
   "130001613029": {
@@ -11357,6 +12430,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Professor Wendel Mesquita",
    "uf": "MG"
   },
   "130001615280": {
@@ -11367,6 +12441,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bella Gonçalves",
    "uf": "MG"
   },
   "180001604044": {
@@ -11377,6 +12452,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Thales",
    "uf": "PI"
   },
   "180001605756": {
@@ -11387,6 +12463,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Severo Eulálio",
    "uf": "PI"
   },
   "180001605680": {
@@ -11397,6 +12474,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Gil Carlos ",
    "uf": "PI"
   },
   "160001739397": {
@@ -11407,6 +12485,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adao Fernandes Litro",
    "uf": "PR"
   },
   "160001623105": {
@@ -11417,6 +12496,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tercilio Turini",
+   "uf": "PR"
+  },
+  "160001623115": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Londrina",
+    "uf": "PR",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Tiago Amaral",
    "uf": "PR"
   },
   "160001716110": {
@@ -11427,6 +12518,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcio Pacheco",
    "uf": "PR"
   },
   "160001614994": {
@@ -11437,6 +12529,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Antenor",
    "uf": "PR"
   },
   "220001596847": {
@@ -11447,6 +12540,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luizinho Goebel",
    "uf": "RO"
   },
   "110001612940": {
@@ -11457,6 +12551,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Júlio Campos",
    "uf": "MT"
   },
   "110001643417": {
@@ -11467,6 +12562,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nininho",
    "uf": "MT"
   },
   "200001605995": {
@@ -11477,6 +12573,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Galeno Torquato",
    "uf": "RN"
   },
   "200001603634": {
@@ -11487,6 +12584,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eudiane Macedo",
    "uf": "RN"
   },
   "200001603618": {
@@ -11497,6 +12595,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Francisco Do Pt",
    "uf": "RN"
   },
   "140001621053": {
@@ -11507,6 +12606,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Braz",
    "uf": "PA"
   },
   "140001621060": {
@@ -11517,6 +12617,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adriano Coelho",
    "uf": "PA"
   },
   "140001600258": {
@@ -11527,6 +12628,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wescley Tomaz",
    "uf": "PA"
   },
   "140001676899": {
@@ -11537,6 +12639,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ronie Silva",
    "uf": "PA"
   },
   "20001653512": {
@@ -11547,6 +12650,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo Nezinho",
    "uf": "AL"
   },
   "20001638575": {
@@ -11557,6 +12661,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Barbosa",
    "uf": "AL"
   },
   "20001620174": {
@@ -11567,6 +12672,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cabo Bebeto",
    "uf": "AL"
   },
   "20001612347": {
@@ -11577,6 +12683,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Silvio Camelo",
    "uf": "AL"
   },
   "20001612343": {
@@ -11587,6 +12694,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ronaldo Medeiros",
    "uf": "AL"
   },
   "10001622769": {
@@ -11597,6 +12705,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Michelle Melo",
    "uf": "AC"
   },
   "100001620072": {
@@ -11607,6 +12716,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Wellington Do Curso",
    "uf": "MA"
   },
   "100001613741": {
@@ -11617,6 +12727,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rodrigo Lago",
    "uf": "MA"
   },
   "10001642319": {
@@ -11627,6 +12738,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonia Sales",
    "uf": "AC"
   },
   "100001614806": {
@@ -11637,6 +12749,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Júnior Cascaria",
    "uf": "MA"
   },
   "100001603152": {
@@ -11647,6 +12760,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Abigail",
    "uf": "MA"
   },
   "100001603158": {
@@ -11657,6 +12771,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabiana Vilar",
    "uf": "MA"
   },
   "50001607301": {
@@ -11667,6 +12782,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudia Oliveira",
    "uf": "BA"
   },
   "50001607306": {
@@ -11677,6 +12793,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alex Da Piatã",
    "uf": "BA"
   },
   "50001609451": {
@@ -11687,6 +12804,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Diego Castro",
    "uf": "BA"
   },
   "100001607073": {
@@ -11697,6 +12815,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Lula",
    "uf": "MA"
   },
   "100001607077": {
@@ -11707,6 +12826,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Florêncio Neto",
    "uf": "MA"
   },
   "100001607063": {
@@ -11717,6 +12837,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antônio Pereira",
    "uf": "MA"
   },
   "50001613902": {
@@ -11727,6 +12848,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tiago Correia",
    "uf": "BA"
   },
   "50001613908": {
@@ -11737,6 +12859,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jordavio Ramos",
    "uf": "BA"
   },
   "210001598528": {
@@ -11747,6 +12870,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciana Genro",
    "uf": "RS"
   },
   "210001598529": {
@@ -11757,6 +12881,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Matheus Gomes",
    "uf": "RS"
   },
   "210001610620": {
@@ -11767,6 +12892,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jeferson Fernandes",
    "uf": "RS"
   },
   "50001600622": {
@@ -11777,6 +12903,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hilton Coelho",
    "uf": "BA"
   },
   "210001610593": {
@@ -11787,6 +12914,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Adão Pretto",
    "uf": "RS"
   },
   "40001618468": {
@@ -11797,6 +12925,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thiago Abrahim",
    "uf": "AM"
   },
   "210001648942": {
@@ -11807,6 +12936,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rodrigo Lorenzoni",
    "uf": "RS"
   },
   "40001633257": {
@@ -11817,6 +12947,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlinhos Bessa ",
    "uf": "AM"
   },
   "40001609183": {
@@ -11827,6 +12958,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Abdala Fraxe",
    "uf": "AM"
   },
   "50001648309": {
@@ -11837,6 +12969,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcelinho Veiga",
    "uf": "BA"
   },
   "50001648299": {
@@ -11847,6 +12980,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Katia Oliveira",
    "uf": "BA"
   },
   "210001647191": {
@@ -11857,6 +12991,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joel De Igrejinha",
    "uf": "RS"
   },
   "210001647184": {
@@ -11867,6 +13002,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcus Vinícius",
    "uf": "RS"
   },
   "50001648303": {
@@ -11877,6 +13013,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Manuel Rocha",
    "uf": "BA"
   },
   "210001601632": {
@@ -11887,6 +13024,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eliana Bayer",
    "uf": "RS"
   },
   "50001606439": {
@@ -11897,6 +13035,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Raimundo Fontes",
    "uf": "BA"
   },
   "50001647028": {
@@ -11907,6 +13046,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Salles",
    "uf": "BA"
   },
   "40001633341": {
@@ -11917,6 +13057,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Pericles",
    "uf": "AM"
   },
   "250001611446": {
@@ -11927,6 +13068,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carla Morando",
    "uf": "SP"
   },
   "250001611484": {
@@ -11937,6 +13079,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mauro Bragato",
    "uf": "SP"
   },
   "210001648003": {
@@ -11947,6 +13090,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Beto Fantinel",
    "uf": "RS"
   },
   "210001647993": {
@@ -11957,6 +13101,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Costella",
    "uf": "RS"
   },
   "120001613608": {
@@ -11967,6 +13112,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lia Nogueira",
    "uf": "MS"
   },
   "250001619320": {
@@ -11977,6 +13123,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carlos Giannazi",
+   "uf": "SP"
+  },
+  "250001610498": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Osasco",
+    "uf": "SP",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Gerson Pessoa",
    "uf": "SP"
   },
   "120001651197": {
@@ -11987,6 +13145,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lidio Lopes",
    "uf": "MS"
   },
   "120001645383": {
@@ -11997,6 +13156,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Londres Machado",
    "uf": "MS"
   },
   "230001604276": {
@@ -12007,6 +13167,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Armando Neto",
    "uf": "RR"
   },
   "230001595291": {
@@ -12017,6 +13178,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Claudio Cirurgião",
    "uf": "RR"
   },
   "230001600072": {
@@ -12027,6 +13189,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Silva",
    "uf": "RR"
   },
   "230001600061": {
@@ -12037,6 +13200,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Soldado Sampaio",
    "uf": "RR"
   },
   "230001602233": {
@@ -12047,6 +13211,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eder Lourinho",
    "uf": "RR"
   },
   "230001602201": {
@@ -12057,6 +13222,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Chagas",
    "uf": "RR"
   },
   "230001600145": {
@@ -12067,6 +13233,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neto Loureiro",
    "uf": "RR"
   },
   "230001604241": {
@@ -12077,6 +13244,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chico Mozart",
    "uf": "RR"
   },
   "230001604246": {
@@ -12087,6 +13255,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Aurelina Medeiros",
    "uf": "RR"
   },
   "140001651993": {
@@ -12097,6 +13266,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Helder",
    "uf": "PA"
   },
   "250001602142": {
@@ -12107,6 +13277,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Milton Leite Filho",
    "uf": "SP"
   },
   "250001611758": {
@@ -12117,6 +13288,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Reis",
    "uf": "SP"
   },
   "60001603543": {
@@ -12127,6 +13299,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lia Gomes",
    "uf": "CE"
   },
   "60001603547": {
@@ -12137,6 +13310,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antonio Henrique",
    "uf": "CE"
   },
   "60001603520": {
@@ -12147,6 +13321,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Osmar Baquit",
    "uf": "CE"
   },
   "250001620599": {
@@ -12157,9 +13332,16 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Valdomiro Lopes",
    "uf": "SP"
   },
   "60001613538": {
+   "2024": {
+    "cargo": "Vice-prefeito",
+    "municipio": "Fortaleza",
+    "uf": "CE",
+    "ano": 2024
+   },
    "2026": {
     "cargo": "Vice-governador",
     "uf": "CE",
@@ -12167,6 +13349,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gabriella Aguiar",
    "uf": "CE"
   },
   "60001633829": {
@@ -12177,6 +13360,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Pr.Alcides Fernandes",
    "uf": "CE"
   },
   "250001610161": {
@@ -12187,6 +13371,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "André Do Prado",
    "uf": "SP"
   },
   "250001610130": {
@@ -12197,7 +13382,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabiana B.",
    "uf": "SP"
+  },
+  "60001608929": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Sobral",
+    "uf": "CE",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Dr. Oscar Rodrigues",
+   "uf": "CE"
   },
   "60001608935": {
    "2026": {
@@ -12207,6 +13404,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sargento Reginauro",
    "uf": "CE"
   },
   "250001610140": {
@@ -12217,6 +13415,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rodrigo Moraes",
    "uf": "SP"
   },
   "250001610121": {
@@ -12227,6 +13426,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bruno Zambelli",
    "uf": "SP"
   },
   "260001618235": {
@@ -12237,6 +13437,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dra Lidiane Lucena",
    "uf": "SE"
   },
   "60001633671": {
@@ -12247,6 +13448,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "De Assis Diniz",
    "uf": "CE"
   },
   "170001605482": {
@@ -12257,6 +13459,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Debora Almeida",
    "uf": "PE"
   },
   "170001620393": {
@@ -12267,6 +13470,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Francismar",
    "uf": "PE"
   },
   "170001619691": {
@@ -12277,6 +13481,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nino De Enoque",
    "uf": "PE"
   },
   "150001621657": {
@@ -12287,6 +13492,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Hervazio Bezerra",
    "uf": "PB"
   },
   "150001621667": {
@@ -12297,6 +13503,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tiao Gomes ",
    "uf": "PB"
   },
   "170001610750": {
@@ -12307,6 +13514,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabrizio Ferraz",
    "uf": "PE"
   },
   "150001643197": {
@@ -12317,6 +13525,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Cartaxo",
    "uf": "PB"
   },
   "190001619456": {
@@ -12327,9 +13536,16 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Filipe Rr Soares",
    "uf": "RJ"
   },
   "190001619475": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Belford Roxo",
+    "uf": "RJ",
+    "ano": 2024
+   },
    "2026": {
     "cargo": "Deputado Estadual",
     "uf": "RJ",
@@ -12337,6 +13553,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Márcio Canella",
    "uf": "RJ"
   },
   "190001596750": {
@@ -12347,6 +13564,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Carlos Augusto",
    "uf": "RJ"
   },
   "190001596760": {
@@ -12357,6 +13575,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Thiago Gagliasso",
    "uf": "RJ"
   },
   "90001644185": {
@@ -12367,6 +13586,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Julio Pina",
    "uf": "GO"
   },
   "190001601374": {
@@ -12377,6 +13597,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Felipinho Ravis",
    "uf": "RJ"
   },
   "190001601367": {
@@ -12387,6 +13608,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Chico Machado",
    "uf": "RJ"
   },
   "190001600402": {
@@ -12397,6 +13619,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Prof Josemar",
    "uf": "RJ"
   },
   "90001653797": {
@@ -12407,7 +13630,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Major Araújo",
    "uf": "GO"
+  },
+  "240001614282": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Blumenau",
+    "uf": "SC",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Egidio Ferrari",
+   "uf": "SC"
   },
   "80001604484": {
    "2026": {
@@ -12417,6 +13652,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bispo Alves",
    "uf": "ES"
   },
   "240001614329": {
@@ -12427,6 +13663,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sargento Lima",
    "uf": "SC"
   },
   "80001609916": {
@@ -12437,6 +13674,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Bruno Resende",
    "uf": "ES"
   },
   "80001648787": {
@@ -12447,6 +13685,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Danilo Bahiense",
    "uf": "ES"
   },
   "30001607459": {
@@ -12457,6 +13696,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Liliane Abreu",
    "uf": "AP"
   },
   "80001719701": {
@@ -12467,6 +13707,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Iriny Lopes",
    "uf": "ES"
   },
   "80001611206": {
@@ -12477,6 +13718,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Camila Valadao",
    "uf": "ES"
   },
   "80001611183": {
@@ -12487,6 +13729,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabio Duarte",
    "uf": "ES"
   },
   "80001645477": {
@@ -12497,6 +13740,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alexandre Xambinho",
    "uf": "ES"
   },
   "30001619661": {
@@ -12507,6 +13751,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cel Flexa",
    "uf": "AP"
   },
   "30001643383": {
@@ -12517,6 +13762,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jaime Perez",
    "uf": "AP"
   },
   "190001654233": {
@@ -12527,6 +13773,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vitor Junior",
    "uf": "RJ"
   },
   "70001728079": {
@@ -12537,6 +13784,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Paula Belmonte",
    "uf": "DF"
   },
   "70001620312": {
@@ -12547,7 +13795,19 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Jaqueline Silva",
    "uf": "DF"
+  },
+  "190001613628": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Resende",
+    "uf": "RJ",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Tande Vieira",
+   "uf": "RJ"
   },
   "70001601758": {
    "2026": {
@@ -12557,6 +13817,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Fábio Felix",
    "uf": "DF"
   },
   "270001654151": {
@@ -12567,6 +13828,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nilton Franco",
    "uf": "TO"
   },
   "270001654147": {
@@ -12577,6 +13839,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Olyntho Neto",
    "uf": "TO"
   },
   "130001607394": {
@@ -12587,6 +13850,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luizinho",
    "uf": "MG"
   },
   "270001643532": {
@@ -12597,6 +13861,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vanda Monteiro",
    "uf": "TO"
   },
   "270001697343": {
@@ -12607,6 +13872,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Fortes",
    "uf": "TO"
   },
   "130001611596": {
@@ -12617,6 +13883,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Maria Clara Marra",
    "uf": "MG"
   },
   "130001671870": {
@@ -12627,6 +13894,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Noraldino Júnior",
    "uf": "MG"
   },
   "130001671877": {
@@ -12637,6 +13905,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marli Ribeiro",
    "uf": "MG"
   },
   "130001634063": {
@@ -12647,6 +13916,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mauro Tramonte",
    "uf": "MG"
   },
   "130001596287": {
@@ -12657,6 +13927,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Roberto Andrade",
    "uf": "MG"
   },
   "130001619043": {
@@ -12667,6 +13938,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Alê Portela",
    "uf": "MG"
   },
   "130001619031": {
@@ -12677,6 +13949,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Caporezzo",
    "uf": "MG"
   },
   "130001619041": {
@@ -12687,6 +13960,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegada Sheila",
    "uf": "MG"
   },
   "130001598556": {
@@ -12697,6 +13971,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Maurício",
    "uf": "MG"
   },
   "180001601308": {
@@ -12707,6 +13982,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Evaldo Gomes",
    "uf": "PI"
   },
   "180001605669": {
@@ -12717,6 +13993,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Flávio Júnior",
    "uf": "PI"
   },
   "180001605695": {
@@ -12727,6 +14004,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Nerinho",
    "uf": "PI"
   },
   "160001623103": {
@@ -12737,6 +14015,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Moacyr Fadel",
    "uf": "PR"
   },
   "160001621887": {
@@ -12747,6 +14026,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luis Corti",
    "uf": "PR"
   },
   "160001716000": {
@@ -12757,6 +14037,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Do Carmo",
    "uf": "PR"
   },
   "160001716035": {
@@ -12767,6 +14048,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Fernando Guerra",
    "uf": "PR"
   },
   "220001614428": {
@@ -12777,6 +14059,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ribeiro Do Sinpol",
    "uf": "RO"
   },
   "110001620549": {
@@ -12787,6 +14070,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Elizeu Nascimento",
    "uf": "MT"
   },
   "110001612930": {
@@ -12797,6 +14081,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Botelho",
    "uf": "MT"
   },
   "110001623186": {
@@ -12807,6 +14092,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Janaína Riva",
    "uf": "MT"
   },
   "110001604930": {
@@ -12817,6 +14103,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Beto Dois A Um",
    "uf": "MT"
   },
   "200001604192": {
@@ -12827,6 +14114,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Eduardo",
    "uf": "RN"
   },
   "140001677147": {
@@ -12837,6 +14125,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bob Fllay",
    "uf": "PA"
   },
   "140001650084": {
@@ -12847,6 +14136,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Sefer",
    "uf": "PA"
   },
   "20001653519": {
@@ -12857,6 +14147,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilvan Filho",
    "uf": "AL"
   },
   "20001653521": {
@@ -12867,6 +14158,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr Wanderley",
    "uf": "AL"
   },
   "20001653514": {
@@ -12877,6 +14169,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fátima Canuto",
    "uf": "AL"
   },
   "20001612366": {
@@ -12887,6 +14180,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lelo Maia",
    "uf": "AL"
   },
   "180001604027": {
@@ -12897,6 +14191,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Rafael Fonteles",
    "uf": "PI"
   },
   "100001607486": {
@@ -12907,6 +14202,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neto Evangelista",
    "uf": "MA"
   },
   "10001623533": {
@@ -12917,6 +14213,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gilberto Lira",
    "uf": "AC"
   },
   "10001623552": {
@@ -12927,6 +14224,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Whendy Lima",
    "uf": "AC"
   },
   "100001603167": {
@@ -12937,6 +14235,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Claudio Cunha",
    "uf": "MA"
   },
   "100001599580": {
@@ -12947,6 +14246,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dra Vivianne",
    "uf": "MA"
   },
   "210001696192": {
@@ -12957,6 +14257,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gaúcho Da Geral",
    "uf": "RS"
   },
   "40001618472": {
@@ -12967,6 +14268,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Roberto Cidade",
    "uf": "AM"
   },
   "40001609193": {
@@ -12977,6 +14279,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Daniel Almeida",
    "uf": "AM"
   },
   "50001620001": {
@@ -12987,6 +14290,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luciano Araujo",
    "uf": "BA"
   },
   "50001648336": {
@@ -12997,6 +14301,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Robinho",
    "uf": "BA"
   },
   "210001647177": {
@@ -13007,6 +14312,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Silvana Covatti",
    "uf": "RS"
   },
   "50001606413": {
@@ -13017,6 +14323,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Bobô",
    "uf": "BA"
   },
   "50001606388": {
@@ -13027,6 +14334,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Roberto Carlos",
    "uf": "BA"
   },
   "50001647048": {
@@ -13037,6 +14345,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Niltinho",
    "uf": "BA"
   },
   "210001620207": {
@@ -13047,6 +14356,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": " Delegada Nadine",
    "uf": "RS"
   },
   "40001600310": {
@@ -13057,6 +14367,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rozenha",
    "uf": "AM"
   },
   "210001621330": {
@@ -13067,6 +14378,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Luiz Marenco",
    "uf": "RS"
   },
   "210001621320": {
@@ -13077,6 +14389,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Loureiro",
    "uf": "RS"
   },
   "50001603011": {
@@ -13087,6 +14400,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Patrick Lopes",
    "uf": "BA"
   },
   "120001606656": {
@@ -13097,6 +14411,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lucas De Lima Do Amor Sem Fim",
    "uf": "MS"
   },
   "120001643171": {
@@ -13107,6 +14422,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Câmara",
    "uf": "MS"
   },
   "250001619328": {
@@ -13117,6 +14433,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Paula Da Bancada Feminista",
    "uf": "SP"
   },
   "250001597775": {
@@ -13127,6 +14444,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Leo Siqueira",
    "uf": "SP"
   },
   "230001605882": {
@@ -13137,6 +14455,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joilma Teodora",
    "uf": "RR"
   },
   "230001602824": {
@@ -13147,6 +14466,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Idazio Da Perfil",
    "uf": "RR"
   },
   "230001604240": {
@@ -13157,6 +14477,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Angela Águida Portella",
    "uf": "RR"
   },
   "250001639574": {
@@ -13167,6 +14488,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Edna Macedo",
    "uf": "SP"
   },
   "250001639573": {
@@ -13177,6 +14499,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sebastião Santos",
    "uf": "SP"
   },
   "250001639600": {
@@ -13187,6 +14510,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Altair Moraes",
    "uf": "SP"
   },
   "250001611799": {
@@ -13197,6 +14521,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Enio Tatto",
    "uf": "SP"
   },
   "250001606292": {
@@ -13207,6 +14532,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Atila Jacomussi",
    "uf": "SP"
   },
   "60001633791": {
@@ -13217,6 +14543,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carmelo Neto",
    "uf": "CE"
   },
   "60001633828": {
@@ -13227,6 +14554,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dra Silvana",
    "uf": "CE"
   },
   "60001635805": {
@@ -13237,6 +14565,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Danniel Oliveira",
    "uf": "CE"
   },
   "130001701690": {
@@ -13247,6 +14576,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Governador",
+   "nome": "Zema",
    "uf": "MG"
   },
   "60001635812": {
@@ -13257,6 +14587,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Davi De Raimundão",
    "uf": "CE"
   },
   "170001608974": {
@@ -13267,6 +14598,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "João De Nadegi",
    "uf": "PE"
   },
   "260001668315": {
@@ -13277,6 +14609,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ibrain De Valmir",
    "uf": "SE"
   },
   "170001620371": {
@@ -13287,6 +14620,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Aglailson Victor",
    "uf": "PE"
   },
   "60001608816": {
@@ -13297,6 +14631,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "David Durand",
    "uf": "CE"
   },
   "60001608819": {
@@ -13307,6 +14642,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Apóstolo Luiz Henrique",
    "uf": "CE"
   },
   "170001620397": {
@@ -13317,6 +14653,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegada Gleide Angelo",
    "uf": "PE"
   },
   "170001619707": {
@@ -13327,6 +14664,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Joel Da Harpa",
    "uf": "PE"
   },
   "150001619567": {
@@ -13337,6 +14675,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Danielle Do Vale",
    "uf": "PB"
   },
   "170001618737": {
@@ -13347,6 +14686,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Kaio Maniçoba",
    "uf": "PE"
   },
   "170001618759": {
@@ -13357,6 +14697,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Henrique Queiroz Filho",
    "uf": "PE"
   },
   "170001609265": {
@@ -13367,6 +14708,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Romero",
    "uf": "PE"
   },
   "190001619410": {
@@ -13377,6 +14719,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rafael Nobre",
    "uf": "RJ"
   },
   "90001652979": {
@@ -13387,6 +14730,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Clecio Alves",
    "uf": "GO"
   },
   "190001619413": {
@@ -13397,6 +14741,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Vinicius Cozzolino",
    "uf": "RJ"
   },
   "190001619464": {
@@ -13407,6 +14752,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabio Silva ",
    "uf": "RJ"
   },
   "190001596739": {
@@ -13417,6 +14763,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Giselle Monteiro",
    "uf": "RJ"
   },
   "90001644205": {
@@ -13427,6 +14774,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Adailton",
    "uf": "GO"
   },
   "240001616186": {
@@ -13437,6 +14785,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcos Da Rosa",
    "uf": "SC"
   },
   "240001605916": {
@@ -13447,6 +14796,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Antídio Lunelli",
    "uf": "SC"
   },
   "240001605919": {
@@ -13457,6 +14807,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fernando Krelling",
    "uf": "SC"
   },
   "190001600448": {
@@ -13467,6 +14818,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dani Monteiro",
    "uf": "RJ"
   },
   "90001653796": {
@@ -13477,6 +14829,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Delegado Eduardo Prado",
    "uf": "GO"
   },
   "190001620529": {
@@ -13487,6 +14840,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Machado",
    "uf": "RJ"
   },
   "80001604474": {
@@ -13497,6 +14851,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Sergio Meneguelli",
    "uf": "ES"
   },
   "240001614339": {
@@ -13507,6 +14862,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Marcius Machado",
    "uf": "SC"
   },
   "240001614346": {
@@ -13517,6 +14873,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Oscar Gutz",
+   "uf": "SC"
+  },
+  "240001614334": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Tubarão",
+    "uf": "SC",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Soratto",
    "uf": "SC"
   },
   "90001614663": {
@@ -13527,6 +14895,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gugu Nader",
    "uf": "GO"
   },
   "90001614649": {
@@ -13537,6 +14906,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Rosangela Rezende",
    "uf": "GO"
   },
   "90001653197": {
@@ -13547,6 +14917,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Issy Quinan",
    "uf": "GO"
   },
   "190001620474": {
@@ -13557,6 +14928,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Carla Machado",
    "uf": "RJ"
   },
   "190001606355": {
@@ -13567,6 +14939,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Arthur Monteiro",
    "uf": "RJ"
   },
   "80001648785": {
@@ -13577,6 +14950,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Preto",
    "uf": "ES"
   },
   "80001602765": {
@@ -13587,6 +14961,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabrício Gandini",
    "uf": "ES"
   },
   "30001604794": {
@@ -13597,6 +14972,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fabricio Furlan",
    "uf": "AP"
   },
   "30001615063": {
@@ -13607,6 +14983,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lorran Barreto",
    "uf": "AP"
   },
   "80001621151": {
@@ -13617,6 +14994,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dary Pagung",
    "uf": "ES"
   },
   "80001621155": {
@@ -13627,6 +15005,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Tyago Hoffmann",
    "uf": "ES"
   },
   "70001609144": {
@@ -13637,6 +15016,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Eduardo Pedrosa",
    "uf": "DF"
   },
   "80001720058": {
@@ -13647,6 +15027,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jose Esmeraldo",
    "uf": "ES"
   },
   "70001615885": {
@@ -13657,6 +15038,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Daniel Donizet",
    "uf": "DF"
   },
   "70001615869": {
@@ -13667,6 +15049,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Distrital",
+   "nome": "Thiago Manzoni",
    "uf": "DF"
   },
   "190001609523": {
@@ -13677,6 +15060,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dionisio Lins",
    "uf": "RJ"
   },
   "130001605840": {
@@ -13687,6 +15071,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Enes Candido",
    "uf": "MG"
   },
   "130001605805": {
@@ -13697,6 +15082,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Valadares",
    "uf": "MG"
   },
   "130001607400": {
@@ -13707,6 +15093,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Celinho Sintrocel",
    "uf": "MG"
   },
   "270001643135": {
@@ -13717,6 +15104,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Eduardo Mantoan",
    "uf": "TO"
   },
   "130001634030": {
@@ -13727,6 +15115,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Charles Santos",
    "uf": "MG"
   },
   "130001615613": {
@@ -13737,6 +15126,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Oscar Teixeira",
    "uf": "MG"
   },
   "130001634257": {
@@ -13747,6 +15137,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lud Falcao",
+   "uf": "MG"
+  },
+  "130001619065": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Governador Valadares",
+    "uf": "MG",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Sandro",
    "uf": "MG"
   },
   "130001598589": {
@@ -13757,9 +15159,16 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Zé Laviola",
    "uf": "MG"
   },
   "180001612884": {
+   "2024": {
+    "cargo": "Vice-prefeito",
+    "municipio": "Teresina",
+    "uf": "PI",
+    "ano": 2024
+   },
    "2026": {
     "cargo": "Vice-governador",
     "uf": "PI",
@@ -13767,6 +15176,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Jeová Alencar",
    "uf": "PI"
   },
   "180001605676": {
@@ -13777,6 +15187,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fábio Novo",
    "uf": "PI"
   },
   "180001605693": {
@@ -13787,6 +15198,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Limma",
    "uf": "PI"
   },
   "160001622216": {
@@ -13797,6 +15209,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Denian Couto",
    "uf": "PR"
   },
   "160001623099": {
@@ -13807,6 +15220,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cobra Repórter",
    "uf": "PR"
   },
   "160001654970": {
@@ -13817,6 +15231,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Ricardo Arruda",
    "uf": "PR"
   },
   "160001615007": {
@@ -13827,6 +15242,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Renato Freitas",
    "uf": "PR"
   },
   "160001612405": {
@@ -13837,6 +15253,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Mabel Canto",
    "uf": "PR"
   },
   "110001623194": {
@@ -13847,6 +15264,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Dr. João",
    "uf": "MT"
   },
   "110001604916": {
@@ -13857,6 +15275,18 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Max Russi",
+   "uf": "MT"
+  },
+  "110001635705": {
+   "2024": {
+    "cargo": "Prefeito",
+    "municipio": "Rondonópolis",
+    "uf": "MT",
+    "ano": 2024
+   },
+   "cargo2022": "Deputado Estadual",
+   "nome": "Claudio Ferreira",
    "uf": "MT"
   },
   "200001652912": {
@@ -13867,6 +15297,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Taveira Jr",
    "uf": "RN"
   },
   "200001606002": {
@@ -13877,6 +15308,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Gustavo Carvalho",
    "uf": "RN"
   },
   "200001605996": {
@@ -13887,6 +15319,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Kleber Rodrigues",
    "uf": "RN"
   },
   "200001604708": {
@@ -13897,6 +15330,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Neilton",
    "uf": "RN"
   },
   "140001601786": {
@@ -13907,6 +15341,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Aveilton Souza",
    "uf": "PA"
   },
   "140001601793": {
@@ -13917,6 +15352,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Coronel Neil",
    "uf": "PA"
   },
   "140001676890": {
@@ -13927,6 +15363,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Angelo Ferrari",
    "uf": "PA"
   },
   "140001611635": {
@@ -13937,6 +15374,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Lu Ogawa",
    "uf": "PA"
   },
   "20001653526": {
@@ -13947,6 +15385,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Inácio Loiola",
    "uf": "AL"
   },
   "20001653516": {
@@ -13957,6 +15396,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Cibele Moura",
    "uf": "AL"
   },
   "20001636064": {
@@ -13967,6 +15407,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Deputado Estadual",
+   "nome": "Fernando Pereira",
    "uf": "AL"
   },
   "100001667488": {
@@ -13977,6 +15418,7 @@
     "candidatura": "#Ne"
    },
    "cargo2022": "Vice-governador",
+   "nome": "Felipe Camarão",
    "uf": "MA"
   }
  }
