@@ -11,11 +11,12 @@ type Props = {
 
 // cores por Poder (claras o bastante para o fundo escuro e legíveis no claro)
 export const COR_RODA: Record<Poder | "povo", { base: string; fundo: string }> = {
-  Executivo: { base: "#8b8cf0", fundo: "#8b8cf01f" },
-  Legislativo: { base: "#f0644b", fundo: "#f0644b24" },
-  Judiciário: { base: "#e5b218", fundo: "#e5b2181f" },
-  "Funções Essenciais à Justiça": { base: "#3fbf9f", fundo: "#3fbf9f1f" },
-  povo: { base: "#f08a3c", fundo: "#f08a3c33" },
+  // cores da bandeira: azul (Executivo), verde (Legislativo), amarelo (Judiciário) e branco (povo)
+  Executivo: { base: "#5b8def", fundo: "#5b8def1f" },
+  Legislativo: { base: "#3fbf9f", fundo: "#3fbf9f1f" },
+  Judiciário: { base: "#f2c300", fundo: "#f2c3001c" },
+  "Funções Essenciais à Justiça": { base: "#a8a29e", fundo: "#a8a29e1f" },
+  povo: { base: "#f5f5f4", fundo: "#f5f5f41a" },
 };
 const FOCO = 180;   // o item clicado vai para a parte de baixo da roda
 
@@ -282,37 +283,6 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
               </text>
             </g>
           ))}
-          {(() => { rotulados.clear(); return null; })()}
-          {ligadas.rel.map((r, i) => {
-            const destino = { ...roda.porId.get(r.para)!, ...onde(r.para) };
-            // do povo, a seta sai da borda da estrela (que não gira) na direção do alvo
-            const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(onde(r.de).a, onde(r.de).r);
-            const leque = ligadas.rel.length > 40 || (!!expandido && r.verbo === "supervisiona");
-            const ate = ponto(destino.a, destino.r - (expandido?.pos.has(r.para) ? 4.2 : destino.t) - 2);
-            const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
-            const meio = { x: (de.x + ate.x) / 2 + (C - (de.x + ate.x) / 2) * 0.25, y: (de.y + ate.y) / 2 + (C - (de.y + ate.y) / 2) * 0.25 };
-            const m = { x: 0.25 * de.x + 0.5 * meio.x + 0.25 * ate.x, y: 0.25 * de.y + 0.5 * meio.y + 0.25 * ate.y };
-            const txt = verboCurto(r.verbo);
-            // uma etiqueta por ação (várias setas iguais saindo do mesmo nó mostram o rótulo uma vez só)
-            // quando muitas setas chegam ao nó em foco (ex.: 513 deputados elegem a Mesa), o rótulo aparece uma vez
-            const chaveRot = r.para === foco ? `>${r.para}|${txt}` : `${r.de}|${txt}`;
-            const mostra = !rotulados.has(chaveRot) && (rotulados.add(chaveRot), true);
-            return (
-              <g key={i} pointerEvents="none">
-                {leque
-                  // muitas ligações iguais: linhas finas tracejadas e retas, como um leque (sem setas empilhadas)
-                  ? <path d={`M${de.x},${de.y} L${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={0.7} strokeOpacity={0.45} strokeDasharray="2 3" />
-                  : <path d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" />}
-                {mostra && (
-                  // a etiqueta gira ao contrário da roda para ficar sempre de pé; aparece depois que a roda para
-                  <g key={`${giro}-${foco}`} transform={`rotate(${-giro} ${m.x} ${m.y})`} className={foco === selecionado ? "etiqueta-acao" : ""}>
-                    <rect x={m.x - txt.length * 2.9 - 6} y={m.y - 8} width={txt.length * 5.8 + 12} height={16} rx={4} fill="#1c1917" fillOpacity={0.9} stroke={cor} strokeOpacity={0.6} />
-                    <text x={m.x} y={m.y + 3.5} textAnchor="middle" fontSize="10" fontWeight="600" fill={cor}>{txt}</text>
-                  </g>
-                )}
-              </g>
-            );
-          })}
           {roda.itens.filter((i) => i.id !== "povo").map(forma)}
         </g>
 
@@ -324,6 +294,57 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
           <polygon points={estrela(R_POVO)} fill={COR_RODA.povo.fundo} stroke={COR_RODA.povo.base} strokeWidth={1.5} />
           <text x={C} y={C - 4} textAnchor="middle" fontSize="15" fontWeight="700" fill={COR_RODA.povo.base}>Povo</text>
           <text x={C} y={C + 15} textAnchor="middle" fontSize="15" fontWeight="700" fill={COR_RODA.povo.base}>brasileiro</text>
+        </g>
+        {/* ligações por cima do miolo, para as setas e os rótulos não sumirem no centro */}
+        <g style={{ transform: `rotate(${giro}deg)`, transformOrigin: "500px 500px", transition: "transform 900ms cubic-bezier(.22,.8,.2,1)" }} pointerEvents="none">
+          {(() => {
+            const caixas: { x: number; y: number; w: number; h: number }[] = [];
+            const rad = (giro * Math.PI) / 180;
+            const naTela = (q: { x: number; y: number }) => ({
+              x: C + (q.x - C) * Math.cos(rad) - (q.y - C) * Math.sin(rad),
+              y: C + (q.x - C) * Math.sin(rad) + (q.y - C) * Math.cos(rad),
+            });
+            const livre = (c: { x: number; y: number; w: number; h: number }) =>
+              caixas.every((o) => Math.abs(o.x - c.x) > (o.w + c.w) / 2 + 2 || Math.abs(o.y - c.y) > (o.h + c.h) / 2 + 1);
+            const linhas: React.ReactNode[] = [], rotulos: React.ReactNode[] = [];
+            ligadas.rel.forEach((r, i) => {
+              const destino = { ...roda.porId.get(r.para)!, ...onde(r.para) };
+              // do povo, a seta sai da borda da estrela na direção do alvo
+              const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(onde(r.de).a, onde(r.de).r);
+              const leque = ligadas.rel.length > 40 || (!!expandido && r.verbo === "supervisiona");
+              const ate = ponto(destino.a, destino.r - (expandido?.pos.has(r.para) ? 4.2 : destino.t) - 2);
+              const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
+              const meio = leque ? { x: (de.x + ate.x) / 2, y: (de.y + ate.y) / 2 }
+                : { x: (de.x + ate.x) / 2 + (C - (de.x + ate.x) / 2) * 0.25, y: (de.y + ate.y) / 2 + (C - (de.y + ate.y) / 2) * 0.25 };
+              const naCurva = (t: number) => ({ x: (1 - t) ** 2 * de.x + 2 * (1 - t) * t * meio.x + t * t * ate.x, y: (1 - t) ** 2 * de.y + 2 * (1 - t) * t * meio.y + t * t * ate.y });
+              linhas.push(leque
+                // muitas ligações iguais: linhas finas tracejadas e retas, como um leque
+                ? <path key={i} d={`M${de.x},${de.y} L${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={0.7} strokeOpacity={0.45} strokeDasharray="2 3" />
+                : <path key={i} d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" />);
+              const txt = verboCurto(r.verbo);
+              // um rótulo por ação: várias setas iguais (saindo do mesmo nó, ou chegando ao nó em foco) mostram o rótulo uma vez
+              const chaveRot = r.para === foco ? `>${r.para}|${txt}` : `${r.de}|${txt}`;
+              if (rotulados.has(chaveRot)) return;
+              rotulados.add(chaveRot);
+              const w = txt.length * 5.8 + 12, h = 16;
+              // procura um ponto da curva em que o rótulo não cubra outro rótulo
+              let m = naCurva(0.5);
+              for (const t of [0.5, 0.38, 0.62, 0.27, 0.73, 0.18, 0.82]) {
+                const q = naCurva(t), sq = naTela(q);
+                if (livre({ x: sq.x, y: sq.y, w, h })) { m = q; break; }
+              }
+              const sm = naTela(m);
+              caixas.push({ x: sm.x, y: sm.y, w, h });
+              rotulos.push(
+                // o rótulo gira ao contrário da roda para ficar de pé; aparece depois que a roda para
+                <g key={`r${i}-${giro}-${foco}`} transform={`rotate(${-giro} ${m.x} ${m.y})`} className={foco === selecionado ? "etiqueta-acao" : ""}>
+                  <rect x={m.x - w / 2} y={m.y - 8} width={w} height={h} rx={4} fill="#1c1917" fillOpacity={0.92} stroke={cor} strokeOpacity={0.6} />
+                  <text x={m.x} y={m.y + 3.5} textAnchor="middle" fontSize="10" fontWeight="600" fill={cor}>{txt}</text>
+                </g>);
+            });
+            rotulados.clear();
+            return <>{linhas}{rotulos}</>;
+          })()}
         </g>
       </svg>
 

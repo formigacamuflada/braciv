@@ -9,10 +9,10 @@ export const R_MIOLO = 150;
 export type Poder = "Legislativo" | "Executivo" | "Funções Essenciais à Justiça" | "Judiciário";
 export type Setor = { poder: Poder; a0: number; a1: number; rMax: number; rotulo: string };
 export const SETORES: Setor[] = [
-  { poder: "Legislativo", a0: -38, a1: 38, rMax: 466, rotulo: "LEGISLATIVO" },
-  { poder: "Executivo", a0: 38, a1: 248, rMax: 478, rotulo: "EXECUTIVO" },
-  { poder: "Funções Essenciais à Justiça", a0: 248, a1: 282, rMax: 400, rotulo: "FUNÇÕES ESSENCIAIS" },
-  { poder: "Judiciário", a0: 282, a1: 322, rMax: 430, rotulo: "JUDICIÁRIO" },
+  // "Funções Essenciais à Justiça" saiu da roda (poucos órgãos no SIORG); o espaço foi para o Legislativo
+  { poder: "Legislativo", a0: -55, a1: 55, rMax: 466, rotulo: "LEGISLATIVO" },
+  { poder: "Executivo", a0: 55, a1: 250, rMax: 478, rotulo: "EXECUTIVO" },
+  { poder: "Judiciário", a0: 250, a1: 305, rMax: 440, rotulo: "JUDICIÁRIO" },
 ];
 
 export type Forma = "circulo" | "quadrado" | "pentagono" | "ponto" | "casa";
@@ -162,7 +162,7 @@ export function montaRoda(g: Grafo): Roda {
   const lidCasa = (c: string) => lideres.filter((n) => n.casa === c);
   const det = (n: No) => { const o = n.ocupantes?.[0]; return o ? `${o.nome}${o.partido ? ` · ${o.partido}${o.uf ? `-${o.uf}` : ""}` : ""}` : undefined; };
   for (const [c, lado] of [["CD", -1], ["SF", 1]] as const) {
-    const l = lidCasa(c), passo = Math.min(1.5, 30 / Math.max(1, l.length));
+    const l = lidCasa(c), passo = Math.min(2.2, (lg.a1 - 9) / Math.max(1, l.length));
     l.forEach((n, k) => add(n, { a: lado * (4.5 + k * passo), r: 259, t: 2.6, forma: "circulo", poder: "Legislativo", tom: 0.95, ocupante: n.ocupantes?.[0]?.nome, detalhe: det(n) }));
   }
   lidCasa("CN").forEach((n, k, l) => add(n, { a: (k - (l.length - 1) / 2) * 2, r: 252, t: 2.6, forma: "circulo", poder: "Legislativo", tom: 1, ocupante: n.ocupantes?.[0]?.nome, detalhe: det(n) }));
@@ -170,7 +170,7 @@ export function montaRoda(g: Grafo): Roda {
   const comissoes = g.nos.filter((n) => n.comissao).sort((a, b) => (a.sigla ?? "").localeCompare(b.sigla ?? ""));
   for (const [casas, lado] of [[["CD"], -1], [["SF", "CN"], 1]] as const) {
     const l = comissoes.filter((n) => (casas as readonly string[]).includes(n.casa ?? ""));
-    const porLinha = Math.ceil(l.length / 2), passo = Math.min(2.2, 31 / Math.max(1, porLinha));
+    const porLinha = Math.ceil(l.length / 2), passo = Math.min(3.2, (lg.a1 - 7) / Math.max(1, porLinha));
     l.forEach((n, k) => add(n, { a: lado * (3.5 + (k % porLinha) * passo), r: 420 + Math.floor(k / porLinha) * 14, t: 4, forma: "quadrado", poder: "Legislativo", tom: 0.6,
       detalhe: n.nome ?? undefined }));
   }
@@ -178,12 +178,12 @@ export function montaRoda(g: Grafo): Roda {
   // Mesas de cada Casa: o Presidente junto da Casa, os demais membros em arco para o lado de fora
   for (const [pref, lado] of [["mesa:cd:", -1], ["mesa:sf:", 1]] as const) {
     const mesa = g.nos.filter((n) => n.id.startsWith(pref)).sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99));
-    mesa.forEach((n, k) => add(n, { a: lado * (k === 0 ? 7 : 9.5 + (k - 1) * 2.6), r: k === 0 ? 243 : 242, t: k === 0 ? 7 : 4, forma: "quadrado", poder: "Legislativo", tom: k === 0 ? 1 : 0.8,
+    mesa.forEach((n, k) => add(n, { a: lado * (k === 0 ? 7 : 10 + (k - 1) * 3.4), r: k === 0 ? 243 : 242, t: k === 0 ? 7 : 4, forma: "quadrado", poder: "Legislativo", tom: k === 0 ? 1 : 0.8,
       ocupante: n.ocupantes?.[0]?.nome, detalhe: n.ocupantes?.[0]?.partido ? `${n.ocupantes[0].partido}${n.ocupantes[0].uf ? `-${n.ocupantes[0].uf}` : ""}` : undefined }));
   }
 
   // ---- Judiciário ----
-  const jd = SETORES[3];
+  const jd = SETORES[2];
   const mj = (jd.a0 + jd.a1) / 2;
   add(porSigla("STF", "Judiciário"), { a: mj, r: 212, t: 15, forma: "pentagono", poder: "Judiciário", tom: 1 });
   const superiores = ["STJ", "TST", "TSE", "STM", "CNJ", "CJF", "CSJT"].map((s) => porSigla(s, "Judiciário")).filter(Boolean) as No[];
@@ -192,11 +192,6 @@ export function montaRoda(g: Grafo): Roda {
   const regionais = orgaos.filter((n) => n.poder === "Judiciário" && n.tipoSiorg === "orgao" && !usados.has(n.sigla ?? "") && n.sigla !== "PJ").sort((a, b) => (a.sigla ?? "").localeCompare(b.sigla ?? ""));
   emLinhas(regionais.length, jd.a0 + 3, jd.a1 - 3, 372, 11, 9).forEach((p, i) => add(regionais[i], { ...p, t: 3, forma: "ponto", poder: "Judiciário", tom: 0.4, detalhe: "tribunal / órgão da Justiça" }));
   faixas.push({ poder: "Judiciário", r: 245, a0: jd.a0 + 3, a1: jd.a1 - 3, rotulo: "STF" });
-
-  // ---- Funções essenciais à Justiça ----
-  const fj = SETORES[2];
-  const fejs = orgaos.filter((n) => n.poder === "Funções Essenciais à Justiça" && n.tipoSiorg === "orgao");
-  fejs.forEach((n, i) => add(n, { a: fj.a0 + ((fj.a1 - fj.a0) * (i + 0.5)) / fejs.length, r: 260 + (i % 2) * 40, t: 8, forma: "pentagono", poder: "Funções Essenciais à Justiça", tom: 0.7 }));
 
   // ---- Relações (o que cada um faz) ----
   const porId = new Map(itens.map((i) => [i.id, i]));

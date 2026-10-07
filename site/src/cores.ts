@@ -2,9 +2,9 @@ import type { No } from "./tipos";
 
 // Uma cor por Poder; tipos estruturais em tons neutros.
 export const COR_PODER: Record<string, string> = {
-  Executivo: "#166534",
-  Legislativo: "#1d4ed8",
-  Judiciário: "#b45309",
+  Executivo: "#2563eb",
+  Legislativo: "#0f9f6e",
+  Judiciário: "#ca8a04",
   "Funções Essenciais à Justiça": "#7c3aed",
 };
 
