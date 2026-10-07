@@ -1,0 +1,13 @@
+7/12 feeds responderam; 74 noticias guardadas
+HTTP 200       INPI https://www.gov.br/inpi/pt-br/assuntos/noticias/RSS
+HTTP 404       ANATEL https://www.gov.br/anatel/pt-br/assuntos/noticias/RSS
+HTTP 404       ANPD https://www.gov.br/anpd/pt-br/assuntos/noticias/RSS
+HTTP 404       ANTAQ https://www.gov.br/antaq/pt-br/assuntos/noticias/RSS
+HTTP 404       CNEN https://gov.br/cnen/pt-br/assuntos/noticias/RSS
+ok 1           AEPR https://www.gov.br/pt-br/assuntos/noticias/RSS
+ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/economia/feed.xml
+ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/justica/feed.xml
+ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/politica/feed.xml
+ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/ultimasnoticias/feed.xml
+ok 15          Agência Senado https://www12.senado.leg.br/noticias/rss
+ok 20          Agência Câmara https://www.camara.leg.br/noticias/rss/ultimas-noticias
