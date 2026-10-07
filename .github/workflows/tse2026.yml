@@ -1,0 +1,45 @@
+name: TSE (eleicao 2026)
+
+# Resultado da eleicao de 2026 (1o e 2o turno): eleitos e quem disputa o 2o turno, com foto.
+# Roda a cada 3 horas ate o fim de outubro e pode ser disparada na mao.
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"
+  workflow_dispatch:
+    inputs:
+      diagnostico:
+        description: "So inspecionar as fontes do TSE, sem extrair"
+        type: boolean
+        default: false
+
+concurrency:
+  group: grava-dados
+  cancel-in-progress: false
+
+jobs:
+  tse2026:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests pillow
+      - name: Diagnostico
+        if: ${{ inputs.diagnostico }}
+        run: python coletores/tse2026_diag.py
+      - name: Coletar
+        if: ${{ !inputs.diagnostico }}
+        run: python coletores/tse2026.py
+      - name: Guardar
+        if: always()
+        run: |
+          git config user.name "coletor"
+          git config user.email "coletor@users.noreply.github.com"
+          for f in dados/tse2026_diagnostico.txt dados/tse_eleicao_2026.json dados/tse2026_relatorio.txt dados/fotos/tse2026; do [ -e "$f" ] && git add "$f"; done
+          git diff --staged --quiet || git commit -m "dados: eleicao 2026 (TSE)"
+          git pull --rebase -q && git push
