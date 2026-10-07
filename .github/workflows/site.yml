@@ -44,6 +44,7 @@ jobs:
           npm ci
           mkdir -p public/dados
           cp -r ../dados/grafo/. public/dados/
+          mkdir -p public/fotos && cp -r ../dados/fotos/. public/fotos/ 2>/dev/null || true
           npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

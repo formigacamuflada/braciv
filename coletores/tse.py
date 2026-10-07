@@ -25,7 +25,7 @@ import requests
 CAND = "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
 FOTOS = "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/fotos/foto_cand2022_{uf}_div.zip"
 DADOS = pathlib.Path(__file__).resolve().parent.parent / "dados"
-CARGOS = {"GOVERNADOR", "VICE-GOVERNADOR", "DEPUTADO ESTADUAL", "DEPUTADO DISTRITAL"}
+CARGOS = {"PRESIDENTE", "VICE-PRESIDENTE", "GOVERNADOR", "VICE-GOVERNADOR", "DEPUTADO ESTADUAL", "DEPUTADO DISTRITAL"}
 ELEITO = re.compile(r"^ELEITO")
 UA = {"User-Agent": "Mozilla/5.0 (BRA.CIV coletor; github.com/formigacamuflada/braciv)"}
 REL = []
@@ -90,7 +90,7 @@ def main():
         for l in leitor:
             if l.get("DS_CARGO") in CARGOS and ELEITO.match(l.get("DS_SIT_TOT_TURNO") or ""):
                 eleitos.append({
-                    "sq": l["SQ_CANDIDATO"], "uf": l["SG_UF"], "cargo": l["DS_CARGO"].title().replace("-G", "-g"),
+                    "sq": l["SQ_CANDIDATO"], "uf": l["SG_UF"], "cargo": l["DS_CARGO"].title().replace("-G", "-g").replace("-P", "-p"),
                     "nome": (l.get("NM_URNA_CANDIDATO") or l.get("NM_CANDIDATO") or "").title(),
                     "nomeCompleto": (l.get("NM_CANDIDATO") or "").title(), "partido": l.get("SG_PARTIDO"),
                     "numero": l.get("NR_CANDIDATO"), "situacao": l.get("DS_SIT_TOT_TURNO"),
