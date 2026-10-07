@@ -361,7 +361,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
           <div className="flex items-baseline justify-between"><h2 className="font-semibold">Governadores{em2026 ? " eleitos em 2026" : ""}</h2><span className="text-xs text-stone-500">{em2026 ? `${todos.governadores.length} de 27 estados` : "27 estados"}</span></div>
           <div className="mt-3"><Espectro lista={todos.governadores} /></div>
           <div className="mt-3"><BarraPartidos lista={todos.governadores} /></div>
-          <ul className="mt-4 space-y-0.5">{[...todos.governadores].sort((a, b) => a.uf.localeCompare(b.uf)).map((g) => <Linha key={g.id} p={g} sub={g.sub && !em2026 ? `${g.uf} · assumiu com a renúncia do titular` : g.uf} aoAbrir={() => aoEscolherUf(g.uf)} />)}</ul>
+          <ul className="mt-4 space-y-0.5">{[...todos.governadores].sort((a, b) => a.uf.localeCompare(b.uf)).map((g) => <Linha key={g.id} p={g} sub={g.sub && !em2026 ? `${g.uf} · ${g.vaga ? "titular renunciou; quem governa não foi conferido" : "assumiu com a renúncia do titular"}` : g.uf} aoAbrir={() => aoEscolherUf(g.uf)} />)}</ul>
           {em2026 && estados2t > 0 && (
             <>
               <h3 className="mt-5 text-xs font-semibold uppercase tracking-wide text-stone-500">2º turno em 25 de outubro · {estados2t} estados</h3>
