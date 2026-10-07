@@ -1,0 +1,36 @@
+name: Fotos dos ministros
+
+# Foto oficial de cada Ministro(a) de Estado no "Quem e Quem" do proprio ministerio (gov.br).
+# Roda toda segunda-feira (troca de ministro) e na mao.
+
+on:
+  schedule:
+    - cron: "23 10 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: grava-dados
+  cancel-in-progress: false
+
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests pillow
+      - name: Buscar
+        run: python coletores/ministros_fotos.py
+      - name: Guardar
+        if: always()
+        run: |
+          git config user.name "coletor"
+          git config user.email "coletor@users.noreply.github.com"
+          for f in dados/ministros_fotos.json dados/ministros_fotos_relatorio.txt dados/fotos/ministros; do [ -e "$f" ] && git add "$f"; done
+          git diff --staged --quiet || git commit -m "dados: fotos dos ministros"
+          git pull --rebase -q && git push
