@@ -35,12 +35,3 @@ export type PorUf = { ufs: Record<string, DadosUf>; nacional: { cargo: string; n
 export type Feicao = { type: "Feature"; properties: { sigla: string; nome: string; regiao: string }; geometry: { type: "Polygon" | "MultiPolygon"; coordinates: any } };
 export const carregaPorUf = () => busca<PorUf>("por_uf.json");
 export const carregaUfs = () => busca<{ features: Feicao[] }>("ufs.geojson");
-
-export type VagaOrgao = {
-  codigo: number; sigla?: string; nome: string; poder?: string; tipo?: string; ministerio?: number | null; siglaMinisterio?: string | null;
-  previstas: number; ocupadas: number; porCodigo: Record<string, [number, number]>;
-};
-export type AtoDou = { data: string; tipo: string; verbo: string; pessoa: string; cargo?: string; codigoCargo?: string; orgao?: string; identifica?: string; url?: string };
-export type ResumoDou = { dias: { data: string; entradas: number; saidas: number; outros: number }[]; orgaos: { orgao: string; entradas: number; saidas: number; outros: number }[]; recentes: AtoDou[]; total: number };
-export const carregaVagas = () => busca<VagaOrgao[]>("vagas.json");
-export const carregaDou = () => busca<ResumoDou>("dou.json");

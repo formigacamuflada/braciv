@@ -136,70 +136,6 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
         shutil.copy(ibge, SAIDA / "ufs.geojson")
 
 
-def grava_vagas(C, pessoas, unid, orgao_de):
-    """dados/grafo/vagas.json: por orgao, vagas previstas no SIORG x pessoas no Portal com o mesmo codigo.
-    So conta codigos que existem no SIORG (os mesmos dos dois lados), para a comparacao ser justa."""
-    prev = collections.defaultdict(collections.Counter)
-    for c in C:
-        if c["unidade"] is None or not c["codigoCargo"]:
-            continue
-        dono = orgao_de(c["unidade"])
-        if dono is not None:
-            prev[dono][c["codigoCargo"]] += c["vagas"] or 1
-    ocup = collections.defaultdict(collections.Counter)
-    for p in pessoas.values():
-        for a in p["cargos"]:
-            if a["para"] and not a.get("ate") and a.get("fonte") in ("portal", "planalto", "dou"):
-                dono = orgao_de(int(a["para"][2:]))
-                if dono in prev and a.get("codigoCargo") in prev[dono]:
-                    ocup[dono][a["codigoCargo"]] += 1
-
-    def ministerio(cod):
-        c = unid.get(cod, {}).get("pai")
-        for _ in range(40):
-            u = unid.get(c)
-            if u is None:
-                return None
-            if u["tipo"] == "orgao" and u["pai"] == 26:
-                return c
-            c = u["pai"]
-        return None
-
-    saida = []
-    for dono, cont in prev.items():
-        u = unid.get(dono, {})
-        p_, o_ = sum(cont.values()), sum(ocup[dono].values())
-        mi = dono if (u.get("tipo") == "orgao" and u.get("pai") == 26) else ministerio(dono)
-        codigos = sorted(cont, key=lambda k: -cont[k])[:12]
-        saida.append({"codigo": dono, "sigla": u.get("sigla"), "nome": u.get("nome"), "poder": u.get("poder"), "tipo": u.get("tipo"),
-                      "ministerio": mi, "siglaMinisterio": unid.get(mi, {}).get("sigla") if mi else None,
-                      "previstas": p_, "ocupadas": o_, "porCodigo": {k: [cont[k], ocup[dono][k]] for k in codigos}})
-    saida.sort(key=lambda x: -x["previstas"])
-    (SAIDA / "vagas.json").write_text(json.dumps(saida, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    return sum(x["previstas"] for x in saida), sum(x["ocupadas"] for x in saida)
-
-
-def grava_dou(DOU):
-    """dados/grafo/dou.json: nomeacoes e exoneracoes por dia e por orgao, e os atos mais recentes."""
-    por_dia = collections.defaultdict(lambda: {"entradas": 0, "saidas": 0, "outros": 0})
-    por_orgao = collections.defaultdict(lambda: {"entradas": 0, "saidas": 0, "outros": 0})
-    chave = {"entrada": "entradas", "saida": "saidas"}
-    for m in DOU:
-        k = chave.get(m.get("tipo"), "outros")
-        if m.get("data"):
-            por_dia[m["data"]][k] += 1
-        org = (m.get("orgao") or "?").split("/")[0].strip()
-        por_orgao[org][k] += 1
-    recentes = sorted(DOU, key=lambda m: (m.get("data") or "", m.get("idAto") or ""), reverse=True)[:400]
-    saida = {
-        "dias": [{"data": d, **v} for d, v in sorted(por_dia.items())],
-        "orgaos": sorted(({"orgao": o, **v} for o, v in por_orgao.items()), key=lambda x: -(x["entradas"] + x["saidas"] + x["outros"]))[:40],
-        "recentes": [{k: m.get(k) for k in ("data", "tipo", "verbo", "pessoa", "cargo", "codigoCargo", "orgao", "identifica", "url")} for m in recentes],
-        "total": len(DOU),
-    }
-    (SAIDA / "dou.json").write_text(json.dumps(saida, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-
-
 def main():
     U, C = le("siorg_unidades.json"), le("siorg_cargos.json")
     O, OC = le("transparencia_ocupantes.json"), le("ocupacao.json")
@@ -414,10 +350,6 @@ def main():
                 busca_nucleo.append([oc["nome"], n["id"], 0])
     busca_total = sorted(busca_nucleo + busca)
     (SAIDA / "busca.json").write_text("[\n" + ",\n".join(json.dumps(b, ensure_ascii=False) for b in busca_total) + "\n]\n", encoding="utf-8")
-
-    vp, vo = grava_vagas(C, pessoas, unid, orgao_de)
-    resumo.append(f"vagas previstas no SIORG: {vp} | pessoas no Portal com o mesmo codigo: {vo}")
-    grava_dou(DOU)
 
     # ---- por estado (mapa do site) ----
     grava_por_uf(nos, pessoas, unid, orgao_de, cupula)
