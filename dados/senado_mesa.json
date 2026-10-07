@@ -1,0 +1,116 @@
+{
+  "colegiado": "COMISSÃO DIRETORA DO SENADO FEDERAL",
+  "versao": "07/10/2026 08:19:41",
+  "cargos": [
+    {
+      "Cargo": [
+        "PRESIDENTE"
+      ],
+      "NomeParlamentar": "Senador Davi Alcolumbre",
+      "Bancada": "(UNIÃO-AP)",
+      "Http": "3830",
+      "NumeroOrdemImpressao": "1",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "1º VICE-PRESIDENTE"
+      ],
+      "NomeParlamentar": "Senador Eduardo Gomes",
+      "Bancada": "(PL-TO)",
+      "Http": "3777",
+      "NumeroOrdemImpressao": "2",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "2º VICE-PRESIDENTE"
+      ],
+      "NomeParlamentar": "Senador Humberto Costa",
+      "Bancada": "(PT-PE)",
+      "Http": "5008",
+      "NumeroOrdemImpressao": "3",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "1ª SECRETÁRIA"
+      ],
+      "NomeParlamentar": "Senadora Daniella Ribeiro",
+      "Bancada": "(PP-PB)",
+      "Http": "5998",
+      "NumeroOrdemImpressao": "4",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "2º SECRETÁRIO"
+      ],
+      "NomeParlamentar": "Senador Confúcio Moura",
+      "Bancada": "(MDB-RO)",
+      "Http": "475",
+      "NumeroOrdemImpressao": "5",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "3ª SECRETÁRIA"
+      ],
+      "NomeParlamentar": "Senadora Ana Paula Lobato",
+      "Bancada": "(PSB-MA)",
+      "Http": "6358",
+      "NumeroOrdemImpressao": "6",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "4º SECRETÁRIO"
+      ],
+      "NomeParlamentar": "Senador Laércio Oliveira",
+      "Bancada": "(PP-SE)",
+      "Http": "4811",
+      "NumeroOrdemImpressao": "7",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "1º SUPLENTE"
+      ],
+      "NomeParlamentar": "Senador Chico Rodrigues",
+      "Bancada": "(PSB-RR)",
+      "Http": "470",
+      "NumeroOrdemImpressao": "8",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "2ª SUPLENTE"
+      ],
+      "NomeParlamentar": "Senadora Roberta Acioly",
+      "Bancada": "(REPUBLICANOS-RR)",
+      "Http": "6025",
+      "NumeroOrdemImpressao": "9",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "3º SUPLENTE"
+      ],
+      "NomeParlamentar": "Senador Styvenson Valentim",
+      "Bancada": "(PODE-RN)",
+      "Http": "5959",
+      "NumeroOrdemImpressao": "10",
+      "Origem": "P"
+    },
+    {
+      "Cargo": [
+        "4ª SUPLENTE"
+      ],
+      "NomeParlamentar": "Senadora Soraya Thronicke",
+      "Bancada": "(PSB-MS)",
+      "Http": "5988",
+      "NumeroOrdemImpressao": "11",
+      "Origem": "P"
+    }
+  ]
+}
