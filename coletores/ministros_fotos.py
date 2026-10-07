@@ -51,6 +51,57 @@ def bate(alt, pessoa):
     return len(a & set(p)) >= 2
 
 
+def imagens(pagina):
+    """(alt, src) das imagens do conteudo; aceita src e data-src."""
+    for m in re.finditer(r"<img\b[^>]*>", pagina):
+        tag = m.group(0)
+        alt = re.search(r'alt="([^"]*)"', tag)
+        src = re.search(r'(?:data-src|src)="([^"]+)"', tag)
+        if src and not re.search(r"logo|govbr|barra|icon|sprite|\.svg", src.group(1), re.I):
+            yield html.unescape(alt.group(1) if alt else ""), html.unescape(src.group(1))
+
+
+def procura(s, slug, pessoa):
+    """Percorre as paginas de composicao do ministerio (ate 30) atras da foto da pessoa:
+    imagem com o nome no texto alternativo, ou a imagem principal da pagina pessoal dela."""
+    base = f"https://www.gov.br/{slug}/pt-br/"
+    fila = [base + c for c in CAMINHOS] + [base + "acesso-a-informacao/institucional", base]
+    vistos = set()
+    tokens = norm(pessoa)
+    while fila and len(vistos) < 30:
+        url = fila.pop(0).split("#")[0].rstrip("/")
+        if url in vistos:
+            continue
+        vistos.add(url)
+        try:
+            r = s.get(url, timeout=30)
+        except Exception:
+            continue
+        if r.status_code != 200 or "text/html" not in r.headers.get("content-type", ""):
+            continue
+        t = r.text
+        for alt, src in imagens(t):
+            if bate(alt, pessoa):
+                return requests.compat.urljoin(url, src), url
+        titulo = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S)
+        if titulo and bate(re.sub(r"<[^>]+>", " ", titulo.group(1)), pessoa):
+            for alt, src in imagens(t):
+                if "@@images" in src or re.search(r"\.(jpe?g|png)", src, re.I):
+                    return requests.compat.urljoin(url, src), url
+        # proximos: links com o nome da pessoa primeiro, depois os de ministro/quem e quem/gabinete
+        novos = []
+        for m in re.finditer(r'<a\b[^>]*href="([^"]+)"[^>]*>(.*?)</a>', t, re.S):
+            href, txt = html.unescape(m.group(1)), re.sub(r"<[^>]+>", " ", m.group(2))
+            if not href.startswith(base) or re.search(r"@@|\.pdf|/view$|download", href):
+                continue
+            if bate(txt, pessoa) or len([w for w in tokens if w.lower() in href.lower()]) >= 2:
+                novos.insert(0, href)
+            elif re.search(r"ministr|quem-e-quem|gabinete|biografia", href, re.I):
+                novos.append(href)
+        fila = [n for n in novos if n.rstrip("/") not in vistos][:12] + fila
+    return None
+
+
 def main():
     cup = json.loads((DADOS / "planalto_cupula.json").read_text(encoding="utf-8"))["cargos"]
     orgaos = {o["codigo"]: o for o in json.loads((DADOS / "siorg_orgaos.json").read_text(encoding="utf-8"))}
@@ -71,24 +122,7 @@ def main():
         if not slug:
             sem.append(f"{c['pessoa']} ({sigla}): ministerio sem endereco conhecido no gov.br")
             continue
-        achou = None
-        for cam in CAMINHOS:
-            url = f"https://www.gov.br/{slug}/pt-br/{cam}"
-            try:
-                r = s.get(url, timeout=30)
-            except Exception:
-                continue
-            if r.status_code != 200:
-                continue
-            for m in re.finditer(r"<img\b[^>]*>", r.text):
-                tag = m.group(0)
-                alt = re.search(r'alt="([^"]*)"', tag)
-                src = re.search(r'src="([^"]+)"', tag)
-                if alt and src and bate(alt.group(1), c["pessoa"]) and "@@images" in src.group(1):
-                    achou = (html.unescape(src.group(1)), url)
-                    break
-            if achou:
-                break
+        achou = procura(s, slug, c["pessoa"])
         if not achou:
             sem.append(f"{c['pessoa']} ({sigla}, gov.br/{slug}): foto nao encontrada")
             continue
