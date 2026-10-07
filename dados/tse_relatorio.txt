@@ -1,5 +1,10 @@
 baixando lista de candidatos ...
 arquivos usados: ['consulta_cand_2022_BRASIL.csv'] 
 eleitos por cargo: {'Deputado Estadual': 1035, 'Governador': 27, 'Vice-governador': 27, 'Presidente': 1, 'Vice-presidente': 1, 'Deputado Distrital': 24}
-  BR: 2/2 fotos novas
+cupula do Planalto com candidatura em 2022: 11/40
+  CE: 1/1 fotos novas
+  MG: 1/1 fotos novas
+  PE: 3/3 fotos novas
+  PI: 1/1 fotos novas
+  SP: 3/3 fotos novas
 com foto: 1115/1115

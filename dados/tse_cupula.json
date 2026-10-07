@@ -1,0 +1,79 @@
+{
+ "Alexandre Rocha Santos Padilha": {
+  "sq": "250001610710",
+  "uf": "SP",
+  "cargoTse": "DEPUTADO FEDERAL",
+  "situacao": "ELEITO POR QP",
+  "foto": "fotos/tse/250001610710.jpg"
+ },
+ "José Nobre Guimarães": {
+  "sq": "60001619124",
+  "uf": "CE",
+  "cargoTse": "DEPUTADO FEDERAL",
+  "situacao": "ELEITO POR QP",
+  "foto": "fotos/tse/60001619124.jpg"
+ },
+ "Luiz Marinho": {
+  "sq": "250001610678",
+  "uf": "SP",
+  "cargoTse": "DEPUTADO FEDERAL",
+  "situacao": "ELEITO POR QP",
+  "foto": "fotos/tse/250001610678.jpg"
+ },
+ "Geraldo José Rodrigues Alckmin Filho": {
+  "sq": "280001607830",
+  "uf": "BR",
+  "cargoTse": "VICE-PRESIDENTE",
+  "situacao": "2º TURNO",
+  "foto": "fotos/tse/280001607830.jpg"
+ },
+ "José Wellington Barroso de Araujo Dias": {
+  "sq": "180001605662",
+  "uf": "PI",
+  "cargoTse": "SENADOR",
+  "situacao": "ELEITO",
+  "foto": "fotos/tse/180001605662.jpg"
+ },
+ "Guilherme Castro Boulos": {
+  "sq": "250001613761",
+  "uf": "SP",
+  "cargoTse": "DEPUTADO FEDERAL",
+  "situacao": "ELEITO POR QP",
+  "foto": "fotos/tse/250001613761.jpg"
+ },
+ "Wolney Queiroz Maciel": {
+  "sq": "170001618856",
+  "uf": "PE",
+  "cargoTse": "DEPUTADO FEDERAL",
+  "situacao": "NÃO ELEITO",
+  "foto": "fotos/tse/170001618856.jpg"
+ },
+ "Luciana Barbosa de Oliveira Santos": {
+  "sq": "170001618088",
+  "uf": "PE",
+  "cargoTse": "VICE-GOVERNADOR",
+  "situacao": "NÃO ELEITO",
+  "foto": "fotos/tse/170001618088.jpg"
+ },
+ "André Carlos Alves de Paula Filho": {
+  "sq": "170001610248",
+  "uf": "PE",
+  "cargoTse": "SENADOR",
+  "situacao": "NÃO ELEITO",
+  "foto": "fotos/tse/170001610248.jpg"
+ },
+ "Luiz Inácio Lula da Silva": {
+  "sq": "280001607829",
+  "uf": "BR",
+  "cargoTse": "PRESIDENTE",
+  "situacao": "ELEITO",
+  "foto": "fotos/tse/280001607829.jpg"
+ },
+ "Alexandre Silveira de Oliveira": {
+  "sq": "130001713762",
+  "uf": "MG",
+  "cargoTse": "SENADOR",
+  "situacao": "NÃO ELEITO",
+  "foto": "fotos/tse/130001713762.jpg"
+ }
+}
