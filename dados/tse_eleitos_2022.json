@@ -1892,6 +1892,28 @@
   "foto": "fotos/tse/50001603639.jpg"
  },
  {
+  "sq": "280001607829",
+  "uf": "BR",
+  "cargo": "Presidente",
+  "nome": "Lula",
+  "nomeCompleto": "Luiz Inácio Lula Da Silva",
+  "partido": "PT",
+  "numero": "13",
+  "situacao": "ELEITO",
+  "foto": "fotos/tse/280001607829.jpg"
+ },
+ {
+  "sq": "280001607830",
+  "uf": "BR",
+  "cargo": "Vice-presidente",
+  "nome": "Geraldo Alckmin",
+  "nomeCompleto": "Geraldo José Rodrigues Alckmin Filho",
+  "partido": "PSB",
+  "numero": "13",
+  "situacao": "ELEITO",
+  "foto": "fotos/tse/280001607830.jpg"
+ },
+ {
   "sq": "60001635809",
   "uf": "CE",
   "cargo": "Deputado Estadual",

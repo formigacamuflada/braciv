@@ -1,4 +1,5 @@
 baixando lista de candidatos ...
 arquivos usados: ['consulta_cand_2022_BRASIL.csv'] 
-eleitos por cargo: {'Deputado Estadual': 1035, 'Governador': 27, 'Vice-governador': 27, 'Deputado Distrital': 24}
-com foto: 1113/1113
+eleitos por cargo: {'Deputado Estadual': 1035, 'Governador': 27, 'Vice-governador': 27, 'Presidente': 1, 'Vice-presidente': 1, 'Deputado Distrital': 24}
+  BR: 2/2 fotos novas
+com foto: 1115/1115
