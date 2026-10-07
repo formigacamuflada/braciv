@@ -26,14 +26,21 @@ export function normaliza(t: string) {
   return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 }
 
-export type Parlamentar = { id: string; nome: string; partido?: string; foto?: string | null };
+export type Parlamentar = { id: string; nome: string; partido?: string; foto?: string | null; fimMandato?: string; situacao?: "eleito" | "segundoTurno"; numero?: string; sub?: string };
 export type Destaque = { nivel: number; codigoCargo?: string; cargo: string; nome: string; orgao: string; orgaoCodigo: number; cargoId: string; unidade?: string };
 export type DadosUf = {
   senadores: Parlamentar[]; deputados: Parlamentar[]; cargos: number; ocupantes: number;
   porOrgao: Record<string, number>; destaques: Destaque[]; sedes: { codigo: number; sigla?: string; nome: string; poder?: string }[];
   governador?: Parlamentar; vice?: Parlamentar; estaduais?: Parlamentar[];
+  segundoTurno?: Parlamentar[]; vices2t?: Parlamentar[];
 };
-export type PorUf = { ufs: Record<string, DadosUf>; nacional: { cargo: string; nome: string; codigoCargo: string; orgaoCodigo?: number; foto?: string | null; partido?: string | null }[] };
+// eleição de 2026 (TSE): eleitos e quem disputa o 2º turno, por estado e nacional
+export type Eleicao2026 = {
+  geradoTse?: string; coletadoEm?: string;
+  ufs: Record<string, { governador?: Parlamentar[]; vice?: Parlamentar[]; senadores?: Parlamentar[]; federais?: Parlamentar[]; estaduais?: Parlamentar[] }>;
+  presidente: Parlamentar[]; vicePresidente: Parlamentar[];
+};
+export type PorUf = { ufs: Record<string, DadosUf>; nacional: { cargo: string; nome: string; codigoCargo: string; orgaoCodigo?: number; foto?: string | null; partido?: string | null }[]; eleicao2026?: Eleicao2026 | null };
 // fotos: URL completa (Câmara, Senado) ou caminho dentro do site (TSE, Executivo)
 export const urlFoto = (f?: string | null) => (!f ? null : /^https?:/.test(f) ? f.replace(/^http:/, "https:") : import.meta.env.BASE_URL + f);
 export type Feicao = { type: "Feature"; properties: { sigla: string; nome: string; regiao: string }; geometry: { type: "Polygon" | "MultiPolygon"; coordinates: any } };

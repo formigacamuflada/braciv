@@ -105,6 +105,8 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
             continue
         oc = n["ocupantes"][0]
         item = {"id": n["id"], "nome": oc["nome"], "partido": oc.get("partido"), "foto": (oc.get("foto") or "").replace("http:", "https:") or None}
+        if n.get("fimMandato"):
+            item["fimMandato"] = n["fimMandato"]
         saida[uf]["senadores" if n["id"].startswith("sen:") else "deputados"].append(item)
     destaques = collections.defaultdict(list)
     for pid, p in pessoas.items():
@@ -153,7 +155,23 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
                  "foto": foto_exec(c["codigoCargo"]) or (cup_tse.get(c["pessoa"]) or {}).get("foto"),
                  "partido": (tse_br.get(c["codigoCargo"]) or {}).get("partido")}
                 for c in cupula.get("cargos", []) if c.get("pessoa")]
-    (SAIDA / "por_uf.json").write_text(json.dumps({"ufs": saida, "nacional": nacional}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    # eleicao de 2026 (coletores/tse2026.py): eleitos e candidatos no 2o turno; posse em 2027
+    eleicao = None
+    if (DADOS / "tse_eleicao_2026.json").exists():
+        el = le("tse_eleicao_2026.json")
+        chave = {"Governador": "governador", "Vice-governador": "vice", "Senador": "senadores", "Deputado Federal": "federais",
+                 "Deputado Estadual": "estaduais", "Deputado Distrital": "estaduais", "Presidente": "presidente", "Vice-presidente": "vicePresidente"}
+        eleicao = {"geradoTse": el.get("geradoTse"), "coletadoEm": el.get("coletadoEm"), "ufs": {}, "presidente": [], "vicePresidente": []}
+        for e in el.get("candidatos", []):
+            k = chave.get(e["cargo"])
+            if not k:
+                continue
+            item = {"id": f"tse26:{e['sq']}", "nome": e["nome"], "partido": e.get("partido"), "foto": e.get("foto"), "situacao": e["situacao"], "numero": e.get("numero")}
+            if e["uf"] == "BR":
+                eleicao.setdefault(k, []).append(item)
+            elif e["uf"] in saida:
+                eleicao["ufs"].setdefault(e["uf"], {}).setdefault(k, []).append(item)
+    (SAIDA / "por_uf.json").write_text(json.dumps({"ufs": saida, "nacional": nacional, "eleicao2026": eleicao}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     ibge = DADOS / "ibge_ufs.json"
     if ibge.exists():
         shutil.copy(ibge, SAIDA / "ufs.geojson")
@@ -439,7 +457,7 @@ def main():
         ip = s_["IdentificacaoParlamentar"]
         i = f"sen:{ip['CodigoParlamentar']}"
         nos[i] = {"id": i, "tipo": "cargo", "rotulo": f"Senador(a) · {ip.get('UfParlamentar')}", "codigoCargo": "SEN", "uf": ip.get("UfParlamentar"),
-                  "partido": ip.get("SiglaPartidoParlamentar"), "mesa": ip.get("MembroMesa") == "Sim", "lideranca": ip.get("MembroLideranca") == "Sim",
+                  "partido": ip.get("SiglaPartidoParlamentar"), "fimMandato": ((s_.get("Mandato") or {}).get("SegundaLegislaturaDoMandato") or {}).get("DataFim"), "mesa": ip.get("MembroMesa") == "Sim", "lideranca": ip.get("MembroLideranca") == "Sim",
                   "ocupantes": [{"nome": ip["NomeParlamentar"], "foto": ip.get("UrlFotoParlamentar"), "partido": ip.get("SiglaPartidoParlamentar"), "fonte": "Senado Federal"}]}
         arestas.append({"de": i, "para": "casa:senado", "tipo": "membro"})
         if ip.get("SiglaPartidoParlamentar"):
