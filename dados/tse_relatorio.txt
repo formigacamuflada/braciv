@@ -1,0 +1,31 @@
+baixando lista de candidatos ...
+arquivos usados: ['consulta_cand_2022_BRASIL.csv'] 
+eleitos por cargo: {'Deputado Estadual': 1035, 'Governador': 27, 'Vice-governador': 27, 'Deputado Distrital': 24}
+  AC: 26/26 fotos novas
+  AL: 29/29 fotos novas
+  AM: 26/26 fotos novas
+  AP: 26/26 fotos novas
+  BA: 65/65 fotos novas
+  CE: 48/48 fotos novas
+  DF: 26/26 fotos novas
+  ES: 32/32 fotos novas
+  GO: 43/43 fotos novas
+  MA: 44/44 fotos novas
+  MG: 79/79 fotos novas
+  MS: 26/26 fotos novas
+  MT: 26/26 fotos novas
+  PA: 43/43 fotos novas
+  PB: 38/38 fotos novas
+  PE: 51/51 fotos novas
+  PI: 32/32 fotos novas
+  PR: 56/56 fotos novas
+  RJ: 72/72 fotos novas
+  RN: 26/26 fotos novas
+  RO: 26/26 fotos novas
+  RR: 26/26 fotos novas
+  RS: 57/57 fotos novas
+  SC: 42/42 fotos novas
+  SE: 26/26 fotos novas
+  SP: 96/96 fotos novas
+  TO: 26/26 fotos novas
+com foto: 1113/1113
