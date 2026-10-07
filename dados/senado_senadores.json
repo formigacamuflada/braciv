@@ -144,6 +144,80 @@
   },
   {
     "IdentificacaoParlamentar": {
+      "CodigoParlamentar": "6358",
+      "CodigoPublicoNaLegAtual": "920",
+      "NomeParlamentar": "Ana Paula Lobato",
+      "NomeCompletoParlamentar": "Ana Paula Dias Lobato Nova Alves",
+      "SexoParlamentar": "Feminino",
+      "FormaTratamento": "Senadora ",
+      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador6358.jpg",
+      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/6358",
+      "EmailParlamentar": "sen.anapaulalobato@senado.leg.br",
+      "SiglaPartidoParlamentar": "PSB",
+      "UfParlamentar": "MA",
+      "Bloco": {
+        "CodigoBloco": "335",
+        "NomeBloco": "Bloco Parlamentar da Resistência Democrática",
+        "NomeApelido": "BLPRD",
+        "DataCriacao": "2023-02-01"
+      },
+      "MembroMesa": "Sim",
+      "MembroLideranca": "Não"
+    },
+    "Mandato": {
+      "CodigoMandato": "602",
+      "UfParlamentar": "MA",
+      "PrimeiraLegislaturaDoMandato": {
+        "NumeroLegislatura": "57",
+        "DataInicio": "2023-02-01",
+        "DataFim": "2027-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+        "NumeroLegislatura": "58",
+        "DataInicio": "2027-02-01",
+        "DataFim": "2031-01-31"
+      },
+      "DescricaoParticipacao": "1º Suplente",
+      "Titular": {
+        "DescricaoParticipacao": "Titular",
+        "CodigoParlamentar": "4605",
+        "NomeParlamentar": "Flávio Dino"
+      },
+      "Suplentes": {
+        "Suplente": [
+          {
+            "DescricaoParticipacao": "2º Suplente",
+            "CodigoParlamentar": "6359",
+            "NomeParlamentar": "Lourdinha Pereira"
+          }
+        ]
+      },
+      "Exercicios": {
+        "Exercicio": [
+          {
+            "CodigoExercicio": "3111",
+            "DataInicio": "2026-10-06"
+          },
+          {
+            "CodigoExercicio": "3057",
+            "DataInicio": "2024-02-21",
+            "DataFim": "2026-07-30",
+            "SiglaCausaAfastamento": "LCS",
+            "DescricaoCausaAfastamento": "Licença com convocação de suplente (sup 120 dias)"
+          },
+          {
+            "CodigoExercicio": "3038",
+            "DataInicio": "2023-02-02",
+            "DataFim": "2024-01-31",
+            "SiglaCausaAfastamento": "RET",
+            "DescricaoCausaAfastamento": "Retorno do titular"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "IdentificacaoParlamentar": {
       "CodigoParlamentar": "5967",
       "CodigoPublicoNaLegAtual": "832",
       "NomeParlamentar": "Angelo Coronel",
@@ -3277,32 +3351,21 @@
   },
   {
     "IdentificacaoParlamentar": {
-      "CodigoParlamentar": "5979",
-      "CodigoPublicoNaLegAtual": "853",
-      "NomeParlamentar": "Leila Barros",
-      "NomeCompletoParlamentar": "Leila Gomes de Barros Rêgo",
+      "CodigoParlamentar": "5977",
+      "CodigoPublicoNaLegAtual": "810",
+      "NomeParlamentar": "Leany Lemos",
+      "NomeCompletoParlamentar": "Leany Barreiro de Sousa Lemos",
       "SexoParlamentar": "Feminino",
       "FormaTratamento": "Senadora ",
-      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5979.jpg",
-      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5979",
-      "UrlPaginaParticular": "http://www.leiladovolei.com/",
-      "EmailParlamentar": "sen.leilabarros@senado.leg.br",
-      "Telefones": {
-        "Telefone": [
-          {
-            "NumeroTelefone": "33036427",
-            "OrdemPublicacao": "2",
-            "IndicadorFax": "Não"
-          }
-        ]
-      },
-      "SiglaPartidoParlamentar": "PDT",
+      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5977.jpg",
+      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5977",
+      "SiglaPartidoParlamentar": "PSB",
       "UfParlamentar": "DF",
       "Bloco": {
-        "CodigoBloco": "359",
-        "NomeBloco": "Bloco Parlamentar Pelo Brasil",
-        "NomeApelido": "BLPBR",
-        "DataCriacao": "2025-02-18"
+        "CodigoBloco": "335",
+        "NomeBloco": "Bloco Parlamentar da Resistência Democrática",
+        "NomeApelido": "BLPRD",
+        "DataCriacao": "2023-02-01"
       },
       "MembroMesa": "Não",
       "MembroLideranca": "Não"
@@ -3320,14 +3383,14 @@
         "DataInicio": "2023-02-01",
         "DataFim": "2027-01-31"
       },
-      "DescricaoParticipacao": "Titular",
+      "DescricaoParticipacao": "1º Suplente",
+      "Titular": {
+        "DescricaoParticipacao": "Titular",
+        "CodigoParlamentar": "5979",
+        "NomeParlamentar": "Leila Barros"
+      },
       "Suplentes": {
         "Suplente": [
-          {
-            "DescricaoParticipacao": "1º Suplente",
-            "CodigoParlamentar": "5977",
-            "NomeParlamentar": "Leany Lemos"
-          },
           {
             "DescricaoParticipacao": "2º Suplente",
             "CodigoParlamentar": "5978",
@@ -3338,76 +3401,8 @@
       "Exercicios": {
         "Exercicio": [
           {
-            "CodigoExercicio": "2918",
-            "DataInicio": "2019-02-01"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "IdentificacaoParlamentar": {
-      "CodigoParlamentar": "6359",
-      "CodigoPublicoNaLegAtual": "807",
-      "NomeParlamentar": "Lourdinha Pereira",
-      "NomeCompletoParlamentar": "Maria de Lourdes Pereira e Pereira",
-      "SexoParlamentar": "Feminino",
-      "FormaTratamento": "Senadora ",
-      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador6359.jpg",
-      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/6359",
-      "Telefones": {
-        "Telefone": [
-          {
-            "NumeroTelefone": "33032967",
-            "OrdemPublicacao": "1",
-            "IndicadorFax": "Não"
-          }
-        ]
-      },
-      "SiglaPartidoParlamentar": "PSB",
-      "UfParlamentar": "MA",
-      "Bloco": {
-        "CodigoBloco": "335",
-        "NomeBloco": "Bloco Parlamentar da Resistência Democrática",
-        "NomeApelido": "BLPRD",
-        "DataCriacao": "2023-02-01"
-      },
-      "MembroMesa": "Não",
-      "MembroLideranca": "Não"
-    },
-    "Mandato": {
-      "CodigoMandato": "602",
-      "UfParlamentar": "MA",
-      "PrimeiraLegislaturaDoMandato": {
-        "NumeroLegislatura": "57",
-        "DataInicio": "2023-02-01",
-        "DataFim": "2027-01-31"
-      },
-      "SegundaLegislaturaDoMandato": {
-        "NumeroLegislatura": "58",
-        "DataInicio": "2027-02-01",
-        "DataFim": "2031-01-31"
-      },
-      "DescricaoParticipacao": "2º Suplente",
-      "Titular": {
-        "DescricaoParticipacao": "Titular",
-        "CodigoParlamentar": "4605",
-        "NomeParlamentar": "Flávio Dino"
-      },
-      "Suplentes": {
-        "Suplente": [
-          {
-            "DescricaoParticipacao": "1º Suplente",
-            "CodigoParlamentar": "6358",
-            "NomeParlamentar": "Ana Paula Lobato"
-          }
-        ]
-      },
-      "Exercicios": {
-        "Exercicio": [
-          {
-            "CodigoExercicio": "3107",
-            "DataInicio": "2026-08-05"
+            "CodigoExercicio": "3112",
+            "DataInicio": "2026-10-06"
           }
         ]
       }
