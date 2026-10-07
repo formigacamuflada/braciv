@@ -85,6 +85,57 @@ def grava(caminho, nos, arestas):
     caminho.write_text(json.dumps(corpo, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
+UFS = ["AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE",
+       "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO"]
+
+
+def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
+    """dados/grafo/por_uf.json: o que o governo federal tem em cada estado.
+    Senadores e deputados (com foto), cargos federais exercidos no estado (Portal da Transparencia,
+    UF de exercicio) e orgaos com sede no estado (endereco no SIORG). Mais a cupula nacional."""
+    sedes = {}
+    if (DADOS / "siorg_orgaos.json").exists():
+        sedes = {o["codigo"]: o for o in le("siorg_orgaos.json")}
+    saida = {uf: {"senadores": [], "deputados": [], "cargos": 0, "ocupantes": 0, "porOrgao": {}, "destaques": [], "sedes": []} for uf in UFS}
+    for n in nos.values():
+        if n["tipo"] != "cargo" or not n["id"].startswith(("dep:", "sen:")):
+            continue
+        uf = n.get("uf")
+        if uf not in saida:
+            continue
+        oc = n["ocupantes"][0]
+        item = {"id": n["id"], "nome": oc["nome"], "partido": oc.get("partido"), "foto": (oc.get("foto") or "").replace("http:", "https:") or None}
+        saida[uf]["senadores" if n["id"].startswith("sen:") else "deputados"].append(item)
+    destaques = collections.defaultdict(list)
+    for pid, p in pessoas.items():
+        for a in p["cargos"]:
+            uf = a.get("uf")
+            if uf not in saida or a.get("ate") or not a["para"]:
+                continue
+            saida[uf]["ocupantes"] += 1
+            dono = orgao_de(int(a["para"][2:]))
+            sg = (unid.get(dono) or {}).get("sigla") or "?"
+            saida[uf]["porOrgao"][sg] = saida[uf]["porOrgao"].get(sg, 0) + 1
+            destaques[uf].append((nivel(a["codigoCargo"]), a.get("codigoCargo"), a.get("funcao"), p["no"]["rotulo"], sg, dono,
+                                  id_cargo(a["para"], a.get("codigoCargo"), a.get("funcao")), a.get("unidadePortal")))
+    for uf, lista in destaques.items():
+        lista.sort(key=lambda x: (-x[0], x[3]))
+        saida[uf]["destaques"] = [{"nivel": n_, "codigoCargo": c, "cargo": rotulo_cargo(f, c), "nome": nome, "orgao": sg, "orgaoCodigo": dono, "cargoId": cid, "unidade": up}
+                                  for n_, c, f, nome, sg, dono, cid, up in lista[:40]]
+        saida[uf]["cargos"] = len({x[6] for x in lista})
+    for uf in saida:
+        saida[uf]["porOrgao"] = dict(sorted(saida[uf]["porOrgao"].items(), key=lambda kv: -kv[1])[:15])
+    for cod, o in sedes.items():
+        if o.get("ufSede") in saida and o.get("tipo") in ("orgao", "entidade"):
+            saida[o["ufSede"]]["sedes"].append({"codigo": cod, "sigla": o.get("sigla"), "nome": o.get("nome"), "poder": o.get("poder")})
+    nacional = [{"cargo": c["cargo"], "nome": c["pessoa"], "codigoCargo": c["codigoCargo"], "orgaoCodigo": c.get("orgaoSiorg")}
+                for c in cupula.get("cargos", []) if c.get("pessoa")]
+    (SAIDA / "por_uf.json").write_text(json.dumps({"ufs": saida, "nacional": nacional}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    ibge = DADOS / "ibge_ufs.json"
+    if ibge.exists():
+        shutil.copy(ibge, SAIDA / "ufs.geojson")
+
+
 def main():
     U, C = le("siorg_unidades.json"), le("siorg_cargos.json")
     O, OC = le("transparencia_ocupantes.json"), le("ocupacao.json")
@@ -299,6 +350,9 @@ def main():
                 busca_nucleo.append([oc["nome"], n["id"], 0])
     busca_total = sorted(busca_nucleo + busca)
     (SAIDA / "busca.json").write_text("[\n" + ",\n".join(json.dumps(b, ensure_ascii=False) for b in busca_total) + "\n]\n", encoding="utf-8")
+
+    # ---- por estado (mapa do site) ----
+    grava_por_uf(nos, pessoas, unid, orgao_de, cupula)
 
     # conferencias
     ids = set(nos)
