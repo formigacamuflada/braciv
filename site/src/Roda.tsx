@@ -307,11 +307,14 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
             const livre = (c: { x: number; y: number; w: number; h: number }) =>
               caixas.every((o) => Math.abs(o.x - c.x) > (o.w + c.w) / 2 + 2 || Math.abs(o.y - c.y) > (o.h + c.h) / 2 + 1);
             const linhas: React.ReactNode[] = [], rotulos: React.ReactNode[] = [];
+            // quantas ligações iguais (mesmo verbo) chegam ou saem do nó em foco: acima de 8 vira leque tracejado
+            const grupo = new Map<string, number>();
+            for (const r of ligadas.rel) { const k = `${r.verbo}|${r.para === foco ? "c" : "s"}`; grupo.set(k, (grupo.get(k) ?? 0) + 1); }
             ligadas.rel.forEach((r, i) => {
               const destino = { ...roda.porId.get(r.para)!, ...onde(r.para) };
               // do povo, a seta sai da borda da estrela na direção do alvo
               const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(onde(r.de).a, onde(r.de).r);
-              const leque = ligadas.rel.length > 40 || (!!expandido && r.verbo === "supervisiona");
+              const leque = (grupo.get(`${r.verbo}|${r.para === foco ? "c" : "s"}`) ?? 0) > 8 || (!!expandido && r.verbo === "supervisiona");
               const ate = ponto(destino.a, destino.r - (expandido?.pos.has(r.para) ? 4.2 : destino.t) - 2);
               const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
               const meio = leque ? { x: (de.x + ate.x) / 2, y: (de.y + ate.y) / 2 }
@@ -367,7 +370,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
       })()}
 
       {selecionado && roda.porId.get(selecionado) && (
-        <div className="pointer-events-none absolute bottom-3 left-1/2 max-w-[60%] -translate-x-1/2 truncate rounded-md px-2 py-0.5 text-xs font-medium"
+        <div className="pointer-events-none absolute top-3 left-1/2 max-w-[60%] -translate-x-1/2 truncate rounded-md px-2 py-0.5 text-xs font-medium"
           style={{ background: (COR_RODA[roda.porId.get(selecionado)!.poder as Poder]?.base ?? COR_RODA.povo.base) + "26", color: COR_RODA[roda.porId.get(selecionado)!.poder as Poder]?.base ?? COR_RODA.povo.base }}>
           {roda.porId.get(selecionado)!.nome}
         </div>
