@@ -1,0 +1,41 @@
+baixando lista de candidatos de 2026 ...
+arquivo gerado pelo TSE em: 07/10/2026 16:30:39
+  Deputado Distrital   eleito        24
+  Deputado Estadual    eleito        1035
+  Deputado Federal     eleito        513
+  Governador           eleito        20
+  Governador           segundoTurno  14
+  Presidente           segundoTurno  2
+  Senador              eleito        54
+  Vice-governador      eleito        20
+  Vice-governador      segundoTurno  14
+  Vice-presidente      segundoTurno  2
+  AC: 38/38 fotos novas
+  AL: 40/40 fotos novas
+  AM: 38/38 fotos novas
+  AP: 36/36 fotos novas
+  BA: 106/106 fotos novas
+  BR: 4/4 fotos novas
+  CE: 72/72 fotos novas
+  DF: 38/38 fotos novas
+  ES: 46/46 fotos novas
+  GO: 62/62 fotos novas
+  MA: 64/64 fotos novas
+  MG: 134/134 fotos novas
+  MS: 36/36 fotos novas
+  MT: 36/36 fotos novas
+  PA: 62/62 fotos novas
+  PB: 52/52 fotos novas
+  PE: 78/78 fotos novas
+  PI: 44/44 fotos novas
+  PR: 88/88 fotos novas
+  RJ: 122/122 fotos novas
+  RN: 38/38 fotos novas
+  RO: 36/36 fotos novas
+  RR: 36/36 fotos novas
+  RS: 90/90 fotos novas
+  SC: 60/60 fotos novas
+  SE: 36/36 fotos novas
+  SP: 168/168 fotos novas
+  TO: 38/38 fotos novas
+com foto: 1698/1698
