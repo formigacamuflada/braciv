@@ -64,6 +64,10 @@ jobs:
         continue-on-error: true
         run: python coletores/casamento.py
 
+      - name: Noticias (fontes publicas oficiais)
+        continue-on-error: true
+        run: python coletores/noticias.py
+
       - name: DOU (Diario Oficial da Uniao)
         # so roda quando as credenciais do INLABS existirem nos secrets
         if: env.INLABS_EMAIL != ''
