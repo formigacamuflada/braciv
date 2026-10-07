@@ -5,6 +5,7 @@ import FA2Layout from "graphology-layout-forceatlas2/worker";
 import forceAtlas2 from "graphology-layout-forceatlas2";
 import type { Grafo as DadosGrafo } from "./tipos";
 import { corDoNo, tamanhoDoNo } from "./cores";
+import BotoesZoom from "./Zoom";
 
 type Props = {
   dados: DadosGrafo;
@@ -109,5 +110,11 @@ export default function Grafo({ dados, raiz, selecionado, aoSelecionar, escuro }
     }
   }, [selecionado, dados]);
 
-  return <div ref={caixa} className="absolute inset-0" aria-label="Grafo interativo" />;
+  const cam = () => sigmaRef.current?.getCamera();
+  return (
+    <>
+      <div ref={caixa} className="absolute inset-0" aria-label="Grafo interativo" />
+      <BotoesZoom mais={() => cam()?.animatedZoom({ duration: 300 })} menos={() => cam()?.animatedUnzoom({ duration: 300 })} inicio={() => cam()?.animatedReset({ duration: 300 })} />
+    </>
+  );
 }

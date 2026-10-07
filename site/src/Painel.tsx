@@ -159,7 +159,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
           )}
           <Lista titulo={(no.ocupantes?.length ?? 0) > 1 ? "Quem ocupa" : "Quem ocupa"} itens={no.ocupantes ?? []} render={(o: Ocupante, i) => (
             <li key={i} className={`flex gap-3 rounded-lg border border-stone-200 p-2.5 dark:border-stone-700 ${o.ate ? "opacity-60" : ""}`}>
-              {o.foto && <img src={o.foto} alt="" className="h-14 w-12 shrink-0 rounded object-cover" loading="lazy" />}
+              {o.foto && <img src={o.foto.replace(/^http:/, "https:")} alt="" className="h-14 w-12 shrink-0 rounded object-cover" loading="lazy" />}
               <div className="min-w-0">
                 <p className="font-medium">{o.nome}</p>
                 <p className="text-xs text-stone-500">

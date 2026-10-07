@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Grafo } from "./tipos";
+import BotoesZoom from "./Zoom";
 import { C, R_MIOLO, R_POVO, SETORES, montaRoda, ponto, type Item, type Poder } from "./layoutRoda";
 
 type Props = {
@@ -49,8 +50,86 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
   const [giro, setGiro] = useState(0);
   const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
   const caixa = useRef<HTMLDivElement>(null);
-  const ultimoSel = useRef<string | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
+  // ---- zoom e arraste: mexe no viewBox (roda do mouse, pinça no celular, arrastar, botões) ----
+  const CHEIO = { x: 0, y: 0, w: 1000 };
+  const [vista, setVista] = useState(CHEIO);
+  const vistaRef = useRef(vista);
+  vistaRef.current = vista;
+  const arrastou = useRef(false);
+  const limita = (v: { x: number; y: number; w: number }) => {
+    const w = Math.min(1000, Math.max(120, v.w));
+    const folga = w * 0.5;
+    return { w, x: Math.min(1000 - folga, Math.max(-folga, v.x)), y: Math.min(1000 - folga, Math.max(-folga, v.y)) };
+  };
+  const paraSvg = (cx: number, cy: number) => {
+    const svg = svgRef.current;
+    const m = svg?.getScreenCTM();
+    if (!svg || !m) return null;
+    const pt = svg.createSVGPoint();
+    pt.x = cx; pt.y = cy;
+    return pt.matrixTransform(m.inverse());
+  };
+  const zoomEm = (fator: number, px?: number, py?: number) => {
+    const v = vistaRef.current;
+    const w = Math.min(1000, Math.max(120, v.w / fator));
+    const cx = px ?? v.x + v.w / 2, cy = py ?? v.y + v.w / 2;
+    const k = w / v.w;
+    setVista(limita({ w, x: cx - (cx - v.x) * k, y: cy - (cy - v.y) * k }));
+  };
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const roda = (e: WheelEvent) => {
+      e.preventDefault();
+      const p = paraSvg(e.clientX, e.clientY);
+      zoomEm(Math.exp(-e.deltaY * 0.0015), p?.x, p?.y);
+    };
+    svg.addEventListener("wheel", roda, { passive: false });
+    return () => svg.removeEventListener("wheel", roda);
+  });
+  const ponteiros = useRef(new Map<number, { x: number; y: number }>());
+  const aoApertar = (e: React.PointerEvent) => {
+    ponteiros.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    arrastou.current = false;
+    let inicio = { x: e.clientX, y: e.clientY };
+    const mover = (ev: PointerEvent) => {
+      if (!ponteiros.current.has(ev.pointerId)) return;
+      const antes = ponteiros.current.get(ev.pointerId)!;
+      ponteiros.current.set(ev.pointerId, { x: ev.clientX, y: ev.clientY });
+      if (Math.hypot(ev.clientX - inicio.x, ev.clientY - inicio.y) > 5) arrastou.current = true;
+      if (!arrastou.current) return;
+      const svg = svgRef.current;
+      if (!svg) return;
+      const escala = vistaRef.current.w / Math.min(svg.clientWidth, svg.clientHeight);
+      if (ponteiros.current.size >= 2) {
+        // pinça: compara a distância entre os dois dedos
+        const [a, b] = [...ponteiros.current.values()];
+        const outro = [...ponteiros.current.entries()].find(([id]) => id !== ev.pointerId)?.[1] ?? b;
+        const dAntes = Math.hypot(antes.x - outro.x, antes.y - outro.y);
+        const dAgora = Math.hypot(a.x - b.x, a.y - b.y);
+        const meio = paraSvg((a.x + b.x) / 2, (a.y + b.y) / 2);
+        if (dAntes > 0) zoomEm(dAgora / dAntes, meio?.x, meio?.y);
+        return;
+      }
+      const v = vistaRef.current;
+      setVista(limita({ ...v, x: v.x - (ev.clientX - antes.x) * escala, y: v.y - (ev.clientY - antes.y) * escala }));
+    };
+    const soltar = (ev: PointerEvent) => {
+      ponteiros.current.delete(ev.pointerId);
+      if (!ponteiros.current.size) {
+        removeEventListener("pointermove", mover);
+        removeEventListener("pointerup", soltar);
+        removeEventListener("pointercancel", soltar);
+      }
+    };
+    if (ponteiros.current.size === 1) {
+      addEventListener("pointermove", mover);
+      addEventListener("pointerup", soltar);
+      addEventListener("pointercancel", soltar);
+    } else inicio = { x: -1e9, y: -1e9 };
+  };
   // quem não está desenhado na roda (pessoa, unidade) gira até o órgão a que pertence
   const ancestral = useMemo(() => {
     const sobe = new Map<string, string>();
@@ -68,7 +147,18 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
     const alvoSel = selecionado ? roda.porId.get(selecionado) ?? setorDoPoder(selecionado) ?? ancestral(selecionado) : null;
     const alvo = alvoSel && alvoSel.r > 0 ? FOCO - alvoSel.a : 0;
     setGiro((g) => g + ((((alvo - g) % 360) + 540) % 360 - 180));
+    // com zoom ligado, acompanha o item até onde ele vai parar (embaixo da roda)
+    const v = vistaRef.current;
+    if (alvoSel && alvoSel.r > 0 && v.w < 1000) setVista(limita({ w: v.w, x: C - v.w / 2, y: C + alvoSel.r - v.w / 2 }));
   }, [selecionado, roda, ancestral]);
+
+  // depois de arrastar, o clique que vem junto não deve selecionar nem limpar a seleção
+  const engoleClique = (e: React.MouseEvent) => {
+    if (arrastou.current) { e.stopPropagation(); e.preventDefault(); arrastou.current = false; }
+  };
+  const ultimoSel = useRef<string | null>(null);
+
+
 
   const foco = hover?.id ?? selecionado;
   const ligadas = useMemo(() => {
@@ -142,8 +232,11 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
   }
 
   return (
-    <div ref={caixa} className="absolute inset-0 select-none" onClick={() => aoSelecionar(null)}>
-      <svg viewBox="0 0 1000 1000" className="h-full w-full text-stone-900 dark:text-white" role="img" aria-label="Roda dos três Poderes">
+    <div ref={caixa} className="absolute inset-0 select-none" onClick={() => aoSelecionar(null)} onClickCapture={engoleClique}>
+      <BotoesZoom mais={() => zoomEm(1.5)} menos={() => zoomEm(1 / 1.5)} inicio={() => setVista(CHEIO)} />
+      <svg ref={svgRef} viewBox={`${vista.x} ${vista.y} ${vista.w} ${vista.w}`} onPointerDown={aoApertar}
+        className={`h-full w-full touch-none text-stone-900 dark:text-white ${vista.w < 1000 ? "cursor-grab active:cursor-grabbing" : ""}`}
+        style={{ transition: arrastou.current ? "none" : undefined }} role="img" aria-label="Roda dos três Poderes">
         <defs>
           <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <path d="M0,0 L10,5 L0,10 z" fill="context-stroke" />
