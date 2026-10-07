@@ -44,6 +44,10 @@ jobs:
         continue-on-error: true
         run: python coletores/senado.py
 
+      - name: IBGE (contorno dos estados)
+        continue-on-error: true
+        run: python coletores/ibge.py
+
       - name: SIORG (orgaos e cargos do Executivo)
         continue-on-error: true
         run: python coletores/siorg.py

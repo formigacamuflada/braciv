@@ -109,6 +109,18 @@ def main():
         })
     cargos.sort(key=lambda r: (r["orgao"] or 0, r["unidade"] or 0, r["codigoCargo"] or "", r["denominacao"] or "", str(r["ordem"])))
 
+    # sede (UF) e site de cada orgao: so a ficha "completa" traz o endereco
+    for o in orgaos:
+        try:
+            r = requests.get(f"{BASE}/doc/unidade-organizacional/{o['codigo']}/completa", headers={"Accept": "application/json"}, timeout=40)
+            u = r.json().get("unidade", {}) if r.ok else {}
+        except (requests.RequestException, ValueError):
+            u = {}
+        end = next((e for e in (u.get("endereco") or []) if e.get("uf")), None)
+        o["ufSede"] = end.get("uf") if end else None
+        sites = [s_.get("site") for c in (u.get("contato") or []) for s_ in (c.get("site") or []) if s_.get("site")]
+        o["site"] = sites[0] if sites else None
+    print(f"  sede conhecida: {sum(1 for o in orgaos if o['ufSede'])}/{len(orgaos)} orgaos")
     grava("siorg_orgaos.json", orgaos)
     grava("siorg_unidades.json", unidades)
     grava("siorg_cargos.json", cargos)
