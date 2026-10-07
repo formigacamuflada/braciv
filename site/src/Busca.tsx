@@ -12,10 +12,13 @@ export default function Busca({ dados, aoEscolher, nomeOrgao }: Props) {
   const carregou = useRef(false);
 
   const doGrafo = useMemo(
-    () => (dados?.nos ?? []).filter((n) => n.tipo !== "pessoa").map((n) => ({ n, chave: normaliza(`${n.rotulo} ${n.nome ?? ""}`) })),
+    () => (dados?.nos ?? []).filter((n) => n.tipo !== "pessoa" && n.tipo !== "cargo").map((n) => ({ n, chave: normaliza(`${n.rotulo} ${n.nome ?? ""}`) })),
     [dados],
   );
-  const pessoasGrafo = useMemo(() => (dados?.nos ?? []).filter((n) => n.tipo === "pessoa").map((n) => ({ n, chave: normaliza(n.rotulo) })), [dados]);
+  const pessoasGrafo = useMemo(
+    () => (dados?.nos ?? []).filter((n) => n.tipo === "cargo").flatMap((n) => (n.ocupantes ?? []).map((o) => ({ n: { ...n, rotulo: o.nome, papel: n.rotulo }, chave: normaliza(o.nome) }))),
+    [dados],
+  );
   const chaves = useMemo(() => todas?.map((t) => normaliza(t[0])) ?? [], [todas]);
 
   useEffect(() => {
@@ -33,15 +36,15 @@ export default function Busca({ dados, aoEscolher, nomeOrgao }: Props) {
     for (const { n, chave } of [...pessoasGrafo, ...doGrafo]) {
       if (chave.includes(q)) {
         saida.push({ rotulo: n.rotulo, id: n.id, detalhe: n.papel ?? (n.tipo === "orgao" ? "órgão" : n.tipo) });
-        vistos.add(n.id);
+        vistos.add(`${normaliza(n.rotulo)}|${n.id}`);
         if (saida.length >= 12) return saida;
       }
     }
     if (todas) {
       for (let i = 0; i < todas.length && saida.length < 25; i++) {
-        if (chaves[i].includes(q) && !vistos.has(todas[i][1])) {
-          saida.push({ rotulo: todas[i][0], id: todas[i][1], orgao: todas[i][2], detalhe: nomeOrgao(todas[i][2]) });
-          vistos.add(todas[i][1]);
+        if (chaves[i].includes(q) && !vistos.has(`${chaves[i]}|${todas[i][1]}`)) {
+          saida.push({ rotulo: todas[i][0], id: todas[i][1], orgao: todas[i][2], detalhe: todas[i][2] ? nomeOrgao(todas[i][2]) : "cúpula / Congresso" });
+          vistos.add(`${chaves[i]}|${todas[i][1]}`);
         }
       }
     }

@@ -11,16 +11,18 @@ Saidas (dados/grafo/), no formato {"nos": [...], "arestas": [...]}:
   busca.json             [nome, id do no, codigo do orgao] de todas as pessoas, para a busca
   resumo.txt             contagens e o que ficou de fora
 
-Nos: {"id", "tipo", "rotulo", ...}. Tipos: poder, casa, orgao, unidade, pessoa, partido.
+Nos: {"id", "tipo", "rotulo", ...}. Tipos: poder, casa, orgao, unidade, cargo, partido.
+Pessoas nao sao nos: ficam dentro do no de CARGO, em "ocupantes" (nome, fonte, atos do DOU...).
 Arestas: {"de", "para", "tipo", ...}. Tipos:
   subordinada  unidade/orgao -> unidade/orgao/poder de cima
-  ocupa        pessoa -> unidade (ou orgao, se a unidade exata nao foi achada); leva o cargo
-  membro       parlamentar -> casa
-  filiado      parlamentar -> partido
+  cargo        cargo -> unidade (ou orgao, se a unidade exata nao foi achada)
+  membro       cadeira de parlamentar -> casa
+  filiado      cadeira de parlamentar -> partido (do ocupante)
 
 Uso: python coletores/grafo.py
 """
 import collections
+import hashlib
 import json
 import pathlib
 import re
@@ -46,6 +48,35 @@ def nivel(codigo):
         return 99
     m = re.fullmatch(r"(?:CCE|FCE) \d\.(\d\d)", codigo or "")
     return int(m.group(1)) if m else 0
+
+
+def id_cargo(para, codigo, funcao):
+    chave = f"{para}|{codigo or ''}|{norm(funcao or '')}"
+    return "c:" + hashlib.md5(chave.encode()).hexdigest()[:12]
+
+
+def rotulo_cargo(funcao, codigo):
+    f = (funcao or "").strip()
+    if f and f.isupper():
+        f = f.capitalize()
+    return f or codigo or "Cargo"
+
+
+def agrega_cargos(pares, nos, arestas, busca=None, orgao=None):
+    """Um no por CARGO (unidade + codigo + funcao); as pessoas ficam dentro dele em "ocupantes"."""
+    for p, a in pares:
+        cid = id_cargo(a["para"], a.get("codigoCargo"), a.get("funcao"))
+        if cid not in nos:
+            nos[cid] = {"id": cid, "tipo": "cargo", "rotulo": rotulo_cargo(a.get("funcao"), a.get("codigoCargo")),
+                        "codigoCargo": a.get("codigoCargo"), "ocupantes": []}
+            arestas.append({"de": cid, "para": a["para"], "tipo": "cargo", "exata": a.get("exata", True)})
+        oc = {k: v for k, v in {
+            "nome": p["no"]["rotulo"], "pessoa": p["no"]["id"], "fonte": p["no"].get("fonte"), "dou": p["no"].get("dou"),
+            "desde": a.get("desde"), "ate": a.get("ate"), "unidadePortal": a.get("unidadePortal"), "uf": a.get("uf"),
+            "url": a.get("url"), "exata": a.get("exata", True)}.items() if v not in (None, [], "")}
+        nos[cid]["ocupantes"].append(oc)
+        if busca is not None:
+            busca.append([p["no"]["rotulo"], cid, orgao])
 
 
 def grava(caminho, nos, arestas):
@@ -184,13 +215,8 @@ def main():
             nos[n["id"]] = n
             if u["pai"] is not None and u["codigo"] != dono:
                 arestas.append({"de": n["id"], "para": id_u(u["pai"]), "tipo": "subordinada"})
-        for p, a in por_orgao_p.get(dono, []):
-            nos.setdefault(p["no"]["id"], p["no"])
-            arestas.append(a)
-            busca.append([p["no"]["rotulo"], p["no"]["id"], dono])
+        agrega_cargos(por_orgao_p.get(dono, []), nos, arestas, busca, dono)
         grava(SAIDA / "orgaos" / f"{dono}.json", nos, arestas)
-    busca.sort()
-    (SAIDA / "busca.json").write_text("[\n" + ",\n".join(json.dumps(b, ensure_ascii=False) for b in busca) + "\n]\n", encoding="utf-8")
 
     # ---- nucleo ----
     nos, arestas = {}, []
@@ -207,6 +233,10 @@ def main():
             if vagas.get(c):
                 n["vagas"] = {k: v for k, v in vagas[c].items() if nivel(k) >= NIVEL_NUCLEO}
             nos[n["id"]] = n
+            if u["tipo"] == "ente" and u["poder"]:
+                # "Poder Judiciario", "Poder Legislativo" etc. no SIORG: liga direto ao no do Poder
+                arestas.append({"de": n["id"], "para": f"poder:{u['poder']}", "tipo": "subordinada"})
+                return
             if u["tipo"] in TOPO:
                 pai = u["pai"] if unid.get(u["pai"], {}).get("tipo") in TOPO else None
                 arestas.append({"de": n["id"], "para": id_u(pai) if pai else f"poder:{u['poder'] or 'Executivo'}", "tipo": "subordinada"})
@@ -223,14 +253,16 @@ def main():
     for c, cont in vagas.items():
         if any(nivel(k) >= NIVEL_NUCLEO for k in cont):
             inclui_unidade(c)
+    pares_altos = []
     for pid, p in pessoas.items():
-        altos = [a for a in p["cargos"] if a["para"] and nivel(a["codigoCargo"]) >= NIVEL_NUCLEO and not a.get("ate")]
-        for a in altos:
-            inclui_unidade(int(a["para"][2:]))
-            nos.setdefault(pid, p["no"])
-            arestas.append(a)
+        for a in p["cargos"]:
+            if a["para"] and nivel(a["codigoCargo"]) >= NIVEL_NUCLEO and not a.get("ate"):
+                inclui_unidade(int(a["para"][2:]))
+                pares_altos.append((p, a))
+    agrega_cargos(pares_altos, nos, arestas)
 
     # Legislativo
+    busca_nucleo = []
     for casa, nome in (("casa:camara", "Câmara dos Deputados"), ("casa:senado", "Senado Federal")):
         nos[casa] = {"id": casa, "tipo": "casa", "rotulo": nome}
         arestas.append({"de": casa, "para": "poder:Legislativo", "tipo": "subordinada"})
@@ -242,22 +274,31 @@ def main():
 
     for d in DEP:
         i = f"dep:{d['id']}"
-        nos[i] = {"id": i, "tipo": "pessoa", "rotulo": d["nome"], "papel": "Deputado(a) federal", "uf": d["siglaUf"],
-                  "partido": d["siglaPartido"], "foto": d.get("urlFoto"), "fonte": "Câmara dos Deputados"}
+        nos[i] = {"id": i, "tipo": "cargo", "rotulo": f"Deputado(a) federal · {d['siglaUf']}", "codigoCargo": "DEP", "uf": d["siglaUf"],
+                  "partido": d["siglaPartido"],
+                  "ocupantes": [{"nome": d["nome"], "foto": d.get("urlFoto"), "partido": d["siglaPartido"], "fonte": "Câmara dos Deputados"}]}
         arestas.append({"de": i, "para": "casa:camara", "tipo": "membro"})
         if d.get("siglaPartido"):
             arestas.append({"de": i, "para": partido(d["siglaPartido"]), "tipo": "filiado"})
-    for s in SEN:
-        ip = s["IdentificacaoParlamentar"]
+        busca_nucleo.append([d["nome"], i, 0])
+    for s_ in SEN:
+        ip = s_["IdentificacaoParlamentar"]
         i = f"sen:{ip['CodigoParlamentar']}"
-        nos[i] = {"id": i, "tipo": "pessoa", "rotulo": ip["NomeParlamentar"], "papel": "Senador(a)", "uf": ip.get("UfParlamentar"),
-                  "partido": ip.get("SiglaPartidoParlamentar"), "foto": ip.get("UrlFotoParlamentar"),
-                  "mesa": ip.get("MembroMesa") == "Sim", "lideranca": ip.get("MembroLideranca") == "Sim", "fonte": "Senado Federal"}
+        nos[i] = {"id": i, "tipo": "cargo", "rotulo": f"Senador(a) · {ip.get('UfParlamentar')}", "codigoCargo": "SEN", "uf": ip.get("UfParlamentar"),
+                  "partido": ip.get("SiglaPartidoParlamentar"), "mesa": ip.get("MembroMesa") == "Sim", "lideranca": ip.get("MembroLideranca") == "Sim",
+                  "ocupantes": [{"nome": ip["NomeParlamentar"], "foto": ip.get("UrlFotoParlamentar"), "partido": ip.get("SiglaPartidoParlamentar"), "fonte": "Senado Federal"}]}
         arestas.append({"de": i, "para": "casa:senado", "tipo": "membro"})
         if ip.get("SiglaPartidoParlamentar"):
             arestas.append({"de": i, "para": partido(ip["SiglaPartidoParlamentar"]), "tipo": "filiado"})
+        busca_nucleo.append([ip["NomeParlamentar"], i, 0])
 
     grava(SAIDA / "nucleo.json", nos, arestas)
+    for n in nos.values():
+        if n["tipo"] == "cargo" and not n["id"].startswith(("dep:", "sen:")):
+            for oc in n["ocupantes"]:
+                busca_nucleo.append([oc["nome"], n["id"], 0])
+    busca_total = sorted(busca_nucleo + busca)
+    (SAIDA / "busca.json").write_text("[\n" + ",\n".join(json.dumps(b, ensure_ascii=False) for b in busca_total) + "\n]\n", encoding="utf-8")
 
     # conferencias
     ids = set(nos)
@@ -268,7 +309,7 @@ def main():
         for k, v in (n.get("vagas") or {}).items():
             if k in ESPECIAIS:
                 especiais[k] += v
-    com_dono = collections.Counter(a["codigoCargo"] for a in arestas if a["tipo"] == "ocupa" and a["codigoCargo"] in ESPECIAIS)
+    com_dono = collections.Counter(n["codigoCargo"] for n in nos.values() if n["tipo"] == "cargo" and n.get("codigoCargo") in ESPECIAIS)
     resumo.insert(0, f"nucleo: {len(nos)} nos {dict(tipos)}, {len(arestas)} arestas, {len(soltas)} arestas com ponta faltando")
     resumo.append(f"arquivos por orgao: {len(por_orgao_u)} | pessoas na busca: {len(busca)}")
     resumo.append(f"vagas de Presidente/Vice/Ministro/Natureza Especial: {dict(especiais)} | com ocupante conhecido: {dict(com_dono)}")

@@ -1,0 +1,217 @@
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { Grafo } from "./tipos";
+import { C, R_MIOLO, R_POVO, SETORES, montaRoda, ponto, type Item, type Poder } from "./layoutRoda";
+
+type Props = {
+  dados: Grafo;
+  selecionado: string | null;
+  aoSelecionar: (id: string | null) => void;
+};
+
+// cores por Poder (claras o bastante para o fundo escuro e legíveis no claro)
+export const COR_RODA: Record<Poder | "povo", { base: string; fundo: string }> = {
+  Executivo: { base: "#8b8cf0", fundo: "#8b8cf01f" },
+  Legislativo: { base: "#f0644b", fundo: "#f0644b24" },
+  Judiciário: { base: "#e5b218", fundo: "#e5b2181f" },
+  "Funções Essenciais à Justiça": { base: "#3fbf9f", fundo: "#3fbf9f1f" },
+  povo: { base: "#f08a3c", fundo: "#f08a3c33" },
+};
+const FOCO = 180;   // o item clicado vai para a parte de baixo da roda
+
+function arco(a0: number, a1: number, r0: number, r1: number) {
+  const p = (a: number, r: number) => ponto(a, r);
+  const g = a1 - a0 > 180 ? 1 : 0;
+  const A = p(a0, r1), B = p(a1, r1), Cc = p(a1, r0), D = p(a0, r0);
+  return `M${A.x},${A.y} A${r1},${r1} 0 ${g} 1 ${B.x},${B.y} L${Cc.x},${Cc.y} A${r0},${r0} 0 ${g} 0 ${D.x},${D.y} Z`;
+}
+function caminhoTexto(a0: number, a1: number, r: number) {
+  const A = ponto(a0, r), B = ponto(a1, r);
+  return `M${A.x},${A.y} A${r},${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${B.x},${B.y}`;
+}
+function estrela(r: number, pontas = 22) {
+  const pts: string[] = [];
+  for (let i = 0; i < pontas * 2; i++) {
+    const rr = i % 2 ? r * 0.9 : r;
+    const a = (i * Math.PI) / pontas;
+    pts.push(`${C + rr * Math.sin(a)},${C - rr * Math.cos(a)}`);
+  }
+  return pts.join(" ");
+}
+function pentagono(x: number, y: number, r: number) {
+  return Array.from({ length: 5 }, (_, i) => {
+    const a = (i * 2 * Math.PI) / 5;
+    return `${x + r * Math.sin(a)},${y - r * Math.cos(a)}`;
+  }).join(" ");
+}
+
+export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
+  const roda = useMemo(() => montaRoda(dados), [dados]);
+  const [giro, setGiro] = useState(0);
+  const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
+  const caixa = useRef<HTMLDivElement>(null);
+  const ultimoSel = useRef<string | null>(null);
+
+  // quem não está desenhado na roda (pessoa, unidade) gira até o órgão a que pertence
+  const ancestral = useMemo(() => {
+    const sobe = new Map<string, string>();
+    for (const a of dados.arestas) if ((a.tipo === "subordinada" || a.tipo === "ocupa" || a.tipo === "cargo" || a.tipo === "membro") && !sobe.has(a.de)) sobe.set(a.de, a.para);
+    return (id: string) => {
+      for (let c: string | undefined = id, i = 0; c && i < 40; c = sobe.get(c), i++) if (roda.porId.has(c)) return roda.porId.get(c)!;
+      return null;
+    };
+  }, [dados, roda]);
+
+  // gira pelo caminho mais curto até o item selecionado ficar embaixo; sem seleção, volta ao eixo
+  useEffect(() => {
+    if (ultimoSel.current === selecionado) return;
+    ultimoSel.current = selecionado;
+    const alvoSel = selecionado ? roda.porId.get(selecionado) ?? setorDoPoder(selecionado) ?? ancestral(selecionado) : null;
+    const alvo = alvoSel && alvoSel.r > 0 ? FOCO - alvoSel.a : 0;
+    setGiro((g) => g + ((((alvo - g) % 360) + 540) % 360 - 180));
+  }, [selecionado, roda, ancestral]);
+
+  const foco = hover?.id ?? selecionado;
+  const ligadas = useMemo(() => {
+    if (!foco) return { rel: [], ids: new Set<string>() };
+    const id = foco.startsWith("poder:") ? null : foco;
+    const rel = id ? roda.relacoes.filter((r) => r.de === id || r.para === id) : [];
+    const ids = new Set<string>([foco, ...rel.flatMap((r) => [r.de, r.para])]);
+    if (foco.startsWith("poder:")) roda.itens.filter((i) => i.poder === foco.slice(6)).forEach((i) => ids.add(i.id));
+    return { rel, ids };
+  }, [foco, roda]);
+
+  const dim = (id: string) => (foco && !ligadas.ids.has(id) ? 0.22 : 1);
+
+  const aoMover = (e: React.MouseEvent, id: string) => {
+    const b = caixa.current?.getBoundingClientRect();
+    if (b) setHover({ id, x: e.clientX - b.left, y: e.clientY - b.top });
+  };
+
+  const forma = (it: Item) => {
+    const { x, y } = ponto(it.a, it.r);
+    const cor = COR_RODA[it.poder as Poder]?.base ?? "#999";
+    const sel = it.id === selecionado;
+    const comum = {
+      key: it.id,
+      style: { cursor: "pointer", opacity: dim(it.id), transition: "opacity 200ms" },
+      onMouseMove: (e: React.MouseEvent) => aoMover(e, it.id),
+      onMouseLeave: () => setHover(null),
+      onClick: (e: React.MouseEvent) => { e.stopPropagation(); aoSelecionar(it.id === selecionado ? null : it.id); },
+    };
+    const traco = sel ? "currentColor" : cor;
+    const largura = sel ? 2 : 1.2;
+    switch (it.forma) {
+      case "casa":
+        return (
+          <g {...comum}>
+            <rect x={x - it.t * 1.9} y={y - it.t * 0.75} width={it.t * 3.8} height={it.t * 1.5} rx={it.t * 0.75}
+              transform={`rotate(${it.a} ${x} ${y})`} fill={COR_RODA.Legislativo.fundo} stroke={traco} strokeWidth={largura} />
+          </g>
+        );
+      case "quadrado":
+        return (
+          <g {...comum}>
+            <rect x={x - it.t} y={y - it.t} width={it.t * 2} height={it.t * 2} rx={3} transform={`rotate(${it.a} ${x} ${y})`}
+              fill={cor + "40"} stroke={traco} strokeWidth={largura} />
+            <circle cx={ponto(it.a, it.r - it.t).x} cy={ponto(it.a, it.r - it.t).y} r={it.t * 0.42} fill={cor} />
+          </g>
+        );
+      case "pentagono":
+        return <polygon {...comum} points={pentagono(x, y, it.t)} transform={`rotate(${it.a} ${x} ${y})`} fill={cor + "55"} stroke={traco} strokeWidth={largura} />;
+      case "circulo":
+        return <circle {...comum} cx={x} cy={y} r={it.t} fill={it.tom > 0.95 ? cor : cor + "70"} stroke={traco} strokeWidth={largura} />;
+      default:
+        return <circle {...comum} cx={x} cy={y} r={sel ? it.t * 1.8 : it.t} fill={cor} fillOpacity={0.45 + it.tom * 0.55} />;
+    }
+  };
+
+  const itemHover = hover ? roda.porId.get(hover.id) : null;
+  const acoesHover = hover ? roda.relacoes.filter((r) => r.de === hover.id || r.para === hover.id) : [];
+  const resumo = (lista: typeof acoesHover) => {
+    const m = new Map<string, number>();
+    for (const r of lista) {
+      const k = r.de === hover!.id ? `${r.verbo} → ${r.para === "u:26" ? "Presidência" : rotuloAlvo(r.para)}` : `${rotuloAlvo(r.de)} ${r.verbo}`;
+      const chave = r.de === hover!.id && lista.filter((x) => x.de === hover!.id && x.verbo === r.verbo).length > 3 ? `${r.verbo} (${lista.filter((x) => x.de === hover!.id && x.verbo === r.verbo).length})` : k;
+      m.set(chave, 1);
+    }
+    return [...m.keys()].slice(0, 6);
+  };
+  function rotuloAlvo(id: string) {
+    if (id === "povo") return "o povo";
+    return roda.porId.get(id)?.rotulo ?? id;
+  }
+
+  return (
+    <div ref={caixa} className="absolute inset-0 select-none" onClick={() => aoSelecionar(null)}>
+      <svg viewBox="0 0 1000 1000" className="h-full w-full text-stone-900 dark:text-white" role="img" aria-label="Roda dos três Poderes">
+        <defs>
+          <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="context-stroke" />
+          </marker>
+        </defs>
+        <g style={{ transform: `rotate(${giro}deg)`, transformOrigin: "500px 500px", transition: "transform 900ms cubic-bezier(.22,.8,.2,1)" }}>
+          {SETORES.map((s) => (
+            <g key={s.poder} onClick={(e) => { e.stopPropagation(); aoSelecionar(`poder:${s.poder}`); }} style={{ cursor: "pointer" }}>
+              <path d={arco(s.a0 + 0.4, s.a1 - 0.4, R_MIOLO, s.rMax)} fill={COR_RODA[s.poder].fundo}
+                stroke={selecionado === `poder:${s.poder}` ? COR_RODA[s.poder].base : "none"} strokeWidth={1.5} />
+              <path id={`rot-${s.poder}`} d={caminhoTexto(s.a0, s.a1, s.rMax - 14)} fill="none" />
+              <text fontSize="13" letterSpacing="3" fontWeight="600" fill={COR_RODA[s.poder].base}>
+                <textPath href={`#rot-${s.poder}`} startOffset="50%" textAnchor="middle">{s.rotulo}</textPath>
+              </text>
+            </g>
+          ))}
+          {roda.faixas.map((f, i) => (
+            <g key={i} pointerEvents="none">
+              <path d={caminhoTexto(f.a0, f.a1, f.r)} fill="none" stroke={COR_RODA[f.poder].base} strokeOpacity={0.18} strokeDasharray="2 5" />
+              <path id={`faixa-${i}`} d={caminhoTexto(f.a0, f.a1, f.r + 4)} fill="none" />
+              <text fontSize="8.5" letterSpacing="2" fill={COR_RODA[f.poder].base} fillOpacity={0.75}>
+                <textPath href={`#faixa-${i}`} startOffset="50%" textAnchor="middle">{f.rotulo}</textPath>
+              </text>
+            </g>
+          ))}
+          {ligadas.rel.map((r, i) => {
+            const destino = roda.porId.get(r.para)!;
+            // do povo, a seta sai da borda da estrela (que não gira) na direção do alvo
+            const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(roda.porId.get(r.de)!.a, roda.porId.get(r.de)!.r);
+            const ate = ponto(destino.a, destino.r - destino.t - 2);
+            const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
+            const meio = { x: (de.x + ate.x) / 2 + (C - (de.x + ate.x) / 2) * 0.25, y: (de.y + ate.y) / 2 + (C - (de.y + ate.y) / 2) * 0.25 };
+            return <path key={i} d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" pointerEvents="none" />;
+          })}
+          {roda.itens.filter((i) => i.id !== "povo").map(forma)}
+        </g>
+
+        {/* miolo fixo: não gira */}
+        <circle cx={C} cy={C} r={R_MIOLO - 6} className="fill-stone-100 dark:fill-stone-950" pointerEvents="none" />
+        <g style={{ cursor: "pointer", opacity: dim("povo") }}
+          onClick={(e) => { e.stopPropagation(); aoSelecionar(selecionado === "povo" ? null : "povo"); }}
+          onMouseMove={(e) => aoMover(e, "povo")} onMouseLeave={() => setHover(null)}>
+          <polygon points={estrela(R_POVO)} fill={COR_RODA.povo.fundo} stroke={COR_RODA.povo.base} strokeWidth={1.5} />
+          <text x={C} y={C - 4} textAnchor="middle" fontSize="15" fontWeight="700" fill={COR_RODA.povo.base}>Povo</text>
+          <text x={C} y={C + 15} textAnchor="middle" fontSize="15" fontWeight="700" fill={COR_RODA.povo.base}>brasileiro</text>
+        </g>
+      </svg>
+
+      {itemHover && hover && (
+        <div className="pointer-events-none absolute z-30 max-w-72 rounded-lg border border-stone-200 bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur dark:border-stone-700 dark:bg-stone-900/95"
+          style={{ left: Math.min(hover.x + 14, (caixa.current?.clientWidth ?? 9999) - 290), top: hover.y + 14 }}>
+          <p className="font-semibold text-sm leading-snug" style={{ color: COR_RODA[itemHover.poder as Poder]?.base ?? COR_RODA.povo.base }}>{itemHover.nome}</p>
+          {itemHover.rotulo !== itemHover.nome && <p className="text-stone-500">{itemHover.rotulo}</p>}
+          {itemHover.ocupante && <p className="mt-1">{itemHover.ocupante}</p>}
+          {itemHover.detalhe && <p className="text-stone-500">{itemHover.detalhe}</p>}
+          {acoesHover.length > 0 && (
+            <ul className="mt-1.5 space-y-0.5 border-t border-stone-200 pt-1.5 dark:border-stone-700">
+              {resumo(acoesHover).map((t) => <li key={t}>• {t}</li>)}
+            </ul>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function setorDoPoder(id: string): Item | null {
+  if (!id.startsWith("poder:")) return null;
+  const s = SETORES.find((x) => x.poder === id.slice(6));
+  return s ? { id, rotulo: s.poder, nome: s.poder, poder: s.poder, forma: "circulo", a: (s.a0 + s.a1) / 2, r: 1, t: 0, tom: 0 } : null;
+}

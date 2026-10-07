@@ -28,10 +28,10 @@ export default function Grafo({ dados, raiz, selecionado, aoSelecionar, escuro }
     const g = new Graph({ multi: true, type: "directed" });
     // numa visão de órgão, milhares de pessoas sem unidade exata iriam todas para o centro:
     // ficam fora do desenho (continuam na lista do painel)
-    const soltas = (a: DadosGrafo["arestas"][number]) => !!raiz && a.tipo === "ocupa" && a.exata === false && a.para === raiz;
+    const soltas = (a: DadosGrafo["arestas"][number]) => !!raiz && (a.tipo === "ocupa" || a.tipo === "cargo") && a.exata === false && a.para === raiz;
     const comLigacao = new Set<string>();
     for (const a of dados.arestas) if (!soltas(a)) { comLigacao.add(a.de); comLigacao.add(a.para); }
-    const nos = dados.nos.filter((no) => no.tipo !== "pessoa" || comLigacao.has(no.id));
+    const nos = dados.nos.filter((no) => (no.tipo !== "pessoa" && no.tipo !== "cargo") || comLigacao.has(no.id));
     const n = nos.length;
     nos.forEach((no, i) => {
       const angulo = (2 * Math.PI * i) / n;
@@ -47,7 +47,7 @@ export default function Grafo({ dados, raiz, selecionado, aoSelecionar, escuro }
     });
     for (const a of dados.arestas) {
       if (!soltas(a) && g.hasNode(a.de) && g.hasNode(a.para)) {
-        g.addEdge(a.de, a.para, { tipo: a.tipo, size: a.tipo === "ocupa" ? 0.6 : 0.4, color: a.tipo === "ocupa" ? "#e11d4855" : "#a8a29e55" });
+        g.addEdge(a.de, a.para, { tipo: a.tipo, size: a.tipo === "cargo" ? 0.6 : 0.4, color: a.tipo === "cargo" ? "#e11d4855" : "#a8a29e55" });
       }
     }
 
@@ -60,7 +60,7 @@ export default function Grafo({ dados, raiz, selecionado, aoSelecionar, escuro }
 
     const s = new Sigma(g, caixa.current, {
       renderEdgeLabels: false,
-      labelRenderedSizeThreshold: 7,
+      labelRenderedSizeThreshold: 9,
       labelDensity: 0.4,
       labelColor: { color: escuro ? "#e7e5e4" : "#292524" },
       defaultEdgeType: "line",

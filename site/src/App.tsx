@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Grafo from "./Grafo";
-import Painel from "./Painel";
+import Roda from "./Roda";
+import Painel, { type Conexao } from "./Painel";
+import { COBERTURA, COBERTURA_PODER, DESCRICAO, DESCRICAO_POR_SIGLA, montaRoda } from "./layoutRoda";
 import Busca from "./Busca";
 import { carregaMeta, carregaNucleo, carregaOrgao } from "./dados";
 import type { Grafo as DadosGrafo, Meta } from "./tipos";
@@ -27,6 +29,7 @@ export default function App() {
   const [erro, setErro] = useState<string | null>(null);
   const [meta, setMeta] = useState<Meta | null>(null);
   const [escuro, setEscuro] = useState(() => matchMedia("(prefers-color-scheme: dark)").matches);
+  const [vista, setVista] = useState<"roda" | "grafo">("roda");
 
   useEffect(() => {
     const mq = matchMedia("(prefers-color-scheme: dark)");
@@ -52,14 +55,44 @@ export default function App() {
   const aoSelecionar = useCallback((id: string | null) => setSelecionado(id), []);
   const abreOrgao = useCallback((c: number) => { setOrgao(c); setSelecionado(`u:${c}`); }, []);
 
+  // dados extras do painel na visão geral: papel constitucional, relações e integrantes de cada Poder
+  const roda = useMemo(() => (nucleo ? montaRoda(nucleo) : null), [nucleo]);
+  const dadosPainel = useMemo(() => {
+    if (!dados || orgao) return dados;
+    return { ...dados, nos: [...dados.nos, { id: "povo", tipo: "poder" as const, rotulo: "Povo brasileiro", papel: "Soberania popular" }] };
+  }, [dados, orgao]);
+  const extras = useMemo(() => {
+    if (!selecionado || !roda || orgao) return {};
+    const no = dadosPainel?.nos.find((n) => n.id === selecionado);
+    const descricao = DESCRICAO[selecionado] ?? (no?.sigla ? DESCRICAO_POR_SIGLA[no.sigla] : undefined);
+    const grupos = new Map<string, Conexao>();
+    for (const r of roda.relacoes) {
+      const sentido = r.de === selecionado ? "sai" : r.para === selecionado ? "chega" : null;
+      if (!sentido) continue;
+      const outro = sentido === "sai" ? r.para : r.de;
+      const k = `${sentido}|${r.verbo}|${r.base.dispositivo}`;
+      if (!grupos.has(k)) grupos.set(k, { verbo: r.verbo, base: r.base, sentido, itens: [] });
+      grupos.get(k)!.itens.push({ id: outro, rotulo: outro === "povo" ? "Povo brasileiro" : roda.porId.get(outro)?.nome ?? outro });
+    }
+    const integrantes = selecionado.startsWith("poder:")
+      ? roda.itens.filter((i) => i.poder === selecionado.slice(6))
+          .sort((a, b) => b.t - a.t)
+          .map((i) => ({ id: i.id, rotulo: i.nome, detalhe: i.ocupante ?? i.detalhe }))
+      : undefined;
+    const temCargo = dadosPainel?.arestas.some((a) => a.para === selecionado && a.tipo === "cargo");
+    const aviso = COBERTURA[selecionado] ?? (no?.poder && !temCargo && no.tipo !== "cargo" ? COBERTURA_PODER[no.poder] : undefined);
+    return { descricao, conexoes: [...grupos.values()], integrantes, aviso };
+  }, [selecionado, roda, orgao, dadosPainel]);
+
   const contagem = useMemo(() => {
     if (!dados) return null;
-    const pessoas = dados.nos.filter((n) => n.tipo === "pessoa").length;
+    const cargos = dados.nos.filter((n) => n.tipo === "cargo");
+    const pessoas = cargos.reduce((s, n) => s + (n.ocupantes?.length ?? 0), 0);
     const raiz = orgao ? `u:${orgao}` : null;
-    const soltas = raiz ? new Set(dados.arestas.filter((a) => a.tipo === "ocupa" && a.exata === false && a.para === raiz).map((a) => a.de)).size : 0;
+    const soltas = raiz ? dados.arestas.filter((a) => a.tipo === "cargo" && a.exata === false && a.para === raiz).length : 0;
     return {
-      texto: `${dados.nos.length.toLocaleString("pt-BR")} nós · ${pessoas.toLocaleString("pt-BR")} pessoas`,
-      soltas: soltas ? `${soltas.toLocaleString("pt-BR")} pessoas sem unidade identificada aparecem só na lista do órgão` : null,
+      texto: `${cargos.length.toLocaleString("pt-BR")} cargos · ${pessoas.toLocaleString("pt-BR")} ocupantes`,
+      soltas: soltas ? `${soltas.toLocaleString("pt-BR")} cargos sem unidade identificada aparecem só na lista do órgão` : null,
     };
   }, [dados, orgao]);
 
@@ -75,7 +108,7 @@ export default function App() {
             dados={dados}
             nomeOrgao={nomeOrgao}
             aoEscolher={(r) => {
-              if (r.orgao && r.orgao !== orgao && !dados?.nos.some((n) => n.id === r.id)) setOrgao(r.orgao);
+              if (!dados?.nos.some((n) => n.id === r.id)) setOrgao(r.orgao ? r.orgao : null);
               setSelecionado(r.id);
             }}
           />
@@ -89,11 +122,21 @@ export default function App() {
 
       <main className="relative flex min-h-0 flex-1 flex-col md:flex-row">
         <div className="relative min-h-[50vh] flex-1">
-          {dados && <Grafo dados={dados} raiz={orgao ? `u:${orgao}` : null} selecionado={selecionado} aoSelecionar={aoSelecionar} escuro={escuro} />}
+          {dados && !orgao && vista === "roda" && <Roda dados={dados} selecionado={selecionado} aoSelecionar={aoSelecionar} />}
+          {dados && (orgao || vista === "grafo") && <Grafo dados={dados} raiz={orgao ? `u:${orgao}` : null} selecionado={selecionado} aoSelecionar={aoSelecionar} escuro={escuro} />}
+          {!orgao && (
+            <div className="absolute bottom-3 right-3 flex overflow-hidden rounded-lg border border-stone-300 bg-white text-sm dark:border-stone-700 dark:bg-stone-900">
+              {(["roda", "grafo"] as const).map((v) => (
+                <button key={v} onClick={() => setVista(v)} className={`px-3 py-1.5 ${vista === v ? "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900" : "text-stone-500 hover:text-stone-900 dark:hover:text-white"}`}>
+                  {v === "roda" ? "Roda dos Poderes" : "Grafo"}
+                </button>
+              ))}
+            </div>
+          )}
           {!dados && !erro && <p className="absolute inset-0 grid place-items-center text-sm text-stone-500">Carregando o grafo…</p>}
           {erro && <p className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-red-700">{erro}</p>}
 
-          <div className={`pointer-events-none absolute bottom-3 left-3 rounded-lg ${selecionado ? "hidden md:block" : ""} bg-white/85 p-3 text-xs shadow-sm backdrop-blur dark:bg-stone-900/85`}>
+          <div className={`pointer-events-none absolute bottom-3 left-3 rounded-lg ${selecionado ? "hidden md:block" : ""} ${!orgao && vista === "roda" ? "!hidden" : ""} bg-white/85 p-3 text-xs shadow-sm backdrop-blur dark:bg-stone-900/85`}>
             <p className="font-semibold">{orgao ? `Órgão: ${nomeOrgao(orgao)}` : "Visão geral"}</p>
             {contagem && <p className="text-stone-500">{contagem.texto}</p>}
             {contagem?.soltas && <p className="max-w-56 text-stone-500">{contagem.soltas}</p>}
@@ -101,16 +144,16 @@ export default function App() {
               {Object.entries(COR_PODER).map(([p, c]) => (
                 <li key={p} className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: c }} />{p}</li>
               ))}
-              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#e11d48" }} />Ocupante de cargo</li>
-              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#60a5fa" }} />Parlamentar</li>
+              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#e11d48" }} />Cargo (com quem ocupa dentro)</li>
+              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#60a5fa" }} />Cadeira no Congresso</li>
               <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#0891b2" }} />Partido</li>
             </ul>
           </div>
         </div>
 
-        {selecionado && dados && dados.nos.some((n) => n.id === selecionado) && (
-          <div className="max-h-[50vh] border-t border-stone-200 bg-white md:max-h-none md:w-[380px] md:border-l md:border-t-0 dark:border-stone-800 dark:bg-stone-900">
-            <Painel dados={dados} id={selecionado} aoSelecionar={setSelecionado} aoAbrirOrgao={orgao ? undefined : abreOrgao} aoFechar={() => setSelecionado(null)} />
+        {selecionado && dadosPainel && dadosPainel.nos.some((n) => n.id === selecionado) && (
+          <div className="max-h-[50vh] border-t border-stone-200 bg-white md:max-h-none md:w-[400px] md:border-l md:border-t-0 dark:border-stone-800 dark:bg-stone-900">
+            <Painel dados={dadosPainel} id={selecionado} {...extras} aoSelecionar={setSelecionado} aoAbrirOrgao={orgao ? undefined : abreOrgao} aoFechar={() => setSelecionado(null)} />
           </div>
         )}
       </main>

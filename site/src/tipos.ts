@@ -1,9 +1,27 @@
 // Formato dos arquivos gerados por coletores/grafo.py
 export type Ato = { data: string; verbo: string; cargo?: string | null; codigoCargo?: string | null; ato?: string; url?: string };
 
+// quem ocupa um cargo: as pessoas ficam DENTRO do nó de cargo, não viram nós
+export type Ocupante = {
+  nome: string;
+  pessoa?: string;
+  fonte?: string;
+  foto?: string;
+  partido?: string;
+  uf?: string;
+  desde?: string;
+  ate?: string;
+  unidadePortal?: string;
+  exata?: boolean;
+  url?: string;
+  dou?: Ato[];
+};
+
 export type No = {
   id: string;
-  tipo: "poder" | "casa" | "orgao" | "unidade" | "pessoa" | "partido";
+  tipo: "poder" | "casa" | "orgao" | "unidade" | "cargo" | "pessoa" | "partido";
+  codigoCargo?: string | null;
+  ocupantes?: Ocupante[];
   rotulo: string;
   nome?: string;
   sigla?: string | null;
@@ -24,7 +42,7 @@ export type No = {
 export type Aresta = {
   de: string;
   para: string;
-  tipo: "subordinada" | "ocupa" | "membro" | "filiado";
+  tipo: "subordinada" | "cargo" | "ocupa" | "membro" | "filiado";
   codigoCargo?: string | null;
   funcao?: string | null;
   unidadePortal?: string | null;

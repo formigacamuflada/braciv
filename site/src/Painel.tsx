@@ -1,10 +1,17 @@
 import { useMemo } from "react";
-import type { Aresta, Grafo, No } from "./tipos";
+import type { Aresta, Grafo, No, Ocupante } from "./tipos";
 import { ROTULO_TIPO, corDoNo } from "./cores";
+import { FONTE_CF, type Base } from "./constituicao";
+
+export type Conexao = { verbo: string; base: Base; sentido: "sai" | "chega"; itens: { id: string; rotulo: string }[] };
 
 type Props = {
   dados: Grafo;
   id: string;
+  descricao?: Base[];
+  conexoes?: Conexao[];
+  integrantes?: { id: string; rotulo: string; detalhe?: string }[];
+  aviso?: string;
   aoSelecionar: (id: string) => void;
   aoAbrirOrgao?: (codigo: number) => void;
   aoFechar: () => void;
@@ -36,7 +43,7 @@ function Lista({ titulo, itens, render }: { titulo: string; itens: unknown[]; re
   );
 }
 
-export default function Painel({ dados, id, aoSelecionar, aoAbrirOrgao, aoFechar }: Props) {
+export default function Painel({ dados, id, descricao, conexoes, integrantes, aviso, aoSelecionar, aoAbrirOrgao, aoFechar }: Props) {
   const idx = useMemo(() => new Map(dados.nos.map((n) => [n.id, n])), [dados]);
   const no = idx.get(id);
   const { saem, chegam } = useMemo(() => {
@@ -59,9 +66,14 @@ export default function Painel({ dados, id, aoSelecionar, aoAbrirOrgao, aoFechar
   };
 
   const cargos = saem.filter((a) => a.tipo === "ocupa");
-  const acima = saem.filter((a) => a.tipo === "subordinada");
+  const acima = saem.filter((a) => a.tipo === "subordinada" || a.tipo === "cargo");
   const abaixo = chegam.filter((a) => a.tipo === "subordinada");
   const ocupantes = chegam.filter((a) => a.tipo === "ocupa").sort((a, b) => peso(b.codigoCargo) - peso(a.codigoCargo));
+  const cargosAqui = chegam
+    .filter((a) => a.tipo === "cargo")
+    .map((a) => idx.get(a.de))
+    .filter((n): n is No => !!n)
+    .sort((a, b) => peso(b.codigoCargo) - peso(a.codigoCargo) || (b.ocupantes?.length ?? 0) - (a.ocupantes?.length ?? 0));
   const membros = chegam.filter((a) => a.tipo === "membro" || a.tipo === "filiado");
   const codigoOrgao = no.tipo === "orgao" ? Number(no.id.slice(2)) : null;
 
@@ -89,11 +101,92 @@ export default function Painel({ dados, id, aoSelecionar, aoAbrirOrgao, aoFechar
         {no.fonte && <><dt className="text-stone-500">Fonte</dt><dd>{no.fonte}</dd></>}
       </dl>
 
+      {!!descricao?.length && (
+        <section className="mt-4 space-y-3">
+          {descricao.map((b) => (
+            <blockquote key={b.dispositivo} className="border-l-2 border-stone-300 pl-3 text-sm leading-relaxed dark:border-stone-600">
+              “{b.texto}”
+              <footer className="mt-0.5 text-xs text-stone-500">
+                <a href={FONTE_CF} target="_blank" rel="noreferrer" className="underline">{b.dispositivo}</a>
+              </footer>
+            </blockquote>
+          ))}
+        </section>
+      )}
+
+      {!!conexoes?.length && (
+        <section className="mt-5">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-stone-500">Quem se conecta</h3>
+          <ul className="mt-2 space-y-2.5 text-sm">
+            {conexoes.map((c, i) => (
+              <li key={i}>
+                <p>
+                  {c.sentido === "sai" ? <span className="font-medium">{c.verbo}</span> : <><span className="font-medium">{c.itens.length === 1 ? c.itens[0].rotulo : `${c.itens.length} posições`}</span> {c.verbo}</>}
+                  <a href={FONTE_CF} target="_blank" rel="noreferrer" className="ml-1.5 text-xs text-stone-500 underline">{c.base.dispositivo}</a>
+                </p>
+                {(c.sentido === "sai" || c.itens.length > 1) && (
+                  <p className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs">
+                    {c.itens.slice(0, 30).map((x) => <span key={x.id}>{link(x.id, x.rotulo)}</span>)}
+                    {c.itens.length > 30 && <span className="text-stone-500">e mais {c.itens.length - 30}</span>}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <Lista titulo="Neste Poder" itens={integrantes ?? []} render={(x: { id: string; rotulo: string; detalhe?: string }, i) => (
+        <li key={i}>{link(x.id, x.rotulo)} {x.detalhe && <span className="text-xs text-stone-500">{x.detalhe}</span>}</li>
+      )} />
+
+      {aviso && <p className="mt-4 rounded-lg bg-amber-100 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:bg-amber-950/60 dark:text-amber-200">{aviso}</p>}
+
+      {!descricao?.length && !conexoes?.length && !integrantes?.length && !aviso && !acima.length && !abaixo.length && !cargosAqui.length && !membros.length && !ocupantes.length && no.tipo !== "cargo" && (
+        <p className="mt-4 text-sm text-stone-500">Ainda não há dados coletados sobre quem ocupa ou se liga a esta posição.</p>
+      )}
+
       {codigoOrgao !== null && aoAbrirOrgao && (
         <button onClick={() => aoAbrirOrgao(codigoOrgao)} className="mt-5 rounded-lg bg-stone-900 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-300">
           Abrir estrutura completa do órgão
         </button>
       )}
+
+      {no.tipo === "cargo" && (
+        <>
+          {no.codigoCargo && !["DEP", "SEN"].includes(no.codigoCargo) && (
+            <p className="mt-3"><span className="rounded bg-stone-200 px-1.5 py-0.5 text-xs dark:bg-stone-800">{no.codigoCargo}</span></p>
+          )}
+          <Lista titulo={(no.ocupantes?.length ?? 0) > 1 ? "Quem ocupa" : "Quem ocupa"} itens={no.ocupantes ?? []} render={(o: Ocupante, i) => (
+            <li key={i} className={`flex gap-3 rounded-lg border border-stone-200 p-2.5 dark:border-stone-700 ${o.ate ? "opacity-60" : ""}`}>
+              {o.foto && <img src={o.foto} alt="" className="h-14 w-12 shrink-0 rounded object-cover" loading="lazy" />}
+              <div className="min-w-0">
+                <p className="font-medium">{o.nome}</p>
+                <p className="text-xs text-stone-500">
+                  {[o.partido && `${o.partido}${o.uf ? `-${o.uf}` : ""}`, o.fonte, o.desde && `desde ${o.desde}`, o.ate && `saiu em ${o.ate}`].filter(Boolean).join(" · ")}
+                </p>
+                {o.exata === false && o.unidadePortal && <p className="text-xs text-stone-500">unidade no Portal: {o.unidadePortal}</p>}
+                {o.dou?.map((d, k) => (
+                  <p key={k} className="text-xs text-stone-500">
+                    {d.data} · {d.verbo}{d.url && <> · <a className="underline" href={d.url} target="_blank" rel="noreferrer">ver no DOU</a></>}
+                  </p>
+                ))}
+              </div>
+            </li>
+          )} />
+        </>
+      )}
+
+      <Lista titulo="Cargos aqui" itens={cargosAqui} render={(c: No, i) => (
+        <li key={i}>
+          {link(c.id, c.rotulo)}
+          {c.codigoCargo && <span className="ml-1 rounded bg-stone-200 px-1 text-xs dark:bg-stone-800">{c.codigoCargo}</span>}
+          <span className="block text-xs text-stone-500">
+            {(c.ocupantes ?? []).slice(0, 2).map((o) => o.nome).join(", ")}
+            {(c.ocupantes?.length ?? 0) > 2 ? ` e mais ${(c.ocupantes!.length - 2).toLocaleString("pt-BR")}` : ""}
+          </span>
+        </li>
+      )} />
 
       <Lista titulo="Cargos" itens={cargos} render={(a: Aresta, i) => (
         <li key={i} className={a.ate ? "opacity-60" : ""}>
@@ -113,7 +206,7 @@ export default function Painel({ dados, id, aoSelecionar, aoAbrirOrgao, aoFechar
         </li>
       )} />
 
-      <Lista titulo="Fica em" itens={acima} render={(a: Aresta, i) => <li key={i}>{link(a.para)}</li>} />
+      <Lista titulo={no.tipo === "cargo" ? "Onde fica" : "Fica em"} itens={acima} render={(a: Aresta, i) => <li key={i}>{link(a.para)}</li>} />
       {no.vagas && (
         <section className="mt-5">
           <h3 className="text-xs font-semibold uppercase tracking-wide text-stone-500">Vagas previstas (SIORG)</h3>
@@ -124,13 +217,13 @@ export default function Painel({ dados, id, aoSelecionar, aoAbrirOrgao, aoFechar
           </p>
         </section>
       )}
-      <Lista titulo="Ocupantes" itens={ocupantes} render={(a: Aresta, i) => (
+      <Lista titulo="Ocupantes (formato antigo)" itens={ocupantes} render={(a: Aresta, i) => (
         <li key={i}>{link(a.de)} <span className="text-xs text-stone-500">{a.funcao}{a.codigoCargo ? ` · ${a.codigoCargo}` : ""}</span></li>
       )} />
       <Lista titulo="Unidades abaixo" itens={abaixo} render={(a: Aresta, i) => <li key={i}>{link(a.de)}</li>} />
       <Lista titulo="Membros" itens={membros} render={(a: Aresta, i) => {
         const m = idx.get(a.de) as No | undefined;
-        return <li key={i}>{link(a.de)} <span className="text-xs text-stone-500">{m?.partido}{m?.uf ? ` · ${m.uf}` : ""}</span></li>;
+        return <li key={i}>{link(a.de, m?.ocupantes?.[0]?.nome ?? m?.rotulo)} <span className="text-xs text-stone-500">{m?.partido}{m?.uf ? ` · ${m.uf}` : ""}</span></li>;
       }} />
     </aside>
   );
