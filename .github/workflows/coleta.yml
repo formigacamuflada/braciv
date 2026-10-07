@@ -37,9 +37,11 @@ jobs:
         run: pip install --quiet requests
 
       - name: Camara
+        continue-on-error: true
         run: python coletores/camara.py
 
       - name: Senado
+        continue-on-error: true
         run: python coletores/senado.py
 
       - name: SIORG (orgaos e cargos do Executivo)
@@ -77,4 +79,4 @@ jobs:
           git config user.email "coletor@users.noreply.github.com"
           git add dados/
           git diff --staged --quiet || git commit -m "dados: coleta de $(date -u +%Y-%m-%d)"
-          git push
+          git pull --rebase -q && git push

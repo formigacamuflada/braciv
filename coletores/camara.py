@@ -3,6 +3,7 @@ Fonte: https://dadosabertos.camara.leg.br/api/v2 - aberta, sem chave."""
 import json
 import pathlib
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -19,8 +20,16 @@ def busca(caminho, **params):
         params["pagina"] = pagina
         url = f"{BASE}{caminho}?" + urllib.parse.urlencode(params)
         req = urllib.request.Request(url, headers={"Accept": "application/json"})
-        with urllib.request.urlopen(req, timeout=30) as resposta:
-            corpo = json.load(resposta)
+        for tentativa in range(5):          # a API da Camara oscila (429/5xx): tenta de novo com espera
+            try:
+                with urllib.request.urlopen(req, timeout=60) as resposta:
+                    corpo = json.load(resposta)
+                break
+            except (urllib.error.URLError, TimeoutError) as e:
+                if tentativa == 4:
+                    raise
+                print(f"  {url}: {e}; nova tentativa em {10 * (tentativa + 1)}s")
+                time.sleep(10 * (tentativa + 1))
         dados = corpo.get("dados", [])
         tudo.extend(dados)
         if len(dados) < params["itens"]:
