@@ -44,12 +44,17 @@ export const PARTIDOS: Record<string, Info> = {
 
 // Faixas da própria pesquisa: até 4,49 esquerda (inclui extrema e centro-esquerda), 4,5–5,5 centro, acima direita.
 export type Campo = "Esquerda" | "Centro" | "Direita" | "Sem classificação";
+// Centro = Centrão (PP, União Brasil, PSD, Republicanos e MDB), escolha editorial do BRA.CIV, não da pesquisa.
+// Os demais partidos seguem a nota da pesquisa: até 5,5 ficam à esquerda; acima, à direita.
+export const CENTRAO = new Set(["PP", "UNIÃO", "PSD", "REPUBLICANOS", "MDB"]);
+export const NOTA_CENTRAO = "Centro = Centrão (PP, União Brasil, PSD, Republicanos e MDB). Os demais partidos seguem a nota de";
 export function campo(sigla?: string): Campo {
+  if (CENTRAO.has(sigla ?? "")) return "Centro";
   const n = PARTIDOS[sigla ?? ""]?.nota;
   if (n == null) return "Sem classificação";
-  return n <= 4.49 ? "Esquerda" : n <= 5.5 ? "Centro" : "Direita";
+  return n <= 5.5 ? "Esquerda" : "Direita";
 }
-export const COR_CAMPO: Record<Campo, string> = { Esquerda: "#e5484d", Centro: "#a8a29e", Direita: "#3e63dd", "Sem classificação": "#57534e" };
+export const COR_CAMPO: Record<Campo, string> = { Esquerda: "#e5484d", Centro: "#c8a96a", Direita: "#3e63dd", "Sem classificação": "#57534e" };
 
 // Cor de cada partido: tons do campo, escurecendo/clareando para distinguir vizinhos
 const CORES: Record<string, string> = {
@@ -59,4 +64,6 @@ const CORES: Record<string, string> = {
   PTB: "#b45309", PMN: "#be123c", PMB: "#c084fc", PRTB: "#4d7c0f", PROS: "#d946ef", AGIR: "#818cf8", PSC: "#1e3a8a", PATRIOTA: "#047857",
 };
 export const corPartido = (s?: string) => CORES[s ?? ""] ?? "#78716c";
-export const notaPartido = (s?: string) => PARTIDOS[s ?? ""]?.nota ?? 99;
+// posição para ordenar da esquerda para a direita: primeiro o grupo (esquerda, Centrão, direita), depois a nota
+const GRUPO: Record<Campo, number> = { Esquerda: 0, Centro: 1, Direita: 2, "Sem classificação": 3 };
+export const notaPartido = (s?: string) => GRUPO[campo(s)] * 100 + (PARTIDOS[s ?? ""]?.nota ?? 50);

@@ -26,9 +26,11 @@ function arco(a0: number, a1: number, r0: number, r1: number) {
   const A = p(a0, r1), B = p(a1, r1), Cc = p(a1, r0), D = p(a0, r0);
   return `M${A.x},${A.y} A${r1},${r1} 0 ${g} 1 ${B.x},${B.y} L${Cc.x},${Cc.y} A${r0},${r0} 0 ${g} 0 ${D.x},${D.y} Z`;
 }
-function caminhoTexto(a0: number, a1: number, r: number) {
+function caminhoTexto(a0: number, a1: number, r: number, inverte = false) {
   const A = ponto(a0, r), B = ponto(a1, r);
-  return `M${A.x},${A.y} A${r},${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${B.x},${B.y}`;
+  const g = a1 - a0 > 180 ? 1 : 0;
+  // na metade de baixo da tela o texto percorre o arco ao contrário, para não ficar de cabeça para baixo
+  return inverte ? `M${B.x},${B.y} A${r},${r} 0 ${g} 0 ${A.x},${A.y}` : `M${A.x},${A.y} A${r},${r} 0 ${g} 1 ${B.x},${B.y}`;
 }
 function estrela(r: number, pontas = 22) {
   const pts: string[] = [];
@@ -145,19 +147,25 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
   // grade de pontos e se abrem numa fileira de quadradinhos na borda; ao tirar a seleção, voltam a ser pontos.
   const expandido = useMemo(() => {
     if (!selecionado) return null;
-    const filhosDe = (id: string) => roda.relacoes.filter((r) => r.de === id && r.verbo === "supervisiona").map((r) => r.para);
+    // ministério → entidades vinculadas; tribunal → ministros
+    const filhosDe = (id: string) => [
+      ...roda.relacoes.filter((r) => r.de === id && r.verbo === "supervisiona").map((r) => r.para),
+      ...roda.relacoes.filter((r) => r.para === id && r.verbo === "compõe o tribunal").map((r) => r.de),
+    ];
     let dono = selecionado, filhos = filhosDe(selecionado);
     if (!filhos.length) {
-      const pai = roda.relacoes.find((r) => r.para === selecionado && r.verbo === "supervisiona")?.de;
+      const pai = roda.relacoes.find((r) => r.para === selecionado && r.verbo === "supervisiona")?.de
+        ?? roda.relacoes.find((r) => r.de === selecionado && r.verbo === "compõe o tribunal")?.para;
       if (pai) { dono = pai; filhos = filhosDe(pai); }
     }
     const m = roda.porId.get(dono);
     if (!filhos.length || !m) return null;
-    const porLinha = 24, passo = 2.15;
+    const porLinha = m.poder === "Executivo" ? 24 : 11, passo = 2.15;
     const pos = new Map<string, { a: number; r: number }>();
     filhos.forEach((id, k) => {
       const lin = Math.floor(k / porLinha), col = k % porLinha, naLinha = Math.min(porLinha, filhos.length - lin * porLinha);
-      pos.set(id, { a: m.a + (col - (naLinha - 1) / 2) * passo, r: 372 + lin * 15 });
+      const base = m.poder === "Executivo" ? 372 : m.r < 250 ? 254 : m.r + 30;
+      pos.set(id, { a: m.a + (col - (naLinha - 1) / 2) * passo, r: base + lin * 15 });
     });
     return { dono, pos };
   }, [selecionado, roda]);
@@ -194,7 +202,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
 
   const onde = (id: string) => expandido?.pos.get(id) ?? roda.porId.get(id)!;
 
-  const dim = (id: string) => (foco && !ligadas.ids.has(id) ? (expandido?.pos.has(id) ? 0.55 : expandido && roda.porId.get(id)?.forma === "ponto" && roda.porId.get(id)?.poder === "Executivo" ? 0.07 : 0.22) : 1);
+  const dim = (id: string) => (foco && !ligadas.ids.has(id) ? (expandido?.pos.has(id) ? 0.55 : expandido && roda.porId.get(id)?.forma === "ponto" && roda.porId.get(id)?.poder === roda.porId.get(expandido.dono)?.poder ? 0.07 : 0.22) : 1);
 
   // a etiqueta do hover fica presa ao nó (acima dele), não ao ponteiro
   const aoMover = (e: React.MouseEvent, id: string) => {
@@ -250,6 +258,8 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
   };
 
   const itemHover = hover ? roda.porId.get(hover.id) : null;
+  // depois do giro, o arco fica na metade de baixo da tela? (aí o texto é desenhado ao contrário)
+  const embaixo = (a: number) => { const x = (((a + giro) % 360) + 360) % 360; return x > 90 && x < 270; };
   const rotulados = new Set<string>();
 
   return (
@@ -268,7 +278,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
             <g key={s.poder} onClick={(e) => { e.stopPropagation(); aoSelecionar(`poder:${s.poder}`); }} style={{ cursor: "pointer" }}>
               <path d={arco(s.a0 + 0.4, s.a1 - 0.4, R_MIOLO, s.rMax)} fill={COR_RODA[s.poder].fundo}
                 stroke={selecionado === `poder:${s.poder}` ? COR_RODA[s.poder].base : "none"} strokeWidth={1.5} />
-              <path id={`rot-${s.poder}`} d={caminhoTexto(s.a0, s.a1, s.rMax - 14)} fill="none" />
+              <path id={`rot-${s.poder}`} d={embaixo((s.a0 + s.a1) / 2) ? caminhoTexto(s.a0, s.a1, s.rMax - 6, true) : caminhoTexto(s.a0, s.a1, s.rMax - 14)} fill="none" />
               <text fontSize="13" letterSpacing="3" fontWeight="600" fill={COR_RODA[s.poder].base}>
                 <textPath href={`#rot-${s.poder}`} startOffset="50%" textAnchor="middle">{s.rotulo}</textPath>
               </text>
@@ -277,7 +287,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
           {roda.faixas.map((f, i) => (
             <g key={i} pointerEvents="none">
               <path d={caminhoTexto(f.a0, f.a1, f.r)} fill="none" stroke={COR_RODA[f.poder].base} strokeOpacity={0.18} strokeDasharray="2 5" />
-              <path id={`faixa-${i}`} d={caminhoTexto(f.a0, f.a1, f.r + 4)} fill="none" />
+              <path id={`faixa-${i}`} d={embaixo((f.a0 + f.a1) / 2) ? caminhoTexto(f.a0, f.a1, f.r + 10, true) : caminhoTexto(f.a0, f.a1, f.r + 4)} fill="none" />
               <text fontSize="8.5" letterSpacing="2" fill={COR_RODA[f.poder].base} fillOpacity={0.75}>
                 <textPath href={`#faixa-${i}`} startOffset="50%" textAnchor="middle">{f.rotulo}</textPath>
               </text>
@@ -314,7 +324,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
               const destino = { ...roda.porId.get(r.para)!, ...onde(r.para) };
               // do povo, a seta sai da borda da estrela na direção do alvo
               const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(onde(r.de).a, onde(r.de).r);
-              const leque = (grupo.get(`${r.verbo}|${r.para === foco ? "c" : "s"}`) ?? 0) > 8 || (!!expandido && r.verbo === "supervisiona");
+              const leque = (grupo.get(`${r.verbo}|${r.para === foco ? "c" : "s"}`) ?? 0) > 8 || (!!expandido && (r.verbo === "supervisiona" || r.verbo === "compõe o tribunal"));
               const ate = ponto(destino.a, destino.r - (expandido?.pos.has(r.para) ? 4.2 : destino.t) - 2);
               const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
               const meio = leque ? { x: (de.x + ate.x) / 2, y: (de.y + ate.y) / 2 }

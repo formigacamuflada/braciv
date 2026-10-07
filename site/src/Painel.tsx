@@ -3,7 +3,7 @@ import type { Aresta, Grafo, No, Ocupante } from "./tipos";
 import { ROTULO_TIPO, corDoNo } from "./cores";
 import { FONTE_CF, type Base } from "./constituicao";
 import Ficha, { Retrato } from "./Ficha";
-import { BlocoCasa, BlocoComissao, BlocoLideranca } from "./Legislativo";
+import { BlocoCasa, BlocoComissao, BlocoLideranca, BlocoTribunal } from "./Legislativo";
 
 export type Conexao = { verbo: string; base: Base; sentido: "sai" | "chega"; itens: { id: string; rotulo: string }[] };
 
@@ -85,7 +85,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
   const CASAS: Record<string, number> = { "casa:camara": 67536, "casa:senado": 67490 };
   const codigoOrgao = no.tipo === "orgao" && /^u:\d+$/.test(no.id) ? Number(no.id.slice(2)) : CASAS[no.id] ?? null;
   const numU = (s?: string) => (s && /^u:\d+$/.test(s) ? Number(s.slice(2)) : null);
-  const codigoFicha = no.tipo === "orgao" || no.tipo === "unidade" ? numU(no.id) : no.tipo === "cargo" && !["MESA", "LID", "PRES", "VICE"].includes(no.codigoCargo ?? "") ? numU(acima.find((a) => a.tipo === "cargo")?.para) : null;
+  const codigoFicha = no.tipo === "orgao" || no.tipo === "unidade" ? numU(no.id) : no.tipo === "cargo" && !["MESA", "LID", "PRES", "VICE", "MIN"].includes(no.codigoCargo ?? "") ? numU(acima.find((a) => a.tipo === "cargo")?.para) : null;
 
   return (
     <aside className="flex h-full flex-col overflow-y-auto p-5">
@@ -132,6 +132,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
       {(no.tipo === "casa" || no.sigla === "CN") && (
         <BlocoCasa no={no} cargos={cargosAqui} unidades={abaixo.map((a) => idx.get(a.de)).filter((n): n is No => !!n)} idx={idx} aoSelecionar={aoSelecionar} />
       )}
+      {cargosAqui.some((c) => c.juiz) && <BlocoTribunal no={no} cargos={cargosAqui} aoSelecionar={aoSelecionar} />}
       {no.comissao && <BlocoComissao no={no} cargos={cargosAqui} idx={idx} aoSelecionar={aoSelecionar} />}
 
 
@@ -141,7 +142,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
 
       {no.tipo === "cargo" && (
         <>
-          {no.codigoCargo && !["DEP", "SEN", "MESA", "LID", "PRES", "VICE", "TIT", "SUBST"].includes(no.codigoCargo) && (
+          {no.codigoCargo && !["DEP", "SEN", "MESA", "LID", "PRES", "VICE", "TIT", "SUBST", "MIN"].includes(no.codigoCargo) && (
             <p className="mt-3"><span className="rounded bg-stone-200 px-1.5 py-0.5 text-xs dark:bg-stone-800">{no.codigoCargo}</span></p>
           )}
           <Lista titulo={(no.ocupantes?.length ?? 0) > 1 ? "Quem ocupa" : "Quem ocupa"} itens={no.ocupantes ?? []} render={(o: Ocupante, i) => (
@@ -232,7 +233,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         <li key={i}>{link(x.id, x.rotulo)} {x.detalhe && <span className="text-xs text-stone-500">{x.detalhe}</span>}</li>
       )} />
 
-      <Lista titulo="Cargos aqui" itens={cargosAqui.filter((c) => !["MESA", "LID", "PRES", "VICE"].includes(c.codigoCargo ?? ""))} render={(c: No, i) => (
+      <Lista titulo="Cargos aqui" itens={cargosAqui.filter((c) => !["MESA", "LID", "PRES", "VICE", "MIN"].includes(c.codigoCargo ?? ""))} render={(c: No, i) => (
         <li key={i}>
           {link(c.id, /^exercer o encargo de substitut/i.test(c.rotulo) ? "Substituto(a) eventual" : c.rotulo)}
           {c.codigoCargo && <span className="ml-1 rounded bg-stone-200 px-1 text-xs dark:bg-stone-800">{c.codigoCargo}</span>}

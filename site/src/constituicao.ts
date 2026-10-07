@@ -19,6 +19,12 @@ export const REG: Record<string, Base> = {
 };
 
 export const CF: Record<string, Base> = {
+  "101": { dispositivo: "CF, art. 101", texto: "O Supremo Tribunal Federal compõe-se de onze Ministros, escolhidos dentre cidadãos com mais de trinta e cinco e menos de setenta anos de idade, de notável saber jurídico e reputação ilibada." },
+  "104": { dispositivo: "CF, art. 104", texto: "O Superior Tribunal de Justiça compõe-se de, no mínimo, trinta e três Ministros." },
+  "111a": { dispositivo: "CF, art. 111-A", texto: "O Tribunal Superior do Trabalho compõe-se de vinte e sete Ministros, escolhidos dentre brasileiros com mais de trinta e cinco e menos de setenta anos de idade, de notável saber jurídico e reputação ilibada, nomeados pelo Presidente da República após aprovação pela maioria absoluta do Senado Federal, sendo: (…)" },
+  "119": { dispositivo: "CF, art. 119", texto: "O Tribunal Superior Eleitoral compor-se-á, no mínimo, de sete membros, escolhidos: (…)" },
+  "123": { dispositivo: "CF, art. 123", texto: "O Superior Tribunal Militar compor-se-á de quinze Ministros vitalícios, nomeados pelo Presidente da República, depois de aprovada a indicação pelo Senado Federal, sendo três dentre oficiais-generais da Marinha, quatro dentre oficiais-generais do Exército, três dentre oficiais-generais da Aeronáutica, todos da ativa e do posto mais elevado da carreira, e cinco dentre civis." },
+  "103b": { dispositivo: "CF, art. 103-B", texto: "O Conselho Nacional de Justiça compõe-se de 15 (quinze) membros com mandato de 2 (dois) anos, admitida 1 (uma) recondução, sendo: (…)" },
   "58p1": { dispositivo: "CF, art. 58, § 1º", texto: "Na constituição das Mesas e de cada Comissão, é assegurada, tanto quanto possível, a representação proporcional dos partidos ou dos blocos parlamentares que participam da respectiva Casa." },
   "1u": { dispositivo: "CF, art. 1º, parágrafo único", texto: "Todo o poder emana do povo, que o exerce por meio de representantes eleitos ou diretamente, nos termos desta Constituição." },
   "2": { dispositivo: "CF, art. 2º", texto: "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário." },

@@ -481,6 +481,9 @@ def main():
     cn_id = next((k for k, v in nos.items() if v.get("sigla") == "CN" and v.get("poder") == "Legislativo"), None)
     resumo.append(f"Legislativo no nucleo: {gl.nucleo(nos, arestas, DEP, SEN, cn_id)}")
     resumo.append(f"Legislativo, estrutura das Casas: {gl.estrutura(SAIDA, grava, busca)}")
+    # ministros dos tribunais superiores e conselheiros do CNJ (coletores/judiciario.py)
+    import grafo_judiciario as gj
+    resumo.append(f"Judiciario no nucleo: {gj.nucleo(nos, arestas)}")
 
     grava(SAIDA / "nucleo.json", nos, arestas)
     grafo_arestas_nucleo.extend(arestas)

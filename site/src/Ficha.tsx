@@ -102,7 +102,7 @@ export function Retrato({ o, t = 56 }: { o: Ocupante; t?: number }) {
   const u = urlFoto(o.foto);
   return (
     <span className="grid shrink-0 place-items-center overflow-hidden rounded-lg bg-stone-200 text-sm font-semibold text-stone-500 dark:bg-stone-800" style={{ width: t, height: t }}>
-      {u && !erro ? <img src={u} alt={o.nome} loading="lazy" onError={() => setErro(true)} className="h-full w-full object-cover object-top" /> : iniciais(o.nome)}
+      {u && !erro ? <img src={u} alt={o.nome} loading="lazy" referrerPolicy="no-referrer" onError={() => setErro(true)} className="h-full w-full object-cover object-top" /> : iniciais(o.nome)}
     </span>
   );
 }

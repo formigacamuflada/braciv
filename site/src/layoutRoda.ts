@@ -184,6 +184,7 @@ export function montaRoda(g: Grafo): Roda {
 
   // ---- Judiciário ----
   const jd = SETORES[2];
+  const relJud: [string, string, Base][] = [];
   const mj = (jd.a0 + jd.a1) / 2;
   add(porSigla("STF", "Judiciário"), { a: mj, r: 212, t: 15, forma: "pentagono", poder: "Judiciário", tom: 1 });
   const superiores = ["STJ", "TST", "TSE", "STM", "CNJ", "CJF", "CSJT"].map((s) => porSigla(s, "Judiciário")).filter(Boolean) as No[];
@@ -192,6 +193,24 @@ export function montaRoda(g: Grafo): Roda {
   const regionais = orgaos.filter((n) => n.poder === "Judiciário" && n.tipoSiorg === "orgao" && !usados.has(n.sigla ?? "") && n.sigla !== "PJ").sort((a, b) => (a.sigla ?? "").localeCompare(b.sigla ?? ""));
   emLinhas(regionais.length, jd.a0 + 3, jd.a1 - 3, 372, 11, 9).forEach((p, i) => add(regionais[i], { ...p, t: 3, forma: "ponto", poder: "Judiciário", tom: 0.4, detalhe: "tribunal / órgão da Justiça" }));
   faixas.push({ poder: "Judiciário", r: 245, a0: jd.a0 + 3, a1: jd.a1 - 3, rotulo: "STF" });
+  // Ministros e conselheiros: pontinhos junto de cada tribunal; ao clicar no tribunal eles se abrem (ver Roda.tsx)
+  const juizes = g.nos.filter((n) => n.juiz);
+  const BASE_TRIB: Record<string, Base> = { STF: CF["101"], STJ: CF["104"], TST: CF["111a"], TSE: CF["119"], STM: CF["123"], CNJ: CF["103b"] };
+  for (const corte of [porSigla("STF", "Judiciário"), ...superiores]) {
+    if (!corte) continue;
+    const it = itens.find((x) => x.id === corte.id);
+    const membros = juizes.filter((n) => n.tribunal === corte.sigla).sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99) || (a.ocupantes?.[0]?.nome ?? "").localeCompare(b.ocupantes?.[0]?.nome ?? "", "pt-BR"));
+    if (!it || !membros.length) continue;
+    const fora = it.r < 250;                      // STF: grade para fora; os demais: para dentro (entre o STF e o tribunal)
+    const cols = 6;
+    membros.forEach((n, k) => {
+      const col = k % cols, lin = Math.floor(k / cols);
+      const o = n.ocupantes?.[0];
+      add(n, { a: it.a + (col - (cols - 1) / 2) * (fora ? 1.15 : 0.95), r: fora ? it.r + it.t + 6 + lin * 4.5 : it.r - it.t - 6 - lin * 4.5,
+        t: 1.7, forma: "ponto", poder: "Judiciário", tom: 0.9, nome: o ? `${o.nome} · ${n.rotulo}` : n.rotulo, ocupante: o?.nome, detalhe: n.rotulo });
+    });
+    for (const n of membros) relJud.push([n.id, corte.id, BASE_TRIB[corte.sigla ?? ""] ?? CF["2"]]);
+  }
 
   // ---- Relações (o que cada um faz) ----
   const porId = new Map(itens.map((i) => [i.id, i]));
@@ -212,6 +231,7 @@ export function montaRoda(g: Grafo): Roda {
     rel("u:26", alvo, "indica e nomeia, após aprovação do Senado", alvo === nomeadosComSenado[0] ? CF["101u"] : CF["84xiv"]);
     rel("casa:senado", alvo, "aprova a escolha", CF["52iii"]);
   }
+  for (const [de, para, base] of relJud) rel(de, para, "compõe o tribunal", base);
   rel("casa:camara", "mesa:cd:1", "elege a Mesa", CF["57p4"]);
   rel("casa:senado", "mesa:sf:1", "elege a Mesa", CF["57p4"]);
   // quem escolhe quem dentro do Legislativo (Regimentos Internos de cada Casa)

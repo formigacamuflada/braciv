@@ -147,3 +147,32 @@ export function BlocoLideranca({ no, idx, aoSelecionar }: { no: No; idx: Idx; ao
     </>
   );
 }
+
+// Um tribunal superior ou o CNJ: presidência e demais ministros/conselheiros, com foto
+export function BlocoTribunal({ no, cargos, aoSelecionar }: { no: No; cargos: No[]; aoSelecionar: Sel }) {
+  const membros = cargos.filter((c) => c.juiz).sort(ord);
+  if (!membros.length) return null;
+  const pres = membros.find((c) => c.ordem === 1);
+  const resto = membros.filter((c) => c !== pres);
+  const efetivos = resto.filter((c) => c.grupo !== "Substituto"), substitutos = resto.filter((c) => c.grupo === "Substituto");
+  const o0 = membros[0].ocupantes?.[0];
+  const conselho = no.sigla === "CNJ";
+  const linha = (c: No) => c.ordem && c.ordem < 10 ? c.rotulo.replace(/ d[oa] [A-Z]{3}$/, "") : c.ocupantes?.[0]?.origem;
+  return (
+    <>
+      {pres && <CartaoGrande rotulo={pres.rotulo} c={pres} aoSelecionar={aoSelecionar} />}
+      <Titulo n={efetivos.length}>{conselho ? "Conselheiros" : no.sigla === "TSE" ? "Ministros efetivos" : "Ministros"}</Titulo>
+      <Grade>{efetivos.map((c) => c.ocupantes?.[0] && <CartaoPequeno key={c.id} o={c.ocupantes[0]} linha={linha(c)} aoClicar={() => aoSelecionar(c.id)} />)}</Grade>
+      {!!substitutos.length && (
+        <>
+          <Titulo n={substitutos.length}>Ministros substitutos</Titulo>
+          <Grade>{substitutos.map((c) => c.ocupantes?.[0] && <CartaoPequeno key={c.id} o={c.ocupantes[0]} linha={c.ocupantes[0].origem} aoClicar={() => aoSelecionar(c.id)} />)}</Grade>
+        </>
+      )}
+      <p className="mt-2 text-[11px] text-stone-500">
+        {no.vagasLegais ? `${membros.filter((c) => c.grupo !== "Substituto").length} pessoas listadas para ${no.vagasLegais} cadeiras previstas na Constituição. ` : ""}
+        Fonte: {o0?.url ? <a className="underline" href={o0.url} target="_blank" rel="noreferrer">composição atual no site do {no.sigla}</a> : `site do ${no.sigla}`}.
+      </p>
+    </>
+  );
+}

@@ -8,6 +8,8 @@ export type Ocupante = {
   fonte?: string;
   foto?: string;
   fotoFonte?: string;
+  papel?: string;
+  origem?: string;
   partido?: string;
   uf?: string;
   desde?: string;
@@ -41,6 +43,11 @@ export type No = {
   parlamentar?: string;
   casa?: string;
   partidoLid?: string;
+  juiz?: boolean;
+  tribunal?: string;
+  grupo?: string;
+  vagasLegais?: number;
+  membrosConhecidos?: number;
   comissao?: boolean;
   membros?: unknown[];
   vices?: unknown[];

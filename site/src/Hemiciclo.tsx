@@ -1,32 +1,42 @@
 import { useMemo, useState } from "react";
-import { corPartido, notaPartido, campo, COR_CAMPO, PARTIDOS, FONTE_IDEOLOGIA, type Campo } from "./partidos";
+import { corPartido, notaPartido, campo, COR_CAMPO, PARTIDOS, FONTE_IDEOLOGIA, NOTA_CENTRAO, type Campo } from "./partidos";
 import type { Parlamentar } from "./dados";
 
-// Cadeiras em semicírculo, da esquerda para a direita conforme a posição ideológica do partido
+// Cadeiras em semicírculo, como num plenário: o número de fileiras é o menor que comporta todas as cadeiras
+// sem encostar umas nas outras; cada fileira recebe cadeiras na proporção do seu comprimento; e a ordem
+// (esquerda → direita) segue o ângulo de cada cadeira, para os partidos formarem fatias e não faixas.
 function lugares(n: number) {
-  if (!n) return [];
-  const linhas = Math.max(1, Math.round(Math.sqrt(n / 1.6)));
-  const r0 = 0.42, r1 = 1;
-  const raios = Array.from({ length: linhas }, (_, i) => (linhas === 1 ? 0.8 : r0 + ((r1 - r0) * i) / (linhas - 1)));
-  const somaR = raios.reduce((s, r) => s + r, 0);
-  const porLinha = raios.map((r) => Math.max(1, Math.round((n * r) / somaR)));
-  let dif = n - porLinha.reduce((s, x) => s + x, 0);
-  for (let i = porLinha.length - 1; dif !== 0; i = (i - 1 + porLinha.length) % porLinha.length) { porLinha[i] += Math.sign(dif); dif -= Math.sign(dif); }
-  const pts: { x: number; y: number; a: number }[] = [];
+  if (!n) return { pts: [] as { x: number; y: number; a: number }[], tam: 0.05 };
+  const r0 = 0.38;
+  let raios: number[] = [], cap: number[] = [], d = 0.3;
+  for (let L = 1; L < 40; L++) {
+    d = L === 1 ? 0.3 : (1 - r0) / (L - 1);
+    raios = L === 1 ? [0.75] : Array.from({ length: L }, (_, i) => r0 + d * i);
+    cap = raios.map((r) => Math.floor((Math.PI * r) / d) + 1);
+    if (cap.reduce((x, y) => x + y, 0) >= n) break;
+  }
+  const soma = cap.reduce((x, y) => x + y, 0);
+  const porLinha = cap.map((c) => Math.min(c, Math.round((n * c) / soma)));
+  let dif = n - porLinha.reduce((x, y) => x + y, 0);
+  for (let i = porLinha.length - 1, g = 0; dif !== 0 && g < 10000; i = (i - 1 + porLinha.length) % porLinha.length, g++) {
+    if (dif > 0 && porLinha[i] < cap[i]) { porLinha[i]++; dif--; } else if (dif < 0 && porLinha[i] > 1) { porLinha[i]--; dif++; }
+  }
+  const pts: { x: number; y: number; a: number; r: number }[] = [];
   raios.forEach((r, i) => {
     const k = porLinha[i];
     for (let j = 0; j < k; j++) {
       const a = Math.PI - (k === 1 ? Math.PI / 2 : (Math.PI * j) / (k - 1));
-      pts.push({ x: r * Math.cos(a), y: -r * Math.sin(a), a });
+      pts.push({ x: r * Math.cos(a), y: -r * Math.sin(a), a, r });
     }
   });
-  return pts.sort((p, q) => q.a - p.a);   // da esquerda (ângulo π) para a direita (0)
+  pts.sort((p, q) => q.a - p.a || q.r - p.r);   // da esquerda (ângulo π) para a direita (0)
+  return { pts, tam: Math.min(0.1, d * 0.4) };
 }
 
 export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, semTitulo = false }: { pessoas: Parlamentar[]; titulo: string; aoAbrir: (id: string) => void; quadrado?: boolean; semTitulo?: boolean }) {
   const [hover, setHover] = useState<Parlamentar | null>(null);
   const ordem = useMemo(() => [...pessoas].sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido) || (a.partido ?? "").localeCompare(b.partido ?? "") || a.nome.localeCompare(b.nome)), [pessoas]);
-  const pts = useMemo(() => lugares(ordem.length), [ordem.length]);
+  const { pts, tam } = useMemo(() => lugares(ordem.length), [ordem.length]);
   const campos = useMemo(() => {
     const c: Record<Campo, number> = { Esquerda: 0, Centro: 0, Direita: 0, "Sem classificação": 0 };
     for (const p of pessoas) c[campo(p.partido)]++;
@@ -37,7 +47,6 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, 
     for (const p of pessoas) m.set(p.partido ?? "?", (m.get(p.partido ?? "?") ?? 0) + 1);
     return [...m.entries()].sort((a, b) => b[1] - a[1]);
   }, [pessoas]);
-  const tam = ordem.length > 200 ? 0.026 : ordem.length > 40 ? 0.04 : 0.07;
   const total = pessoas.length;
 
   return (
@@ -51,11 +60,11 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, 
       {/* barra esquerda / centro / direita */}
       <div className="mt-3 flex items-end justify-between text-xs">
         <span><span className="text-stone-500">Esquerda</span> <b className="text-base">{campos.Esquerda}</b></span>
-        <span><span className="text-stone-500">Centro</span> <b className="text-base">{campos.Centro}</b></span>
+        <span><span className="text-stone-500">Centrão</span> <b className="text-base">{campos.Centro}</b></span>
         <span><b className="text-base">{campos.Direita}</b> <span className="text-stone-500">Direita</span></span>
       </div>
       <div className="mt-1 flex h-1.5 overflow-hidden rounded-full">
-        {(["Esquerda", "Centro", "Sem classificação", "Direita"] as Campo[]).map((c) => (
+        {(["Esquerda", "Centro", "Direita", "Sem classificação"] as Campo[]).map((c) => (
           <span key={c} style={{ width: `${(100 * campos[c]) / Math.max(1, total)}%`, background: COR_CAMPO[c] }} />
         ))}
       </div>
@@ -85,7 +94,7 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, 
         ))}
       </p>
       <p className="mt-1.5 text-[11px] leading-snug text-stone-500">
-        Ordem da esquerda para a direita pela classificação de <a className="underline" href={FONTE_IDEOLOGIA} target="_blank" rel="noreferrer">Bolognesi, Ribeiro e Codato (DADOS, 2023)</a>.
+        {NOTA_CENTRAO} <a className="underline" href={FONTE_IDEOLOGIA} target="_blank" rel="noreferrer">Bolognesi, Ribeiro e Codato (DADOS, 2023)</a>: até 5,5 à esquerda, acima à direita.
       </p>
     </section>
   );

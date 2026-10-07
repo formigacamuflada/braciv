@@ -1,0 +1,599 @@
+{
+ "coletadoEm": "2026-10-07",
+ "coletadoPor": "navegador (os sites do STF, STJ e TSE bloqueiam o robô de coleta no GitHub)",
+ "tribunais": {
+  "STF": {
+   "url": "https://portal.stf.jus.br/ostf/",
+   "vagasLegais": 11,
+   "membros": [
+    {
+     "nome": "Edson Fachin",
+     "papel": "Presidente",
+     "desde": "29/09/2025",
+     "foto": "https://portal.stf.jus.br/assets/img/edson-fachin.jpg"
+    },
+    {
+     "nome": "Gilmar Mendes",
+     "papel": null,
+     "desde": "20/06/2002",
+     "foto": "https://portal.stf.jus.br/assets/img/gilmar-mendes.jpg"
+    },
+    {
+     "nome": "Cármen Lúcia",
+     "papel": null,
+     "desde": "21/06/2006",
+     "foto": "https://portal.stf.jus.br/assets/img/carmen-lucia.jpg"
+    },
+    {
+     "nome": "Dias Toffoli",
+     "papel": null,
+     "desde": "23/10/2009",
+     "foto": "https://portal.stf.jus.br/assets/img/dias-toffoli.jpg"
+    },
+    {
+     "nome": "Luiz Fux",
+     "papel": null,
+     "desde": "03/03/2011",
+     "foto": "https://portal.stf.jus.br/assets/img/luiz-fux.jpg"
+    },
+    {
+     "nome": "Alexandre de Moraes",
+     "papel": "Vice-Presidente",
+     "desde": "22/03/2017",
+     "foto": "https://portal.stf.jus.br/assets/img/alexandre-de-moraes.jpg"
+    },
+    {
+     "nome": "Nunes Marques",
+     "papel": null,
+     "desde": "05/11/2020",
+     "foto": "https://portal.stf.jus.br/assets/img/nunes-marques.jpg"
+    },
+    {
+     "nome": "André Mendonça",
+     "papel": null,
+     "desde": "16/12/2021",
+     "foto": "https://portal.stf.jus.br/assets/img/andre-mendonca.png"
+    },
+    {
+     "nome": "Cristiano Zanin",
+     "papel": null,
+     "desde": "03/08/2023",
+     "foto": "https://portal.stf.jus.br/assets/img/cristiano-zanin.jpg"
+    },
+    {
+     "nome": "Flávio Dino",
+     "papel": null,
+     "desde": "22/02/2024",
+     "foto": "https://portal.stf.jus.br/assets/img/flavio-dino.png"
+    }
+   ]
+  },
+  "STJ": {
+   "url": "https://www.stj.jus.br/web/verMinistrosSTJ?parametro=1",
+   "vagasLegais": 33,
+   "membros": [
+    {
+     "nome": "Luis Felipe Salomão",
+     "papel": "Presidente",
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/DSC_1289.JPG"
+    },
+    {
+     "nome": "Antonio Herman de Vasconcellos e Benjamin",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Francisco Cândido de Melo Falcão Neto",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/francisco_falcao.jpg"
+    },
+    {
+     "nome": "Luiz Alberto Gurgel de Faria",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Gurgel%20de%20Faria%20ed.jpg"
+    },
+    {
+     "nome": "Carlos Augusto Pires Brandão",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Maria Marluce Caldas Bezerra",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Antonio Carlos Ferreira",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/MinAntonioCarlos.JPG"
+    },
+    {
+     "nome": "João Otávio de Noronha",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/otavionoronha.jpg"
+    },
+    {
+     "nome": "Marco Aurélio Gastaldi Buzzi",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Ministro%20Buzzi.jpg"
+    },
+    {
+     "nome": "Ricardo Villas Bôas Cueva",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/foto_MRVBC.jpg"
+    },
+    {
+     "nome": "Maria Isabel Diniz Gallotti Rodrigues",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/LAR_0193i.jpg"
+    },
+    {
+     "nome": "Regina Helena Costa",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Foto%20Ministra%20Regina%20Helena.jpg"
+    },
+    {
+     "nome": "Benedito Gonçalves",
+     "papel": null,
+     "funcao": "Diretor-Geral da ENFAM",
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Captura%20de%20tela%202024-10-18%20112455.png"
+    },
+    {
+     "nome": "Raul Araújo Filho",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/MinRaulAraujoFoto_.jpg"
+    },
+    {
+     "nome": "Daniela Rodrigues Teixeira",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/FOTO_OFICIAL_APROVADA_MINISTRA_DANIELA_TEIXEIRA_18x24CM_RLZ_0044-2.jpg"
+    },
+    {
+     "nome": "Paulo Sérgio Domingues",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Foto%20Ministro.jpg"
+    },
+    {
+     "nome": "Teodoro Silva Santos",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/foto%20ministro%20teodoro.jpg"
+    },
+    {
+     "nome": "Marco Aurélio Bellizze Oliveira",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Foto%202021.jpg"
+    },
+    {
+     "nome": "Messod Azulay Neto",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/FOTO_OFICIAL_MINISTRO_MESSOD_AZULAY_NETO_2.jpg"
+    },
+    {
+     "nome": "Geraldo Og Nicéas Marques Fernandes",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/fotominog.jpg"
+    },
+    {
+     "nome": "José Afrânio Vilela",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Foto%20Escolhida%20Ministro%20Afr%EF%BF%BDnio%20posse%202023%20GUT_1741.jpg"
+    },
+    {
+     "nome": "Sebastião Alves dos Reis Júnior",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/843a95f8-a84a-4e25-b562-1202c31e02ad_edited.jpg"
+    },
+    {
+     "nome": "Mauro Luiz Campbell Marques",
+     "papel": "Vice-Presidente",
+     "funcao": "Vice-Presidente e Corregedor-Geral da Justiça Federal",
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Mauro%20Campbel.jpg"
+    },
+    {
+     "nome": "Reynaldo Soares da Fonseca",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Foto%20Curriculum%20Corrigida.jpg"
+    },
+    {
+     "nome": "Joel Ilan Paciornik",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/foto-do-curriculo2.jpg"
+    },
+    {
+     "nome": "Paulo Dias de Moura Ribeiro",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Sérgio Luíz Kukina",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/foto%20kukina%20colorida.jpg"
+    },
+    {
+     "nome": "Humberto Eustáquio Soares Martins",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/Humberto_Eustaquio_Soares_Martins.JPG"
+    },
+    {
+     "nome": "Maria Thereza Rocha de Assis Moura",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/Ministros/fotos/Ministra_Maria_Tereza_curriculo_internet.jpg"
+    },
+    {
+     "nome": "Marcelo Navarro Ribeiro Dantas",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/e_LIM5663a%20(002).jpg"
+    },
+    {
+     "nome": "Rogerio Schietti Machado Cruz",
+     "papel": null,
+     "funcao": null,
+     "foto": "https://www.stj.jus.br/internet_docs/ministros/fotos/FOTO%20DO%20MINISTRO%20PARA%20CURR%EF%BF%BDCULO%20Alterada.jpg"
+    },
+    {
+     "nome": "Fátima Nancy Andrighi",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    }
+   ]
+  },
+  "TST": {
+   "url": "https://www.tst.jus.br/ministros",
+   "vagasLegais": 27,
+   "membros": [
+    {
+     "nome": "Luiz Philippe Vieira de Mello Filho",
+     "papel": "Presidente",
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=30724903"
+    },
+    {
+     "nome": "Guilherme Augusto Caputo Bastos",
+     "papel": "Vice-Presidente",
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=28028581"
+    },
+    {
+     "nome": "José Roberto Freire Pimenta",
+     "papel": "Corregedor-Geral da Justiça do Trabalho",
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=11552"
+    },
+    {
+     "nome": "Ives Gandra da Silva Martins Filho",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=11256"
+    },
+    {
+     "nome": "Maria Cristina Irigoyen Peduzzi",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=31258061"
+    },
+    {
+     "nome": "Lelio Bentes Corrêa",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=24532116"
+    },
+    {
+     "nome": "Mauricio Godinho Delgado",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=30899566"
+    },
+    {
+     "nome": "Kátia Magalhães Arruda",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=11418"
+    },
+    {
+     "nome": "Augusto César Leite de Carvalho",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=24929428"
+    },
+    {
+     "nome": "Delaíde Alves Miranda Arantes",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=22090"
+    },
+    {
+     "nome": "Hugo Carlos Scheuermann",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=2260474"
+    },
+    {
+     "nome": "Alexandre de Souza Agra Belmonte",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=25134956"
+    },
+    {
+     "nome": "Cláudio Mascarenhas Brandão",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=5634385"
+    },
+    {
+     "nome": "Douglas Alencar Rodrigues",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=9078139"
+    },
+    {
+     "nome": "Maria Helena Mallmann",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=13074502"
+    },
+    {
+     "nome": "Breno Medeiros",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=30666331"
+    },
+    {
+     "nome": "Alexandre Luiz Ramos",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=24554139"
+    },
+    {
+     "nome": "Luiz José Dezena da Silva",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=30703330"
+    },
+    {
+     "nome": "Evandro Pereira Valadão Lopes",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=24945667"
+    },
+    {
+     "nome": "Amaury Rodrigues Pinto Junior",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=27495816"
+    },
+    {
+     "nome": "Alberto Bastos Balazeiro",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=27500366"
+    },
+    {
+     "nome": "Morgana de Almeida",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=27905926"
+    },
+    {
+     "nome": "Sergio Pinto Martins",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=31119227"
+    },
+    {
+     "nome": "Liana Chaib",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=31407319"
+    },
+    {
+     "nome": "Antônio Fabrício de Matos Gonçalves",
+     "papel": null,
+     "foto": "https://www.tst.jus.br/image/journal/article?img_id=33217466"
+    }
+   ]
+  },
+  "TSE": {
+   "url": "https://www.tse.jus.br/institucional/ministros",
+   "vagasLegais": 7,
+   "membros": [
+    {
+     "nome": "Kassio Nunes Marques",
+     "papel": "Presidente",
+     "grupo": "Efetivo",
+     "origem": "STF",
+     "desde": "25.5.2025",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-nunes-marques-web-16-9-26/@@images/image-623-4af68f78d01a1e78f159a0dc9af5e5da.jpeg"
+    },
+    {
+     "nome": "André Luiz de Almeida Mendonça",
+     "papel": "Vice-Presidente",
+     "grupo": "Efetivo",
+     "origem": "STF",
+     "desde": "25.6.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/foto-andre-mendonca/@@images/image-623-39ee21492c4d83c2eb49813762e8f896.jpeg"
+    },
+    {
+     "nome": "José Antonio Dias Toffoli",
+     "papel": null,
+     "grupo": "Efetivo",
+     "origem": "STF",
+     "desde": "9.6.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-jose-antonio-dias-toffoli-1/@@images/image-623-60f37b633574b98915f65543de3483fa.jpeg"
+    },
+    {
+     "nome": "Ricardo Villas Bôas Cueva",
+     "papel": "Corregedor-Geral",
+     "grupo": "Efetivo",
+     "origem": "STJ",
+     "desde": "16.12.2025",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-ricardo-villas-boas-cueva/@@images/image-623-e4296d4bf6651e3c035127ccdfe6dee4.jpeg"
+    },
+    {
+     "nome": "Sebastião Alves dos Reis Júnior",
+     "papel": null,
+     "grupo": "Efetivo",
+     "origem": "STJ",
+     "desde": "29.9.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/foto-ministro-sebastiao-alves-dos-reis-junior/@@images/image-623-bb5d6b77bef1762d78c06d68477bc519.png"
+    },
+    {
+     "nome": "Floriano Peixoto de Azevedo Marques Neto",
+     "papel": null,
+     "grupo": "Efetivo",
+     "origem": "Classe dos juristas",
+     "desde": "1º.8.2025",
+     "foto": "https://www.tse.jus.br/imagens/fotos/floriano-de-azevedo/@@images/image-623-a7c00f7d6085a3d98c715c11f42f7a5c.jpeg"
+    },
+    {
+     "nome": "Estela Aranha",
+     "papel": null,
+     "grupo": "Efetivo",
+     "origem": "Classe dos juristas",
+     "desde": "1º.8.2025",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministra-estela-aranha/@@images/image-623-83ae8e89192b890e28c3dbcaacd840a2.jpeg"
+    },
+    {
+     "nome": "Gilmar Ferreira Mendes",
+     "papel": null,
+     "grupo": "Substituto",
+     "origem": "STF",
+     "desde": "13.6.2025",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-gilmar-ferreira-mendes-1/@@images/image-623-9cf3ae7ab77dc21688fbb0a43a1bd567.jpeg"
+    },
+    {
+     "nome": "Cristiano Zanin Martins",
+     "papel": null,
+     "grupo": "Substituto",
+     "origem": "STF",
+     "desde": "1º.10.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-cristiano-zanin-martins/@@images/image-623-c59310b4bc1d61397c58be4412d55f3b.jpeg"
+    },
+    {
+     "nome": "Flávio Dino de Castro e Costa",
+     "papel": null,
+     "grupo": "Substituto",
+     "origem": "STF",
+     "desde": "11.6.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-flavio-dino-de-castro-e-costa/@@images/image-623-50155b12fcdf9635a327f121c9e0862a.jpeg"
+    },
+    {
+     "nome": "Marco Aurélio Bellizze Oliveira",
+     "papel": null,
+     "grupo": "Substituto",
+     "origem": "STJ",
+     "desde": "28.4.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-marco-aurelio-bellizze-oliveira/@@images/image-623-f4982085c538c9c6fbb518655c57c278.jpeg"
+    },
+    {
+     "nome": "Nauê Bernardo Pinheiro de Azevedo",
+     "papel": null,
+     "grupo": "Substituto",
+     "origem": "Classe dos juristas",
+     "desde": "17.3.2026",
+     "foto": "https://www.tse.jus.br/imagens/fotos/ministro-naue-bernardo-pinheiro-de-azevedo/@@images/image-623-3211e5dda85182e90f042b70e3e7191d.jpeg"
+    }
+   ]
+  },
+  "STM": {
+   "url": "https://www.stm.jus.br/institucional/conheca-o-superior-tribunal-militar/composicao-da-corte",
+   "vagasLegais": 15,
+   "membros": [
+    {
+     "nome": "Maria Elizabeth Guimarães Teixeira Rocha",
+     "papel": null,
+     "desde": "07.03.07",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/MIn-Elizabeth.jpg"
+    },
+    {
+     "nome": "Francisco Joseli Parente Camelo",
+     "papel": null,
+     "desde": "29.04.15",
+     "foto": "https://www.stm.jus.br/images/institucional/composicao-da-corte/Min-Joseli.jpg"
+    },
+    {
+     "nome": "Artur Vidigal de Oliveira",
+     "papel": null,
+     "desde": "20.04.10",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Artur.jpg"
+    },
+    {
+     "nome": "José Barroso Filho",
+     "papel": null,
+     "desde": "20.03.14",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/min-barroso1.jpg"
+    },
+    {
+     "nome": "Péricles Aurélio Lima de Queiroz",
+     "papel": null,
+     "desde": "06.05.16",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Pericles.jpg"
+    },
+    {
+     "nome": "Carlos Vuyk de Aquino",
+     "papel": null,
+     "desde": "07.11.18",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Carlos-Vuyk.jpg"
+    },
+    {
+     "nome": "Leonardo Puntel",
+     "papel": null,
+     "desde": "29.09.20",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Leonardo.jpg"
+    },
+    {
+     "nome": "Celso Luiz Nazareth",
+     "papel": null,
+     "desde": "29.09.20",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Celso.jpg"
+    },
+    {
+     "nome": "Carlos Augusto Amaral Oliveira",
+     "papel": null,
+     "desde": "01.10.20",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Carlos-Augusto.jpg"
+    },
+    {
+     "nome": "Cláudio Portugal de Viveiros",
+     "papel": null,
+     "desde": "19.07.21",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Claudio.jpg"
+    },
+    {
+     "nome": "Lourival Carvalho Silva",
+     "papel": null,
+     "desde": "11.07.22",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Lourival.jpg"
+    },
+    {
+     "nome": "Guido Amin Naves",
+     "papel": null,
+     "desde": "21.12.24",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Guido.jpg"
+    },
+    {
+     "nome": "Verônica Abdalla Sterman",
+     "papel": null,
+     "desde": "20.08.25",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/min-abdalla1.jpg"
+    },
+    {
+     "nome": "Anisio David de Oliveira Junior",
+     "papel": null,
+     "desde": "27.11.25",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-David.jpeg"
+    },
+    {
+     "nome": "Flavio Marcus Lancia Barbosa",
+     "papel": null,
+     "desde": "28.11.25",
+     "foto": "https://www.stm.jus.br/images/composicao/composicao-da-corte/Min-Lancia.jpeg"
+    }
+   ]
+  }
+ }
+}

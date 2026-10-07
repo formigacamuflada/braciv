@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { carregaPorUf, carregaUfs, urlFoto, type Feicao, type Parlamentar, type PorUf } from "./dados";
 import Hemiciclo from "./Hemiciclo";
-import { corPartido, notaPartido, campo, COR_CAMPO, FONTE_IDEOLOGIA, type Campo } from "./partidos";
+import { corPartido, notaPartido, campo, COR_CAMPO, FONTE_IDEOLOGIA, NOTA_CENTRAO, type Campo } from "./partidos";
 
 // Mapa do Brasil no formato do seuimposto.com, mas mostrando quem OCUPA os cargos hoje (não eleição):
 // abas Presidente · Governadores · Senado · Deputados (federais/estaduais), painel à esquerda, fotos no mapa.
@@ -49,7 +49,7 @@ function Foto({ p, t = 36, aoClicar }: { p: Parlamentar; t?: number; aoClicar?: 
   return (
     <button onClick={aoClicar} title={`${p.nome}${p.partido ? ` · ${p.partido}` : ""}`} className="shrink-0 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800"
       style={{ width: t, height: t, boxShadow: `0 0 0 2px ${corPartido(p.partido)}` }}>
-      {u && !erro ? <img src={u} alt={p.nome} loading="lazy" onError={() => setErro(true)} className="h-full w-full object-cover object-top" />
+      {u && !erro ? <img src={u} alt={p.nome} loading="lazy" referrerPolicy="no-referrer" onError={() => setErro(true)} className="h-full w-full object-cover object-top" />
         : <span className="grid h-full w-full place-items-center text-[10px] font-semibold text-stone-500">{iniciais(p.nome)}</span>}
     </button>
   );
@@ -100,11 +100,11 @@ function Espectro({ lista }: { lista: Parlamentar[] }) {
     <div>
       <div className="flex items-end justify-between text-xs">
         <span><span className="text-stone-500">Esquerda</span> <b className="text-lg">{c.Esquerda}</b></span>
-        <span><span className="text-stone-500">Centro</span> <b className="text-lg">{c.Centro}</b></span>
+        <span><span className="text-stone-500">Centrão</span> <b className="text-lg">{c.Centro}</b></span>
         <span><b className="text-lg">{c.Direita}</b> <span className="text-stone-500">Direita</span></span>
       </div>
       <div className="mt-1 flex h-1.5 overflow-hidden rounded-full">
-        {(["Esquerda", "Centro", "Sem classificação", "Direita"] as Campo[]).map((k) => <span key={k} style={{ width: `${(100 * c[k]) / Math.max(1, lista.length)}%`, background: COR_CAMPO[k] }} />)}
+        {(["Esquerda", "Centro", "Direita", "Sem classificação"] as Campo[]).map((k) => <span key={k} style={{ width: `${(100 * c[k]) / Math.max(1, lista.length)}%`, background: COR_CAMPO[k] }} />)}
       </div>
     </div>
   );
@@ -303,7 +303,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
         )}
         {atual && <h2 className="mb-3 text-lg font-semibold">{nomeUf}</h2>}
         {painel()}
-        <p className="mt-4 text-[11px] text-stone-500">Ordem da esquerda para a direita: <a className="underline" href={FONTE_IDEOLOGIA} target="_blank" rel="noreferrer">Bolognesi, Ribeiro e Codato (DADOS, 2023)</a>.</p>
+        <p className="mt-4 text-[11px] text-stone-500">{NOTA_CENTRAO} <a className="underline" href={FONTE_IDEOLOGIA} target="_blank" rel="noreferrer">Bolognesi, Ribeiro e Codato (DADOS, 2023)</a>: até 5,5 à esquerda, acima à direita.</p>
       </aside>
 
       <div className="relative order-1 min-h-[52vh] flex-1 lg:order-2">
