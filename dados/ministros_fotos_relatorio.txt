@@ -1,39 +1,39 @@
   ok  CC-PR      Miriam Belchior  <- https://www.gov.br/casacivil/pt-br/composicao/ministra
+  ok  SRI/PR     José Nobre Guimarães  <- https://www.gov.br/sri/pt-br/composicao/ministra-1
+  ok  GSI/PR     Marcos Antonio Amaro dos Santos  <- https://www.gov.br/gsi/pt-br/composicao/gabinete/ministro
+  ok  MCID       Antonio Vladimir Moura Lima  <- https://www.gov.br/cidades/pt-br/composicao/ministro-das-cidades
+  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/composicao/gm/ministra
   ok  MCOM       Frederico de Siqueira Filho  <- https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MD         José Mucio Monteiro Filho  <- https://www.gov.br/defesa/pt-br/composicao/quem-e-quem
   ok  MDS        José Wellington Barroso de Araujo Dias  <- https://www.gov.br/mds/pt-br/composicao/quem-e-quem
   ok  MDIC       Márcio Fernando Elias Rosa  <- https://www.gov.br/mdic/pt-br/composicao/quem-e-quem
+  ok  MEC        Leonardo Osvaldo Barchini Rosa  <- https://www.gov.br/mec/pt-br/composicao/gabinete-do-ministro/leonardo-osvaldo-barchini-rosa
   ok  MF         Dario Carnevalli Durigan  <- https://www.gov.br/fazenda/pt-br/composicao/quem-e-quem
+  ok  MGI        Esther Dweck  <- https://www.gov.br/gestao/pt-br/composicao/quem-e-quem/ministra-e-orgaos-de-assistencia-direta
+  ok  MIDR       Antônio Waldez Góes da Silva  <- https://www.gov.br/mdr/pt-br/composicao/ministro-e-secretarios
+  ok  MJSP       Wellington César Lima e Silva  <- https://www.gov.br/mj/pt-br/acesso-a-informacao/institucional/galeria-de-ministros-da-justica?b_start:int=135
   ok  MME        Alexandre Silveira de Oliveira  <- https://www.gov.br/mme/pt-br/composicao/quem-e-quem
+  ok  MPS        Wolney Queiroz Maciel  <- https://www.gov.br/previdencia/pt-br/composicao/ministro-e-secretarios
   ok  MS         Alexandre Rocha Santos Padilha  <- https://www.gov.br/saude/pt-br/composicao/quem-e-quem
   sem Guilherme Castro Boulos (SG, gov.br/secretariageral): foto nao encontrada
-  sem José Nobre Guimarães (SRI/PR, gov.br/sri): foto nao encontrada
   sem Sidônio Palmeira (SECOM, gov.br/secom): foto nao encontrada
-  sem Marcos Antonio Amaro dos Santos (GSI/PR, gov.br/gsi): foto nao encontrada
   sem Jorge Rodrigo Araújo Messias (AGU, gov.br/agu): foto nao encontrada
-  sem Vinícius Marques de Carvalho (CGU, gov.br/cgu): foto nao encontrada
+  sem Vinícius Marques de Carvalho (CGU): falha ao baixar a imagem (UnidentifiedImageError)
   sem André Carlos Alves de Paula Filho (MAPA, gov.br/agricultura): foto nao encontrada
-  sem Antonio Vladimir Moura Lima (MCID, gov.br/cidades): foto nao encontrada
-  sem Luciana Barbosa de Oliveira Santos (MCTI, gov.br/mcti): foto nao encontrada
   sem Margareth Menezes da Purificação Costa (MinC, gov.br/cultura): foto nao encontrada
   sem Fernanda Machiaveli Morão de Oliveira (MDA, gov.br/mda): foto nao encontrada
   sem Janine Mello dos Santos (MDHC, gov.br/mdh): foto nao encontrada
-  sem Leonardo Osvaldo Barchini Rosa (MEC, gov.br/mec): foto nao encontrada
   sem Paulo Henrique Rodrigues Pereira (MEMP, gov.br/memp): foto nao encontrada
   sem Paulo Henrique Perna Cordeiro (MESP, gov.br/esporte): foto nao encontrada
-  sem Esther Dweck (MGI, gov.br/gestao): foto nao encontrada
   sem Rachel Barros de Oliveira (MIR, gov.br/igualdaderacial): foto nao encontrada
-  sem Antônio Waldez Góes da Silva (MIDR, gov.br/mdr): foto nao encontrada
-  sem Wellington César Lima e Silva (MJSP, gov.br/mj): foto nao encontrada
   sem João Paulo Ribeiro Capobianco (MMA, gov.br/mma): foto nao encontrada
   sem Márcia Helena Carvalho Lopes (MMULHERES, gov.br/mulheres): foto nao encontrada
   sem Rivetla Edipo Araujo Cruz (MPA, gov.br/mpa): foto nao encontrada
   sem Bruno Moretti (MPO, gov.br/planejamento): foto nao encontrada
   sem Tomé Monteiro da Franca (MPOR, gov.br/portos-e-aeroportos): foto nao encontrada
   sem Luiz Henrique Eloy Amado (MPI, gov.br/povosindigenas): foto nao encontrada
-  sem Wolney Queiroz Maciel (MPS, gov.br/previdencia): foto nao encontrada
   sem Mauro Luiz Iecker Vieira (MRE): falha ao baixar a imagem (ConnectionError)
   sem Luiz Marinho (MTE, gov.br/trabalho-e-emprego): foto nao encontrada
   sem George Santoro (MT, gov.br/transportes): foto nao encontrada
   sem Gustavo Costa Feliciano (MTur, gov.br/turismo): foto nao encontrada
-ministros com foto: 8/38
+ministros com foto: 17/38

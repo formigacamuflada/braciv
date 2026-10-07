@@ -4,6 +4,26 @@
   "fonte": "https://www.gov.br/casacivil/pt-br/composicao/ministra",
   "sigla": "CC-PR"
  },
+ "José Nobre Guimarães": {
+  "foto": "fotos/ministros/SRI_PR.jpg",
+  "fonte": "https://www.gov.br/sri/pt-br/composicao/ministra-1",
+  "sigla": "SRI/PR"
+ },
+ "Marcos Antonio Amaro dos Santos": {
+  "foto": "fotos/ministros/GSI_PR.jpg",
+  "fonte": "https://www.gov.br/gsi/pt-br/composicao/gabinete/ministro",
+  "sigla": "GSI/PR"
+ },
+ "Antonio Vladimir Moura Lima": {
+  "foto": "fotos/ministros/MCID.jpg",
+  "fonte": "https://www.gov.br/cidades/pt-br/composicao/ministro-das-cidades",
+  "sigla": "MCID"
+ },
+ "Luciana Barbosa de Oliveira Santos": {
+  "foto": "fotos/ministros/MCTI.jpg",
+  "fonte": "https://www.gov.br/mcti/pt-br/composicao/gm/ministra",
+  "sigla": "MCTI"
+ },
  "Frederico de Siqueira Filho": {
   "foto": "fotos/ministros/MCOM.jpg",
   "fonte": "https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem",
@@ -24,15 +44,40 @@
   "fonte": "https://www.gov.br/mdic/pt-br/composicao/quem-e-quem",
   "sigla": "MDIC"
  },
+ "Leonardo Osvaldo Barchini Rosa": {
+  "foto": "fotos/ministros/MEC.jpg",
+  "fonte": "https://www.gov.br/mec/pt-br/composicao/gabinete-do-ministro/leonardo-osvaldo-barchini-rosa",
+  "sigla": "MEC"
+ },
  "Dario Carnevalli Durigan": {
   "foto": "fotos/ministros/MF.jpg",
   "fonte": "https://www.gov.br/fazenda/pt-br/composicao/quem-e-quem",
   "sigla": "MF"
  },
+ "Esther Dweck": {
+  "foto": "fotos/ministros/MGI.jpg",
+  "fonte": "https://www.gov.br/gestao/pt-br/composicao/quem-e-quem/ministra-e-orgaos-de-assistencia-direta",
+  "sigla": "MGI"
+ },
+ "Antônio Waldez Góes da Silva": {
+  "foto": "fotos/ministros/MIDR.jpg",
+  "fonte": "https://www.gov.br/mdr/pt-br/composicao/ministro-e-secretarios",
+  "sigla": "MIDR"
+ },
+ "Wellington César Lima e Silva": {
+  "foto": "fotos/ministros/MJSP.jpg",
+  "fonte": "https://www.gov.br/mj/pt-br/acesso-a-informacao/institucional/galeria-de-ministros-da-justica?b_start:int=135",
+  "sigla": "MJSP"
+ },
  "Alexandre Silveira de Oliveira": {
   "foto": "fotos/ministros/MME.jpg",
   "fonte": "https://www.gov.br/mme/pt-br/composicao/quem-e-quem",
   "sigla": "MME"
+ },
+ "Wolney Queiroz Maciel": {
+  "foto": "fotos/ministros/MPS.jpg",
+  "fonte": "https://www.gov.br/previdencia/pt-br/composicao/ministro-e-secretarios",
+  "sigla": "MPS"
  },
  "Alexandre Rocha Santos Padilha": {
   "foto": "fotos/ministros/MS.jpg",
