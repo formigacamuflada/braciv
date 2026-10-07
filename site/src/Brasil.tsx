@@ -51,9 +51,10 @@ function Foto({ p, t = 36, aoClicar }: { p: Parlamentar; t?: number; aoClicar?: 
   const [erro, setErro] = useState(false);
   const u = urlFoto(p.foto);
   return (
-    <button onClick={aoClicar} title={`${p.nome}${p.partido ? ` · ${p.partido}` : ""}`} className="shrink-0 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800"
-      style={{ width: t, height: t, boxShadow: `0 0 0 2px ${corPartido(p.partido)}` }}>
-      {u && !erro ? <img src={u} alt={p.nome} loading="lazy" referrerPolicy="no-referrer" onError={() => setErro(true)} className="h-full w-full object-cover object-top" />
+    <button onClick={aoClicar} title={`${p.nome}${p.partido ? ` · ${p.partido}` : ""}${p.sub ? ` — ${p.sub}` : p.outroCargo2026 ? ` — ${subSenador(p, "o cargo atual")}` : ""}`}
+      className={`shrink-0 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800 ${p.vaga ? "opacity-60" : ""}`}
+      style={{ width: t, height: t, boxShadow: p.vaga ? `0 0 0 2px ${corPartido(p.partido)}88` : p.outroCargo2026 ? `0 0 0 2px ${corPartido(p.partido)}, 0 0 0 4px #f59e0b` : `0 0 0 2px ${corPartido(p.partido)}` }}>
+      {p.vaga ? <span className="grid h-full w-full place-items-center text-[11px] font-semibold text-stone-500">?</span> : u && !erro ? <img src={u} alt={p.nome} loading="lazy" referrerPolicy="no-referrer" onError={() => setErro(true)} className="h-full w-full object-cover object-top" />
         : <span className="grid h-full w-full place-items-center text-[10px] font-semibold text-stone-500">{iniciais(p.nome)}</span>}
     </button>
   );
@@ -119,10 +120,11 @@ function Espectro({ lista }: { lista: Parlamentar[] }) {
 // senador eleito (ou no 2º turno) para outro cargo em 2026
 const cargoTxt = (o: NonNullable<Parlamentar["outroCargo2026"]>) =>
   o.uf === "BR" ? o.cargo.toLowerCase().replace("presidente", "Presidente da República")
-    : `${o.cargo.toLowerCase().replace("governador", "governador(a)").replace("deputado", "deputado(a)")} (${o.uf})`;
-const subSenador = (p: Parlamentar) => {
+    : `${o.cargo.toLowerCase().replace("governador", "governador(a)").replace("deputado", "deputado(a)").replace("senador", "senador(a)")} (${o.uf})`;
+const subSenador = (p: Parlamentar, casa = "o Senado") => {
   const o = p.outroCargo2026;
-  if (o?.situacao === "eleito") return `eleito(a) ${cargoTxt(o)} em 2026; deixa o Senado ao tomar posse`;
+  if (p.sub) return p.sub;
+  if (o?.situacao === "eleito") return `eleito(a) ${cargoTxt(o)} em 2026; deixa ${casa} ao tomar posse`;
   if (o?.situacao === "segundoTurno") return `no 2º turno para ${cargoTxt(o)}`;
   return p.fimMandato ? `mandato até ${p.fimMandato.slice(0, 4)}` : undefined;
 };
@@ -167,7 +169,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
   const em2026 = momento === "2026" && tem2026;
   const dados = useMemo(() => (dadosHoje && em2026 ? visao2026(dadosHoje) : dadosHoje), [dadosHoje, em2026]);
   // quem só existe no TSE (eleitos) não tem ficha no mapa: o clique não faz nada
-  const abrir = (id: string) => { if (!id.startsWith("tse")) aoAbrirNo(id); };
+  const abrir = (id: string) => { if (!/^(tse|vaga|sup)/.test(id)) aoAbrirNo(id); };
   // ---- zoom: roda do mouse, arrastar, botões e aproximação suave ao escolher um estado ----
   const CHEIO = { x: 0, y: 0, w: 680, h: 640 };
   const [vista, setVista] = useState(CHEIO);
@@ -345,12 +347,13 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
             {[["Governador(a)", atual.governador], ["Vice-governador(a)", atual.vice]].filter(([, p]) => p).map(([c, p]) => (
               <li key={c as string} className="flex items-center gap-3 rounded-lg border border-stone-200 p-2.5 dark:border-stone-700">
                 <Foto p={p as Parlamentar} t={52} />
-                <span><span className="block font-medium">{(p as Parlamentar).nome}</span><span className="text-xs"><b style={{ color: corPartido((p as Parlamentar).partido) }}>{(p as Parlamentar).partido}</b> <span className="text-stone-500">· {c as string}</span></span></span>
+                <span><span className="block font-medium">{(p as Parlamentar).nome}</span><span className="text-xs"><b style={{ color: corPartido((p as Parlamentar).partido) }}>{(p as Parlamentar).partido}</b> <span className="text-stone-500">· {c as string}</span></span>
+                  {(p as Parlamentar).sub && <span className="mt-0.5 block text-xs text-amber-600 dark:text-amber-400">{(p as Parlamentar).sub}</span>}</span>
               </li>
             ))}
           </ul>
           {em2026 ? <><p className="mt-3 text-[11px] text-stone-500">Eleitos em 2026. Posse em 6 de janeiro de 2027 (CF, art. 28).</p>{fonte26}</>
-            : <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Substituições posteriores, como vice que assumiu o governo, ainda não são acompanhadas.</p>}
+            : <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE), corrigido quando o governador renunciou em 2026 para disputar outro cargo (CF, art. 14, § 6º). Outras substituições (cassação, morte) ainda não são acompanhadas.</p>}
         </>
       );
       return (
@@ -358,7 +361,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
           <div className="flex items-baseline justify-between"><h2 className="font-semibold">Governadores{em2026 ? " eleitos em 2026" : ""}</h2><span className="text-xs text-stone-500">{em2026 ? `${todos.governadores.length} de 27 estados` : "27 estados"}</span></div>
           <div className="mt-3"><Espectro lista={todos.governadores} /></div>
           <div className="mt-3"><BarraPartidos lista={todos.governadores} /></div>
-          <ul className="mt-4 space-y-0.5">{[...todos.governadores].sort((a, b) => a.uf.localeCompare(b.uf)).map((g) => <Linha key={g.id} p={g} sub={g.uf} aoAbrir={() => aoEscolherUf(g.uf)} />)}</ul>
+          <ul className="mt-4 space-y-0.5">{[...todos.governadores].sort((a, b) => a.uf.localeCompare(b.uf)).map((g) => <Linha key={g.id} p={g} sub={g.sub && !em2026 ? `${g.uf} · assumiu com a renúncia do titular` : g.uf} aoAbrir={() => aoEscolherUf(g.uf)} />)}</ul>
           {em2026 && estados2t > 0 && (
             <>
               <h3 className="mt-5 text-xs font-semibold uppercase tracking-wide text-stone-500">2º turno em 25 de outubro · {estados2t} estados</h3>
@@ -382,7 +385,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
             </>
           )}
           {em2026 ? <><p className="mt-3 text-[11px] text-stone-500">Posse em 6 de janeiro de 2027 (CF, art. 28, na redação da EC 111/2021).</p>{fonte26}</>
-            : <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Substituições posteriores ainda não são acompanhadas.</p>}
+            : <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE), corrigido quando o governador renunciou em 2026 para disputar outro cargo (CF, art. 14, § 6º): o vice assume. Outras substituições (cassação, morte) ainda não são acompanhadas.</p>}
         </>
       );
     }
@@ -460,6 +463,36 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
                 </ul>
               </>
             )}
+            {!em2026 && (() => {
+              const vagas = lista.filter((p) => p.vaga), outros = lista.filter((p) => p.outroCargo2026);
+              if (!vagas.length && !outros.length) return null;
+              return (
+                <div className="mt-4 rounded-lg border border-amber-300/60 bg-amber-50 p-2.5 text-xs dark:border-amber-500/30 dark:bg-amber-500/10">
+                  {vagas.length > 0 && (
+                    <>
+                      <p className="font-semibold">{vagas.length} {vagas.length === 1 ? "eleito(a) em 2022 deixou" : "eleitos em 2022 deixaram"} a Assembleia</p>
+                      <p className="mt-0.5 text-stone-600 dark:text-stone-400">Foram eleitos prefeitos ou vice-prefeitos em 2024. As vagas são de suplentes que este mapa ainda não identifica (aparecem com “?”, na cor do partido do titular).</p>
+                      <details className="mt-1"><summary className="cursor-pointer text-stone-500">ver quem saiu</summary>
+                        <ul className="mt-1 space-y-0.5">{vagas.map((p) => <li key={p.id}>{p.sub!.replace(/; quem assumiu.*$/, "")}</li>)}</ul>
+                      </details>
+                    </>
+                  )}
+                  {outros.length > 0 && (
+                    <>
+                      <p className={`font-semibold ${vagas.length ? "mt-3" : ""}`}>{outros.length} {esfera === "federais" ? "deputados federais" : "deputados"} eleitos ou no 2º turno para outro cargo em 2026</p>
+                      <p className="mt-0.5 text-stone-600 dark:text-stone-400">Seguem no mandato até a posse no novo cargo (contorno laranja nas fotos).</p>
+                      <details className="mt-1" open={outros.length <= 8}><summary className="cursor-pointer text-stone-500">ver a lista</summary>
+                      <ul className="mt-1 space-y-0.5">
+                        {[...outros].sort((a, b) => a.nome.localeCompare(b.nome)).map((p) => (
+                          <li key={p.id}><b>{p.nome}</b> <span style={{ color: corPartido(p.partido) }}>{p.partido}</span> · {subSenador(p, esfera === "federais" ? "a Câmara" : "a Assembleia")}</li>
+                        ))}
+                      </ul>
+                      </details>
+                    </>
+                  )}
+                </div>
+              );
+            })()}
             <h3 className="mt-4 text-xs font-semibold text-stone-500">Por partido</h3>
             <div className="mt-2 space-y-3">
               {[...contaPartidos(lista)].sort((a, b) => notaPartido(a[0]) - notaPartido(b[0])).map(([p, n]) => (
@@ -470,7 +503,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
               ))}
             </div>
             {em2026 ? <><p className="mt-3 text-[11px] text-stone-500">Eleitos em 2026. Posse a partir de 1º de fevereiro de 2027 (CF, art. 57, § 4º).</p>{fonte26}</>
-              : esfera === "estaduais" && <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Suplentes que assumiram depois ainda não são acompanhados.</p>}
+              : esfera === "estaduais" && <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Quem foi eleito prefeito ou vice em 2024 aparece como vaga de suplente; licenças para secretarias e outras trocas ainda não são acompanhadas.</p>}
           </>
         )}
       </>

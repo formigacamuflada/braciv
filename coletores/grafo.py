@@ -102,6 +102,8 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
         for e in le("tse_eleicao_2026.json").get("candidatos", []):
             if e["cargo"] != "Senador":
                 outro_cargo[norm(e.get("nomeCompleto") or "")] = {"cargo": e["cargo"], "situacao": e["situacao"], "uf": e["uf"]}
+    # convergencia entre cargos (coletores/convergencia.py): quem saiu ou vai sair para outro cargo
+    conv = le("convergencia.json") if (DADOS / "convergencia.json").exists() else {}
     sup22 = le("tse_suplentes_senado_2022.json") if (DADOS / "tse_suplentes_senado_2022.json").exists() else {}
     for n in nos.values():
         if n["tipo"] != "cargo" or not n["id"].startswith(("dep:", "sen:")):
@@ -113,6 +115,10 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
         item = {"id": n["id"], "nome": oc["nome"], "partido": oc.get("partido"), "foto": (oc.get("foto") or "").replace("http:", "https:") or None}
         if n.get("fimMandato"):
             item["fimMandato"] = n["fimMandato"]
+        if n["id"].startswith("dep:"):
+            c26 = (conv.get("federais", {}).get(n["id"]) or {}).get("2026")
+            if c26 and c26["cargo"] != "Deputado Federal" and c26["situacao"] in ("eleito", "segundoTurno"):
+                item["outroCargo2026"] = {k: c26[k] for k in ("cargo", "situacao", "uf")}
         if n["id"].startswith("sen:"):
             # eleito (ou no 2o turno) para outro cargo em 2026: o nome completo do Senado bate com o do TSE
             outro = outro_cargo.get(norm(n.get("nomeCompleto") or ""))
@@ -156,12 +162,46 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
         if e["uf"] not in saida:
             continue
         item = {"id": f"tse:{e['sq']}", "nome": e["nome"], "partido": {"PC do B": "PCdoB"}.get(e["partido"], e["partido"]), "foto": e.get("foto")}
+        cv = conv.get("eleitos2022", {}).get(e["sq"]) or {}
+        c26 = cv.get("2026")
+        if c26 and c26.get("partido"):
+            # quem foi candidato em 2026 aparece com o partido da candidatura de 2026 (mais recente que o de 2022)
+            item["partido"] = c26["partido"]
+        item["nome"] = item["nome"].strip()
+        if e["cargo"].startswith("Deputado"):
+            # eleito prefeito ou vice-prefeito em 2024: deixou a Assembleia em 1/1/2025; a vaga e de um suplente
+            c24 = cv.get("2024")
+            if c24 and c24["cargo"] in ("Prefeito", "Vice-prefeito"):
+                cargo24 = c24["cargo"].lower().replace("prefeito", "prefeito(a)")
+                item = {"id": f"vaga:{e['sq']}", "nome": f"Suplente de {e['nome']}", "partido": item["partido"], "foto": None, "vaga": True,
+                        "sub": f"{e['nome']} foi eleito(a) {cargo24} de {c24['municipio']} em 2024; quem assumiu a vaga não é acompanhado aqui"}
+            elif c26 and c26["cargo"] not in ("Deputado Estadual", "Deputado Distrital") and c26["situacao"] in ("eleito", "segundoTurno"):
+                item["outroCargo2026"] = {k: c26[k] for k in ("cargo", "situacao", "uf")}
+        elif c26:
+            item["cand2026"] = {k: c26[k] for k in ("cargo", "situacao", "uf")}
         if e["cargo"] == "Governador":
             saida[e["uf"]]["governador"] = item
         elif e["cargo"] == "Vice-governador":
             saida[e["uf"]]["vice"] = item
         else:
             saida[e["uf"]].setdefault("estaduais", []).append(item)
+    # governador eleito em 2022 que disputou OUTRO cargo em 2026 teve de renunciar ate 6 meses antes
+    # (CF, art. 14, par. 6): o vice assume. Se o vice tambem disputou outro cargo, nao da para saber quem governa.
+    for uf_, d in saida.items():
+        g, v = d.get("governador"), d.get("vice")
+        c = (g or {}).get("cand2026")
+        if not g or not c or c["cargo"] == "Governador":
+            continue
+        alvo = "Presidente da República" if c["uf"] == "BR" else f"{c['cargo'].lower()} ({c['uf']})"
+        cv = (v or {}).get("cand2026")
+        if v and (not cv or cv["cargo"] in ("Governador", "Vice-governador")):
+            d["governador"] = {**v, "sub": f"assumiu em 2026 com a renúncia de {g['nome']}, candidato(a) a {alvo} (CF, art. 14, § 6º)"}
+            d["vice"] = None
+        else:
+            d["governador"] = {"id": f"vaga:{g['id']}", "nome": "Não identificado", "partido": None, "foto": None, "vaga": True,
+                               "sub": f"{g['nome']} renunciou para disputar {alvo} e o vice também foi candidato a outro cargo; quem governa hoje não foi conferido"}
+            d["vice"] = None
+        d["exGovernador"] = {k: g[k] for k in ("id", "nome", "partido", "foto")}
     # Presidente e Vice: foto e partido da candidatura eleita em 2022 no TSE (mesma fonte dos governadores);
     # uma foto valida colocada a mao em dados/fotos/Executivo tem prioridade
     tse_br = {{"Presidente": "PR", "Vice-presidente": "VPR"}.get(e["cargo"]): e for e in tse if e["uf"] == "BR"}

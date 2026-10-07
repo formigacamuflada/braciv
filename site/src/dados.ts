@@ -27,13 +27,13 @@ export function normaliza(t: string) {
 }
 
 export type Parlamentar = { id: string; nome: string; partido?: string; foto?: string | null; fimMandato?: string; situacao?: "eleito" | "segundoTurno"; numero?: string; sub?: string;
-  outroCargo2026?: { cargo: string; situacao: "eleito" | "segundoTurno"; uf: string }; suplente?: { nome: string; partido?: string; partido2022?: string; foto?: string | null }; grupo?: "2031" | "2026" };
+  outroCargo2026?: { cargo: string; situacao: "eleito" | "segundoTurno"; uf: string }; suplente?: { nome: string; partido?: string; partido2022?: string; foto?: string | null }; grupo?: "2031" | "2026"; vaga?: boolean };
 export type Destaque = { nivel: number; codigoCargo?: string; cargo: string; nome: string; orgao: string; orgaoCodigo: number; cargoId: string; unidade?: string };
 export type DadosUf = {
   senadores: Parlamentar[]; deputados: Parlamentar[]; cargos: number; ocupantes: number;
   porOrgao: Record<string, number>; destaques: Destaque[]; sedes: { codigo: number; sigla?: string; nome: string; poder?: string }[];
   governador?: Parlamentar; vice?: Parlamentar; estaduais?: Parlamentar[];
-  segundoTurno?: Parlamentar[]; vices2t?: Parlamentar[];
+  segundoTurno?: Parlamentar[]; vices2t?: Parlamentar[]; exGovernador?: Parlamentar;
 };
 // eleição de 2026 (TSE): eleitos e quem disputa o 2º turno, por estado e nacional
 export type Eleicao2026 = {
