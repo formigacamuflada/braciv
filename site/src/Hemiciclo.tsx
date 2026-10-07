@@ -86,11 +86,21 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, 
           })}
           <text x="0" y="-0.06" textAnchor="middle" fontSize="0.2" fontWeight="700" className="fill-stone-900 dark:fill-white">{total}</text>
         </svg>
-        {hover && (
-          <div className="pointer-events-none absolute left-1/2 top-1 -translate-x-1/2 rounded-md px-2 py-0.5 text-xs font-medium" style={{ background: corPartido(hover.partido) + "33", color: corPartido(hover.partido), border: `1px solid ${corPartido(hover.partido)}88` }}>
-            {hover.nome} · {hover.partido}
-          </div>
-        )}
+        {hover && (() => {
+          // etiqueta opaca logo acima da cadeira apontada, presa às bordas para não sair do quadro
+          const q = pts[ordem.indexOf(hover)];
+          if (!q) return null;
+          const esq = ((q.x + 1.08) / 2.16) * 100, topo = ((q.y + 1.08) / 1.16) * 100;
+          const ancora = q.x < -0.55 ? "0%" : q.x > 0.55 ? "-100%" : "-50%";
+          const cor = corPartido(hover.partido);
+          return (
+            <div className="pointer-events-none absolute z-10 whitespace-nowrap rounded-md border border-stone-300 bg-white px-2 py-1 text-xs font-medium text-stone-900 shadow-lg dark:border-stone-600 dark:bg-stone-900 dark:text-white"
+              style={{ left: `${esq}%`, top: `${topo}%`, transform: `translate(${ancora}, calc(-100% - 10px))` }}>
+              <span className="mr-1.5 inline-block h-2 w-2 rounded-full align-middle" style={{ background: cor }} />
+              {hover.nome} <span className="font-semibold">· {hover.partido}</span>
+            </div>
+          );
+        })()}
       </div>
       <p className="mt-2 flex flex-wrap gap-x-3 gap-y-1 text-xs">
         {porPartido.map(([s, n]) => (
