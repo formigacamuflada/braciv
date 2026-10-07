@@ -9,7 +9,7 @@ export const R_MIOLO = 150;
 export type Poder = "Legislativo" | "Executivo" | "Funções Essenciais à Justiça" | "Judiciário";
 export type Setor = { poder: Poder; a0: number; a1: number; rMax: number; rotulo: string };
 export const SETORES: Setor[] = [
-  { poder: "Legislativo", a0: -38, a1: 38, rMax: 440, rotulo: "LEGISLATIVO" },
+  { poder: "Legislativo", a0: -38, a1: 38, rMax: 466, rotulo: "LEGISLATIVO" },
   { poder: "Executivo", a0: 38, a1: 248, rMax: 478, rotulo: "EXECUTIVO" },
   { poder: "Funções Essenciais à Justiça", a0: 248, a1: 282, rMax: 400, rotulo: "FUNÇÕES ESSENCIAIS" },
   { poder: "Judiciário", a0: 282, a1: 322, rMax: 430, rotulo: "JUDICIÁRIO" },
@@ -148,15 +148,33 @@ export function montaRoda(g: Grafo): Roda {
   const deputados = g.nos.filter((n) => n.id.startsWith("dep:")).sort((a, b) => (a.partido ?? "").localeCompare(b.partido ?? "") || a.rotulo.localeCompare(b.rotulo));
   const tomPartido = (lista: No[]) => { const ps = [...new Set(lista.map((n) => n.partido))]; return (n: No) => (ps.indexOf(n.partido) % 2 ? 0.45 : 0.75); };
   const ts = tomPartido(senadores), td = tomPartido(deputados);
-  emLinhas(senadores.length, lg.a0 + 4, lg.a1 - 4, 270, 9, 7.2).forEach((p, i) => {
+  emLinhas(senadores.length, lg.a0 + 4, lg.a1 - 4, 282, 9, 7.2).forEach((p, i) => {
     const n = senadores[i];
     add(n, { ...p, t: 2.6, forma: "ponto", poder: "Legislativo", tom: ts(n), ocupante: n.ocupantes?.[0]?.nome, detalhe: `${n.partido ?? "?"}-${n.uf ?? ""}` });
   });
-  emLinhas(deputados.length, lg.a0 + 3, lg.a1 - 3, 312, 8.5, 6.2).forEach((p, i) => {
+  emLinhas(deputados.length, lg.a0 + 3, lg.a1 - 3, 322, 8.5, 6.2).forEach((p, i) => {
     const n = deputados[i];
     add(n, { ...p, t: 2.2, forma: "ponto", poder: "Legislativo", tom: td(n), ocupante: n.ocupantes?.[0]?.nome, detalhe: `${n.partido ?? "?"}-${n.uf ?? ""}` });
   });
-  faixas.push({ poder: "Legislativo", r: 255, a0: lg.a0 + 4, a1: lg.a1 - 4, rotulo: "CONGRESSO NACIONAL" });
+  faixas.push({ poder: "Legislativo", r: 306, a0: lg.a0 + 4, a1: lg.a1 - 4, rotulo: "SENADORES · DEPUTADOS" });
+  // Lideranças: Câmara à esquerda, Senado à direita, Congresso no meio
+  const lideres = g.nos.filter((n) => n.codigoCargo === "LID").sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99) || a.rotulo.localeCompare(b.rotulo, "pt-BR"));
+  const lidCasa = (c: string) => lideres.filter((n) => n.casa === c);
+  const det = (n: No) => { const o = n.ocupantes?.[0]; return o ? `${o.nome}${o.partido ? ` · ${o.partido}${o.uf ? `-${o.uf}` : ""}` : ""}` : undefined; };
+  for (const [c, lado] of [["CD", -1], ["SF", 1]] as const) {
+    const l = lidCasa(c), passo = Math.min(1.5, 30 / Math.max(1, l.length));
+    l.forEach((n, k) => add(n, { a: lado * (4.5 + k * passo), r: 259, t: 2.6, forma: "circulo", poder: "Legislativo", tom: 0.95, ocupante: n.ocupantes?.[0]?.nome, detalhe: det(n) }));
+  }
+  lidCasa("CN").forEach((n, k, l) => add(n, { a: (k - (l.length - 1) / 2) * 2, r: 252, t: 2.6, forma: "circulo", poder: "Legislativo", tom: 1, ocupante: n.ocupantes?.[0]?.nome, detalhe: det(n) }));
+  // Comissões permanentes, na borda do setor
+  const comissoes = g.nos.filter((n) => n.comissao).sort((a, b) => (a.sigla ?? "").localeCompare(b.sigla ?? ""));
+  for (const [casas, lado] of [[["CD"], -1], [["SF", "CN"], 1]] as const) {
+    const l = comissoes.filter((n) => (casas as readonly string[]).includes(n.casa ?? ""));
+    const porLinha = Math.ceil(l.length / 2), passo = Math.min(2.2, 31 / Math.max(1, porLinha));
+    l.forEach((n, k) => add(n, { a: lado * (3.5 + (k % porLinha) * passo), r: 420 + Math.floor(k / porLinha) * 14, t: 4, forma: "quadrado", poder: "Legislativo", tom: 0.6,
+      detalhe: n.nome ?? undefined }));
+  }
+  if (comissoes.length) faixas.push({ poder: "Legislativo", r: 402, a0: lg.a0 + 4, a1: lg.a1 - 4, rotulo: "COMISSÕES PERMANENTES" });
   // Mesas de cada Casa: o Presidente junto da Casa, os demais membros em arco para o lado de fora
   for (const [pref, lado] of [["mesa:cd:", -1], ["mesa:sf:", 1]] as const) {
     const mesa = g.nos.filter((n) => n.id.startsWith(pref)).sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99));
@@ -229,6 +247,7 @@ export const DESCRICAO: Record<string, Base[]> = {
   "casa:senado": [CF["46"], CF["52iii"]],
   "mesa:cd:1": [CF["57p4"]],
   "mesa:sf:1": [CF["57p4"], CF["57p5"]],
+  "mesa:cn:1": [CF["57p5"]],
 };
 export const DESCRICAO_POR_SIGLA: Record<string, Base[]> = {
   STF: [CF["101u"], CF["102"]],
@@ -239,10 +258,10 @@ export const DESCRICAO_POR_SIGLA: Record<string, Base[]> = {
 export const COBERTURA: Record<string, string> = {
   "poder:Judiciário": "Ainda não coletamos quem ocupa os cargos do Judiciário (ministros, desembargadores, juízes e servidores). O SIORG traz a estrutura dos tribunais; o Portal da Transparência cobre só o Executivo.",
   "poder:Funções Essenciais à Justiça": "O SIORG traz poucos órgãos deste grupo (CNMP, MPDFT, ESMPU). Ministério Público Federal, Procuradoria-Geral da República e Defensoria Pública da União ainda não estão no mapa. A AGU aparece no Executivo, como no SIORG.",
-  "poder:Legislativo": "Deputados, senadores e as Mesas de cada Casa vêm das APIs da Câmara e do Senado. Lideranças, comissões e servidores do Legislativo ainda não estão no mapa.",
+  "poder:Legislativo": "Deputados, senadores, Mesas, lideranças e comissões permanentes vêm dos dados abertos da Câmara e do Senado; a estrutura administrativa e os servidores de cada Casa também (abra a Câmara ou o Senado). Comissões temporárias (CPIs, especiais, mistas de medida provisória) e frentes parlamentares ainda não estão no mapa.",
 };
 export const COBERTURA_PODER: Record<string, string> = {
   Judiciário: "Estrutura vinda do SIORG. Quem ocupa os cargos deste órgão ainda não foi coletado.",
   "Funções Essenciais à Justiça": "Estrutura vinda do SIORG. Quem ocupa os cargos deste órgão ainda não foi coletado.",
-  Legislativo: "Estrutura vinda do SIORG. Servidores e cargos internos desta Casa ainda não foram coletados.",
+  Legislativo: "Estrutura administrativa e servidores vêm dos dados abertos da própria Casa (Câmara: arquivo Funcionários; Senado: Portal de Dados Administrativos).",
 };

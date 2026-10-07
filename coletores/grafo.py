@@ -476,6 +476,11 @@ def main():
                                  "fonte": "Senado Federal, Comissão Diretora", "url": "https://www25.senado.leg.br/web/senadores/comissao-diretora"}]}
         arestas.append({"de": i, "para": "casa:senado", "tipo": "cargo"})
     resumo.append(f"Mesas: Camara {sum(1 for k in nos if k.startswith('mesa:cd:'))} cargos, Senado {sum(1 for k in nos if k.startswith('mesa:sf:'))} cargos")
+    # liderancas, comissoes permanentes e Mesa do Congresso; estrutura administrativa e servidores das Casas
+    import grafo_legislativo as gl
+    cn_id = next((k for k, v in nos.items() if v.get("sigla") == "CN" and v.get("poder") == "Legislativo"), None)
+    resumo.append(f"Legislativo no nucleo: {gl.nucleo(nos, arestas, DEP, SEN, cn_id)}")
+    resumo.append(f"Legislativo, estrutura das Casas: {gl.estrutura(SAIDA, grava, busca)}")
 
     grava(SAIDA / "nucleo.json", nos, arestas)
     grafo_arestas_nucleo.extend(arestas)

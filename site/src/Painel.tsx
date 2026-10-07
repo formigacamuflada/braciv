@@ -3,6 +3,7 @@ import type { Aresta, Grafo, No, Ocupante } from "./tipos";
 import { ROTULO_TIPO, corDoNo } from "./cores";
 import { FONTE_CF, type Base } from "./constituicao";
 import Ficha, { Retrato } from "./Ficha";
+import { BlocoCasa, BlocoComissao, BlocoLideranca } from "./Legislativo";
 
 export type Conexao = { verbo: string; base: Base; sentido: "sai" | "chega"; itens: { id: string; rotulo: string }[] };
 
@@ -24,7 +25,9 @@ const LIMITE = 40;
 // ordena ocupantes do cargo mais alto para o mais baixo
 function peso(codigo?: string | null) {
   if (!codigo) return 0;
-  const especiais: Record<string, number> = { PR: 1000, VPR: 990, MEST: 980, NE: 970 };
+  const especiais: Record<string, number> = { PR: 1000, VPR: 990, MEST: 980, NE: 970, MESA: 965, TIT: 960, PRES: 958, SUBST: 950, VICE: 948, LID: 945 };
+  const fc = codigo.match(/^FC-?(\d+)$/);
+  if (fc) return 100 + Number(fc[1]);
   if (especiais[codigo]) return especiais[codigo];
   const m = codigo.match(/^(CCE|FCE) \d\.(\d\d)$/);
   if (m) return 100 + Number(m[2]);
@@ -79,9 +82,10 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
     .filter((n): n is No => !!n)
     .sort((a, b) => peso(b.codigoCargo) - peso(a.codigoCargo) || (b.ocupantes?.length ?? 0) - (a.ocupantes?.length ?? 0));
   const membros = chegam.filter((a) => a.tipo === "membro" || a.tipo === "filiado");
-  const codigoOrgao = no.tipo === "orgao" ? Number(no.id.slice(2)) : null;
+  const CASAS: Record<string, number> = { "casa:camara": 67536, "casa:senado": 67490 };
+  const codigoOrgao = no.tipo === "orgao" && /^u:\d+$/.test(no.id) ? Number(no.id.slice(2)) : CASAS[no.id] ?? null;
   const numU = (s?: string) => (s && /^u:\d+$/.test(s) ? Number(s.slice(2)) : null);
-  const codigoFicha = no.tipo === "orgao" || no.tipo === "unidade" ? numU(no.id) : no.tipo === "cargo" ? numU(acima.find((a) => a.tipo === "cargo")?.para) : null;
+  const codigoFicha = no.tipo === "orgao" || no.tipo === "unidade" ? numU(no.id) : no.tipo === "cargo" && !["MESA", "LID", "PRES", "VICE"].includes(no.codigoCargo ?? "") ? numU(acima.find((a) => a.tipo === "cargo")?.para) : null;
 
   return (
     <aside className="flex h-full flex-col overflow-y-auto p-5">
@@ -125,46 +129,11 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
           sobre={no.tipo === "cargo" ? `Sobre a unidade: ${idx.get(`u:${codigoFicha}`)?.nome ?? idx.get(`u:${codigoFicha}`)?.rotulo ?? ""}` : undefined} />
       )}
 
-      {no.tipo === "casa" && (() => {
-        const mesa = cargosAqui.filter((c) => c.codigoCargo === "MESA").sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99));
-        if (!mesa.length) return null;
-        const [pres, ...resto] = mesa;
-        const op = pres.ocupantes?.[0];
-        return (
-          <>
-            {op && (
-              <section className="mt-5">
-                <h3 className="text-sm text-stone-500">{pres.rotulo}</h3>
-                <button onClick={() => aoSelecionar(pres.id)} className="mt-2 flex w-full items-center gap-3 rounded-xl border border-stone-200 p-2.5 text-left hover:border-stone-400 dark:border-stone-700 dark:hover:border-stone-500">
-                  <Retrato o={op} />
-                  <span className="min-w-0">
-                    <span className="block font-medium">{op.nome}</span>
-                    <span className="block text-xs text-stone-500">{[op.partido && `${op.partido}${op.uf ? `-${op.uf}` : ""}`, op.desde && `desde ${op.desde}`].filter(Boolean).join(" · ")}</span>
-                  </span>
-                </button>
-              </section>
-            )}
-            <section className="mt-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-stone-500">{no.id === "casa:senado" ? "Comissão Diretora (Mesa)" : "Mesa Diretora"}</h3>
-              <div className="mt-2 grid grid-cols-2 gap-1.5">
-                {resto.map((c) => {
-                  const o = c.ocupantes?.[0];
-                  return o ? (
-                    <button key={c.id} onClick={() => aoSelecionar(c.id)} className="flex items-center gap-2 rounded-lg border border-stone-200 p-1.5 text-left hover:border-stone-400 dark:border-stone-700 dark:hover:border-stone-500">
-                      <Retrato o={o} t={36} />
-                      <span className="min-w-0 text-xs leading-tight">
-                        <span className="block truncate font-medium">{o.nome}</span>
-                        <span className="block text-stone-500">{c.rotulo.replace(/ da Mesa d[ao] (Câmara|Senado)$/, "")}</span>
-                      </span>
-                    </button>
-                  ) : null;
-                })}
-              </div>
-              <p className="mt-2 text-[11px] text-stone-500">Fonte: {pres.ocupantes?.[0]?.url ? <a className="underline" href={pres.ocupantes[0].url} target="_blank" rel="noreferrer">{pres.ocupantes[0].fonte}</a> : pres.ocupantes?.[0]?.fonte}. Eleita pela própria Casa para mandato de 2 anos (CF, art. 57, § 4º).</p>
-            </section>
-          </>
-        );
-      })()}
+      {(no.tipo === "casa" || no.sigla === "CN") && (
+        <BlocoCasa no={no} cargos={cargosAqui} unidades={abaixo.map((a) => idx.get(a.de)).filter((n): n is No => !!n)} idx={idx} aoSelecionar={aoSelecionar} />
+      )}
+      {no.comissao && <BlocoComissao no={no} cargos={cargosAqui} idx={idx} aoSelecionar={aoSelecionar} />}
+
 
       {no.tipo === "cargo" && no.parlamentar && idx.has(no.parlamentar) && (
         <p className="mt-3 text-sm">{link(no.parlamentar, no.parlamentar.startsWith("sen:") ? "Ver o mandato de senador(a)" : "Ver o mandato de deputado(a)")}</p>
@@ -172,7 +141,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
 
       {no.tipo === "cargo" && (
         <>
-          {no.codigoCargo && !["DEP", "SEN"].includes(no.codigoCargo) && (
+          {no.codigoCargo && !["DEP", "SEN", "MESA", "LID", "PRES", "VICE", "TIT", "SUBST"].includes(no.codigoCargo) && (
             <p className="mt-3"><span className="rounded bg-stone-200 px-1.5 py-0.5 text-xs dark:bg-stone-800">{no.codigoCargo}</span></p>
           )}
           <Lista titulo={(no.ocupantes?.length ?? 0) > 1 ? "Quem ocupa" : "Quem ocupa"} itens={no.ocupantes ?? []} render={(o: Ocupante, i) => (
@@ -196,11 +165,13 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         </>
       )}
 
+      {no.codigoCargo === "LID" && <BlocoLideranca no={no} idx={idx} aoSelecionar={aoSelecionar} />}
+
       {aviso && <p className="mt-4 rounded-lg bg-amber-100 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:bg-amber-950/60 dark:text-amber-200">{aviso}</p>}
 
       {codigoOrgao !== null && aoAbrirOrgao && (
         <button onClick={() => aoAbrirOrgao(codigoOrgao)} className="mt-5 rounded-lg bg-stone-900 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-300">
-          Abrir estrutura completa do órgão
+          {CASAS[no.id] ? "Abrir estrutura administrativa e servidores" : "Abrir estrutura completa do órgão"}
         </button>
       )}
 
@@ -261,7 +232,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         <li key={i}>{link(x.id, x.rotulo)} {x.detalhe && <span className="text-xs text-stone-500">{x.detalhe}</span>}</li>
       )} />
 
-      <Lista titulo="Cargos aqui" itens={cargosAqui.filter((c) => c.codigoCargo !== "MESA")} render={(c: No, i) => (
+      <Lista titulo="Cargos aqui" itens={cargosAqui.filter((c) => !["MESA", "LID", "PRES", "VICE"].includes(c.codigoCargo ?? ""))} render={(c: No, i) => (
         <li key={i}>
           {link(c.id, /^exercer o encargo de substitut/i.test(c.rotulo) ? "Substituto(a) eventual" : c.rotulo)}
           {c.codigoCargo && <span className="ml-1 rounded bg-stone-200 px-1 text-xs dark:bg-stone-800">{c.codigoCargo}</span>}
@@ -304,7 +275,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
       <Lista titulo="Ocupantes (formato antigo)" itens={ocupantes} render={(a: Aresta, i) => (
         <li key={i}>{link(a.de)} <span className="text-xs text-stone-500">{a.funcao}{a.codigoCargo ? ` · ${a.codigoCargo}` : ""}</span></li>
       )} />
-      <Lista titulo="Unidades abaixo" itens={abaixo} render={(a: Aresta, i) => <li key={i}>{link(a.de)}</li>} />
+      <Lista titulo="Unidades abaixo" itens={abaixo.filter((a) => !idx.get(a.de)?.comissao)} render={(a: Aresta, i) => <li key={i}>{link(a.de)}</li>} />
       <Lista titulo="Membros" itens={membros} render={(a: Aresta, i) => {
         const m = idx.get(a.de) as No | undefined;
         return <li key={i}>{link(a.de, m?.ocupantes?.[0]?.nome ?? m?.rotulo)} <span className="text-xs text-stone-500">{m?.partido}{m?.uf ? ` · ${m.uf}` : ""}</span></li>;

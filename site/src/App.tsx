@@ -71,7 +71,7 @@ export default function App() {
   const extras = useMemo(() => {
     if (!selecionado || !roda || orgao) return {};
     const no = dadosPainel?.nos.find((n) => n.id === selecionado);
-    const descricao = DESCRICAO[selecionado] ?? (selecionado.startsWith("mesa:") ? [CF["57p4"]] : no?.sigla ? DESCRICAO_POR_SIGLA[no.sigla] : undefined);
+    const descricao = DESCRICAO[selecionado] ?? (selecionado.startsWith("mesa:cn:") ? [CF["57p5"]] : selecionado.startsWith("mesa:") ? [CF["57p4"]] : /^com:[a-z]+:\d+$/.test(selecionado) ? [CF["58"]] : no?.sigla ? DESCRICAO_POR_SIGLA[no.sigla] : undefined);
     const grupos = new Map<string, Conexao>();
     for (const r of roda.relacoes) {
       const sentido = r.de === selecionado ? "sai" : r.para === selecionado ? "chega" : null;

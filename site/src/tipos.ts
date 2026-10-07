@@ -39,6 +39,10 @@ export type No = {
   lideranca?: boolean;
   ordem?: number;
   parlamentar?: string;
+  casa?: string;
+  comissao?: boolean;
+  membros?: unknown[];
+  vices?: unknown[];
   dou?: Ato[];
 };
 

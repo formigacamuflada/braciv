@@ -4,8 +4,10 @@ import type { Grafo, No } from "./tipos";
 // Estrutura de um órgão como lista navegável: secretaria > departamento > coordenação,
 // com o cargo mais alto de cada unidade e quem o ocupa. Substitui a "rede de bolinhas".
 function peso(c?: string | null) {
-  const e: Record<string, number> = { PR: 1000, VPR: 990, MEST: 980, NE: 970 };
+  const e: Record<string, number> = { PR: 1000, VPR: 990, MEST: 980, NE: 970, TIT: 960, SUBST: 950 };
   if (c && e[c]) return e[c];
+  const fc = (c ?? "").match(/^FC-?(\d+)$/);
+  if (fc) return 100 + Number(fc[1]);
   const m = (c ?? "").match(/^(CCE|FCE) \d\.(\d\d)$/);
   return m ? 100 + Number(m[2]) : 1;
 }
@@ -48,7 +50,7 @@ export default function OrgaoLista({ dados, raiz, selecionado, aoSelecionar }: {
           <button onClick={() => aoSelecionar(id)} className="min-w-0 flex-1 text-left">
             <span className={prof === 0 ? "font-semibold" : ""}>{n.nome ?? n.rotulo}</span>
             {n.sigla && n.nome && <span className="ml-1 text-xs text-stone-500">{n.sigla}</span>}
-            {topo && <span className="block truncate text-xs text-stone-500">{topo.ocupantes?.[0]?.nome ?? "vago"} · {topo.rotulo}{topo.codigoCargo ? ` (${topo.codigoCargo})` : ""}</span>}
+            {topo && <span className="block truncate text-xs text-stone-500">{topo.ocupantes?.[0]?.nome ?? "vago"} · {topo.rotulo}{topo.codigoCargo && !["TIT", "SUBST"].includes(topo.codigoCargo) ? ` (${topo.codigoCargo})` : ""}</span>}
           </button>
           {!!ix.total.get(id) && <span className="shrink-0 pt-0.5 text-xs text-stone-500" title="pessoas com cargo neste ramo">{ix.total.get(id)!.toLocaleString("pt-BR")}</span>}
         </div>
