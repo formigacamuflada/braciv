@@ -1,0 +1,130 @@
+== 1. configuracao de eleicoes (resultados.tse.jus.br)
+GET https://resultados.tse.jus.br/oficial/comum/config/ele-c.json -> 200 22749 bytes
+
+{ "dg" : "02/10/2026", "hg" : "18:30:57", "f" : "o", "idg" : "980407", "arq" : [ 
+{ "tp" : "ft", "dir" : "<base>/<ambiente>/<ciclo>/<cd_eleicao>/fotos/<uf>" }, 
+{ "tp" : "cm", "dir" : "<base>/<ambiente>/<ciclo>/<cd_eleicao>/config" }, 
+{ "tp" : "e", "dir" : "<base>/<ambiente>/<ciclo>/<cd_eleicao>/dados/<uf>" }, 
+{ "tp" : "cs", "dir" : "<base>/<ambiente>/<ciclo>/arquivo-urna/<cd_pleito>/config/<uf>" }, 
+{ "tp" : "ab", "dir" : "<base>/<ambiente>/<ciclo>/<cd_eleicao>/dados/<uf>" }, 
+{ "tp" : "u", "dir" : "<base>/<ambiente>/<ciclo>/<cd_eleicao>/dados/<uf>" }, 
+{ "tp" : "aux", "dir" : "<base>/<ambiente>/<ciclo>/arquivo-urna/<cd_pleito>/dados/<uf>/<municipio>/<zona>/<secao>" } ], "pl" : [ 
+{ "cd" : "452", "cdpr" : "439", "c" : "ele2024", "dt" : "06/10/2024", "dtlim" : "06/10/2028", "e" : [ 
+{ "cd" : "619", "cdt2" : "620", "sqele" : "2045202024", "nm" : "Eleição Ordinária Municipal - 2024 - 06/10/2024 1º Turno", "t" : "1", "tp" : "3", "abr" : [ 
+{ "cd" : "br", "cp" : [ 
+{ "cd" : "11", "ds" : "Prefeito", "tp" : "1" }, 
+{ "cd" : "13", "ds" : "Vereador", "tp" : "2" } ] } ] }, 
+{ "cd" : "635", "cdt2" : "", "nm" : "Consulta Popular - São Luís", "t" : "1", "tp" : "7", "abr" : [ 
+{ "cd" : "ma", "mu" : [ 
+{ "cd" : "09210", "cdi" : "2111300" } ], "cp" : [ 
+{ "cd" : "51", "ds" : "Você é a favor da implantação do passe livre estudantil no Município de São Luís?", "tp" : "3" } ] } ] }, 
+{ "cd" : "636", "cdt2" : "", "nm" : "Consulta Popular - Governador Edison Lobão", "t" : "1", "tp" : "7", "ab
+  2026 em  {"dg": "02/10/2026", "hg": "18:30:57", "f": "o", "idg": "980407"}
+  2026 em /pl[25] {"cd": "3222", "cdpr": "1220", "c": "ele2024", "dt": "01/03/2026", "dtlim": "01/03/2030"}
+  2026 em /pl[26] {"cd": "3223", "cdpr": "1221", "c": "ele2024", "dt": "01/03/2026", "dtlim": "01/03/2030"}
+  2026 em /pl[27] {"cd": "3224", "cdpr": "1222", "c": "ele2024", "dt": "01/03/2026", "dtlim": "01/03/2030"}
+  2026 em /pl[28] {"cd": "3228", "cdpr": "1226", "c": "ele2024", "dt": "12/04/2026", "dtlim": "12/04/2030"}
+  2026 em /pl[29] {"cd": "3226", "cdpr": "1224", "c": "ele2024", "dt": "12/04/2026", "dtlim": "12/04/2030"}
+  2026 em /pl[30] {"cd": "3225", "cdpr": "1223", "c": "ele2024", "dt": "12/04/2026", "dtlim": "12/04/2030"}
+  2026 em /pl[31] {"cd": "3232", "cdpr": "1230", "c": "ele2024", "dt": "17/05/2026", "dtlim": "17/05/2030"}
+  2026 em /pl[32] {"cd": "3229", "cdpr": "1227", "c": "ele2024", "dt": "17/05/2026", "dtlim": "17/05/2030"}
+  2026 em /pl[33] {"cd": "3230", "cdpr": "1228", "c": "ele2024", "dt": "17/05/2026", "dtlim": "17/05/2030"}
+  2026 em /pl[34] {"cd": "3231", "cdpr": "1229", "c": "ele2024", "dt": "17/05/2026", "dtlim": "17/05/2030"}
+  2026 em /pl[35] {"cd": "3237", "cdpr": "1235", "c": "ele2024", "dt": "21/06/2026", "dtlim": "21/06/2030"}
+  2026 em /pl[36] {"cd": "3239", "cdpr": "1236", "c": "ele2024", "dt": "21/06/2026", "dtlim": "21/06/2030"}
+  2026 em /pl[37] {"cd": "3240", "cdpr": "1237", "c": "ele2024", "dt": "21/06/2026", "dtlim": "21/06/2030"}
+  2026 em /pl[38] {"cd": "3234", "cdpr": "1232", "c": "ele2024", "dt": "21/06/2026", "dtlim": "21/06/2030"}
+  2026 em /pl[39] {"cd": "3235", "cdpr": "1233", "c": "ele2024", "dt": "21/06/2026", "dtlim": "21/06/2030"}
+  2026 em /pl[40] {"cd": "3236", "cdpr": "1234", "c": "ele2024", "dt": "21/06/2026", "dtlim": "21/06/2030"}
+  2026 em /pl[41] {"cd": "3220", "cdpr": "1219", "c": "ele2026", "dt": "04/10/2026", "dtlim": "04/10/2034"}
+  2026 em /pl[41]/e[0] {"cd": "6257", "cdt2": "6258", "sqele": "20322002026", "nm": "Eleição Ordinária Federal - 2026 1º Turno", "t": "1", "tp": "8"}
+  2026 em /pl[41]/e[1] {"cd": "6259", "cdt2": "6260", "sqele": "20322002026", "nm": "Eleição Ordinária Estadual - 2026 1º Turno", "t": "1", "tp": "1"}
+  2026 em /pl[41]/e[2] {"cd": "6261", "cdt2": "", "sqele": "20322002026", "nm": "Eleição Ordinária Municipal - 2026 - 04/10/2026 1º Turno", "t": "1", "tp": "3"}
+GET https://resultados.tse.jus.br/simulado/comum/config/ele-c.json -> 503 371 bytes
+codigos 2026: [('oficial', '3222'), ('oficial', '3223'), ('oficial', '3224'), ('oficial', '3228'), ('oficial', '3226'), ('oficial', '3225'), ('oficial', '3232'), ('oficial', '3229'), ('oficial', '3230'), ('oficial', '3231'), ('oficial', '3237'), ('oficial', '3239'), ('oficial', '3240'), ('oficial', '3234'), ('oficial', '3235'), ('oficial', '3236'), ('oficial', '3220'), ('oficial', '6257'), ('oficial', '6259'), ('oficial', '6261')]
+== 2. resultados simplificados por codigo
+GET https://resultados.tse.jus.br/oficial/ele2026/3222/dados-simplificados/br/br-c0001-e003222-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3222/dados-simplificados/sp/sp-c0003-e003222-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3222/dados-simplificados/sp/sp-c0005-e003222-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3222/dados-simplificados/sp/sp-c0006-e003222-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3222/dados-simplificados/ac/ac-c0007-e003222-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3223/dados-simplificados/br/br-c0001-e003223-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3223/dados-simplificados/sp/sp-c0003-e003223-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3223/dados-simplificados/sp/sp-c0005-e003223-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3223/dados-simplificados/sp/sp-c0006-e003223-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3223/dados-simplificados/ac/ac-c0007-e003223-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3224/dados-simplificados/br/br-c0001-e003224-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3224/dados-simplificados/sp/sp-c0003-e003224-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3224/dados-simplificados/sp/sp-c0005-e003224-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3224/dados-simplificados/sp/sp-c0006-e003224-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3224/dados-simplificados/ac/ac-c0007-e003224-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3228/dados-simplificados/br/br-c0001-e003228-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3228/dados-simplificados/sp/sp-c0003-e003228-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3228/dados-simplificados/sp/sp-c0005-e003228-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3228/dados-simplificados/sp/sp-c0006-e003228-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3228/dados-simplificados/ac/ac-c0007-e003228-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3226/dados-simplificados/br/br-c0001-e003226-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3226/dados-simplificados/sp/sp-c0003-e003226-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3226/dados-simplificados/sp/sp-c0005-e003226-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3226/dados-simplificados/sp/sp-c0006-e003226-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3226/dados-simplificados/ac/ac-c0007-e003226-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3225/dados-simplificados/br/br-c0001-e003225-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3225/dados-simplificados/sp/sp-c0003-e003225-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3225/dados-simplificados/sp/sp-c0005-e003225-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3225/dados-simplificados/sp/sp-c0006-e003225-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3225/dados-simplificados/ac/ac-c0007-e003225-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3232/dados-simplificados/br/br-c0001-e003232-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3232/dados-simplificados/sp/sp-c0003-e003232-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3232/dados-simplificados/sp/sp-c0005-e003232-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3232/dados-simplificados/sp/sp-c0006-e003232-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3232/dados-simplificados/ac/ac-c0007-e003232-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3229/dados-simplificados/br/br-c0001-e003229-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3229/dados-simplificados/sp/sp-c0003-e003229-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3229/dados-simplificados/sp/sp-c0005-e003229-r.json -> 404 246 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3229/dados-simplificados/sp/sp-c0006-e003229-r.json -> 404 248 bytes
+GET https://resultados.tse.jus.br/oficial/ele2026/3229/dados-simplificados/ac/ac-c0007-e003229-r.json -> 404 248 bytes
+== 3. dados abertos (cdn.tse.jus.br)
+HEAD https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_SP_div.zip -> 200 15607560 Wed, 07 Oct 2026 06:18:12 GMT
+HEAD https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2026/fotos/foto_cand2026_BR_div.zip -> 200 293950 Wed, 07 Oct 2026 06:18:11 GMT
+GET https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip -> 200 3239246 bytes
+arquivos: ['leiame.pdf', 'consulta_cand_2026_AM.csv', 'consulta_cand_2026_TO.csv', 'consulta_cand_2026_PR.csv', 'consulta_cand_2026_BA.csv', 'consulta_cand_2026_CE.csv', 'consulta_cand_2026_RR.csv', 'consulta_cand_2026_RS.csv', 'consulta_cand_2026_BR.csv', 'consulta_cand_2026_BRASIL.csv', 'consulta_cand_2026_DF.csv', 'consulta_cand_2026_ES.csv', 'consulta_cand_2026_GO.csv', 'consulta_cand_2026_AC.csv', 'consulta_cand_2026_AL.csv', 'consulta_cand_2026_AP.csv', 'consulta_cand_2026_MA.csv', 'consulta_cand_2026_MG.csv', 'consulta_cand_2026_PB.csv', 'consulta_cand_2026_MT.csv', 'consulta_cand_2026_MS.csv', 'consulta_cand_2026_PA.csv', 'consulta_cand_2026_PE.csv', 'consulta_cand_2026_PI.csv', 'consulta_cand_2026_RN.csv', 'consulta_cand_2026_RJ.csv', 'consulta_cand_2026_SE.csv', 'consulta_cand_2026_SC.csv', 'consulta_cand_2026_RO.csv', 'consulta_cand_2026_SP.csv']
+colunas: ['DT_GERACAO', 'HH_GERACAO', 'ANO_ELEICAO', 'CD_TIPO_ELEICAO', 'NM_TIPO_ELEICAO', 'NR_TURNO', 'CD_ELEICAO', 'DS_ELEICAO', 'DT_ELEICAO', 'TP_ABRANGENCIA', 'SG_UF', 'SG_UE', 'NM_UE', 'CD_CARGO', 'DS_CARGO', 'SQ_CANDIDATO', 'NR_CANDIDATO', 'NM_CANDIDATO', 'NM_URNA_CANDIDATO', 'NM_SOCIAL_CANDIDATO', 'NR_CPF_CANDIDATO', 'DS_EMAIL', 'CD_SITUACAO_CANDIDATURA', 'DS_SITUACAO_CANDIDATURA', 'TP_AGREMIACAO', 'NR_PARTIDO', 'SG_PARTIDO', 'NM_PARTIDO', 'NR_FEDERACAO', 'NM_FEDERACAO', 'SG_FEDERACAO', 'DS_COMPOSICAO_FEDERACAO', 'SQ_COLIGACAO', 'NM_COLIGACAO', 'DS_COMPOSICAO_COLIGACAO', 'SG_UF_NASCIMENTO', 'DT_NASCIMENTO', 'NR_TITULO_ELEITORAL_CANDIDATO', 'CD_GENERO', 'DS_GENERO', 'CD_GRAU_INSTRUCAO', 'DS_GRAU_INSTRUCAO', 'CD_ESTADO_CIVIL', 'DS_ESTADO_CIVIL', 'CD_COR_RACA', 'DS_COR_RACA', 'CD_OCUPACAO', 'DS_OCUPACAO', 'CD_SIT_TOT_TURNO', 'DS_SIT_TOT_TURNO']
+   ('1', '1º SUPLENTE', '#NULO') 41
+   ('1', '1º SUPLENTE', 'ELEITO') 54
+   ('1', '1º SUPLENTE', 'NÃO ELEITO') 254
+   ('1', '2º SUPLENTE', '#NULO') 42
+   ('1', '2º SUPLENTE', 'ELEITO') 54
+   ('1', '2º SUPLENTE', 'NÃO ELEITO') 254
+   ('1', 'DEPUTADO DISTRITAL', '#NULO') 15
+   ('1', 'DEPUTADO DISTRITAL', 'ELEITO POR MÉDIA') 8
+   ('1', 'DEPUTADO DISTRITAL', 'ELEITO POR QP') 16
+   ('1', 'DEPUTADO DISTRITAL', 'NÃO ELEITO') 216
+   ('1', 'DEPUTADO DISTRITAL', 'SUPLENTE') 178
+   ('1', 'DEPUTADO ESTADUAL', '#NULO') 518
+   ('1', 'DEPUTADO ESTADUAL', 'ELEITO POR MÉDIA') 149
+   ('1', 'DEPUTADO ESTADUAL', 'ELEITO POR QP') 886
+   ('1', 'DEPUTADO ESTADUAL', 'NÃO ELEITO') 2492
+   ('1', 'DEPUTADO ESTADUAL', 'SUPLENTE') 7250
+   ('1', 'DEPUTADO FEDERAL', '#NULO') 410
+   ('1', 'DEPUTADO FEDERAL', 'ELEITO POR MÉDIA') 128
+   ('1', 'DEPUTADO FEDERAL', 'ELEITO POR QP') 385
+   ('1', 'DEPUTADO FEDERAL', 'NÃO ELEITO') 3168
+   ('1', 'DEPUTADO FEDERAL', 'SUPLENTE') 3712
+   ('1', 'GOVERNADOR', '#NULO') 10
+   ('1', 'GOVERNADOR', '2º TURNO') 14
+   ('1', 'GOVERNADOR', 'ELEITO') 20
+   ('1', 'GOVERNADOR', 'NÃO ELEITO') 157
+   ('1', 'PRESIDENTE', '#NULO') 1
+   ('1', 'PRESIDENTE', '2º TURNO') 2
+   ('1', 'PRESIDENTE', 'NÃO ELEITO') 11
+   ('1', 'SENADOR', '#NULO') 11
+   ('1', 'SENADOR', 'ELEITO') 54
+   ('1', 'SENADOR', 'NÃO ELEITO') 254
+   ('1', 'VICE-GOVERNADOR', '#NULO') 20
+   ('1', 'VICE-GOVERNADOR', '2º TURNO') 14
+   ('1', 'VICE-GOVERNADOR', 'ELEITO') 20
+   ('1', 'VICE-GOVERNADOR', 'NÃO ELEITO') 157
+   ('1', 'VICE-PRESIDENTE', '#NULO') 1
+   ('1', 'VICE-PRESIDENTE', '2º TURNO') 2
+   ('1', 'VICE-PRESIDENTE', 'NÃO ELEITO') 11
+exemplo de linha: {"DT_GERACAO": "07/10/2026", "HH_GERACAO": "16:30:39", "ANO_ELEICAO": "2026", "CD_TIPO_ELEICAO": "2", "NM_TIPO_ELEICAO": "ELEIÇÃO ORDINÁRIA", "NR_TURNO": "1", "CD_ELEICAO": "6259", "DS_ELEICAO": "Eleições Gerais Estaduais 2026", "DT_ELEICAO": "04/10/2026", "TP_ABRANGENCIA": "ESTADUAL", "SG_UF": "SE", "SG_UE": "SE", "NM_UE": "SERGIPE", "CD_CARGO": "5", "DS_CARGO": "SENADOR", "SQ_CANDIDATO": "260002551550", "NR_CANDIDATO": "123", "NM_CANDIDATO": "EDVALDO NOGUEIRA FILHO", "NM_URNA_CANDIDATO": "EDVALDO", "NM_SOCIAL_CANDIDATO": "#NULO", "NR_CPF_CANDIDATO": "19001274587", "DS_EMAIL": "NÃO DIVULGÁVEL", "CD_SITUACAO_CANDIDATURA": "-3", "DS_SITUACAO_CANDIDATURA": "#NE", "TP_AGREMIACAO": "PARTIDO ISOLADO", "NR_PARTIDO": "12", "SG_PARTIDO": "PDT", "NM_PARTIDO": "PARTIDO DEMOCRÁTICO TRABALHISTA", "NR_FEDERACAO": "-1", "NM_FEDERACAO": "#NULO", "SG_FEDERACAO": "#NULO", "DS_COMPOSICAO_FEDERACAO": "#NULO", "SQ_COLIGACAO": "260001801179", "NM_COLIGACAO": "PARTIDO ISOLADO", "DS_COMPOSICAO_COLIGACAO": "PDT", "SG_UF_NASCIMENTO": "AL", "DT_NASCIMENTO": "25/01/1961", "NR_TITULO_ELEITORAL_CANDIDATO": "005175492160", "CD_GENERO": "2", "DS_GENERO": "MASCULINO", "CD_GRAU_INSTRUCAO": "7", "DS_GRAU_INSTRUCAO": "SUPERIOR INCOMPLETO", "CD_ESTADO_CIVIL": "3", "DS_ESTADO_CIVIL": "CASADO(A)", "CD_COR_RACA": "03", "DS_COR_RACA": "PARDA", "CD_OCUPACAO": "999", "DS_OCUPACAO": "OUTROS", "CD_SIT_TOT_TURNO": "4", "DS_SIT_TOT_TURNO": "NÃO ELEITO"}
