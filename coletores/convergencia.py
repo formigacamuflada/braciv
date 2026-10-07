@@ -16,6 +16,7 @@ import json
 import pathlib
 import re
 import time
+import unicodedata
 import zipfile
 from datetime import datetime, timezone
 
@@ -58,6 +59,12 @@ def linhas(ano, cargos=None):
     return list(ult.values())
 
 
+def chave(l):
+    """Alternativa ao CPF (o TSE nao publica CPF em todos os anos): nome completo + nascimento + UF."""
+    n = unicodedata.normalize("NFKD", l.get("NM_CANDIDATO") or "").encode("ascii", "ignore").decode().upper()
+    return (re.sub(r"[^A-Z]+", " ", n).strip(), (l.get("DT_NASCIMENTO") or "").strip(), l.get("SG_UF"))
+
+
 def sit(l):
     s = (l.get("DS_SIT_TOT_TURNO") or "").upper()
     return "eleito" if s.startswith("ELEITO") else "segundoTurno" if "2º TURNO" in s else "suplente" if s.startswith("SUPLENTE") else "naoEleito" if "NÃO ELEITO" in s else "outra"
@@ -89,11 +96,17 @@ def main():
     el22 = [l for l in l22 if sit(l) == "eleito"]
     diz("  eleitos 2022:", dict(collections.Counter(l["DS_CARGO"] for l in el22)))
     # 3. eleitos de 2024 (prefeitos, vices e vereadores)
-    c24 = {}
-    for l in linhas(2024, {"PREFEITO", "VICE-PREFEITO", "VEREADOR"}):
+    c24, k24 = {}, {}
+    l24 = linhas(2024, {"PREFEITO", "VICE-PREFEITO", "VEREADOR"})
+    diz("  2024: CPF publicado em", sum(1 for l in l24 if cpf(l.get("NR_CPF_CANDIDATO"))), "linhas; DT_NASCIMENTO em", sum(1 for l in l24 if (l.get("DT_NASCIMENTO") or "").strip()))
+    for l in l24:
+        if sit(l) != "eleito":
+            continue
+        reg = {"cargo": titulo(l["DS_CARGO"]), "municipio": (l.get("NM_UE") or "").title(), "uf": l.get("SG_UF"), "ano": 2024}
         c = cpf(l.get("NR_CPF_CANDIDATO"))
-        if c and sit(l) == "eleito":
-            c24[c] = {"cargo": titulo(l["DS_CARGO"]), "municipio": (l.get("NM_UE") or "").title(), "uf": l.get("SG_UF"), "ano": 2024}
+        if c:
+            c24[c] = reg
+        k24[chave(l)] = reg
     # 4. todas as candidaturas de 2026
     c26 = collections.defaultdict(list)
     for l in linhas(2026):
@@ -114,22 +127,25 @@ def main():
     # eleitos de 2022: saida para prefeitura em 2024 e candidatura em 2026
     for l in el22:
         c = cpf(l.get("NR_CPF_CANDIDATO"))
-        if not c:
-            continue
         reg = {}
-        if c in c24:
-            reg["2024"] = c24[c]
+        r24 = c24.get(c) or k24.get(chave(l))
+        if r24:
+            reg["2024"] = r24
         m = melhor(c26.get(c, []))
         if m:
             reg["2026"] = m
         if reg:
             reg["cargo2022"] = titulo(l["DS_CARGO"])
+            reg["nome"] = (l.get("NM_URNA_CANDIDATO") or "").title()
             reg["uf"] = l["SG_UF"]
             saida["eleitos2022"][l["SQ_CANDIDATO"]] = reg
 
     # relatorio
     e22 = saida["eleitos2022"].values()
     diz("eleitos de 2022 que se elegeram em 2024:", dict(collections.Counter((r["cargo2022"], r["2024"]["cargo"]) for r in e22 if "2024" in r)))
+    for r in e22:
+        if "2024" in r:
+            diz(f"  {r['uf']} {r['cargo2022']} {r['nome']} -> {r['2024']['cargo']} de {r['2024']['municipio']}")
     gov_out = [r for r in e22 if r["cargo2022"] == "Governador" and "2026" in r and r["2026"]["cargo"] != "Governador"]
     diz("governadores de 2022 candidatos a OUTRO cargo em 2026 (renuncia obrigatoria):", len(gov_out))
     for sq, r in saida["eleitos2022"].items():
