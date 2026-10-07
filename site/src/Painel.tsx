@@ -125,6 +125,51 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
           sobre={no.tipo === "cargo" ? `Sobre a unidade: ${idx.get(`u:${codigoFicha}`)?.nome ?? idx.get(`u:${codigoFicha}`)?.rotulo ?? ""}` : undefined} />
       )}
 
+      {no.tipo === "casa" && (() => {
+        const mesa = cargosAqui.filter((c) => c.codigoCargo === "MESA").sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99));
+        if (!mesa.length) return null;
+        const [pres, ...resto] = mesa;
+        const op = pres.ocupantes?.[0];
+        return (
+          <>
+            {op && (
+              <section className="mt-5">
+                <h3 className="text-sm text-stone-500">{pres.rotulo}</h3>
+                <button onClick={() => aoSelecionar(pres.id)} className="mt-2 flex w-full items-center gap-3 rounded-xl border border-stone-200 p-2.5 text-left hover:border-stone-400 dark:border-stone-700 dark:hover:border-stone-500">
+                  <Retrato o={op} />
+                  <span className="min-w-0">
+                    <span className="block font-medium">{op.nome}</span>
+                    <span className="block text-xs text-stone-500">{[op.partido && `${op.partido}${op.uf ? `-${op.uf}` : ""}`, op.desde && `desde ${op.desde}`].filter(Boolean).join(" · ")}</span>
+                  </span>
+                </button>
+              </section>
+            )}
+            <section className="mt-5">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-stone-500">{no.id === "casa:senado" ? "Comissão Diretora (Mesa)" : "Mesa Diretora"}</h3>
+              <div className="mt-2 grid grid-cols-2 gap-1.5">
+                {resto.map((c) => {
+                  const o = c.ocupantes?.[0];
+                  return o ? (
+                    <button key={c.id} onClick={() => aoSelecionar(c.id)} className="flex items-center gap-2 rounded-lg border border-stone-200 p-1.5 text-left hover:border-stone-400 dark:border-stone-700 dark:hover:border-stone-500">
+                      <Retrato o={o} t={36} />
+                      <span className="min-w-0 text-xs leading-tight">
+                        <span className="block truncate font-medium">{o.nome}</span>
+                        <span className="block text-stone-500">{c.rotulo.replace(/ da Mesa d[ao] (Câmara|Senado)$/, "")}</span>
+                      </span>
+                    </button>
+                  ) : null;
+                })}
+              </div>
+              <p className="mt-2 text-[11px] text-stone-500">Fonte: {pres.ocupantes?.[0]?.url ? <a className="underline" href={pres.ocupantes[0].url} target="_blank" rel="noreferrer">{pres.ocupantes[0].fonte}</a> : pres.ocupantes?.[0]?.fonte}. Eleita pela própria Casa para mandato de 2 anos (CF, art. 57, § 4º).</p>
+            </section>
+          </>
+        );
+      })()}
+
+      {no.tipo === "cargo" && no.parlamentar && idx.has(no.parlamentar) && (
+        <p className="mt-3 text-sm">{link(no.parlamentar, no.parlamentar.startsWith("sen:") ? "Ver o mandato de senador(a)" : "Ver o mandato de deputado(a)")}</p>
+      )}
+
       {no.tipo === "cargo" && (
         <>
           {no.codigoCargo && !["DEP", "SEN"].includes(no.codigoCargo) && (
@@ -216,7 +261,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         <li key={i}>{link(x.id, x.rotulo)} {x.detalhe && <span className="text-xs text-stone-500">{x.detalhe}</span>}</li>
       )} />
 
-      <Lista titulo="Cargos aqui" itens={cargosAqui} render={(c: No, i) => (
+      <Lista titulo="Cargos aqui" itens={cargosAqui.filter((c) => c.codigoCargo !== "MESA")} render={(c: No, i) => (
         <li key={i}>
           {link(c.id, /^exercer o encargo de substitut/i.test(c.rotulo) ? "Substituto(a) eventual" : c.rotulo)}
           {c.codigoCargo && <span className="ml-1 rounded bg-stone-200 px-1 text-xs dark:bg-stone-800">{c.codigoCargo}</span>}

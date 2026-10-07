@@ -448,6 +448,7 @@ def main():
 
     # Mesas: Mesa Diretora da Camara e Comissao Diretora do Senado (eleitas por cada Casa, CF art. 57 par. 4)
     foto_dep = {str(d["id"]): d.get("urlFoto") for d in DEP}
+    partido_dep = {str(d["id"]): d.get("siglaPartido") for d in DEP}
     foto_sen = {s_["IdentificacaoParlamentar"]["CodigoParlamentar"]: s_["IdentificacaoParlamentar"].get("UrlFotoParlamentar") for s_ in SEN}
     def titulo_sf(t):
         t = t.capitalize().replace("vice-presidente", "Vice-Presidente").replace("secretári", "Secretári").replace("suplente", "Suplente")
@@ -458,7 +459,7 @@ def main():
         rot = "Presidente da Câmara dos Deputados" if m["codTitulo"] == 1 else f"{m['titulo']} da Mesa da Câmara"
         nos[i] = {"id": i, "tipo": "cargo", "rotulo": rot, "codigoCargo": "MESA", "ordem": m["codTitulo"], "parlamentar": f"dep:{m['id']}",
                   "ocupantes": [{"nome": m["nome"], "foto": (foto_dep.get(str(m["id"])) or m.get("urlFoto") or "").replace("http:", "https:") or None,
-                                 "partido": m.get("siglaPartido"), "uf": m.get("siglaUf"), "desde": "/".join(reversed((m.get("dataInicio") or "").split("-"))) or None,
+                                 "partido": partido_dep.get(str(m["id"])) or m.get("siglaPartido"), "uf": m.get("siglaUf"), "desde": "/".join(reversed((m.get("dataInicio") or "").split("-"))) or None,
                                  "fonte": "Câmara dos Deputados, Mesa Diretora", "url": "https://www.camara.leg.br/deputados/mesa-diretora"}]}
         arestas.append({"de": i, "para": "casa:camara", "tipo": "cargo"})
     mesa_sf = le("senado_mesa.json") if (DADOS / "senado_mesa.json").exists() else {"cargos": []}
@@ -472,7 +473,7 @@ def main():
         nos[i] = {"id": i, "tipo": "cargo", "rotulo": rot, "codigoCargo": "MESA", "ordem": ordem, "parlamentar": f"sen:{m.get('Http')}",
                   "ocupantes": [{"nome": nome, "foto": (foto_sen.get(str(m.get("Http"))) or "").replace("http:", "https:") or None,
                                  "partido": "-".join(bancada[:-1]) or None, "uf": bancada[-1] if len(bancada) > 1 else None,
-                                 "fonte": f"Senado Federal, {(mesa_sf.get('colegiado') or 'Comissão Diretora').title()}", "url": "https://www25.senado.leg.br/web/senadores/comissao-diretora"}]}
+                                 "fonte": "Senado Federal, Comissão Diretora", "url": "https://www25.senado.leg.br/web/senadores/comissao-diretora"}]}
         arestas.append({"de": i, "para": "casa:senado", "tipo": "cargo"})
     resumo.append(f"Mesas: Camara {sum(1 for k in nos if k.startswith('mesa:cd:'))} cargos, Senado {sum(1 for k in nos if k.startswith('mesa:sf:'))} cargos")
 

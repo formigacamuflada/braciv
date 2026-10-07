@@ -9,6 +9,8 @@ export const CF: Record<string, Base> = {
   "2": { dispositivo: "CF, art. 2º", texto: "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário." },
   "14": { dispositivo: "CF, art. 14", texto: "A soberania popular será exercida pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos, e, nos termos da lei, mediante: (…)" },
   "44": { dispositivo: "CF, art. 44", texto: "O Poder Legislativo é exercido pelo Congresso Nacional, que se compõe da Câmara dos Deputados e do Senado Federal." },
+  "57p4": { dispositivo: "CF, art. 57, § 4º", texto: "Cada uma das Casas reunir-se-á em sessões preparatórias, a partir de 1º de fevereiro, no primeiro ano da legislatura, para a posse de seus membros e eleição das respectivas Mesas, para mandato de 2 (dois) anos, vedada a recondução para o mesmo cargo na eleição imediatamente subseqüente." },
+  "57p5": { dispositivo: "CF, art. 57, § 5º", texto: "A Mesa do Congresso Nacional será presidida pelo Presidente do Senado Federal, e os demais cargos serão exercidos, alternadamente, pelos ocupantes de cargos equivalentes na Câmara dos Deputados e no Senado Federal." },
   "45": { dispositivo: "CF, art. 45", texto: "A Câmara dos Deputados compõe-se de representantes do povo, eleitos, pelo sistema proporcional, em cada Estado, em cada Território e no Distrito Federal." },
   "46": { dispositivo: "CF, art. 46", texto: "O Senado Federal compõe-se de representantes dos Estados e do Distrito Federal, eleitos segundo o princípio majoritário." },
   "49x": { dispositivo: "CF, art. 49, X", texto: "fiscalizar e controlar, diretamente, ou por qualquer de suas Casas, os atos do Poder Executivo, incluídos os da administração indireta;" },

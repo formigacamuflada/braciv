@@ -37,6 +37,8 @@ export type No = {
   fonte?: string;
   mesa?: boolean;
   lideranca?: boolean;
+  ordem?: number;
+  parlamentar?: string;
   dou?: Ato[];
 };
 

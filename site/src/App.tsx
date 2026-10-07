@@ -3,6 +3,7 @@ import OrgaoLista from "./OrgaoLista";
 import Roda from "./Roda";
 import Brasil from "./Brasil";
 import Painel, { type Conexao } from "./Painel";
+import { CF } from "./constituicao";
 import { COBERTURA, COBERTURA_PODER, DESCRICAO, DESCRICAO_POR_SIGLA, montaRoda } from "./layoutRoda";
 import Busca from "./Busca";
 import { carregaMeta, carregaNoticias, carregaNucleo, carregaOrgao, type Noticia } from "./dados";
@@ -70,7 +71,7 @@ export default function App() {
   const extras = useMemo(() => {
     if (!selecionado || !roda || orgao) return {};
     const no = dadosPainel?.nos.find((n) => n.id === selecionado);
-    const descricao = DESCRICAO[selecionado] ?? (no?.sigla ? DESCRICAO_POR_SIGLA[no.sigla] : undefined);
+    const descricao = DESCRICAO[selecionado] ?? (selecionado.startsWith("mesa:") ? [CF["57p4"]] : no?.sigla ? DESCRICAO_POR_SIGLA[no.sigla] : undefined);
     const grupos = new Map<string, Conexao>();
     for (const r of roda.relacoes) {
       const sentido = r.de === selecionado ? "sai" : r.para === selecionado ? "chega" : null;

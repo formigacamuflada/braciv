@@ -157,6 +157,12 @@ export function montaRoda(g: Grafo): Roda {
     add(n, { ...p, t: 2.2, forma: "ponto", poder: "Legislativo", tom: td(n), ocupante: n.ocupantes?.[0]?.nome, detalhe: `${n.partido ?? "?"}-${n.uf ?? ""}` });
   });
   faixas.push({ poder: "Legislativo", r: 255, a0: lg.a0 + 4, a1: lg.a1 - 4, rotulo: "CONGRESSO NACIONAL" });
+  // Mesas de cada Casa: o Presidente junto da Casa, os demais membros em arco para o lado de fora
+  for (const [pref, lado] of [["mesa:cd:", -1], ["mesa:sf:", 1]] as const) {
+    const mesa = g.nos.filter((n) => n.id.startsWith(pref)).sort((a, b) => (a.ordem ?? 99) - (b.ordem ?? 99));
+    mesa.forEach((n, k) => add(n, { a: lado * (k === 0 ? 7 : 9.5 + (k - 1) * 2.6), r: k === 0 ? 243 : 242, t: k === 0 ? 7 : 4, forma: "quadrado", poder: "Legislativo", tom: k === 0 ? 1 : 0.8,
+      ocupante: n.ocupantes?.[0]?.nome, detalhe: n.ocupantes?.[0]?.partido ? `${n.ocupantes[0].partido}${n.ocupantes[0].uf ? `-${n.ocupantes[0].uf}` : ""}` : undefined }));
+  }
 
   // ---- Judiciário ----
   const jd = SETORES[3];
@@ -193,6 +199,9 @@ export function montaRoda(g: Grafo): Roda {
     rel("u:26", alvo, "indica e nomeia, após aprovação do Senado", alvo === nomeadosComSenado[0] ? CF["101u"] : CF["84xiv"]);
     rel("casa:senado", alvo, "aprova a escolha", CF["52iii"]);
   }
+  rel("casa:camara", "mesa:cd:1", "elege a Mesa", CF["57p4"]);
+  rel("casa:senado", "mesa:sf:1", "elege a Mesa", CF["57p4"]);
+  rel("mesa:sf:1", CN?.id, "preside a Mesa do Congresso Nacional", CF["57p5"]);
   rel("casa:camara", "u:26", "fiscaliza e controla", CF["49x"]);
   rel("casa:senado", "u:26", "fiscaliza e controla", CF["49x"]);
   for (const [min, ents] of vinculadas) for (const e of ents) rel(min, e.id, "supervisiona", CF["87i"]);
@@ -218,6 +227,8 @@ export const DESCRICAO: Record<string, Base[]> = {
   "u:26": [CF["76"], CF["77"]],
   "casa:camara": [CF["45"]],
   "casa:senado": [CF["46"], CF["52iii"]],
+  "mesa:cd:1": [CF["57p4"]],
+  "mesa:sf:1": [CF["57p4"], CF["57p5"]],
 };
 export const DESCRICAO_POR_SIGLA: Record<string, Base[]> = {
   STF: [CF["101u"], CF["102"]],
@@ -228,7 +239,7 @@ export const DESCRICAO_POR_SIGLA: Record<string, Base[]> = {
 export const COBERTURA: Record<string, string> = {
   "poder:Judiciário": "Ainda não coletamos quem ocupa os cargos do Judiciário (ministros, desembargadores, juízes e servidores). O SIORG traz a estrutura dos tribunais; o Portal da Transparência cobre só o Executivo.",
   "poder:Funções Essenciais à Justiça": "O SIORG traz poucos órgãos deste grupo (CNMP, MPDFT, ESMPU). Ministério Público Federal, Procuradoria-Geral da República e Defensoria Pública da União ainda não estão no mapa. A AGU aparece no Executivo, como no SIORG.",
-  "poder:Legislativo": "Deputados e senadores vêm das APIs da Câmara e do Senado. Mesa, lideranças, comissões e servidores do Legislativo ainda não estão no mapa.",
+  "poder:Legislativo": "Deputados, senadores e as Mesas de cada Casa vêm das APIs da Câmara e do Senado. Lideranças, comissões e servidores do Legislativo ainda não estão no mapa.",
 };
 export const COBERTURA_PODER: Record<string, string> = {
   Judiciário: "Estrutura vinda do SIORG. Quem ocupa os cargos deste órgão ainda não foi coletado.",
