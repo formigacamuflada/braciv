@@ -3,40 +3,45 @@ import { corPartido, notaPartido, campo, COR_CAMPO, PARTIDOS, FONTE_IDEOLOGIA, N
 import type { Parlamentar } from "./dados";
 
 // Cadeiras em semicírculo, como num plenário: o número de fileiras é o menor que comporta todas as cadeiras
-// sem encostar umas nas outras; cada fileira recebe cadeiras na proporção do seu comprimento; e a ordem
-// (esquerda → direita) segue o ângulo de cada cadeira, para os partidos formarem fatias e não faixas.
+// sem encostar umas nas outras; cada fileira recebe cadeiras na proporção do seu raio (maiores restos), com
+// espaçamento igual ao longo do arco; e a ordem (esquerda → direita) segue o ângulo de cada cadeira, para os
+// partidos formarem fatias e não faixas. Cada cadeira é girada para acompanhar a curva.
 function lugares(n: number) {
-  if (!n) return { pts: [] as { x: number; y: number; a: number }[], tam: 0.05 };
-  const r0 = 0.38;
-  let raios: number[] = [], cap: number[] = [], d = 0.3;
+  type Pt = { x: number; y: number; a: number; r: number };
+  if (!n) return { pts: [] as Pt[], larg: 0, alt: 0 };
+  const r0 = 0.42;
+  let raios: number[] = [], d = 0.3;
   for (let L = 1; L < 40; L++) {
     d = L === 1 ? 0.3 : (1 - r0) / (L - 1);
     raios = L === 1 ? [0.75] : Array.from({ length: L }, (_, i) => r0 + d * i);
-    cap = raios.map((r) => Math.floor((Math.PI * r) / d) + 1);
+    const cap = raios.map((r) => Math.floor((Math.PI * r) / d) + 1);
     if (cap.reduce((x, y) => x + y, 0) >= n) break;
   }
-  const soma = cap.reduce((x, y) => x + y, 0);
-  const porLinha = cap.map((c) => Math.min(c, Math.round((n * c) / soma)));
-  let dif = n - porLinha.reduce((x, y) => x + y, 0);
-  for (let i = porLinha.length - 1, g = 0; dif !== 0 && g < 10000; i = (i - 1 + porLinha.length) % porLinha.length, g++) {
-    if (dif > 0 && porLinha[i] < cap[i]) { porLinha[i]++; dif--; } else if (dif < 0 && porLinha[i] > 1) { porLinha[i]--; dif++; }
-  }
-  const pts: { x: number; y: number; a: number; r: number }[] = [];
+  const soma = raios.reduce((x, y) => x + y, 0);
+  const ideal = raios.map((r) => (n * r) / soma);
+  const porLinha = ideal.map(Math.floor);
+  let falta = n - porLinha.reduce((x, y) => x + y, 0);
+  ideal.map((v, i) => [v - Math.floor(v), i]).sort((a, b) => b[0] - a[0]).forEach(([, i]) => { if (falta > 0) { porLinha[i]++; falta--; } });
+  const pts: Pt[] = [];
+  let arcoMin = Infinity;
   raios.forEach((r, i) => {
     const k = porLinha[i];
+    if (!k) return;
+    const passo = Math.PI / k;
+    arcoMin = Math.min(arcoMin, passo * r);
     for (let j = 0; j < k; j++) {
-      const a = Math.PI - (k === 1 ? Math.PI / 2 : (Math.PI * j) / (k - 1));
+      const a = Math.PI - (j + 0.5) * passo;
       pts.push({ x: r * Math.cos(a), y: -r * Math.sin(a), a, r });
     }
   });
   pts.sort((p, q) => q.a - p.a || q.r - p.r);   // da esquerda (ângulo π) para a direita (0)
-  return { pts, tam: Math.min(0.1, d * 0.4) };
+  return { pts, larg: Math.min(0.2, arcoMin * 0.82), alt: Math.min(0.16, d * 0.78) };
 }
 
 export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, semTitulo = false }: { pessoas: Parlamentar[]; titulo: string; aoAbrir: (id: string) => void; quadrado?: boolean; semTitulo?: boolean }) {
   const [hover, setHover] = useState<Parlamentar | null>(null);
   const ordem = useMemo(() => [...pessoas].sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido) || (a.partido ?? "").localeCompare(b.partido ?? "") || a.nome.localeCompare(b.nome)), [pessoas]);
-  const { pts, tam } = useMemo(() => lugares(ordem.length), [ordem.length]);
+  const { pts, larg, alt } = useMemo(() => lugares(ordem.length), [ordem.length]);
   const campos = useMemo(() => {
     const c: Record<Campo, number> = { Esquerda: 0, Centro: 0, Direita: 0, "Sem classificação": 0 };
     for (const p of pessoas) c[campo(p.partido)]++;
@@ -74,11 +79,12 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, 
             const q = pts[i];
             const comum = { fill: corPartido(p.partido), style: { cursor: "pointer" }, opacity: hover && hover.partido !== p.partido ? 0.35 : 1,
               onMouseEnter: () => setHover(p), onMouseLeave: () => setHover(null), onClick: () => aoAbrir(p.id) };
+            const giro = 90 - (q.a * 180) / Math.PI;
             return quadrado
-              ? <rect key={p.id} x={q.x - tam * 1.15} y={q.y - tam * 0.85} width={tam * 2.3} height={tam * 1.7} rx={tam * 0.35} {...comum} />
-              : <circle key={p.id} cx={q.x} cy={q.y} r={tam} {...comum} />;
+              ? <rect key={p.id} x={-larg / 2} y={-alt / 2} width={larg} height={alt} rx={alt * 0.22} transform={`translate(${q.x} ${q.y}) rotate(${giro})`} {...comum} />
+              : <circle key={p.id} cx={q.x} cy={q.y} r={Math.min(larg, alt) / 2} {...comum} />;
           })}
-          <text x="0" y="-0.12" textAnchor="middle" fontSize="0.2" fontWeight="700" className="fill-stone-900 dark:fill-white">{total}</text>
+          <text x="0" y="-0.06" textAnchor="middle" fontSize="0.2" fontWeight="700" className="fill-stone-900 dark:fill-white">{total}</text>
         </svg>
         {hover && (
           <div className="pointer-events-none absolute left-1/2 top-1 -translate-x-1/2 rounded-md px-2 py-0.5 text-xs font-medium" style={{ background: corPartido(hover.partido) + "33", color: corPartido(hover.partido), border: `1px solid ${corPartido(hover.partido)}88` }}>
