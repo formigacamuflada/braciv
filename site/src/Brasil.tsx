@@ -276,6 +276,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
       return (
         <>
           <div className="flex items-baseline justify-between"><h2 className="font-semibold">Governadores</h2><span className="text-xs text-stone-500">27 estados</span></div>
+          <div className="mt-3"><Espectro lista={todos.governadores} /></div>
           <div className="mt-3"><BarraPartidos lista={todos.governadores} /></div>
           <ul className="mt-4 space-y-0.5">{[...todos.governadores].sort((a, b) => a.uf.localeCompare(b.uf)).map((g) => <Linha key={g.id} p={g} sub={g.uf} aoAbrir={() => aoEscolherUf(g.uf)} />)}</ul>
           <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Substituições posteriores ainda não são acompanhadas.</p>
