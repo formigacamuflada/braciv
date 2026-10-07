@@ -3,7 +3,7 @@
 // Brasileiros", DADOS 66(2), 2023 — tabela de médias conferida em
 // https://www.scielo.br/j/dados/a/zzyM3gzHD4P45WWdytXjZWg/?lang=pt (07/10/2026).
 // Partidos que mudaram de nome ou nasceram de fusão depois da pesquisa estão marcados em "obs";
-// as fusões NÃO foram conferidas no TSE ainda.
+// as fusões NÃO foram conferidas no TSE ainda. PTB, PMN, PMB, PRTB, Pros, PSC e Patriota conferidos na mesma tabela (07/10/2026).
 export const FONTE_IDEOLOGIA = "https://www.scielo.br/j/dados/a/zzyM3gzHD4P45WWdytXjZWg/?lang=pt";
 
 type Info = { nota: number | null; nome: string; obs?: string };
@@ -29,6 +29,15 @@ export const PARTIDOS: Record<string, Info> = {
   NOVO: { nota: 8.13, nome: "Novo" },
   PP: { nota: 8.2, nome: "PP", obs: "nota do Progressistas" },
   "UNIÃO": { nota: 8.34, nome: "União Brasil", obs: "média de DEM e PSL (fusão não conferida no TSE)" },
+  // partidos de 2022 (eleitos no TSE) que se fundiram ou mudaram de nome depois — nota da própria tabela
+  PTB: { nota: 6.1, nome: "PTB" },
+  PMN: { nota: 6.88, nome: "PMN" },
+  PMB: { nota: 6.9, nome: "PMB" },
+  PRTB: { nota: 7.45, nome: "PRTB" },
+  PROS: { nota: 7.47, nome: "Pros" },
+  AGIR: { nota: 7.86, nome: "Agir", obs: "nota do PTC (antigo nome, troca não conferida no TSE)" },
+  PSC: { nota: 8.33, nome: "PSC" },
+  PATRIOTA: { nota: 8.55, nome: "Patriota" },
   "MISSÃO": { nota: null, nome: "Missão", obs: "partido não avaliado na pesquisa" },
   "S/Partido": { nota: null, nome: "Sem partido" },
 };
@@ -44,9 +53,10 @@ export const COR_CAMPO: Record<Campo, string> = { Esquerda: "#e5484d", Centro: "
 
 // Cor de cada partido: tons do campo, escurecendo/clareando para distinguir vizinhos
 const CORES: Record<string, string> = {
-  PSOL: "#facc15", PCdoB: "#b91c1c", PT: "#e5484d", PDT: "#f97316", PSB: "#fb923c", REDE: "#14b8a6", CIDADANIA: "#ec4899",
-  PV: "#22c55e", AVANTE: "#a3e635", SOLIDARIEDADE: "#f59e0b", MDB: "#15803d", PSD: "#84cc16", PSDB: "#38bdf8", PODE: "#a855f7",
-  PRD: "#64748b", REPUBLICANOS: "#0ea5e9", PL: "#3e63dd", DC: "#94a3b8", NOVO: "#fb7185", PP: "#7dd3fc", "UNIÃO": "#22d3ee",
+  PSOL: "#facc15", PCdoB: "#b91c1c", PT: "#e5484d", PDT: "#f97316", PSB: "#f59e0b", REDE: "#14b8a6", CIDADANIA: "#ec4899",
+  PV: "#22c55e", AVANTE: "#a3e635", SOLIDARIEDADE: "#c2410c", MDB: "#15803d", PSD: "#84cc16", PSDB: "#38bdf8", PODE: "#a855f7",
+  PRD: "#64748b", REPUBLICANOS: "#6366f1", PL: "#3e63dd", DC: "#94a3b8", NOVO: "#fb7185", PP: "#7dd3fc", "UNIÃO": "#0891b2",
+  PTB: "#b45309", PMN: "#be123c", PMB: "#c084fc", PRTB: "#4d7c0f", PROS: "#d946ef", AGIR: "#818cf8", PSC: "#1e3a8a", PATRIOTA: "#047857",
 };
 export const corPartido = (s?: string) => CORES[s ?? ""] ?? "#78716c";
 export const notaPartido = (s?: string) => PARTIDOS[s ?? ""]?.nota ?? 99;

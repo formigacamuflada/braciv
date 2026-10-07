@@ -23,7 +23,7 @@ function lugares(n: number) {
   return pts.sort((p, q) => q.a - p.a);   // da esquerda (ângulo π) para a direita (0)
 }
 
-export default function Hemiciclo({ pessoas, titulo, aoAbrir }: { pessoas: Parlamentar[]; titulo: string; aoAbrir: (id: string) => void }) {
+export default function Hemiciclo({ pessoas, titulo, aoAbrir, quadrado = false, semTitulo = false }: { pessoas: Parlamentar[]; titulo: string; aoAbrir: (id: string) => void; quadrado?: boolean; semTitulo?: boolean }) {
   const [hover, setHover] = useState<Parlamentar | null>(null);
   const ordem = useMemo(() => [...pessoas].sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido) || (a.partido ?? "").localeCompare(b.partido ?? "") || a.nome.localeCompare(b.nome)), [pessoas]);
   const pts = useMemo(() => lugares(ordem.length), [ordem.length]);
@@ -42,10 +42,12 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir }: { pessoas: Parla
 
   return (
     <section>
-      <div className="flex items-baseline justify-between">
-        <h3 className="text-sm font-semibold">{titulo}</h3>
-        <span className="text-xs text-stone-500">{total} cadeiras</span>
-      </div>
+      {!semTitulo && (
+        <div className="flex items-baseline justify-between">
+          <h3 className="text-sm font-semibold">{titulo}</h3>
+          <span className="text-xs text-stone-500">{total} cadeiras</span>
+        </div>
+      )}
       {/* barra esquerda / centro / direita */}
       <div className="mt-3 flex items-end justify-between text-xs">
         <span><span className="text-stone-500">Esquerda</span> <b className="text-base">{campos.Esquerda}</b></span>
@@ -61,11 +63,11 @@ export default function Hemiciclo({ pessoas, titulo, aoAbrir }: { pessoas: Parla
         <svg viewBox="-1.08 -1.08 2.16 1.16" className="w-full">
           {ordem.map((p, i) => {
             const q = pts[i];
-            return (
-              <circle key={p.id} cx={q.x} cy={q.y} r={tam} fill={corPartido(p.partido)} style={{ cursor: "pointer" }}
-                opacity={hover && hover.partido !== p.partido ? 0.35 : 1}
-                onMouseEnter={() => setHover(p)} onMouseLeave={() => setHover(null)} onClick={() => aoAbrir(p.id)} />
-            );
+            const comum = { fill: corPartido(p.partido), style: { cursor: "pointer" }, opacity: hover && hover.partido !== p.partido ? 0.35 : 1,
+              onMouseEnter: () => setHover(p), onMouseLeave: () => setHover(null), onClick: () => aoAbrir(p.id) };
+            return quadrado
+              ? <rect key={p.id} x={q.x - tam * 1.15} y={q.y - tam * 0.85} width={tam * 2.3} height={tam * 1.7} rx={tam * 0.35} {...comum} />
+              : <circle key={p.id} cx={q.x} cy={q.y} r={tam} {...comum} />;
           })}
           <text x="0" y="-0.12" textAnchor="middle" fontSize="0.2" fontWeight="700" className="fill-stone-900 dark:fill-white">{total}</text>
         </svg>

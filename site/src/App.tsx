@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import OrgaoLista from "./OrgaoLista";
 import Roda from "./Roda";
-import Mapa from "./Mapa";
+import Brasil from "./Brasil";
 import Painel, { type Conexao } from "./Painel";
 import { COBERTURA, COBERTURA_PODER, DESCRICAO, DESCRICAO_POR_SIGLA, montaRoda } from "./layoutRoda";
 import Busca from "./Busca";
@@ -130,7 +130,7 @@ export default function App() {
       <main className="relative flex min-h-0 flex-1 flex-col md:flex-row">
         <div className="relative min-h-[50vh] flex-1">
           {!orgao && vista === "mapa" && (
-            <Mapa uf={uf} aoEscolherUf={setUf}
+            <Brasil uf={uf} aoEscolherUf={setUf}
               aoAbrirNo={(id) => { setVista("roda"); setSelecionado(id); }} />
           )}
           {dados && !orgao && vista === "roda" && <Roda dados={dados} selecionado={selecionado} aoSelecionar={aoSelecionar} />}

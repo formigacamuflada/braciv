@@ -133,7 +133,7 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
     for e in tse:
         if e["uf"] not in saida:
             continue
-        item = {"id": f"tse:{e['sq']}", "nome": e["nome"], "partido": e["partido"], "foto": e.get("foto")}
+        item = {"id": f"tse:{e['sq']}", "nome": e["nome"], "partido": {"PC do B": "PCdoB"}.get(e["partido"], e["partido"]), "foto": e.get("foto")}
         if e["cargo"] == "Governador":
             saida[e["uf"]]["governador"] = item
         elif e["cargo"] == "Vice-governador":
