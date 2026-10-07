@@ -118,6 +118,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
   const [hover, setHover] = useState<string | null>(null);
   useEffect(() => { carregaUfs().then(setGeo).catch(() => {}); carregaPorUf().then(setDados).catch(() => {}); }, []);
   const formas = useMemo(() => (geo ? projetor(geo.features) : []), [geo]);
+  const coresSenado = (s: string) => [...new Set((dados?.ufs[s]?.senadores ?? []).sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido)).map((p) => corPartido(p.partido)))];
 
   const deps = (s: string) => (esfera === "federais" ? dados?.ufs[s]?.deputados : dados?.ufs[s]?.estaduais) ?? [];
   const lider = (lista: Parlamentar[]) => contaPartidos(lista)[0]?.[0];
@@ -217,10 +218,11 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
               <h3 className="mt-4 text-xs font-semibold text-stone-500">27 estados · 3 senadores cada</h3>
               <div className="mt-2 grid grid-cols-9 gap-1">
                 {Object.keys(dados.ufs).sort().map((s) => {
-                  const cs = dados.ufs[s].senadores.map((p) => corPartido(p.partido));
+                  const cs = coresSenado(s);
+                  const fundo = cs.length <= 1 ? (cs[0] ?? "#44403c") : `linear-gradient(135deg, ${cs.map((c, i) => `${c} ${(100 * i) / cs.length}% ${(100 * (i + 1)) / cs.length}%`).join(", ")})`;
                   return (
                     <button key={s} onClick={() => aoEscolherUf(s)} className="h-7 rounded text-[10px] font-bold text-white" title={dados.ufs[s].senadores.map((p) => `${p.nome} (${p.partido})`).join(", ")}
-                      style={{ background: `linear-gradient(135deg, ${cs[0]} 0 33%, ${cs[1] ?? cs[0]} 33% 66%, ${cs[2] ?? cs[0]} 66%)`, textShadow: "0 1px 2px #0008" }}>{s}</button>
+                      style={{ background: fundo, textShadow: "0 1px 2px #0008" }}>{s}</button>
                   );
                 })}
               </div>
@@ -321,10 +323,12 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
         <svg viewBox="0 0 680 640" className="absolute inset-0 h-full w-full px-2 pb-2 pt-20" onClick={() => aoEscolherUf(null)} role="img" aria-label="Mapa do Brasil">
           <defs>
             {aba === "senado" && formas.map((f) => {
-              const cs = (dados.ufs[f.sigla]?.senadores ?? []).map((p) => corPartido(p.partido));
+              // uma faixa por partido diferente: 3 partidos = 3 cores, 2 = 2, 1 = cor única
+              const cs = coresSenado(f.sigla);
+              const w = 36 / Math.max(1, cs.length);
               return (
                 <pattern key={f.sigla} id={`sen-${f.sigla}`} patternUnits="userSpaceOnUse" width="36" height="36" patternTransform="rotate(45)">
-                  <rect width="12" height="36" fill={cs[0] ?? "#44403c"} /><rect x="12" width="12" height="36" fill={cs[1] ?? cs[0] ?? "#44403c"} /><rect x="24" width="12" height="36" fill={cs[2] ?? cs[0] ?? "#44403c"} />
+                  {(cs.length ? cs : ["#44403c"]).map((c, i) => <rect key={i} x={i * w} width={w} height="36" fill={c} />)}
                 </pattern>
               );
             })}
