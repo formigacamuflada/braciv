@@ -1,0 +1,50 @@
+vagas a preencher (eleitos em 2022 que viraram prefeito/vice em 2024): 42
+baixando consulta_cand_2022.zip ...
+candidatos 2022 (estadual/distrital): 17347
+baixando votacao_candidato_munzona_2022.zip ...
+candidatos com votos: 16125
+baixando consulta_cand_2024.zip ...
+baixando consulta_cand_2026.zip ...
+  AP vaga de Delegado Inacio (PDT) -> Pedro Filé (PDT, 5341 votos, 1o da fila)
+  BA vaga de Eures Ribeiro (PSD) -> Jusmari Oliveira (PSD, 44640 votos, 1o da fila)
+  BA vaga de Pablo Roberto (PSDB/CIDADANIA) -> Paulo Câmara (PL, 53680 votos, 1o da fila)
+  CE vaga de Dr. Oscar Rodrigues (UNIÃO) -> Heitor Férrer (PSDB, 33915 votos, 1o da fila)
+  CE vaga de Evandro Leitão (PDT) -> Bruno Pedrosa (PT, 51620 votos, 1o da fila)
+  CE vaga de Gabriella Aguiar (PSD) -> Apollo Vicz (PSD, 30119 votos, 2o da fila); pulados: Simão Pedro
+  ES vaga de Ferraço (PP) -> Marcos Madureira (PODE, 15860 votos, 1o da fila)
+  ES vaga de Lucas Scaramussa (PODE) -> Allan Ferreira (PODE, 15185 votos, 1o da fila)
+  GO vaga de Renato De Castro (UNIÃO) -> Rubens Marques (PSB, 31903 votos, 1o da fila)
+  MA vaga de Juscelino Marreca (PATRIOTA) -> João Batista Segundo (PL, 35057 votos, 1o da fila)
+  MA vaga de Rafael Leitoa (PSB) -> Edson Araujo (PL, 34545 votos, 1o da fila)
+  MA vaga de Rildo Amaral (PP) -> Catulé Junior (REPUBLICANOS, 34487 votos, 1o da fila)
+  MA vaga de Roberto Costa (MDB) -> Keke Teixeira (MDB, 18436 votos, 1o da fila)
+  MG vaga de Coronel Sandro (PL) -> Amanda Teixeira Dias (PL, 15439 votos, 1o da fila)
+  MG vaga de Douglas Melo (PSD) -> Adalclever Lopes (PV, 40974 votos, 2o da fila); pulados: Makoto Sekita
+  MG vaga de Fábio Avelar (AVANTE) -> Carol Caram (AVANTE, 28452 votos, 1o da fila)
+  MT vaga de Claudio Ferreira (PTB) -> Chico Guarnieri (PSDB, 10134 votos, 1o da fila)
+  PA vaga de Delegado Toni Cunha (PSC) -> João Pingarilho (MDB, 28239 votos, 1o da fila)
+  PA vaga de Igor Normando (PODE) -> Torrinho (REPUBLICANOS, 20865 votos, 1o da fila)
+  PE vaga de Chaparral (UNIÃO) -> Edson Vieira (PODE, 32986 votos, 1o da fila)
+  PE vaga de Lula Cabral (SOLIDARIEDADE) -> Wanderson (PODE, 33216 votos, 1o da fila)
+  PI vaga de Dr Pablo Santos (MDB) -> Simone (PSD, 27102 votos, 1o da fila)
+  PI vaga de Jeová Alencar (REPUBLICANOS) -> Pastor Gessivaldo Isaias (MDB, 29216 votos, 1o da fila)
+  PR vaga de Douglas Fabricio (PSDB/CIDADANIA) -> Dr. Leônidas (PP, 34894 votos, 1o da fila)
+  PR vaga de Marcel Micheletto (PL) -> Jairo Tamura (PL, 29002 votos, 1o da fila)
+  PR vaga de Tiago Amaral (PSD) -> Pedro Paulo Bazana (PSD, 30931 votos, 1o da fila)
+  RJ vaga de Andrezinho Ceciliano (PT/PC do B/PV) -> Lilian Behring (PCDOB, 25785 votos, 1o da fila)
+  RJ vaga de Dr Serginho (PL) -> Renan Jordy (PL, 36343 votos, 1o da fila)
+  RJ vaga de Eduardo Cavaliere (PSD) -> Sergio Fernandes (PSD, 28609 votos, 2o da fila); pulados: Luiz Claudio Ribeiro
+  RJ vaga de Leo Vieira (PSC) -> Alexandre Knoploch (PL, 23744 votos, 1o da fila)
+  RJ vaga de Márcio Canella (UNIÃO) -> Marcelo Dino (PL, 32954 votos, 1o da fila)
+  RJ vaga de Tande Vieira (PROS) -> Sarah Poncio (SOLIDARIEDADE, 26626 votos, 1o da fila)
+  RO vaga de Affonso Candido (PL) -> Sargento Eyder Brasil (PSD, 7892 votos, 1o da fila)
+  RS vaga de Mainardi (PT/PC do B/PV) -> Halley (PT, 36150 votos, 1o da fila)
+  SC vaga de Delegado Egidio Ferrari (PTB) -> Junior Cardoso (PL, 14748 votos, 1o da fila)
+  SC vaga de Massocco (PL) -> Maurício Peixer (PL, 22028 votos, 1o da fila)
+  SC vaga de Soratto (PL) -> A Alex Brasil (PL, 20271 votos, 2o da fila)
+  SP vaga de Edmir Chedid (UNIÃO) -> Edson Giriboni (UNIÃO, 59087 votos, 1o da fila)
+  SP vaga de Gerson Pessoa (PODE) -> Faria De Sá (PODE, 51948 votos, 1o da fila)
+  SP vaga de Helinho Zanatta (PSC) -> Marcelo Aguiar (PL, 42898 votos, 1o da fila)
+  SP vaga de Vinicius Camarinha (PSDB/CIDADANIA) -> Ortiz Junior (REPUBLICANOS, 66914 votos, 1o da fila)
+  TO vaga de Fabion Gomes (PL) -> Dr. Danilo Alencar (MDB, 7937 votos, 1o da fila)
+vagas com suplente calculado: 42/42
