@@ -1,3 +1,4 @@
+declare const __VERSAO__: string;
 import type { Grafo, ItemBusca, Meta } from "./tipos";
 
 const BASE = import.meta.env.BASE_URL + "dados/";
@@ -7,7 +8,7 @@ function busca<T>(arquivo: string): Promise<T> {
   if (!cache.has(arquivo)) {
     cache.set(
       arquivo,
-      fetch(BASE + arquivo).then((r) => {
+      fetch(`${BASE}${arquivo}?v=${__VERSAO__}`).then((r) => {
         if (!r.ok) throw new Error(`não consegui carregar ${arquivo} (HTTP ${r.status})`);
         return r.json();
       }),

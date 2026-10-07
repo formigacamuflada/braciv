@@ -7,8 +7,8 @@ import { urlFoto } from "./dados";
 const SIORG = "https://estruturaorganizacional.dados.gov.br/doc/unidade-organizacional";
 
 export type FichaSiorg = {
-  finalidade?: string;
-  competencias: string[];
+  finalidade: { intro?: string; itens: string[] };
+  competencias: { intro?: string; itens: string[] };
   autoridade?: { codigo: string; denominacao?: string };
   ato?: { rotulo: string; ementa?: string; url?: string };
   site?: string;
@@ -19,12 +19,18 @@ const cache = new Map<number, Promise<FichaSiorg | null>>();
 const um = <T,>(v: T | T[] | undefined | null): T | undefined => (Array.isArray(v) ? v[0] : v ?? undefined);
 const limpa = (t?: string | null) => (t ?? "").replace(/\s+/g, " ").trim();
 
-// "I - moeda...; II - política..." -> ["moeda...", "política..."]
-function itens(t?: string | null) {
+// "Compete: I - moeda...; II - política..." -> { intro: "Compete:", itens: ["Moeda...", "Política..."] }
+const maiuscula = (x: string) => x.charAt(0).toUpperCase() + x.slice(1);
+function itens(t?: string | null): { intro?: string; itens: string[] } {
   const s = limpa(t);
-  if (!s) return [];
-  const partes = s.split(/(?:^|;\s*(?:e\s+)?|\.\s+)(?=(?:[IVXLC]+)\s*[-–—]\s*)/).map((x) => x.replace(/^[IVXLC]+\s*[-–—]\s*/, "").replace(/[;.]\s*(e\s*)?$/, "").trim()).filter(Boolean);
-  return partes.length ? partes : [s];
+  if (!s) return { itens: [] };
+  const m = s.match(/(?:^|\s)I\s*[-–—]\s*/);
+  if (!m || m.index === undefined) return { intro: maiuscula(s), itens: [] };
+  const intro = s.slice(0, m.index).trim().replace(/[,:]\s*$/, "") || undefined;
+  const resto = s.slice(m.index);
+  const partes = resto.split(/(?:;\s*(?:e\s+)?|\.\s+|\s)(?=[IVXLC]+\s*[-–—]\s+)/)
+    .map((x) => x.replace(/^\s*[IVXLC]+\s*[-–—]\s*/, "").replace(/[;.,]\s*(e\s*)?$/, "").trim()).filter(Boolean).map(maiuscula);
+  return { intro, itens: partes };
 }
 
 export function buscaFicha(codigo: number) {
@@ -42,7 +48,7 @@ export function buscaFicha(codigo: number) {
         const sites = [].concat(...((u.contato ?? []) as any[]).map((c) => [].concat(c.site ?? []))).map((s: any) => s?.site).filter(Boolean);
         const data = (ato?.dataPublicacao || ato?.dataAssinatura || "").split("-").reverse().join("/");
         return {
-          finalidade: limpa(u.finalidade) || undefined,
+          finalidade: itens(u.finalidade),
           competencias: itens(u.competencia),
           autoridade: sig ? { codigo, denominacao: den } : undefined,
           ato: ato ? { rotulo: `${ato.tipoAto ?? "Ato"}${ato.numero ? ` nº ${ato.numero}` : ""}${data ? `, de ${data}` : ""}`, ementa: ato.ementa, url: ato.url } : undefined,
@@ -124,22 +130,28 @@ function CartaoTitular({ rotulo, c, aoSelecionar }: { rotulo: string; c: No; aoS
   );
 }
 
-export default function Ficha({ codigo, cargos, aoSelecionar, sobre }: { codigo: number | null; cargos: No[]; aoSelecionar: (id: string) => void; sobre?: string }) {
+export default function Ficha({ codigo, cargos, aoSelecionar, sobre, sigla }: { codigo: number | null; cargos: No[]; aoSelecionar: (id: string) => void; sobre?: string; sigla?: string | null }) {
   const f = useFicha(codigo);
   const [todas, setTodas] = useState(false);
   const t = titular(cargos, f);
-  const rotuloTit = f?.autoridade?.denominacao && t && t.codigoCargo === f.autoridade.codigo ? (t.rotulo.length > f.autoridade.denominacao.length ? t.rotulo : f.autoridade.denominacao) : t?.rotulo;
-  const comp = f?.competencias ?? [];
+  const base = f?.autoridade?.denominacao && t && t.codigoCargo === f.autoridade.codigo ? (t.rotulo.length > f.autoridade.denominacao.length ? t.rotulo : f.autoridade.denominacao) : t?.rotulo;
+  const rotuloTit = base && sigla && base.split(" ").length <= 2 ? `${base.replace(/\(a\)/g, "")} · ${sigla}` : base;
+  const fin = f?.finalidade;
+  const comp = f?.competencias.itens ?? [];
   const mostrar = todas ? comp : comp.slice(0, 3);
+  const temTexto = !!(fin?.intro || fin?.itens.length || comp.length || f?.competencias.intro);
   return (
     <>
-      {sobre && f && (f.finalidade || comp.length) ? <h3 className="mt-5 text-xs font-semibold uppercase tracking-wide text-stone-500">{sobre}</h3> : null}
+      {sobre && f && temTexto ? <h3 className="mt-5 text-xs font-semibold uppercase tracking-wide text-stone-500">{sobre}</h3> : null}
       {f === undefined && codigo != null && <p className="mt-4 h-16 animate-pulse rounded-lg bg-stone-100 dark:bg-stone-800" />}
-      {f?.finalidade && <p className="mt-3 text-[15px] leading-relaxed text-stone-700 dark:text-stone-300">{f.finalidade.replace(/^I\s*[-–—]\s*/, "")}</p>}
-      {!!comp.length && (
+      {fin?.intro && <p className="mt-3 text-[15px] leading-relaxed text-stone-700 dark:text-stone-300">{fin.intro}</p>}
+      {!!fin?.itens.length && (fin.itens.length === 1
+        ? <p className="mt-3 text-[15px] leading-relaxed text-stone-700 dark:text-stone-300">{fin.itens[0]}.</p>
+        : <ul className="mt-3 list-disc space-y-1 pl-5 text-[15px] leading-relaxed text-stone-700 dark:text-stone-300">{fin.itens.map((x, i) => <li key={i}>{x}</li>)}</ul>)}
+      {(!!comp.length || f?.competencias.intro) && (
         <div className="mt-3 text-sm leading-relaxed text-stone-700 dark:text-stone-300">
-          {!f?.finalidade && <p className="mb-1">Cuida de:</p>}
-          {f?.finalidade && <p className="mb-1 text-xs font-semibold text-stone-500">Competências</p>}
+          <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-stone-500">{fin?.itens.length || fin?.intro ? "Competências" : "O que faz"}</p>
+          {f?.competencias.intro && <p className="mb-1">{f.competencias.intro}{comp.length ? ":" : ""}</p>}
           <ul className="list-disc space-y-0.5 pl-5">{mostrar.map((c, i) => <li key={i}>{c}</li>)}</ul>
           {comp.length > 3 && (
             <button onClick={() => setTodas(!todas)} className="mt-1 text-xs text-stone-500 underline">{todas ? "mostrar menos" : `ver todas as ${comp.length}`}</button>

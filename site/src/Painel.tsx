@@ -121,7 +121,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
       )}
 
       {codigoFicha != null && (
-        <Ficha key={codigoFicha} codigo={codigoFicha} cargos={no.tipo === "cargo" ? [] : cargosAqui} aoSelecionar={aoSelecionar}
+        <Ficha key={codigoFicha} codigo={codigoFicha} sigla={no.tipo === "cargo" ? null : no.sigla} cargos={no.tipo === "cargo" ? [] : cargosAqui} aoSelecionar={aoSelecionar}
           sobre={no.tipo === "cargo" ? `Sobre a unidade: ${idx.get(`u:${codigoFicha}`)?.nome ?? idx.get(`u:${codigoFicha}`)?.rotulo ?? ""}` : undefined} />
       )}
 
@@ -218,7 +218,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
 
       <Lista titulo="Cargos aqui" itens={cargosAqui} render={(c: No, i) => (
         <li key={i}>
-          {link(c.id, c.rotulo)}
+          {link(c.id, /^exercer o encargo de substitut/i.test(c.rotulo) ? "Substituto(a) eventual" : c.rotulo)}
           {c.codigoCargo && <span className="ml-1 rounded bg-stone-200 px-1 text-xs dark:bg-stone-800">{c.codigoCargo}</span>}
           <span className="block text-xs text-stone-500">
             {(c.ocupantes ?? []).slice(0, 2).map((o) => o.nome).join(", ")}

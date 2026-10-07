@@ -6,4 +6,6 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/braciv/",
   plugins: [react(), tailwindcss()],
+  // cada publicação muda este número: os JSON de dados são pedidos com ?v= e o navegador não usa cópia velha
+  define: { __VERSAO__: JSON.stringify(String(Date.now())) },
 });
