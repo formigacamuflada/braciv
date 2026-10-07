@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Grafo from "./Grafo";
-import Roda from "./Roda";
+import Estrutura from "./Estrutura";
 import Mapa from "./Mapa";
 import Painel, { type Conexao } from "./Painel";
 import { COBERTURA, COBERTURA_PODER, DESCRICAO, DESCRICAO_POR_SIGLA, montaRoda } from "./layoutRoda";
@@ -133,7 +133,10 @@ export default function App() {
               aoAbrirCargo={(o, c) => { setOrgao(o); setSelecionado(c); }}
               aoAbrirNo={(id) => { setVista("roda"); setSelecionado(id); }} />
           )}
-          {dados && !orgao && vista === "roda" && <Roda dados={dados} selecionado={selecionado} aoSelecionar={aoSelecionar} />}
+          {dados && !orgao && vista === "roda" && (
+            <Estrutura dados={dados} selecionado={selecionado} aoSelecionar={aoSelecionar}
+              aoAbrirOrgao={(c, no) => { setOrgao(c); setSelecionado(no ?? `u:${c}`); }} />
+          )}
           {dados && (orgao || vista === "grafo") && <Grafo dados={dados} raiz={orgao ? `u:${orgao}` : null} selecionado={selecionado} aoSelecionar={aoSelecionar} escuro={escuro} />}
           {!orgao && (
             <div className={`absolute z-20 flex ${vista === "mapa" ? "left-3 bottom-3 lg:left-auto lg:right-[436px]" : "bottom-3 right-3"} overflow-hidden rounded-lg border border-stone-300 bg-white text-sm dark:border-stone-700 dark:bg-stone-900`}>
