@@ -40,6 +40,7 @@ export type No = {
   ordem?: number;
   parlamentar?: string;
   casa?: string;
+  partidoLid?: string;
   comissao?: boolean;
   membros?: unknown[];
   vices?: unknown[];

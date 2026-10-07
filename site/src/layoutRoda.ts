@@ -1,5 +1,5 @@
 import type { Grafo, No } from "./tipos";
-import { CF, type Base } from "./constituicao";
+import { CF, REG, type Base } from "./constituicao";
 
 // Ângulos em graus: 0 = topo, sentido horário. Centro em (500, 500).
 export const C = 500;
@@ -219,6 +219,24 @@ export function montaRoda(g: Grafo): Roda {
   }
   rel("casa:camara", "mesa:cd:1", "elege a Mesa", CF["57p4"]);
   rel("casa:senado", "mesa:sf:1", "elege a Mesa", CF["57p4"]);
+  // quem escolhe quem dentro do Legislativo (Regimentos Internos de cada Casa)
+  for (const d of deputados) rel(d.id, "mesa:cd:1", "elegem a Mesa", REG.ricd7);
+  for (const s of senadores) rel(s.id, "mesa:sf:1", "elegem a Mesa", REG.risf60);
+  const sigla = (p?: string | null) => (p ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase().replace(/^PODEMOS$/, "PODE").replace(/^REPUBLIC$/, "REPUBLICANOS");
+  for (const l of lideres) {
+    if (!l.partidoLid) continue;
+    const bancada = l.casa === "CD" ? deputados : l.casa === "SF" ? senadores : [];
+    for (const m of bancada) if (sigla(m.partido) === sigla(l.partidoLid)) rel(m.id, l.id, "escolhem o líder", l.casa === "CD" ? REG.ricd9 : REG.risf65p6);
+  }
+  for (const c of comissoes) {
+    for (const m of (c.membros ?? []) as { i?: string; t?: string }[]) {
+      if (!m.i) continue;
+      const base = c.casa === "CD" ? REG.ricd39 : c.casa === "SF" ? REG.risf88 : CF["58p1"];
+      rel(m.i, c.id, /suplente/i.test(m.t ?? "") ? "suplente" : "integra e elege a presidência", base);
+    }
+    if (c.casa === "CD") for (const l of lideres) if (l.casa === "CD" && l.partidoLid) rel(l.id, c.id, "indica os membros da bancada", REG.ricd28);
+    if (c.casa === "SF") rel("mesa:sf:1", c.id, "designa os membros, por indicação dos líderes", REG.risf78);
+  }
   rel("mesa:sf:1", CN?.id, "preside a Mesa do Congresso Nacional", CF["57p5"]);
   rel("casa:camara", "u:26", "fiscaliza e controla", CF["49x"]);
   rel("casa:senado", "u:26", "fiscaliza e controla", CF["49x"]);

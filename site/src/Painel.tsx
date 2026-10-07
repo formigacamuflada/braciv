@@ -117,7 +117,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
             <blockquote key={b.dispositivo} className="border-l-2 border-stone-300 pl-3 text-sm leading-relaxed dark:border-stone-600">
               “{b.texto}”
               <footer className="mt-0.5 text-xs text-stone-500">
-                <a href={FONTE_CF} target="_blank" rel="noreferrer" className="underline">{b.dispositivo}</a>
+                <a href={b.fonte ?? FONTE_CF} target="_blank" rel="noreferrer" className="underline">{b.dispositivo}</a>
               </footer>
             </blockquote>
           ))}
@@ -212,7 +212,7 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
               <li key={i}>
                 <p>
                   {c.sentido === "sai" ? <span className="font-medium">{c.verbo}</span> : <><span className="font-medium">{c.itens.length === 1 ? c.itens[0].rotulo : `${c.itens.length} posições`}</span> {c.verbo}</>}
-                  <a href={FONTE_CF} target="_blank" rel="noreferrer" className="ml-1.5 text-xs text-stone-500 underline">{c.base.dispositivo}</a>
+                  <a href={c.base.fonte ?? FONTE_CF} target="_blank" rel="noreferrer" className="ml-1.5 text-xs text-stone-500 underline">{c.base.dispositivo}</a>
                 </p>
                 {(c.sentido === "sai" || c.itens.length > 1) && (
                   <div className="mt-1.5 grid grid-cols-2 gap-1.5">

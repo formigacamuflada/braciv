@@ -118,6 +118,7 @@ def nucleo(nos, arestas, DEP, SEN, cn_id):
         i = f"lid:{casa.lower()}:{idt}:{re.sub(r'[^A-Za-z0-9]+', '-', str(sig)) or 'x'}"
         oc = dict(u["lider"]); oc["fonte"] = "Senado Federal, dados abertos (lideranças)"
         nos[i] = {"id": i, "tipo": "cargo", "rotulo": rot, "codigoCargo": "LID", "ordem": ORDEM.get(u["tipo"], 7), "casa": casa,
+                  "partidoLid": x.get("siglaPartido") if u["tipo"] == "P" else None,
                   "parlamentar": oc.get("parlamentar"), "ocupantes": [oc],
                   "vices": sorted(u["vices"], key=lambda v: (v.get("ordem") or 99, v["nome"]))}
         arestas.append({"de": i, "para": casa_de[casa], "tipo": "cargo"})
@@ -131,7 +132,7 @@ def nucleo(nos, arestas, DEP, SEN, cn_id):
         ms = sorted(c.get("membros", []), key=lambda m: (m.get("codTitulo") or 999, m.get("nome") or ""))
         nos[i] = {"id": i, "tipo": "unidade", "rotulo": c.get("sigla"), "nome": c.get("nome"), "sigla": c.get("sigla"), "poder": "Legislativo",
                   "casa": "CD", "comissao": True,
-                  "membros": [{"n": m.get("nome"), "p": m.get("siglaPartido"), "u": m.get("siglaUf"), "t": m.get("titulo"), "i": f"dep:{m.get('id')}"} for m in ms]}
+                  "membros": [{"n": m.get("nome"), "p": part_dep.get(str(m.get("id"))) or m.get("siglaPartido"), "u": m.get("siglaUf"), "t": m.get("titulo"), "i": f"dep:{m.get('id')}"} for m in ms]}
         arestas.append({"de": i, "para": "casa:camara", "tipo": "subordinada"})
         for m in ms:
             if (m.get("codTitulo") or 999) < 100:          # Presidente e vices

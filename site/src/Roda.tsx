@@ -263,11 +263,12 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
             const m = { x: 0.25 * de.x + 0.5 * meio.x + 0.25 * ate.x, y: 0.25 * de.y + 0.5 * meio.y + 0.25 * ate.y };
             const txt = verboCurto(r.verbo);
             // uma etiqueta por ação (várias setas iguais saindo do mesmo nó mostram o rótulo uma vez só)
-            const chaveRot = `${r.de}|${txt}`;
+            // quando muitas setas chegam ao nó em foco (ex.: 513 deputados elegem a Mesa), o rótulo aparece uma vez
+            const chaveRot = r.para === foco ? `>${r.para}|${txt}` : `${r.de}|${txt}`;
             const mostra = !rotulados.has(chaveRot) && (rotulados.add(chaveRot), true);
             return (
               <g key={i} pointerEvents="none">
-                <path d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" />
+                <path d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={ligadas.rel.length > 40 ? 0.6 : 1.3} strokeOpacity={ligadas.rel.length > 40 ? 0.35 : 0.85} markerEnd={ligadas.rel.length > 40 ? undefined : "url(#seta)"} />
                 {mostra && (
                   // a etiqueta gira ao contrário da roda para ficar sempre de pé; aparece depois que a roda para
                   <g key={`${giro}-${foco}`} transform={`rotate(${-giro} ${m.x} ${m.y})`} className={foco === selecionado ? "etiqueta-acao" : ""}>
@@ -326,6 +327,8 @@ function verboCurto(v: string) {
   if (v.startsWith("nomeia")) return "nomeia";
   if (v.startsWith("aprova")) return "aprova";
   if (v.startsWith("fiscaliza")) return "fiscaliza";
+  if (v.startsWith("designa")) return "designa membros";
+  if (v.startsWith("integra")) return "integra";
   return v;
 }
 

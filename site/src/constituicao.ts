@@ -2,9 +2,24 @@
 // https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm (07/10/2026).
 export const FONTE_CF = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm";
 
-export type Base = { dispositivo: string; texto: string };
+export type Base = { dispositivo: string; texto: string; fonte?: string };
+
+// Regimentos internos (textos conferidos em 07/10/2026 nas páginas oficiais de cada Casa)
+export const FONTE_RICD = "https://www2.camara.leg.br/legin/fed/rescad/1989/resolucaodacamaradosdeputados-17-21-setembro-1989-320110-normaatualizada-pl.html";
+export const FONTE_RISF = "https://legis.senado.leg.br/norma/563958/publicacao/16433779";
+export const REG: Record<string, Base> = {
+  ricd7: { fonte: FONTE_RICD, dispositivo: "Regimento Interno da Câmara, art. 7º", texto: "A eleição dos membros da Mesa far-se-á em votação por escrutínio secreto e pelo sistema eletrônico, exigido maioria absoluta de votos, em primeiro escrutínio, e maioria simples, em segundo escrutínio, presente a maioria absoluta dos Deputados, (…)" },
+  ricd9: { fonte: FONTE_RICD, dispositivo: "Regimento Interno da Câmara, art. 9º", texto: "Os Deputados são agrupados por representações partidárias ou de Blocos Parlamentares, cabendo-lhes escolher o Líder quando a representação atender os requisitos estabelecidos no § 3º do art. 17 da Constituição Federal." },
+  ricd28: { fonte: FONTE_RICD, dispositivo: "Regimento Interno da Câmara, art. 28", texto: "(…) os Líderes comunicarão à Presidência, no prazo de 5 (cinco) sessões, os nomes dos membros das respectivas bancadas que, como titulares e suplentes, as integrarão; (…)" },
+  ricd39: { fonte: FONTE_RICD, dispositivo: "Regimento Interno da Câmara, art. 39", texto: "As Comissões terão 1 (um) Presidente e 3 (três) Vice-Presidentes, eleitos por seus pares, com mandato até a posse dos novos componentes eleitos no ano subsequente, vedada a reeleição." },
+  risf60: { fonte: FONTE_RISF, dispositivo: "Regimento Interno do Senado, art. 60", texto: "A eleição dos membros da Mesa será feita em escrutínio secreto, exigida maioria de votos, presente a maioria da composição do Senado (…)" },
+  risf65p6: { fonte: FONTE_RISF, dispositivo: "Regimento Interno do Senado, art. 65, § 6º", texto: "A indicação dos líderes partidários será feita no início da primeira e da terceira sessões legislativas de cada legislatura, e comunicada à Mesa em documento subscrito pela maioria dos membros da respectiva bancada, podendo a mesma maioria substituí-los em qualquer oportunidade." },
+  risf78: { fonte: FONTE_RISF, dispositivo: "Regimento Interno do Senado, art. 78", texto: "Os membros das comissões serão designados pelo Presidente, por indicação escrita dos respectivos líderes, (…)" },
+  risf88: { fonte: FONTE_RISF, dispositivo: "Regimento Interno do Senado, art. 88", texto: "(…) cada comissão reunir-se-á para instalar seus trabalhos e eleger, em escrutínio secreto, seu Presidente e Vice-Presidente." },
+};
 
 export const CF: Record<string, Base> = {
+  "58p1": { dispositivo: "CF, art. 58, § 1º", texto: "Na constituição das Mesas e de cada Comissão, é assegurada, tanto quanto possível, a representação proporcional dos partidos ou dos blocos parlamentares que participam da respectiva Casa." },
   "1u": { dispositivo: "CF, art. 1º, parágrafo único", texto: "Todo o poder emana do povo, que o exerce por meio de representantes eleitos ou diretamente, nos termos desta Constituição." },
   "2": { dispositivo: "CF, art. 2º", texto: "São Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário." },
   "14": { dispositivo: "CF, art. 14", texto: "A soberania popular será exercida pelo sufrágio universal e pelo voto direto e secreto, com valor igual para todos, e, nos termos da lei, mediante: (…)" },

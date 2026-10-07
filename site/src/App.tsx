@@ -79,7 +79,8 @@ export default function App() {
       const outro = sentido === "sai" ? r.para : r.de;
       const k = `${sentido}|${r.verbo}|${r.base.dispositivo}`;
       if (!grupos.has(k)) grupos.set(k, { verbo: r.verbo, base: r.base, sentido, itens: [] });
-      grupos.get(k)!.itens.push({ id: outro, rotulo: outro === "povo" ? "Povo brasileiro" : roda.porId.get(outro)?.nome ?? outro });
+      const it = roda.porId.get(outro);
+      grupos.get(k)!.itens.push({ id: outro, rotulo: outro === "povo" ? "Povo brasileiro" : it?.ocupante && /^(dep|sen|lid|mesa):/.test(outro) ? `${it.ocupante}${it.detalhe && !it.detalhe.includes(it.ocupante) ? ` (${it.detalhe})` : ""}` : it?.nome ?? outro });
     }
     const integrantes = selecionado.startsWith("poder:")
       ? roda.itens.filter((i) => i.poder === selecionado.slice(6))
