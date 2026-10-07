@@ -116,6 +116,16 @@ function Espectro({ lista }: { lista: Parlamentar[] }) {
 
 // Visão "Eleição 2026" no mesmo formato da visão de hoje: governador eleito (ou os dois do 2º turno),
 // Senado de 2027 (quem tem mandato até 2031 + os eleitos em 2026), Câmara e Assembleias eleitas.
+// senador eleito (ou no 2º turno) para outro cargo em 2026
+const cargoTxt = (o: NonNullable<Parlamentar["outroCargo2026"]>) =>
+  o.uf === "BR" ? o.cargo.toLowerCase().replace("presidente", "Presidente da República")
+    : `${o.cargo.toLowerCase().replace("governador", "governador(a)").replace("deputado", "deputado(a)")} (${o.uf})`;
+const subSenador = (p: Parlamentar) => {
+  const o = p.outroCargo2026;
+  if (o?.situacao === "eleito") return `eleito(a) ${cargoTxt(o)} em 2026; deixa o Senado ao tomar posse`;
+  if (o?.situacao === "segundoTurno") return `no 2º turno para ${cargoTxt(o)}`;
+  return p.fimMandato ? `mandato até ${p.fimMandato.slice(0, 4)}` : undefined;
+};
 const vicesDe = (titulares: Parlamentar[], vices: Parlamentar[] = []) => titulares.map((t) => vices.find((v) => v.numero === t.numero)).filter(Boolean) as Parlamentar[];
 function visao2026(d: PorUf): PorUf {
   const el = d.eleicao2026!;
@@ -125,8 +135,15 @@ function visao2026(d: PorUf): PorUf {
     const e = el.ufs[s] ?? {};
     const gov = eleito(e.governador)[0];
     const t2 = (e.governador ?? []).filter((x) => x.situacao === "segundoTurno");
-    const ficam = h.senadores.filter((p) => (p.fimMandato ?? "") > "2027-12-31").map((p) => ({ ...p, sub: "mandato até 2031" }));
-    const novos = eleito(e.senadores).map((p) => ({ ...p, sub: "eleito em 2026" }));
+    // quem tem mandato até 2031 continua — a não ser que tenha sido eleito para outro cargo: aí assume o 1º suplente
+    const ficam: Parlamentar[] = h.senadores.filter((p) => (p.fimMandato ?? "") > "2027-12-31").map((p) => {
+      const o = p.outroCargo2026;
+      if (o?.situacao === "eleito" && p.suplente)
+        return { id: `sup:${p.id}`, nome: p.suplente.nome, partido: p.suplente.partido, foto: p.suplente.foto, grupo: "2031" as const, sub: `1º suplente de ${p.nome}, eleito(a) ${cargoTxt(o)}${p.suplente.partido2022 ? ` · partido em 2022: ${p.suplente.partido2022}` : ""}` };
+      if (o?.situacao === "segundoTurno") return { ...p, grupo: "2031" as const, sub: `até 2031 · no 2º turno para ${cargoTxt(o)}; se eleito(a), assume o 1º suplente${p.suplente ? ` (${p.suplente.nome})` : ""}` };
+      return { ...p, grupo: "2031" as const, sub: "mandato até 2031" };
+    });
+    const novos = eleito(e.senadores).map((p) => ({ ...p, grupo: "2026" as const, sub: "eleito em 2026" }));
     ufs[s] = {
       ...h, governador: gov, vice: gov ? vicesDe([gov], e.vice)[0] : undefined,
       segundoTurno: !gov && t2.length ? t2 : undefined, vices2t: !gov && t2.length ? vicesDe(t2, e.vice) : undefined,
@@ -374,7 +391,16 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
       return (
         <>
           <div className="flex items-baseline justify-between"><h2 className="font-semibold">{em2026 ? "Senado a partir de 2027" : "Senado"}{atual ? ` · ${uf}` : ""}</h2><span className="text-xs text-stone-500">{atual ? "3 por estado" : `${lista.length} senadores`}</span></div>
-          {em2026 && <p className="mt-1 text-xs text-stone-500">{lista.filter((p) => p.sub === "mandato até 2031").length} senadores seguem até 2031 e {lista.filter((p) => p.sub === "eleito em 2026").length} foram eleitos em 2026: a renovação de dois terços (CF, art. 46, § 2º). Posse a partir de 1º de fevereiro de 2027 (CF, art. 57, § 4º).</p>}
+          {em2026 && (() => {
+            const sup = lista.filter((p) => p.id.startsWith("sup:")), t2 = lista.filter((p) => p.grupo === "2031" && p.outroCargo2026?.situacao === "segundoTurno");
+            return (
+              <p className="mt-1 text-xs text-stone-500">
+                {lista.filter((p) => p.grupo === "2031").length} cadeiras seguem até 2031 e {lista.filter((p) => p.grupo === "2026").length} senadores foram eleitos em 2026: a renovação de dois terços (CF, art. 46, § 2º). Posse a partir de 1º de fevereiro de 2027 (CF, art. 57, § 4º).
+                {sup.length > 0 && <> {sup.length === 1 ? "Uma cadeira passa" : `${sup.length} cadeiras passam`} ao 1º suplente porque o titular foi eleito para outro cargo ({sup.map((p) => p.sub!.replace(/^1º suplente de /, "").replace(/, eleito\(a\) .*/, "")).join(", ")}).</>}
+                {t2.length > 0 && <> {t2.map((p) => p.nome).join(" e ")} {t2.length === 1 ? "disputa" : "disputam"} o 2º turno para outro cargo: se {t2.length === 1 ? "vencer, assume o suplente" : "vencerem, assumem os suplentes"}.</>}
+              </p>
+            );
+          })()}
           {!atual && <div className="mt-3"><Hemiciclo pessoas={lista} titulo="" semTitulo quadrado aoAbrir={abrir} /></div>}
           {!atual && (
             <>
@@ -391,7 +417,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
               </div>
             </>
           )}
-          <ul className="mt-4 space-y-0.5">{[...lista].sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido) || a.nome.localeCompare(b.nome)).map((p) => <Linha key={p.id} p={p} sub={p.sub ?? (p.fimMandato ? `mandato até ${p.fimMandato.slice(0, 4)}` : undefined)} aoAbrir={abrir} />)}</ul>
+          <ul className="mt-4 space-y-0.5">{[...lista].sort((a, b) => notaPartido(a.partido) - notaPartido(b.partido) || a.nome.localeCompare(b.nome)).map((p) => <Linha key={p.id} p={p} sub={p.sub ?? subSenador(p)} aoAbrir={abrir} />)}</ul>
           {em2026 && fonte26}
         </>
       );

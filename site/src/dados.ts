@@ -26,7 +26,8 @@ export function normaliza(t: string) {
   return t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 }
 
-export type Parlamentar = { id: string; nome: string; partido?: string; foto?: string | null; fimMandato?: string; situacao?: "eleito" | "segundoTurno"; numero?: string; sub?: string };
+export type Parlamentar = { id: string; nome: string; partido?: string; foto?: string | null; fimMandato?: string; situacao?: "eleito" | "segundoTurno"; numero?: string; sub?: string;
+  outroCargo2026?: { cargo: string; situacao: "eleito" | "segundoTurno"; uf: string }; suplente?: { nome: string; partido?: string; partido2022?: string; foto?: string | null }; grupo?: "2031" | "2026" };
 export type Destaque = { nivel: number; codigoCargo?: string; cargo: string; nome: string; orgao: string; orgaoCodigo: number; cargoId: string; unidade?: string };
 export type DadosUf = {
   senadores: Parlamentar[]; deputados: Parlamentar[]; cargos: number; ocupantes: number;

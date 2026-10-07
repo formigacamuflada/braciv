@@ -97,6 +97,12 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
     if (DADOS / "siorg_orgaos.json").exists():
         sedes = {o["codigo"]: o for o in le("siorg_orgaos.json")}
     saida = {uf: {"senadores": [], "deputados": [], "cargos": 0, "ocupantes": 0, "porOrgao": {}, "destaques": [], "sedes": []} for uf in UFS}
+    outro_cargo = {}
+    if (DADOS / "tse_eleicao_2026.json").exists():
+        for e in le("tse_eleicao_2026.json").get("candidatos", []):
+            if e["cargo"] != "Senador":
+                outro_cargo[norm(e.get("nomeCompleto") or "")] = {"cargo": e["cargo"], "situacao": e["situacao"], "uf": e["uf"]}
+    sup22 = le("tse_suplentes_senado_2022.json") if (DADOS / "tse_suplentes_senado_2022.json").exists() else {}
     for n in nos.values():
         if n["tipo"] != "cargo" or not n["id"].startswith(("dep:", "sen:")):
             continue
@@ -107,6 +113,20 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
         item = {"id": n["id"], "nome": oc["nome"], "partido": oc.get("partido"), "foto": (oc.get("foto") or "").replace("http:", "https:") or None}
         if n.get("fimMandato"):
             item["fimMandato"] = n["fimMandato"]
+        if n["id"].startswith("sen:"):
+            # eleito (ou no 2o turno) para outro cargo em 2026: o nome completo do Senado bate com o do TSE
+            outro = outro_cargo.get(norm(n.get("nomeCompleto") or ""))
+            if outro:
+                item["outroCargo2026"] = outro
+            # cadeira ate 2031: quem assume se o titular sair e o 1o suplente eleito em 2022 (TSE)
+            if (n.get("fimMandato") or "") > "2027-12-31":
+                sup = dict(sup22.get(uf) or {})
+                if sup or n.get("suplente1"):
+                    # partido da eleicao de 2022; legendas que deixaram de existir vao para a sucessora
+                    # (PSC incorporado ao Podemos; PTB e Patriota fundidos no PRD; PROS incorporado ao Solidariedade)
+                    p22 = sup.get("partido")
+                    item["suplente"] = {"nome": n.get("suplente1") or sup.get("nome"), "foto": sup.get("foto"), "partido2022": p22,
+                                        "partido": {"PSC": "PODE", "PTB": "PRD", "PATRIOTA": "PRD", "PROS": "SOLIDARIEDADE"}.get(p22, p22)}
         saida[uf]["senadores" if n["id"].startswith("sen:") else "deputados"].append(item)
     destaques = collections.defaultdict(list)
     for pid, p in pessoas.items():
@@ -457,7 +477,8 @@ def main():
         ip = s_["IdentificacaoParlamentar"]
         i = f"sen:{ip['CodigoParlamentar']}"
         nos[i] = {"id": i, "tipo": "cargo", "rotulo": f"Senador(a) · {ip.get('UfParlamentar')}", "codigoCargo": "SEN", "uf": ip.get("UfParlamentar"),
-                  "partido": ip.get("SiglaPartidoParlamentar"), "fimMandato": ((s_.get("Mandato") or {}).get("SegundaLegislaturaDoMandato") or {}).get("DataFim"), "mesa": ip.get("MembroMesa") == "Sim", "lideranca": ip.get("MembroLideranca") == "Sim",
+                  "partido": ip.get("SiglaPartidoParlamentar"), "fimMandato": ((s_.get("Mandato") or {}).get("SegundaLegislaturaDoMandato") or {}).get("DataFim"), "nomeCompleto": ip.get("NomeCompletoParlamentar"),
+                  "suplente1": next((x.get("NomeParlamentar") for x in (((s_.get("Mandato") or {}).get("Suplentes") or {}).get("Suplente") or []) if (x.get("DescricaoParticipacao") or "").startswith("1")), None), "mesa": ip.get("MembroMesa") == "Sim", "lideranca": ip.get("MembroLideranca") == "Sim",
                   "ocupantes": [{"nome": ip["NomeParlamentar"], "foto": ip.get("UrlFotoParlamentar"), "partido": ip.get("SiglaPartidoParlamentar"), "fonte": "Senado Federal"}]}
         arestas.append({"de": i, "para": "casa:senado", "tipo": "membro"})
         if ip.get("SiglaPartidoParlamentar"):
