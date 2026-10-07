@@ -140,17 +140,38 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
     };
   }, [dados, roda]);
 
+  // Como no CivLab: ao selecionar um ministério (ou uma entidade dele), as entidades vinculadas saem da
+  // grade de pontos e se abrem numa fileira de quadradinhos na borda; ao tirar a seleção, voltam a ser pontos.
+  const expandido = useMemo(() => {
+    if (!selecionado) return null;
+    const filhosDe = (id: string) => roda.relacoes.filter((r) => r.de === id && r.verbo === "supervisiona").map((r) => r.para);
+    let dono = selecionado, filhos = filhosDe(selecionado);
+    if (!filhos.length) {
+      const pai = roda.relacoes.find((r) => r.para === selecionado && r.verbo === "supervisiona")?.de;
+      if (pai) { dono = pai; filhos = filhosDe(pai); }
+    }
+    const m = roda.porId.get(dono);
+    if (!filhos.length || !m) return null;
+    const porLinha = 24, passo = 2.15;
+    const pos = new Map<string, { a: number; r: number }>();
+    filhos.forEach((id, k) => {
+      const lin = Math.floor(k / porLinha), col = k % porLinha, naLinha = Math.min(porLinha, filhos.length - lin * porLinha);
+      pos.set(id, { a: m.a + (col - (naLinha - 1) / 2) * passo, r: 372 + lin * 15 });
+    });
+    return { dono, pos };
+  }, [selecionado, roda]);
   // gira pelo caminho mais curto até o item selecionado ficar embaixo; sem seleção, volta ao eixo
   useEffect(() => {
     if (ultimoSel.current === selecionado) return;
     ultimoSel.current = selecionado;
     const alvoSel = selecionado ? roda.porId.get(selecionado) ?? setorDoPoder(selecionado) ?? ancestral(selecionado) : null;
-    const alvo = alvoSel && alvoSel.r > 0 ? FOCO - alvoSel.a : 0;
+    const angulo = (selecionado ? expandido?.pos.get(selecionado)?.a : undefined) ?? alvoSel?.a ?? 0;
+    const alvo = alvoSel && alvoSel.r > 0 ? FOCO - angulo : 0;
     setGiro((g) => g + ((((alvo - g) % 360) + 540) % 360 - 180));
     // com zoom ligado, acompanha o item até onde ele vai parar (embaixo da roda)
     const v = vistaRef.current;
     if (alvoSel && alvoSel.r > 0 && v.w < 1000) setVista(limita({ w: v.w, x: C - v.w / 2, y: C + alvoSel.r - v.w / 2 }));
-  }, [selecionado, roda, ancestral]);
+  }, [selecionado, roda, ancestral, expandido]);
 
   // depois de arrastar, o clique que vem junto não deve selecionar nem limpar a seleção
   const engoleClique = (e: React.MouseEvent) => {
@@ -170,7 +191,9 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
     return { rel, ids };
   }, [foco, roda]);
 
-  const dim = (id: string) => (foco && !ligadas.ids.has(id) ? 0.22 : 1);
+  const onde = (id: string) => expandido?.pos.get(id) ?? roda.porId.get(id)!;
+
+  const dim = (id: string) => (foco && !ligadas.ids.has(id) ? (expandido?.pos.has(id) ? 0.55 : expandido && roda.porId.get(id)?.forma === "ponto" && roda.porId.get(id)?.poder === "Executivo" ? 0.07 : 0.22) : 1);
 
   // a etiqueta do hover fica presa ao nó (acima dele), não ao ponteiro
   const aoMover = (e: React.MouseEvent, id: string) => {
@@ -180,12 +203,16 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
     if (b) setHover({ id, x: r.left + r.width / 2 - b.left, y: r.top - b.top, h: r.height });
   };
 
-  const forma = (it: Item) => {
+  const forma = (orig: Item) => {
+    const novo = expandido?.pos.get(orig.id);
+    // desenha na posição original e desliza (transform com transição) até a posição aberta
+    const it: Item = novo ? { ...orig, forma: "quadrado", t: 4.2 } : orig;
     const { x, y } = ponto(it.a, it.r);
+    const alvo = novo ? ponto(novo.a, novo.r) : { x, y };
+    const desliza = { transform: `translate(${alvo.x - x}px, ${alvo.y - y}px)`, transition: "transform 450ms cubic-bezier(.22,.8,.2,1)" };
     const cor = COR_RODA[it.poder as Poder]?.base ?? "#999";
     const sel = it.id === selecionado;
     const comum = {
-      key: it.id,
       style: { cursor: "pointer", opacity: dim(it.id), transition: "opacity 200ms" },
       onMouseMove: (e: React.MouseEvent) => aoMover(e, it.id),
       onMouseLeave: () => setHover(null),
@@ -193,6 +220,8 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
     };
     const traco = sel ? "currentColor" : cor;
     const largura = sel ? 2 : 1.2;
+    return <g key={it.id} style={desliza}>{desenho()}</g>;
+    function desenho() {
     switch (it.forma) {
       case "casa":
         return (
@@ -215,6 +244,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
         return <circle {...comum} cx={x} cy={y} r={it.t} fill={it.tom > 0.95 ? cor : cor + "70"} stroke={traco} strokeWidth={largura} />;
       default:
         return <circle {...comum} cx={x} cy={y} r={sel ? it.t * 1.8 : it.t} fill={cor} fillOpacity={0.45 + it.tom * 0.55} />;
+    }
     }
   };
 
@@ -254,10 +284,11 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
           ))}
           {(() => { rotulados.clear(); return null; })()}
           {ligadas.rel.map((r, i) => {
-            const destino = roda.porId.get(r.para)!;
+            const destino = { ...roda.porId.get(r.para)!, ...onde(r.para) };
             // do povo, a seta sai da borda da estrela (que não gira) na direção do alvo
-            const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(roda.porId.get(r.de)!.a, roda.porId.get(r.de)!.r);
-            const ate = ponto(destino.a, destino.r - destino.t - 2);
+            const de = r.de === "povo" ? ponto(destino.a, R_POVO + 4) : ponto(onde(r.de).a, onde(r.de).r);
+            const leque = ligadas.rel.length > 40 || (!!expandido && r.verbo === "supervisiona");
+            const ate = ponto(destino.a, destino.r - (expandido?.pos.has(r.para) ? 4.2 : destino.t) - 2);
             const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
             const meio = { x: (de.x + ate.x) / 2 + (C - (de.x + ate.x) / 2) * 0.25, y: (de.y + ate.y) / 2 + (C - (de.y + ate.y) / 2) * 0.25 };
             const m = { x: 0.25 * de.x + 0.5 * meio.x + 0.25 * ate.x, y: 0.25 * de.y + 0.5 * meio.y + 0.25 * ate.y };
@@ -268,7 +299,10 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
             const mostra = !rotulados.has(chaveRot) && (rotulados.add(chaveRot), true);
             return (
               <g key={i} pointerEvents="none">
-                <path d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={ligadas.rel.length > 40 ? 0.6 : 1.3} strokeOpacity={ligadas.rel.length > 40 ? 0.35 : 0.85} markerEnd={ligadas.rel.length > 40 ? undefined : "url(#seta)"} />
+                {leque
+                  // muitas ligações iguais: linhas finas tracejadas e retas, como um leque (sem setas empilhadas)
+                  ? <path d={`M${de.x},${de.y} L${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={0.7} strokeOpacity={0.45} strokeDasharray="2 3" />
+                  : <path d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" />}
                 {mostra && (
                   // a etiqueta gira ao contrário da roda para ficar sempre de pé; aparece depois que a roda para
                   <g key={`${giro}-${foco}`} transform={`rotate(${-giro} ${m.x} ${m.y})`} className={foco === selecionado ? "etiqueta-acao" : ""}>
