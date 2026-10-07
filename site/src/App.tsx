@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import Grafo from "./Grafo";
+import OrgaoLista from "./OrgaoLista";
 import Roda from "./Roda";
 import Mapa from "./Mapa";
 import Painel, { type Conexao } from "./Painel";
 import { COBERTURA, COBERTURA_PODER, DESCRICAO, DESCRICAO_POR_SIGLA, montaRoda } from "./layoutRoda";
 import Busca from "./Busca";
-import { carregaMeta, carregaNucleo, carregaOrgao } from "./dados";
+import { carregaMeta, carregaNoticias, carregaNucleo, carregaOrgao, type Noticia } from "./dados";
 import type { Grafo as DadosGrafo, Meta } from "./tipos";
 import { COR_PODER } from "./cores";
 
@@ -14,9 +14,9 @@ function leHash() {
   const [caminho, consulta] = location.hash.replace(/^#/, "").split("?");
   const m = caminho.match(/^\/orgao\/(\d+)/);
   const u = caminho.match(/^\/uf\/([A-Z]{2})/);
-  const v = caminho.match(/^\/(roda|grafo)/);
+  const v = caminho.match(/^\/(roda)/);
   const no = new URLSearchParams(consulta ?? "").get("no");
-  return { orgao: m ? Number(m[1]) : null, no, uf: u ? u[1] : null, vista: (v ? v[1] : no ? "roda" : "mapa") as "mapa" | "roda" | "grafo" };
+  return { orgao: m ? Number(m[1]) : null, no, uf: u ? u[1] : null, vista: (v ? v[1] : no ? "roda" : "mapa") as "mapa" | "roda" };
 }
 function escreveHash(orgao: number | null, no: string | null, vista: string, uf: string | null) {
   const base = orgao ? `orgao/${orgao}` : vista === "mapa" ? (uf ? `uf/${uf}` : "") : vista;
@@ -32,8 +32,9 @@ export default function App() {
   const [nucleo, setNucleo] = useState<DadosGrafo | null>(null);
   const [erro, setErro] = useState<string | null>(null);
   const [meta, setMeta] = useState<Meta | null>(null);
+  const [noticias, setNoticias] = useState<{ itens: Noticia[]; porNo: Record<string, number[]> } | null>(null);
   const [escuro, setEscuro] = useState(() => matchMedia("(prefers-color-scheme: dark)").matches);
-  const [vista, setVista] = useState<"mapa" | "roda" | "grafo">(inicial.vista);
+  const [vista, setVista] = useState<"mapa" | "roda">(inicial.vista);
   const [uf, setUf] = useState<string | null>(inicial.uf);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function App() {
     mq.addEventListener("change", f);
     return () => mq.removeEventListener("change", f);
   }, []);
-  useEffect(() => { carregaNucleo().then(setNucleo).catch((e) => setErro(String(e))); carregaMeta().then(setMeta).catch(() => {}); }, []);
+  useEffect(() => { carregaNucleo().then(setNucleo).catch((e) => setErro(String(e))); carregaMeta().then(setMeta).catch(() => {}); carregaNoticias().then(setNoticias).catch(() => {}); }, []);
   useEffect(() => {
     setDados(null);
     setErro(null);
@@ -130,41 +131,28 @@ export default function App() {
         <div className="relative min-h-[50vh] flex-1">
           {!orgao && vista === "mapa" && (
             <Mapa uf={uf} aoEscolherUf={setUf}
-              aoAbrirCargo={(o, c) => { setOrgao(o); setSelecionado(c); }}
               aoAbrirNo={(id) => { setVista("roda"); setSelecionado(id); }} />
           )}
           {dados && !orgao && vista === "roda" && <Roda dados={dados} selecionado={selecionado} aoSelecionar={aoSelecionar} />}
-          {dados && (orgao || vista === "grafo") && <Grafo dados={dados} raiz={orgao ? `u:${orgao}` : null} selecionado={selecionado} aoSelecionar={aoSelecionar} escuro={escuro} />}
+          {dados && orgao && <OrgaoLista dados={dados} raiz={`u:${orgao}`} selecionado={selecionado} aoSelecionar={aoSelecionar} />}
           {!orgao && (
             <div className={`absolute z-20 flex ${vista === "mapa" ? "left-3 bottom-3 lg:left-auto lg:right-[436px]" : "bottom-3 right-3"} overflow-hidden rounded-lg border border-stone-300 bg-white text-sm dark:border-stone-700 dark:bg-stone-900`}>
-              {(["mapa", "roda", "grafo"] as const).map((v) => (
+              {(["mapa", "roda"] as const).map((v) => (
                 <button key={v} onClick={() => setVista(v)} className={`px-3 py-1.5 ${vista === v ? "bg-stone-900 text-white dark:bg-stone-100 dark:text-stone-900" : "text-stone-500 hover:text-stone-900 dark:hover:text-white"}`}>
-                  {v === "mapa" ? "Mapa" : v === "roda" ? "Estrutura" : "Grafo"}
+                  {v === "mapa" ? "Mapa" : "Estrutura"}
                 </button>
               ))}
             </div>
           )}
-          {!dados && !erro && <p className="absolute inset-0 grid place-items-center text-sm text-stone-500">Carregando o grafo…</p>}
+          {!dados && !erro && vista !== "mapa" && <p className="absolute inset-0 grid place-items-center text-sm text-stone-500">Carregando…</p>}
           {erro && <p className="absolute inset-0 grid place-items-center px-6 text-center text-sm text-red-700">{erro}</p>}
 
-          <div className={`pointer-events-none absolute bottom-3 left-3 rounded-lg ${selecionado ? "hidden md:block" : ""} ${!orgao && vista !== "grafo" ? "!hidden" : ""} bg-white/85 p-3 text-xs shadow-sm backdrop-blur dark:bg-stone-900/85`}>
-            <p className="font-semibold">{orgao ? `Órgão: ${nomeOrgao(orgao)}` : "Visão geral"}</p>
-            {contagem && <p className="text-stone-500">{contagem.texto}</p>}
-            {contagem?.soltas && <p className="max-w-56 text-stone-500">{contagem.soltas}</p>}
-            <ul className="mt-2 space-y-0.5">
-              {Object.entries(COR_PODER).map(([p, c]) => (
-                <li key={p} className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: c }} />{p}</li>
-              ))}
-              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#e11d48" }} />Cargo (com quem ocupa dentro)</li>
-              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#60a5fa" }} />Cadeira no Congresso</li>
-              <li className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-full" style={{ background: "#0891b2" }} />Partido</li>
-            </ul>
-          </div>
         </div>
 
         {(orgao || vista !== "mapa") && selecionado && dadosPainel && dadosPainel.nos.some((n) => n.id === selecionado) && (
           <div className="max-h-[50vh] border-t border-stone-200 bg-white md:max-h-none md:w-[400px] md:border-l md:border-t-0 dark:border-stone-800 dark:bg-stone-900">
-            <Painel dados={dadosPainel} id={selecionado} {...extras} aoSelecionar={setSelecionado} aoAbrirOrgao={orgao ? undefined : abreOrgao} aoFechar={() => setSelecionado(null)} />
+            <Painel key={selecionado} dados={dadosPainel} id={selecionado} {...extras}
+              noticias={(noticias?.porNo[selecionado] ?? []).map((i) => noticias!.itens[i])} aoSelecionar={setSelecionado} aoAbrirOrgao={orgao ? undefined : abreOrgao} aoFechar={() => setSelecionado(null)} />
           </div>
         )}
       </main>

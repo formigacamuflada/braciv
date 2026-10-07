@@ -91,7 +91,10 @@ def main():
         if "gov.br/" in site and o.get("tipo") in ("orgao", "entidade"):
             base = site if site.startswith("http") else "https://" + site
             base = re.sub(r"/pt-br.*$", "", base)
+            if re.fullmatch(r"https?://(www\.)?gov\.br", base):
+                continue          # site generico do gov.br: entra abaixo como fonte propria, sem orgao
             feeds.append((o.get("sigla") or o["nome"], base + "/pt-br/assuntos/noticias/RSS", o["codigo"]))
+    feeds.append(("Portal gov.br", "https://www.gov.br/pt-br/assuntos/noticias/RSS", None))
     with ThreadPoolExecutor(max_workers=8) as ex:
         resultados = list(ex.map(lambda f: le_feed(*f), feeds))
 

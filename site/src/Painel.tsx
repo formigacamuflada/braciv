@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import type { Aresta, Grafo, No, Ocupante } from "./tipos";
 import { ROTULO_TIPO, corDoNo } from "./cores";
 import { FONTE_CF, type Base } from "./constituicao";
@@ -12,6 +12,7 @@ type Props = {
   conexoes?: Conexao[];
   integrantes?: { id: string; rotulo: string; detalhe?: string }[];
   aviso?: string;
+  noticias?: { titulo: string; link: string; data?: string; resumo?: string; fonte: string; imagem?: string | null }[];
   aoSelecionar: (id: string) => void;
   aoAbrirOrgao?: (codigo: number) => void;
   aoFechar: () => void;
@@ -43,8 +44,10 @@ function Lista({ titulo, itens, render }: { titulo: string; itens: unknown[]; re
   );
 }
 
-export default function Painel({ dados, id, descricao, conexoes, integrantes, aviso, aoSelecionar, aoAbrirOrgao, aoFechar }: Props) {
+export default function Painel({ dados, id, descricao, conexoes, integrantes, aviso, noticias, aoSelecionar, aoAbrirOrgao, aoFechar }: Props) {
   const idx = useMemo(() => new Map(dados.nos.map((n) => [n.id, n])), [dados]);
+  const [aba, setAba] = useState<"noticias" | "conectado" | null>(null);
+  const abaAtiva = aba ?? (noticias?.length ? "noticias" : "conectado");
   const no = idx.get(id);
   const { saem, chegam } = useMemo(() => {
     const saem: Aresta[] = [], chegam: Aresta[] = [];
@@ -114,44 +117,6 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         </section>
       )}
 
-      {!!conexoes?.length && (
-        <section className="mt-5">
-          <h3 className="text-xs font-semibold uppercase tracking-wide text-stone-500">Quem se conecta</h3>
-          <ul className="mt-2 space-y-2.5 text-sm">
-            {conexoes.map((c, i) => (
-              <li key={i}>
-                <p>
-                  {c.sentido === "sai" ? <span className="font-medium">{c.verbo}</span> : <><span className="font-medium">{c.itens.length === 1 ? c.itens[0].rotulo : `${c.itens.length} posições`}</span> {c.verbo}</>}
-                  <a href={FONTE_CF} target="_blank" rel="noreferrer" className="ml-1.5 text-xs text-stone-500 underline">{c.base.dispositivo}</a>
-                </p>
-                {(c.sentido === "sai" || c.itens.length > 1) && (
-                  <p className="mt-0.5 flex flex-wrap gap-x-2 gap-y-0.5 text-xs">
-                    {c.itens.slice(0, 30).map((x) => <span key={x.id}>{link(x.id, x.rotulo)}</span>)}
-                    {c.itens.length > 30 && <span className="text-stone-500">e mais {c.itens.length - 30}</span>}
-                  </p>
-                )}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      <Lista titulo="Neste Poder" itens={integrantes ?? []} render={(x: { id: string; rotulo: string; detalhe?: string }, i) => (
-        <li key={i}>{link(x.id, x.rotulo)} {x.detalhe && <span className="text-xs text-stone-500">{x.detalhe}</span>}</li>
-      )} />
-
-      {aviso && <p className="mt-4 rounded-lg bg-amber-100 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:bg-amber-950/60 dark:text-amber-200">{aviso}</p>}
-
-      {!descricao?.length && !conexoes?.length && !integrantes?.length && !aviso && !acima.length && !abaixo.length && !cargosAqui.length && !membros.length && !ocupantes.length && no.tipo !== "cargo" && (
-        <p className="mt-4 text-sm text-stone-500">Ainda não há dados coletados sobre quem ocupa ou se liga a esta posição.</p>
-      )}
-
-      {codigoOrgao !== null && aoAbrirOrgao && (
-        <button onClick={() => aoAbrirOrgao(codigoOrgao)} className="mt-5 rounded-lg bg-stone-900 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-300">
-          Abrir estrutura completa do órgão
-        </button>
-      )}
-
       {no.tipo === "cargo" && (
         <>
           {no.codigoCargo && !["DEP", "SEN"].includes(no.codigoCargo) && (
@@ -176,6 +141,71 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
           )} />
         </>
       )}
+
+      {aviso && <p className="mt-4 rounded-lg bg-amber-100 px-3 py-2 text-xs leading-relaxed text-amber-900 dark:bg-amber-950/60 dark:text-amber-200">{aviso}</p>}
+
+      {codigoOrgao !== null && aoAbrirOrgao && (
+        <button onClick={() => aoAbrirOrgao(codigoOrgao)} className="mt-5 rounded-lg bg-stone-900 px-4 py-2 text-sm font-medium text-white hover:bg-stone-700 dark:bg-stone-100 dark:text-stone-900 dark:hover:bg-stone-300">
+          Abrir estrutura completa do órgão
+        </button>
+      )}
+
+
+      {/* abas, como no CivLab: notícias e quem está conectado */}
+      <div className="mt-6 grid grid-cols-2 rounded-lg bg-stone-100 p-0.5 text-sm dark:bg-stone-800">
+        {(["noticias", "conectado"] as const).map((a) => (
+          <button key={a} onClick={() => setAba(a)} className={`rounded-md py-1.5 ${abaAtiva === a ? "bg-white font-medium shadow-sm dark:bg-stone-700" : "text-stone-500"}`}>
+            {a === "noticias" ? `Notícias${noticias?.length ? ` (${noticias.length})` : ""}` : "Quem está conectado"}
+          </button>
+        ))}
+      </div>
+
+      {abaAtiva === "noticias" && (
+        <section className="mt-4 space-y-4">
+          {!noticias?.length && <p className="text-sm text-stone-500">Nenhuma notícia recente das agências públicas (Agência Brasil, Câmara, Senado e gov.br) cita esta posição.</p>}
+          {noticias?.map((n, i) => (
+            <article key={i} className="flex gap-3 border-b border-stone-200 pb-4 last:border-0 dark:border-stone-800">
+              <div className="min-w-0 flex-1">
+                <a href={n.link} target="_blank" rel="noreferrer" className="font-semibold leading-snug hover:underline">{n.titulo}</a>
+                {n.data && <p className="mt-1 text-xs font-medium text-stone-500">{n.data.split("-").reverse().join("/")}</p>}
+                {n.resumo && <p className="mt-1 line-clamp-4 text-sm text-stone-600 dark:text-stone-300">{n.resumo}</p>}
+                <a href={n.link} target="_blank" rel="noreferrer" className="mt-1.5 inline-block rounded bg-stone-100 px-1.5 py-0.5 text-xs dark:bg-stone-800">{n.fonte} ↗</a>
+              </div>
+              {n.imagem && <img src={n.imagem} alt="" loading="lazy" className="h-20 w-28 shrink-0 rounded-md object-cover" onError={(e) => (e.currentTarget.style.display = "none")} />}
+            </article>
+          ))}
+        </section>
+      )}
+
+      {abaAtiva === "conectado" && (
+        <>
+      {!!conexoes?.length && (
+        <section className="mt-5">
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-stone-500">Quem se conecta</h3>
+          <ul className="mt-2 space-y-2.5 text-sm">
+            {conexoes.map((c, i) => (
+              <li key={i}>
+                <p>
+                  {c.sentido === "sai" ? <span className="font-medium">{c.verbo}</span> : <><span className="font-medium">{c.itens.length === 1 ? c.itens[0].rotulo : `${c.itens.length} posições`}</span> {c.verbo}</>}
+                  <a href={FONTE_CF} target="_blank" rel="noreferrer" className="ml-1.5 text-xs text-stone-500 underline">{c.base.dispositivo}</a>
+                </p>
+                {(c.sentido === "sai" || c.itens.length > 1) && (
+                  <div className="mt-1.5 grid grid-cols-2 gap-1.5">
+                    {c.itens.slice(0, 12).map((x) => (
+                      <button key={x.id} onClick={() => aoSelecionar(x.id)} className="rounded-lg border border-stone-200 px-2.5 py-1.5 text-left text-xs leading-snug hover:border-stone-400 dark:border-stone-700 dark:hover:border-stone-500">{x.rotulo}</button>
+                    ))}
+                  </div>
+                )}
+                {c.itens.length > 12 && <p className="mt-1 text-xs text-stone-500">e mais {c.itens.length - 12}</p>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <Lista titulo="Neste Poder" itens={integrantes ?? []} render={(x: { id: string; rotulo: string; detalhe?: string }, i) => (
+        <li key={i}>{link(x.id, x.rotulo)} {x.detalhe && <span className="text-xs text-stone-500">{x.detalhe}</span>}</li>
+      )} />
 
       <Lista titulo="Cargos aqui" itens={cargosAqui} render={(c: No, i) => (
         <li key={i}>
@@ -225,6 +255,12 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         const m = idx.get(a.de) as No | undefined;
         return <li key={i}>{link(a.de, m?.ocupantes?.[0]?.nome ?? m?.rotulo)} <span className="text-xs text-stone-500">{m?.partido}{m?.uf ? ` · ${m.uf}` : ""}</span></li>;
       }} />
+      {!descricao?.length && !conexoes?.length && !integrantes?.length && !aviso && !acima.length && !abaixo.length && !cargosAqui.length && !membros.length && !ocupantes.length && no.tipo !== "cargo" && (
+        <p className="mt-4 text-sm text-stone-500">Ainda não há dados coletados sobre quem ocupa ou se liga a esta posição.</p>
+      )}
+
+        </>
+      )}
     </aside>
   );
 }

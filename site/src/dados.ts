@@ -35,3 +35,6 @@ export type PorUf = { ufs: Record<string, DadosUf>; nacional: { cargo: string; n
 export type Feicao = { type: "Feature"; properties: { sigla: string; nome: string; regiao: string }; geometry: { type: "Polygon" | "MultiPolygon"; coordinates: any } };
 export const carregaPorUf = () => busca<PorUf>("por_uf.json");
 export const carregaUfs = () => busca<{ features: Feicao[] }>("ufs.geojson");
+
+export type Noticia = { titulo: string; link: string; data?: string; resumo?: string; fonte: string; imagem?: string | null };
+export const carregaNoticias = () => busca<{ itens: Noticia[]; porNo: Record<string, number[]> }>("noticias.json");

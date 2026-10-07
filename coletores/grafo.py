@@ -136,6 +136,82 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
         shutil.copy(ibge, SAIDA / "ufs.geojson")
 
 
+# nomes pelos quais a imprensa chama algumas pessoas da cupula (o resto casa pelo nome completo
+# ou por primeiro + ultimo nome)
+APELIDOS_NOTICIA = {"Luiz Inácio Lula da Silva": ["Lula"], "Geraldo José Rodrigues Alckmin Filho": ["Alckmin"]}
+SIGLAS_AMBIGUAS = {"PR", "SE", "MD", "MT", "MS", "PE", "PL", "PT", "PP", "CN", "SG", "AGU", "MIR", "MPI", "MPA", "MPO", "MPS"}
+
+
+def grava_noticias(nos):
+    """dados/grafo/noticias.json: noticias de fontes oficiais ligadas aos nos da visao geral.
+    Liga por: feed do proprio orgao no gov.br; nome do orgao; sigla (so siglas pouco ambiguas);
+    nome do parlamentar; nome completo ou primeiro+ultimo nome da cupula."""
+    arq = DADOS / "noticias.json"
+    if not arq.exists():
+        return 0
+    noticias = json.loads(arq.read_text(encoding="utf-8"))
+    sem_acento = lambda t: norm(t).lower()
+    alvos = []   # (ids, padrao, sensivel_a_caixa)
+
+    def termo(t):
+        return re.compile(r"(?<![\w])" + re.escape(t) + r"(?![\w])")
+
+    for n in nos.values():
+        if n["tipo"] == "orgao" and n.get("tipoSiorg") in ("orgao", "entidade"):
+            alvos.append(([n["id"]], termo(sem_acento(n["nome"])), False))
+            sg = (n.get("sigla") or "").split("/")[0]
+            if len(sg) >= 3 and sg.upper() == sg and sg not in SIGLAS_AMBIGUAS:
+                alvos.append(([n["id"]], termo(sg), True))
+        elif n["tipo"] == "cargo" and n.get("ocupantes"):
+            nome = n["ocupantes"][0]["nome"]
+            ids = [n["id"]]
+            if n["id"].startswith(("dep:", "sen:")):
+                if len(nome.split()) >= 2:
+                    alvos.append((ids, termo(nome), True))
+            elif n.get("codigoCargo") in ESPECIAIS:
+                partes = nome.split()
+                formas = {nome, f"{partes[0]} {partes[-1]}"} | set(APELIDOS_NOTICIA.get(nome, []))
+                for f in formas:
+                    alvos.append((ids, termo(f), True))
+    for casa, termos in (("casa:camara", ["Câmara dos Deputados"]), ("casa:senado", ["Senado Federal"])):
+        for t in termos:
+            alvos.append(([casa], termo(t), True))
+    # o cargo da cupula tambem empresta a noticia ao orgao (ex.: Presidente -> Presidencia)
+    orgao_do_cargo = {}
+    for a in grafo_arestas_nucleo:
+        if a["tipo"] == "cargo":
+            orgao_do_cargo[a["de"]] = a["para"]
+
+    por_no = collections.defaultdict(list)
+    for i, nt in enumerate(noticias):
+        texto = f"{nt['titulo']} {nt.get('resumo', '')}"
+        texto_sa = sem_acento(texto)
+        achados = set()
+        if nt.get("orgaoFonte"):
+            achados.add(f"u:{nt['orgaoFonte']}")
+        if nt["fonte"] == "Agência Câmara":
+            achados.add("casa:camara")
+        if nt["fonte"] == "Agência Senado":
+            achados.add("casa:senado")
+        for ids, padrao, sensivel in alvos:
+            if padrao.search(texto if sensivel else texto_sa):
+                achados.update(ids)
+        for a in list(achados):
+            if a in orgao_do_cargo:
+                achados.add(orgao_do_cargo[a])
+        for a in achados:
+            if len(por_no[a]) < 15:
+                por_no[a].append(i)
+    usados = sorted({i for l in por_no.values() for i in l})
+    novo = {i: k for k, i in enumerate(usados)}
+    saida = {"itens": [noticias[i] for i in usados], "porNo": {k: [novo[i] for i in v] for k, v in por_no.items()}}
+    (SAIDA / "noticias.json").write_text(json.dumps(saida, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(por_no)
+
+
+grafo_arestas_nucleo = []
+
+
 def main():
     U, C = le("siorg_unidades.json"), le("siorg_cargos.json")
     O, OC = le("transparencia_ocupantes.json"), le("ocupacao.json")
@@ -344,6 +420,9 @@ def main():
         busca_nucleo.append([ip["NomeParlamentar"], i, 0])
 
     grava(SAIDA / "nucleo.json", nos, arestas)
+    grafo_arestas_nucleo.extend(arestas)
+    com_noticia = grava_noticias(nos)
+    resumo.append(f"noticias: {com_noticia} nos da visao geral com pelo menos uma noticia")
     for n in nos.values():
         if n["tipo"] == "cargo" and not n["id"].startswith(("dep:", "sen:")):
             for oc in n["ocupantes"]:
