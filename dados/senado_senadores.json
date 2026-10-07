@@ -3359,6 +3359,15 @@
       "FormaTratamento": "Senadora ",
       "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5977.jpg",
       "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5977",
+      "Telefones": {
+        "Telefone": [
+          {
+            "NumeroTelefone": "33036427",
+            "OrdemPublicacao": "1",
+            "IndicadorFax": "Não"
+          }
+        ]
+      },
       "SiglaPartidoParlamentar": "PSB",
       "UfParlamentar": "DF",
       "Bloco": {
