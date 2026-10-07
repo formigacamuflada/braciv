@@ -5,7 +5,7 @@ name: Publicar site
 
 on:
   workflow_run:
-    workflows: ["Coleta diaria"]
+    workflows: ["Coleta diaria", "Noticias"]
     types: [completed]
   push:
     branches: [main]
