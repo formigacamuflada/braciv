@@ -48,6 +48,8 @@ def grava(nome, dados):
 def main():
     grava("camara_deputados.json", busca("/deputados"))
     grava("camara_orgaos.json", busca("/orgaos"))
+    # Mesa Diretora (orgao 4 = "Mesa Diretora da Camara dos Deputados" na propria API)
+    grava("camara_mesa.json", busca("/orgaos/4/membros"))
 
 
 if __name__ == "__main__":
