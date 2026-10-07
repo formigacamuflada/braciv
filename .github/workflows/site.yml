@@ -5,7 +5,7 @@ name: Publicar site
 
 on:
   workflow_run:
-    workflows: ["Coleta diaria", "Noticias", "TSE (eleicao 2026)"]
+    workflows: ["Coleta diaria", "Noticias", "TSE (eleicao 2026)", "Convergencia entre cargos"]
     types: [completed]
   push:
     branches: [main]
