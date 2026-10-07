@@ -58,9 +58,9 @@ export const COR_CAMPO: Record<Campo, string> = { Esquerda: "#e5484d", Centro: "
 
 // Cor de cada partido: tons do campo, escurecendo/clareando para distinguir vizinhos
 const CORES: Record<string, string> = {
-  PSOL: "#facc15", PCdoB: "#b91c1c", PT: "#e5484d", PDT: "#f97316", PSB: "#f59e0b", REDE: "#14b8a6", CIDADANIA: "#ec4899",
+  PSOL: "#facc15", PCdoB: "#b91c1c", PT: "#e5484d", PDT: "#fb7185", PSB: "#f59e0b", REDE: "#14b8a6", CIDADANIA: "#ec4899",
   PV: "#22c55e", AVANTE: "#a3e635", SOLIDARIEDADE: "#c2410c", MDB: "#15803d", PSD: "#84cc16", PSDB: "#38bdf8", PODE: "#a855f7",
-  PRD: "#64748b", REPUBLICANOS: "#6366f1", PL: "#3e63dd", DC: "#94a3b8", NOVO: "#fb7185", PP: "#7dd3fc", "UNIÃO": "#0891b2",
+  PRD: "#64748b", REPUBLICANOS: "#6366f1", PL: "#3e63dd", DC: "#94a3b8", NOVO: "#f97316", PP: "#7dd3fc", "UNIÃO": "#0891b2",
   PTB: "#b45309", PMN: "#be123c", PMB: "#c084fc", PRTB: "#4d7c0f", PROS: "#d946ef", AGIR: "#818cf8", PSC: "#1e3a8a", PATRIOTA: "#047857",
 };
 export const corPartido = (s?: string) => CORES[s ?? ""] ?? "#78716c";
