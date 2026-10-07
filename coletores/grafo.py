@@ -143,13 +143,15 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
     # Presidente e Vice: foto e partido da candidatura eleita em 2022 no TSE (mesma fonte dos governadores);
     # uma foto valida colocada a mao em dados/fotos/Executivo tem prioridade
     tse_br = {{"Presidente": "PR", "Vice-presidente": "VPR"}.get(e["cargo"]): e for e in tse if e["uf"] == "BR"}
+    cup_tse = le("tse_cupula.json") if (DADOS / "tse_cupula.json").exists() else {}
     def foto_exec(cod):
         arq = {"PR": "fotos/Executivo/Presidente.jpg", "VPR": "fotos/Executivo/Vice_Presidente.jpg"}.get(cod)
         if arq and (DADOS / arq).exists() and (DADOS / arq).read_bytes()[:4] in (b"\xff\xd8\xff\xe0", b"\xff\xd8\xff\xe1", b"\xff\xd8\xff\xdb", b"\x89PNG"):
             return arq
         return (tse_br.get(cod) or {}).get("foto")
     nacional = [{"cargo": c["cargo"], "nome": c["pessoa"], "codigoCargo": c["codigoCargo"], "orgaoCodigo": c.get("orgaoSiorg"),
-                 "foto": foto_exec(c["codigoCargo"]), "partido": (tse_br.get(c["codigoCargo"]) or {}).get("partido")}
+                 "foto": foto_exec(c["codigoCargo"]) or (cup_tse.get(c["pessoa"]) or {}).get("foto"),
+                 "partido": (tse_br.get(c["codigoCargo"]) or {}).get("partido")}
                 for c in cupula.get("cargos", []) if c.get("pessoa")]
     (SAIDA / "por_uf.json").write_text(json.dumps({"ufs": saida, "nacional": nacional}, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     ibge = DADOS / "ibge_ufs.json"

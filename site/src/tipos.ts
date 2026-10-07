@@ -7,6 +7,7 @@ export type Ocupante = {
   pessoa?: string;
   fonte?: string;
   foto?: string;
+  fotoFonte?: string;
   partido?: string;
   uf?: string;
   desde?: string;

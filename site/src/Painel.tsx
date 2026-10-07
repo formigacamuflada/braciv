@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import type { Aresta, Grafo, No, Ocupante } from "./tipos";
 import { ROTULO_TIPO, corDoNo } from "./cores";
 import { FONTE_CF, type Base } from "./constituicao";
+import Ficha, { Retrato } from "./Ficha";
 
 export type Conexao = { verbo: string; base: Base; sentido: "sai" | "chega"; itens: { id: string; rotulo: string }[] };
 
@@ -79,6 +80,8 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
     .sort((a, b) => peso(b.codigoCargo) - peso(a.codigoCargo) || (b.ocupantes?.length ?? 0) - (a.ocupantes?.length ?? 0));
   const membros = chegam.filter((a) => a.tipo === "membro" || a.tipo === "filiado");
   const codigoOrgao = no.tipo === "orgao" ? Number(no.id.slice(2)) : null;
+  const numU = (s?: string) => (s && /^u:\d+$/.test(s) ? Number(s.slice(2)) : null);
+  const codigoFicha = no.tipo === "orgao" || no.tipo === "unidade" ? numU(no.id) : no.tipo === "cargo" ? numU(acima.find((a) => a.tipo === "cargo")?.para) : null;
 
   return (
     <aside className="flex h-full flex-col overflow-y-auto p-5">
@@ -117,6 +120,11 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
         </section>
       )}
 
+      {codigoFicha != null && (
+        <Ficha key={codigoFicha} codigo={codigoFicha} cargos={no.tipo === "cargo" ? [] : cargosAqui} aoSelecionar={aoSelecionar}
+          sobre={no.tipo === "cargo" ? `Sobre a unidade: ${idx.get(`u:${codigoFicha}`)?.nome ?? idx.get(`u:${codigoFicha}`)?.rotulo ?? ""}` : undefined} />
+      )}
+
       {no.tipo === "cargo" && (
         <>
           {no.codigoCargo && !["DEP", "SEN"].includes(no.codigoCargo) && (
@@ -124,12 +132,13 @@ export default function Painel({ dados, id, descricao, conexoes, integrantes, av
           )}
           <Lista titulo={(no.ocupantes?.length ?? 0) > 1 ? "Quem ocupa" : "Quem ocupa"} itens={no.ocupantes ?? []} render={(o: Ocupante, i) => (
             <li key={i} className={`flex gap-3 rounded-lg border border-stone-200 p-2.5 dark:border-stone-700 ${o.ate ? "opacity-60" : ""}`}>
-              {o.foto && <img src={o.foto.replace(/^http:/, "https:")} alt="" className="h-14 w-12 shrink-0 rounded object-cover" loading="lazy" />}
+              <Retrato o={o} t={52} />
               <div className="min-w-0">
                 <p className="font-medium">{o.nome}</p>
                 <p className="text-xs text-stone-500">
                   {[o.partido && `${o.partido}${o.uf ? `-${o.uf}` : ""}`, o.fonte, o.desde && `desde ${o.desde}`, o.ate && `saiu em ${o.ate}`].filter(Boolean).join(" · ")}
                 </p>
+                {o.fotoFonte && <p className="text-[11px] text-stone-500">foto: {o.fotoFonte}</p>}
                 {o.exata === false && o.unidadePortal && <p className="text-xs text-stone-500">unidade no Portal: {o.unidadePortal}</p>}
                 {o.dou?.map((d, k) => (
                   <p key={k} className="text-xs text-stone-500">
