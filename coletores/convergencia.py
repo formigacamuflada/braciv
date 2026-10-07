@@ -113,7 +113,8 @@ def main():
         c = cpf(l.get("NR_CPF_CANDIDATO"))
         if c and l.get("DS_CARGO") not in ("1º SUPLENTE", "2º SUPLENTE"):
             c26[c].append({"cargo": titulo(l["DS_CARGO"]), "uf": l.get("SG_UF"), "situacao": sit(l),
-                           "candidatura": (l.get("DS_SITUACAO_CANDIDATURA") or "").title()})
+                           "candidatura": (l.get("DS_SITUACAO_CANDIDATURA") or "").title(),
+                           "partido": {"PC do B": "PCdoB"}.get(l.get("SG_PARTIDO"), l.get("SG_PARTIDO"))})
     def melhor(lista):
         ordem = {"eleito": 0, "segundoTurno": 1, "suplente": 2, "naoEleito": 3, "outra": 4}
         return sorted(lista, key=lambda x: ordem.get(x["situacao"], 9))[0] if lista else None
