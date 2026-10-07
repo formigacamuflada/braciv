@@ -1,0 +1,6 @@
+STF: FALHOU (HTTPError: 403 Client Error: Forbidden for url: https://portal.stf.jus.br/ostf/)
+STJ: FALHOU (HTTPError: 403 Client Error: Forbidden for url: https://www.stj.jus.br/web/verMinistrosSTJ?parametro=1)
+TST: 0 pessoas, 0 com foto
+TSE: FALHOU (HTTPError: 403 Client Error: Forbidden for url: https://www.tse.jus.br/institucional/ministros)
+STM: 0 pessoas, 0 com foto
+CNJ: 15 pessoas, 15 com foto

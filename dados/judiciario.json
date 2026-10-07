@@ -1,0 +1,126 @@
+{
+ "coletadoEm": "2026-10-07",
+ "tribunais": {
+  "TST": {
+   "url": "https://www.tst.jus.br/ministros",
+   "membros": [],
+   "vagasLegais": 27
+  },
+  "STM": {
+   "url": "https://www.stm.jus.br/institucional/conheca-o-superior-tribunal-militar/composicao-da-corte",
+   "membros": [],
+   "vagasLegais": 15
+  },
+  "CNJ": {
+   "url": "https://www.cnj.jus.br/composicao-atual/",
+   "membros": [
+    {
+     "nome": "Luiz Edson Fachin",
+     "papel": "Presidente",
+     "desde": "29 de setembro de 2025",
+     "vaga": "Ministro do Supremo Tribunal Federal",
+     "foto": "fotos/jud/CNJ/luiz-edson-fachin.jpg"
+    },
+    {
+     "nome": "Benedito Gonçalves",
+     "papel": "Corregedor Nacional de Justiça",
+     "desde": "25 de agosto de 2026",
+     "vaga": "Ministro do Superior Tribunal de Justiça",
+     "foto": "fotos/jud/CNJ/benedito-goncalves.jpg"
+    },
+    {
+     "nome": "Kátia Magalhães Arruda",
+     "papel": "Conselheira",
+     "desde": "18 de maio de 2026",
+     "vaga": "Ministra do Tribunal Superior do Trabalho",
+     "foto": "fotos/jud/CNJ/katia-magalhaes-arruda.jpg"
+    },
+    {
+     "nome": "Jaceguara Dantas da Silva",
+     "papel": "Conselheira",
+     "desde": "3 de fevereiro de 2026",
+     "vaga": "Desembargadora de Tribunal de Justiça, indicada pelo Supremo Tribunal Federal",
+     "foto": "fotos/jud/CNJ/jaceguara-dantas-da-silva.jpg"
+    },
+    {
+     "nome": "Andréa Cunha Esmeraldo",
+     "papel": "Conselheira",
+     "desde": "18 de maio de 2026",
+     "vaga": "Desembargadora de de Tribunal Regional Federal, indicada pelo Superior Tribunal de Justiça",
+     "foto": "fotos/jud/CNJ/andrea-cunha-esmeraldo.jpg"
+    },
+    {
+     "nome": "Paulo Regis Machado Botelho",
+     "papel": "Conselheiro",
+     "desde": "18 de maio de 2026",
+     "vaga": "Desembargador de Tribunal Regional do Trabalho, indicado pelo Tribunal Superior do Trabalho",
+     "foto": "fotos/jud/CNJ/paulo-regis-machado-botelho.jpg"
+    },
+    {
+     "nome": "Fabio Francisco Esteves",
+     "papel": "Conselheiro",
+     "desde": "3 de fevereiro de 2026",
+     "vaga": "Juiz estadual, indicado pelo Supremo Tribunal Federal",
+     "foto": "fotos/jud/CNJ/fabio-francisco-esteves.jpg"
+    },
+    {
+     "nome": "Ilan Presser",
+     "papel": "Conselheiro",
+     "desde": "18 de maio de 2026",
+     "vaga": "Juiz federal, indicado pelo Superior Tribunal de Justiça",
+     "foto": "fotos/jud/CNJ/ilan-presser.jpg"
+    },
+    {
+     "nome": "Noemia Aparecida Garcia Porto",
+     "papel": "Conselheira",
+     "desde": "18 de maio de 2026",
+     "vaga": "Juíza do trabalho, indicado pelo Tribunal Superior do Trabalho",
+     "foto": "fotos/jud/CNJ/noemia-aparecida-garcia-porto.jpg"
+    },
+    {
+     "nome": "Silvio Amorim Junior",
+     "papel": "Conselheiro",
+     "desde": "18 de novembro de 2025",
+     "vaga": "Membro do Ministério Público da União indicado pelo PGR",
+     "foto": "fotos/jud/CNJ/silvio-amorim-junior.jpg"
+    },
+    {
+     "nome": "Carlos Vinícius Alves Ribeiro",
+     "papel": "Conselheiro",
+     "desde": "7 de agosto de 2026",
+     "vaga": "Membro do MP estadual, escolhido pelo PGR dentre os nomes indicados pelo órgão competente",
+     "foto": "fotos/jud/CNJ/carlos-vinicius-alves-ribeiro.jpg"
+    },
+    {
+     "nome": "Marcello Terto",
+     "papel": "Conselheiro",
+     "desde": "11 de fevereiro de 2025",
+     "vaga": "Advogado, indicado pelo Conselho Federal da Ordem dos Advogados do Brasil",
+     "foto": "fotos/jud/CNJ/marcello-terto.jpg"
+    },
+    {
+     "nome": "Ulisses Rabaneda",
+     "papel": "Conselheiro",
+     "desde": "11 de fevereiro de 2025",
+     "vaga": "Advogado, indicado pelo Conselho Federal da Ordem dos Advogados do Brasil",
+     "foto": "fotos/jud/CNJ/ulisses-rabaneda.jpg"
+    },
+    {
+     "nome": "Daiane Nogueira de Lira",
+     "papel": "Conselheira",
+     "desde": "1.º de fevereiro de 2024",
+     "vaga": "cidadã, de notável saber jurídico e reputação ilibada, indicada pela Câmara dos Deputados",
+     "foto": "fotos/jud/CNJ/daiane-nogueira-de-lira.jpg"
+    },
+    {
+     "nome": "Rodrigo Badaró",
+     "papel": "Conselheiro",
+     "desde": "11 de março de 2025",
+     "vaga": "cidadão, de notável saber jurídico e reputação ilibada, indicado pelo Senado Federal",
+     "foto": "fotos/jud/CNJ/rodrigo-badaro.jpg"
+    }
+   ],
+   "vagasLegais": 15
+  }
+ }
+}
