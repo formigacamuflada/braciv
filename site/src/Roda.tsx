@@ -48,7 +48,7 @@ function pentagono(x: number, y: number, r: number) {
 export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
   const roda = useMemo(() => montaRoda(dados), [dados]);
   const [giro, setGiro] = useState(0);
-  const [hover, setHover] = useState<{ id: string; x: number; y: number } | null>(null);
+  const [hover, setHover] = useState<{ id: string; x: number; y: number; h: number } | null>(null);
   const caixa = useRef<HTMLDivElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
 
@@ -172,9 +172,12 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
 
   const dim = (id: string) => (foco && !ligadas.ids.has(id) ? 0.22 : 1);
 
+  // a etiqueta do hover fica presa ao nó (acima dele), não ao ponteiro
   const aoMover = (e: React.MouseEvent, id: string) => {
+    if (hover?.id === id) return;
     const b = caixa.current?.getBoundingClientRect();
-    if (b) setHover({ id, x: e.clientX - b.left, y: e.clientY - b.top });
+    const r = (e.currentTarget as Element).getBoundingClientRect();
+    if (b) setHover({ id, x: r.left + r.width / 2 - b.left, y: r.top - b.top, h: r.height });
   };
 
   const forma = (it: Item) => {
@@ -216,20 +219,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
   };
 
   const itemHover = hover ? roda.porId.get(hover.id) : null;
-  const acoesHover = hover ? roda.relacoes.filter((r) => r.de === hover.id || r.para === hover.id) : [];
-  const resumo = (lista: typeof acoesHover) => {
-    const m = new Map<string, number>();
-    for (const r of lista) {
-      const k = r.de === hover!.id ? `${r.verbo} → ${r.para === "u:26" ? "Presidência" : rotuloAlvo(r.para)}` : `${rotuloAlvo(r.de)} ${r.verbo}`;
-      const chave = r.de === hover!.id && lista.filter((x) => x.de === hover!.id && x.verbo === r.verbo).length > 3 ? `${r.verbo} (${lista.filter((x) => x.de === hover!.id && x.verbo === r.verbo).length})` : k;
-      m.set(chave, 1);
-    }
-    return [...m.keys()].slice(0, 6);
-  };
-  function rotuloAlvo(id: string) {
-    if (id === "povo") return "o povo";
-    return roda.porId.get(id)?.rotulo ?? id;
-  }
+  const rotulados = new Set<string>();
 
   return (
     <div ref={caixa} className="absolute inset-0 select-none" onClick={() => aoSelecionar(null)} onClickCapture={engoleClique}>
@@ -262,6 +252,7 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
               </text>
             </g>
           ))}
+          {(() => { rotulados.clear(); return null; })()}
           {ligadas.rel.map((r, i) => {
             const destino = roda.porId.get(r.para)!;
             // do povo, a seta sai da borda da estrela (que não gira) na direção do alvo
@@ -269,7 +260,23 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
             const ate = ponto(destino.a, destino.r - destino.t - 2);
             const cor = r.de === "povo" ? COR_RODA.povo.base : COR_RODA[(roda.porId.get(r.de)!.poder as Poder)]?.base;
             const meio = { x: (de.x + ate.x) / 2 + (C - (de.x + ate.x) / 2) * 0.25, y: (de.y + ate.y) / 2 + (C - (de.y + ate.y) / 2) * 0.25 };
-            return <path key={i} d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" pointerEvents="none" />;
+            const m = { x: 0.25 * de.x + 0.5 * meio.x + 0.25 * ate.x, y: 0.25 * de.y + 0.5 * meio.y + 0.25 * ate.y };
+            const txt = verboCurto(r.verbo);
+            // uma etiqueta por ação (várias setas iguais saindo do mesmo nó mostram o rótulo uma vez só)
+            const chaveRot = `${r.de}|${txt}`;
+            const mostra = !rotulados.has(chaveRot) && (rotulados.add(chaveRot), true);
+            return (
+              <g key={i} pointerEvents="none">
+                <path d={`M${de.x},${de.y} Q${meio.x},${meio.y} ${ate.x},${ate.y}`} fill="none" stroke={cor} strokeWidth={1.3} strokeOpacity={0.85} markerEnd="url(#seta)" />
+                {mostra && (
+                  // a etiqueta gira ao contrário da roda para ficar sempre de pé; aparece depois que a roda para
+                  <g key={`${giro}-${foco}`} transform={`rotate(${-giro} ${m.x} ${m.y})`} className={foco === selecionado ? "etiqueta-acao" : ""}>
+                    <rect x={m.x - txt.length * 2.9 - 6} y={m.y - 8} width={txt.length * 5.8 + 12} height={16} rx={4} fill="#1c1917" fillOpacity={0.9} stroke={cor} strokeOpacity={0.6} />
+                    <text x={m.x} y={m.y + 3.5} textAnchor="middle" fontSize="10" fontWeight="600" fill={cor}>{txt}</text>
+                  </g>
+                )}
+              </g>
+            );
           })}
           {roda.itens.filter((i) => i.id !== "povo").map(forma)}
         </g>
@@ -285,22 +292,41 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
         </g>
       </svg>
 
-      {itemHover && hover && (
-        <div className="pointer-events-none absolute z-30 max-w-72 rounded-lg border border-stone-200 bg-white/95 px-3 py-2 text-xs shadow-lg backdrop-blur dark:border-stone-700 dark:bg-stone-900/95"
-          style={{ left: Math.min(hover.x + 14, (caixa.current?.clientWidth ?? 9999) - 290), top: hover.y + 14 }}>
-          <p className="font-semibold text-sm leading-snug" style={{ color: COR_RODA[itemHover.poder as Poder]?.base ?? COR_RODA.povo.base }}>{itemHover.nome}</p>
-          {itemHover.rotulo !== itemHover.nome && <p className="text-stone-500">{itemHover.rotulo}</p>}
-          {itemHover.ocupante && <p className="mt-1">{itemHover.ocupante}</p>}
-          {itemHover.detalhe && <p className="text-stone-500">{itemHover.detalhe}</p>}
-          {acoesHover.length > 0 && (
-            <ul className="mt-1.5 space-y-0.5 border-t border-stone-200 pt-1.5 dark:border-stone-700">
-              {resumo(acoesHover).map((t) => <li key={t}>• {t}</li>)}
-            </ul>
-          )}
+      {itemHover && hover && (() => {
+        const largura = caixa.current?.clientWidth ?? 9999;
+        const embaixo = hover.y < 44;
+        const ancora = hover.x < 140 ? "0%" : hover.x > largura - 140 ? "-100%" : "-50%";
+        const cor = COR_RODA[itemHover.poder as Poder]?.base ?? COR_RODA.povo.base;
+        return (
+          <div className="pointer-events-none absolute z-30 max-w-64 truncate rounded-md px-2 py-0.5 text-xs font-medium shadow"
+            style={{
+              left: Math.min(Math.max(hover.x, 8), largura - 8),
+              top: embaixo ? hover.y + hover.h + 6 : hover.y - 6,
+              transform: `translate(${ancora}, ${embaixo ? "0" : "-100%"})`,
+              background: cor + "33", color: cor, border: `1px solid ${cor}66`, backdropFilter: "blur(6px)",
+            }}>
+            {itemHover.nome}
+          </div>
+        );
+      })()}
+
+      {selecionado && roda.porId.get(selecionado) && (
+        <div className="pointer-events-none absolute bottom-3 left-1/2 max-w-[60%] -translate-x-1/2 truncate rounded-md px-2 py-0.5 text-xs font-medium"
+          style={{ background: (COR_RODA[roda.porId.get(selecionado)!.poder as Poder]?.base ?? COR_RODA.povo.base) + "26", color: COR_RODA[roda.porId.get(selecionado)!.poder as Poder]?.base ?? COR_RODA.povo.base }}>
+          {roda.porId.get(selecionado)!.nome}
         </div>
       )}
     </div>
   );
+}
+
+// rótulo curto da ação, para caber sobre a seta (o texto completo e o artigo ficam no painel)
+function verboCurto(v: string) {
+  if (v.startsWith("indica")) return "indica";
+  if (v.startsWith("nomeia")) return "nomeia";
+  if (v.startsWith("aprova")) return "aprova";
+  if (v.startsWith("fiscaliza")) return "fiscaliza";
+  return v;
 }
 
 function setorDoPoder(id: string): Item | null {

@@ -9,3 +9,7 @@ body { @apply bg-stone-50 text-stone-900 antialiased; }
 @media (prefers-color-scheme: dark) {
   body { @apply bg-stone-950 text-stone-100; }
 }
+
+/* etiquetas das ações nas setas: entram depois que a roda termina de girar */
+@keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+.etiqueta-acao { animation: aparece 250ms ease-out 650ms both; }
