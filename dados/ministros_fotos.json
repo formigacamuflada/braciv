@@ -1,0 +1,42 @@
+{
+ "Miriam Belchior": {
+  "foto": "fotos/ministros/CC_PR.jpg",
+  "fonte": "https://www.gov.br/casacivil/pt-br/composicao/ministra",
+  "sigla": "CC-PR"
+ },
+ "Frederico de Siqueira Filho": {
+  "foto": "fotos/ministros/MCOM.jpg",
+  "fonte": "https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem",
+  "sigla": "MCOM"
+ },
+ "José Mucio Monteiro Filho": {
+  "foto": "fotos/ministros/MD.jpg",
+  "fonte": "https://www.gov.br/defesa/pt-br/composicao/quem-e-quem",
+  "sigla": "MD"
+ },
+ "José Wellington Barroso de Araujo Dias": {
+  "foto": "fotos/ministros/MDS.jpg",
+  "fonte": "https://www.gov.br/mds/pt-br/composicao/quem-e-quem",
+  "sigla": "MDS"
+ },
+ "Márcio Fernando Elias Rosa": {
+  "foto": "fotos/ministros/MDIC.jpg",
+  "fonte": "https://www.gov.br/mdic/pt-br/composicao/quem-e-quem",
+  "sigla": "MDIC"
+ },
+ "Dario Carnevalli Durigan": {
+  "foto": "fotos/ministros/MF.jpg",
+  "fonte": "https://www.gov.br/fazenda/pt-br/composicao/quem-e-quem",
+  "sigla": "MF"
+ },
+ "Alexandre Silveira de Oliveira": {
+  "foto": "fotos/ministros/MME.jpg",
+  "fonte": "https://www.gov.br/mme/pt-br/composicao/quem-e-quem",
+  "sigla": "MME"
+ },
+ "Alexandre Rocha Santos Padilha": {
+  "foto": "fotos/ministros/MS.jpg",
+  "fonte": "https://www.gov.br/saude/pt-br/composicao/quem-e-quem",
+  "sigla": "MS"
+ }
+}
