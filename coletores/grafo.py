@@ -73,7 +73,7 @@ def agrega_cargos(pares, nos, arestas, busca=None, orgao=None):
         oc = {k: v for k, v in {
             "nome": p["no"]["rotulo"], "pessoa": p["no"]["id"], "fonte": p["no"].get("fonte"), "dou": p["no"].get("dou"),
             "desde": a.get("desde"), "ate": a.get("ate"), "unidadePortal": a.get("unidadePortal"), "uf": a.get("uf"),
-            "url": a.get("url"), "exata": a.get("exata", True)}.items() if v not in (None, [], "")}
+            "url": a.get("url"), "exata": a.get("exata", True), "foto": a.get("foto"), "fotoFonte": a.get("fotoFonte")}.items() if v not in (None, [], "")}
         nos[cid]["ocupantes"].append(oc)
         if busca is not None:
             busca.append([p["no"]["rotulo"], cid, orgao])
@@ -325,6 +325,8 @@ def main():
     # ---- Planalto: Presidente, Vice e Ministros (nao estao no SIAPE) ----
     cupula = le("planalto_cupula.json") if (DADOS / "planalto_cupula.json").exists() else {"cargos": []}
     n_cupula = 0
+    # foto oficial da candidatura de 2022 no TSE, para quem foi candidato (coletores/tse.py)
+    fotos_cup = le("tse_cupula.json") if (DADOS / "tse_cupula.json").exists() else {}
     for c in cupula["cargos"]:
         if not c.get("pessoa") or not c.get("orgaoSiorg"):
             continue
@@ -336,7 +338,9 @@ def main():
             por_nome[norm(c["pessoa"])].append(pid)
         pessoas[pid]["no"]["papel"] = c["cargo"]
         pessoas[pid]["cargos"].append({"de": pid, "para": id_u(c["orgaoSiorg"]), "tipo": "ocupa", "codigoCargo": c["codigoCargo"],
-                                       "funcao": c["cargo"], "exata": True, "fonte": "planalto", "url": c.get("fonte") or cupula.get("fonte")})
+                                       "funcao": c["cargo"], "exata": True, "fonte": "planalto", "url": c.get("fonte") or cupula.get("fonte"),
+                                       "foto": (fotos_cup.get(c["pessoa"]) or {}).get("foto"),
+                                       "fotoFonte": "TSE, candidatura de 2022" if (fotos_cup.get(c["pessoa"]) or {}).get("foto") else None})
         n_cupula += 1
     resumo.append(f"Planalto: {n_cupula} cargos da cupula ligados (fonte atualizada em {cupula.get('atualizadoNaFonte')})")
 

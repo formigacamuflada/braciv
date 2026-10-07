@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name "coletor"
           git config user.email "coletor@users.noreply.github.com"
-          git add dados/tse_eleitos_2022.json dados/tse_relatorio.txt dados/fotos/tse || true
+          git add dados/tse_eleitos_2022.json dados/tse_cupula.json dados/tse_relatorio.txt dados/fotos/tse || true
           git diff --staged --quiet || git commit -m "dados: eleitos 2022 do TSE (governadores e deputados estaduais)"
           git pull --rebase -q && git push

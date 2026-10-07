@@ -21,6 +21,7 @@ import re
 import zipfile
 
 import requests
+import unicodedata
 
 CAND = "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
 FOTOS = "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/fotos/foto_cand2022_{uf}_div.zip"
@@ -29,6 +30,11 @@ CARGOS = {"PRESIDENTE", "VICE-PRESIDENTE", "GOVERNADOR", "VICE-GOVERNADOR", "DEP
 ELEITO = re.compile(r"^ELEITO")
 UA = {"User-Agent": "Mozilla/5.0 (BRA.CIV coletor; github.com/formigacamuflada/braciv)"}
 REL = []
+
+
+def norm(t):
+    t = unicodedata.normalize("NFKD", t or "").encode("ascii", "ignore").decode()
+    return re.sub(r"\s+", " ", t).strip().upper()
 
 
 def diz(*a):
@@ -84,10 +90,17 @@ def main():
     nome = next(n for n in zf.namelist() if n.lower().endswith("brasil.csv")) if any(n.lower().endswith("brasil.csv") for n in zf.namelist()) else None
     arquivos = [nome] if nome else [n for n in zf.namelist() if n.lower().endswith(".csv")]
     diz("arquivos usados:", arquivos[:3], "..." if len(arquivos) > 3 else "")
+    # cupula do Executivo (Planalto): quem ja foi candidato em 2022 tem foto oficial no TSE
+    cup = DADOS / "planalto_cupula.json"
+    alvo = {norm(c["pessoa"]): c["pessoa"] for c in json.loads(cup.read_text(encoding="utf-8"))["cargos"] if c.get("pessoa")} if cup.exists() else {}
+    achados = {}
     eleitos = []
     for arq in arquivos:
         leitor = csv.DictReader(io.TextIOWrapper(zf.open(arq), encoding="latin-1"), delimiter=";")
         for l in leitor:
+            n = norm(l.get("NM_CANDIDATO"))
+            if n in alvo and (l.get("DS_SITUACAO_CANDIDATURA") or "").upper() != "INAPTO":
+                achados[alvo[n]] = {"sq": l["SQ_CANDIDATO"], "uf": l["SG_UF"], "cargoTse": l.get("DS_CARGO"), "situacao": l.get("DS_SIT_TOT_TURNO")}
             if l.get("DS_CARGO") in CARGOS and ELEITO.match(l.get("DS_SIT_TOT_TURNO") or ""):
                 eleitos.append({
                     "sq": l["SQ_CANDIDATO"], "uf": l["SG_UF"], "cargo": l["DS_CARGO"].title().replace("-G", "-g").replace("-P", "-p"),
@@ -108,8 +121,9 @@ def main():
         from PIL import Image
     except ImportError:
         Image = None
+    diz(f"cupula do Planalto com candidatura em 2022: {len(achados)}/{len(alvo)}")
     por_uf = {}
-    for e in eleitos:
+    for e in list(eleitos) + list(achados.values()):
         por_uf.setdefault(e["uf"], []).append(e)
     for uf, lista in sorted(por_uf.items()):
         faltam = [e for e in lista if not (destino / f"{e['sq']}.jpg").exists()]
@@ -143,6 +157,9 @@ def main():
         diz(f"  {uf}: {ok}/{len(faltam)} fotos novas")
     for e in eleitos:
         e["foto"] = f"fotos/tse/{e['sq']}.jpg" if (destino / f"{e['sq']}.jpg").exists() else None
+    for nome, a in achados.items():
+        a["foto"] = f"fotos/tse/{a['sq']}.jpg" if (destino / f"{a['sq']}.jpg").exists() else None
+    (DADOS / "tse_cupula.json").write_text(json.dumps(achados, ensure_ascii=False, indent=1), encoding="utf-8")
     (DADOS / "tse_eleitos_2022.json").write_text(json.dumps(eleitos, ensure_ascii=False, indent=1), encoding="utf-8")
     diz(f"com foto: {sum(1 for e in eleitos if e['foto'])}/{len(eleitos)}")
 
