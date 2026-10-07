@@ -1,0 +1,34 @@
+name: Legislativo (manual)
+
+# Roda so o coletor do Legislativo (Mesa do Congresso, liderancas, comissoes e servidores).
+# A coleta diaria tambem roda este coletor; este atalho serve para atualizar sem esperar o resto.
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: legislativo
+  cancel-in-progress: false
+
+jobs:
+  legislativo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet requests
+      - name: Coletar
+        run: python coletores/legislativo.py
+      - name: Guardar
+        if: always()
+        run: |
+          git config user.name "coletor"
+          git config user.email "coletor@users.noreply.github.com"
+          git add dados/ || true
+          git diff --staged --quiet || git commit -m "dados: Legislativo (liderancas, comissoes, servidores)"
+          for i in 1 2 3; do git pull --rebase -q && git push && break; sleep 10; done
