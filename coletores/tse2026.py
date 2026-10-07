@@ -49,7 +49,59 @@ def situacao(s):
     return None
 
 
+CAND_2022 = "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2022.zip"
+FOTOS_2022 = "https://cdn.tse.jus.br/estatistica/sead/eleicoes/eleicoes2022/fotos/foto_cand2022_{uf}_div.zip"
+
+
+def suplentes_2022():
+    """1o suplente de cada senador eleito em 2022 (mandato ate 2031): quem assume a cadeira se o titular
+    for eleito para outro cargo em 2026. Os dados de 2022 nao mudam: baixa uma vez so."""
+    arq = DADOS / "tse_suplentes_senado_2022.json"
+    if arq.exists():
+        return
+    diz("baixando candidatos de 2022 (1o suplentes do Senado) ...")
+    r = requests.get(CAND_2022, headers=UA, timeout=600)
+    r.raise_for_status()
+    zf = zipfile.ZipFile(io.BytesIO(r.content))
+    nome = next(n for n in zf.namelist() if n.lower().endswith("brasil.csv"))
+    sup = {}
+    for l in csv.DictReader(io.TextIOWrapper(zf.open(nome), encoding="latin-1"), delimiter=";"):
+        if l.get("DS_CARGO") == "1º SUPLENTE" and (l.get("DS_SIT_TOT_TURNO") or "").upper().startswith("ELEITO"):
+            sup[l["SG_UF"]] = {"sq": l["SQ_CANDIDATO"], "uf": l["SG_UF"], "nome": (l.get("NM_URNA_CANDIDATO") or l.get("NM_CANDIDATO") or "").title(),
+                               "nomeCompleto": (l.get("NM_CANDIDATO") or "").title(), "partido": {"PC do B": "PCdoB"}.get(l.get("SG_PARTIDO"), l.get("SG_PARTIDO")),
+                               "numero": l.get("NR_CANDIDATO")}
+    destino = DADOS / "fotos" / "tse"
+    destino.mkdir(parents=True, exist_ok=True)
+    try:
+        from PIL import Image
+    except ImportError:
+        Image = None
+    for uf, e in sorted(sup.items()):
+        alvo = destino / f"{e['sq']}.jpg"
+        if not alvo.exists():
+            try:
+                zf_f = zipfile.ZipFile(Remoto(FOTOS_2022.format(uf=uf)))
+                n = next((x for x in zf_f.namelist() if e["sq"] in x), None)
+                if n:
+                    bruto = zf_f.read(n)
+                    if Image:
+                        im = Image.open(io.BytesIO(bruto)).convert("RGB")
+                        im.thumbnail((160, 200))
+                        im.save(alvo, quality=80)
+                    else:
+                        alvo.write_bytes(bruto)
+            except Exception as ex:
+                diz(f"  {uf}: foto do suplente indisponivel ({type(ex).__name__})")
+        e["foto"] = f"fotos/tse/{e['sq']}.jpg" if alvo.exists() else None
+    diz(f"1o suplentes do Senado (2022): {len(sup)}, com foto: {sum(1 for e in sup.values() if e['foto'])}")
+    arq.write_text(json.dumps(sup, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def main():
+    try:
+        suplentes_2022()
+    except Exception as ex:
+        diz(f"suplentes de 2022 falharam ({type(ex).__name__}: {ex})")
     diz("baixando lista de candidatos de 2026 ...")
     r = requests.get(CAND, headers=UA, timeout=600)
     r.raise_for_status()

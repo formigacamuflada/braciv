@@ -40,6 +40,6 @@ jobs:
         run: |
           git config user.name "coletor"
           git config user.email "coletor@users.noreply.github.com"
-          for f in dados/tse2026_diagnostico.txt dados/tse_eleicao_2026.json dados/tse2026_relatorio.txt dados/fotos/tse2026; do [ -e "$f" ] && git add "$f"; done
+          for f in dados/tse2026_diagnostico.txt dados/tse_eleicao_2026.json dados/tse2026_relatorio.txt dados/fotos/tse2026 dados/tse_suplentes_senado_2022.json dados/fotos/tse; do [ -e "$f" ] && git add "$f"; done
           git diff --staged --quiet || git commit -m "dados: eleicao 2026 (TSE)"
           git pull --rebase -q && git push
