@@ -247,13 +247,13 @@ export function montaRoda(g: Grafo): Roda {
   }
   for (const [de, para, base] of relJud) rel(de, para, "compõe o tribunal", base);
   // MP e Defensoria: quem escolhe os chefes
-  rel("u:26", mpu?.id, "nomeia o Procurador-Geral da República, após aprovação do Senado", CF["128p1"]);
-  rel("casa:senado", mpu?.id, "aprova o Procurador-Geral da República", CF["128p1"]);
-  rel("u:26", dpu?.id, "nomeia o Defensor Público-Geral Federal, após aprovação do Senado", LEI.lc80a6);
-  rel("casa:senado", dpu?.id, "aprova o Defensor Público-Geral Federal", LEI.lc80a6);
-  rel(mpu?.id, porSigla("MPT", FEJ)?.id, "o PGR nomeia o Procurador-Geral do Trabalho", LEI.lc75a88);
-  rel(mpu?.id, porSigla("MPM", FEJ)?.id, "o PGR nomeia o Procurador-Geral da Justiça Militar", LEI.lc75a121);
-  rel("u:26", porSigla("MPDFT", FEJ)?.id, "nomeia o Procurador-Geral de Justiça, de lista tríplice", CF["128p3"]);
+  rel("u:26", mpu?.id, "nomeia", CF["128p1"]);
+  rel("casa:senado", mpu?.id, "aprova", CF["128p1"]);
+  rel("u:26", dpu?.id, "nomeia", LEI.lc80a6);
+  rel("casa:senado", dpu?.id, "aprova", LEI.lc80a6);
+  rel(mpu?.id, porSigla("MPT", FEJ)?.id, "nomeia", LEI.lc75a88);
+  rel(mpu?.id, porSigla("MPM", FEJ)?.id, "nomeia", LEI.lc75a121);
+  rel("u:26", porSigla("MPDFT", FEJ)?.id, "nomeia", CF["128p3"]);
   rel("casa:camara", "mesa:cd:1", "elege a Mesa", CF["57p4"]);
   rel("casa:senado", "mesa:sf:1", "elege a Mesa", CF["57p4"]);
   // quem escolhe quem dentro do Legislativo (Regimentos Internos de cada Casa)
