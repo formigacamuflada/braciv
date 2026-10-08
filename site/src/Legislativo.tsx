@@ -58,8 +58,9 @@ export function BlocoCasa({ no, cargos, unidades, idx, aoSelecionar }: { no: No;
   const [todasLid, setTodasLid] = useState(false);
   const mesa = cargos.filter((c) => c.codigoCargo === "MESA").sort(ord);
   const lideres = cargos.filter((c) => c.codigoCargo === "LID").sort(ord);
-  const comissoes = unidades.filter((u) => u.comissao).sort((a, b) => (a.nome ?? "").localeCompare(b.nome ?? "", "pt-BR"));
-  if (!mesa.length && !lideres.length && !comissoes.length) return null;
+  const comissoes = unidades.filter((u) => u.comissao && !u.cpi).sort((a, b) => (a.nome ?? "").localeCompare(b.nome ?? "", "pt-BR"));
+  const cpis = unidades.filter((u) => u.cpi).sort((a, b) => (a.criacao ?? "").localeCompare(b.criacao ?? ""));
+  if (!mesa.length && !lideres.length && !comissoes.length && !cpis.length) return null;
   const [pres, ...resto] = mesa;
   const nomeMesa = no.id === "casa:senado" ? "Comissão Diretora (Mesa)" : no.id === "casa:camara" ? "Mesa Diretora" : "Mesa do Congresso Nacional";
   const presDe = (c: No) => [...idx.values()].find((x) => x.id.startsWith(`${c.id}:`) && x.codigoCargo === "PRES");
@@ -99,6 +100,25 @@ export function BlocoCasa({ no, cargos, unidades, idx, aoSelecionar }: { no: No;
               );
             })}
           </ul>
+        </>
+      )}
+      {!!cpis.length && (
+        <>
+          <Titulo n={cpis.length}>{no.id === "casa:congresso" || no.sigla === "CN" ? "CPMIs em funcionamento" : "CPIs em funcionamento"}</Titulo>
+          <ul className="mt-2 space-y-1 text-sm">
+            {cpis.map((c) => {
+              const p = presDe(c)?.ocupantes?.[0];
+              return (
+                <li key={c.id}>
+                  <button onClick={() => aoSelecionar(c.id)} className="w-full rounded-md px-1.5 py-1 text-left hover:bg-stone-100 dark:hover:bg-stone-800">
+                    <span className="font-medium">{c.apelido || c.sigla}</span> <span className="text-stone-600 dark:text-stone-300">{(c.nome ?? "").replace(/^Comissão Parlamentar (Mista )?de Inquérito (destinada a |para |sobre )?/i, "")}</span>
+                    {p && <span className="block text-xs text-stone-500">Presidente: {p.nome}{p.partido ? ` (${p.partido}${p.uf ? `-${p.uf}` : ""})` : ""}</span>}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-2 text-[11px] text-stone-500">Criadas a requerimento de um terço dos membros, para apurar fato determinado por prazo certo (CF, art. 58, § 3º).</p>
         </>
       )}
     </>

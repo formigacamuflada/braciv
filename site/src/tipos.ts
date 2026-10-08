@@ -49,6 +49,12 @@ export type No = {
   vagasLegais?: number;
   membrosConhecidos?: number;
   comissao?: boolean;
+  cpi?: boolean;
+  apelido?: string | null;
+  criacao?: string | null;
+  fimPrevisto?: string | null;
+  finalidade?: string | null;
+  fonteOrgao?: string;
   membros?: unknown[];
   vices?: unknown[];
   dou?: Ato[];

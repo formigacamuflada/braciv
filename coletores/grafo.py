@@ -578,6 +578,9 @@ def main():
     # ministros dos tribunais superiores e conselheiros do CNJ (coletores/judiciario.py)
     import grafo_judiciario as gj
     resumo.append(f"Judiciario no nucleo: {gj.nucleo(nos, arestas)}")
+    # Funcoes Essenciais a Justica: MPU (PGR e ramos) e DPU, pelas paginas oficiais (coletores/grafo_fej.py)
+    import grafo_fej as gf
+    resumo.append(f"Funcoes Essenciais no nucleo: {gf.nucleo(nos, arestas)}")
 
     grava(SAIDA / "nucleo.json", nos, arestas)
     grafo_arestas_nucleo.extend(arestas)

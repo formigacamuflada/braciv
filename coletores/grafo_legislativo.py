@@ -169,6 +169,50 @@ def nucleo(nos, arestas, DEP, SEN, cn_id):
         n_com += 1
     contagem["comissões"] = n_com
 
+    # ---- CPIs (CF, art. 58, § 3º): Câmara, Senado e mistas do Congresso, em funcionamento ----
+    n_cpi = 0
+    for c in le("cpis_cd.json", []):
+        i = f"cpi:cd:{c['id']}"
+        ms = sorted(c.get("membros", []), key=lambda m: (m.get("codTitulo") or 999, m.get("nome") or ""))
+        nos[i] = {"id": i, "tipo": "unidade", "rotulo": c.get("sigla"), "nome": c.get("nome"), "sigla": c.get("sigla"), "poder": "Legislativo",
+                  "casa": "CD", "comissao": True, "cpi": True, "apelido": c.get("apelido"), "criacao": c.get("criacao"), "fimPrevisto": c.get("fimPrevisto"),
+                  "membros": [{"n": m.get("nome"), "p": part_dep.get(str(m.get("id"))) or m.get("siglaPartido"), "u": m.get("siglaUf"), "t": m.get("titulo"), "i": f"dep:{m.get('id')}"} for m in ms]}
+        arestas.append({"de": i, "para": "casa:camara", "tipo": "subordinada"})
+        for m in ms:
+            if (m.get("codTitulo") or 999) < 100:          # Presidente, vices e relator
+                j = f"{i}:{m['codTitulo']}"
+                oc = pessoa(m.get("nome"), cod_dep=m.get("id"), partido=m.get("siglaPartido"), uf=m.get("siglaUf"))
+                oc["fonte"] = "Câmara dos Deputados, dados abertos"
+                nos[j] = {"id": j, "tipo": "cargo", "rotulo": f"{m.get('titulo')} da {c.get('sigla')}", "codigoCargo": "PRES" if m["codTitulo"] == 1 else "VICE",
+                          "ordem": m["codTitulo"], "parlamentar": oc.get("parlamentar"), "ocupantes": [oc]}
+                arestas.append({"de": j, "para": i, "tipo": "cargo"})
+        n_cpi += 1
+    for c in le("cpis_sf.json", []):
+        casa = c.get("casa") or "SF"
+        if not casa_de.get(casa):
+            continue
+        i = f"cpi:{casa.lower()}:{c['codigo']}"
+        membros = []
+        for m in c.get("membros", []):
+            p = pessoa(m.get("NomeParlamentar"), m.get("CodigoParlamentar") if (m.get("OrigemParlamentar") or "Senado").startswith("Senado") else None,
+                       None, m.get("Partido"), m.get("SiglaUf"))
+            membros.append({"n": p["nome"], "p": p.get("partido"), "u": p.get("uf"), "t": m.get("TipoVaga"), "i": p.get("parlamentar")})
+        membros.sort(key=lambda m: (0 if (m["t"] or "").startswith("Titular") else 1, m["n"] or ""))
+        nos[i] = {"id": i, "tipo": "unidade", "rotulo": c.get("sigla"), "nome": c.get("nome"), "sigla": c.get("sigla"), "poder": "Legislativo",
+                  "casa": casa, "comissao": True, "cpi": True, "criacao": c.get("criacao"), "finalidade": c.get("finalidade"), "membros": membros}
+        arestas.append({"de": i, "para": casa_de[casa], "tipo": "subordinada"})
+        for k, cg in enumerate(c.get("cargos", [])):
+            ban = (cg.get("Bancada") or "").strip("()").split("-")
+            oc = pessoa(cg.get("NomeParlamentar"), cg.get("CodigoParlamentar"), None, "-".join(ban[:-1]) or None, ban[-1] if len(ban) > 1 else None)
+            oc["fonte"] = "Senado Federal, dados abertos"
+            pres = (cg.get("TipoCargo") or "").upper() == "PRESIDENTE"
+            j = f"{i}:{k + 1}"
+            nos[j] = {"id": j, "tipo": "cargo", "rotulo": f"{frase(cg.get('TipoCargo'))} da {c.get('sigla')}", "codigoCargo": "PRES" if pres else "VICE",
+                      "ordem": 1 if pres else k + 2, "parlamentar": oc.get("parlamentar"), "ocupantes": [oc]}
+            arestas.append({"de": j, "para": i, "tipo": "cargo"})
+        n_cpi += 1
+    contagem["CPIs"] = n_cpi
+
     # ---- Mesa do Congresso Nacional (presidida pelo Presidente do Senado, CF art. 57, § 5º) ----
     n_mcn = 0
     if cn_id:

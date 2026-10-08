@@ -1,5 +1,5 @@
 import type { Grafo, No } from "./tipos";
-import { CF, REG, type Base } from "./constituicao";
+import { CF, LEI, REG, type Base } from "./constituicao";
 
 // Ângulos em graus: 0 = topo, sentido horário. Centro em (500, 500).
 export const C = 500;
@@ -9,10 +9,11 @@ export const R_MIOLO = 150;
 export type Poder = "Legislativo" | "Executivo" | "Funções Essenciais à Justiça" | "Judiciário";
 export type Setor = { poder: Poder; a0: number; a1: number; rMax: number; rotulo: string };
 export const SETORES: Setor[] = [
-  // "Funções Essenciais à Justiça" saiu da roda (poucos órgãos no SIORG); o espaço foi para o Legislativo
   { poder: "Legislativo", a0: -55, a1: 55, rMax: 466, rotulo: "LEGISLATIVO" },
-  { poder: "Executivo", a0: 55, a1: 250, rMax: 478, rotulo: "EXECUTIVO" },
-  { poder: "Judiciário", a0: 250, a1: 305, rMax: 440, rotulo: "JUDICIÁRIO" },
+  { poder: "Executivo", a0: 55, a1: 236, rMax: 478, rotulo: "EXECUTIVO" },
+  { poder: "Judiciário", a0: 236, a1: 287, rMax: 440, rotulo: "JUDICIÁRIO" },
+  // Funções Essenciais à Justiça (CF, arts. 127 a 135): Ministério Público da União e Defensoria Pública da União
+  { poder: "Funções Essenciais à Justiça", a0: 287, a1: 305, rMax: 430, rotulo: "MP E DPU" },
 ];
 
 export type Forma = "circulo" | "quadrado" | "pentagono" | "ponto" | "casa";
@@ -167,7 +168,7 @@ export function montaRoda(g: Grafo): Roda {
   }
   lidCasa("CN").forEach((n, k, l) => add(n, { a: (k - (l.length - 1) / 2) * 2, r: 252, t: 2.6, forma: "circulo", poder: "Legislativo", tom: 1, ocupante: n.ocupantes?.[0]?.nome, detalhe: det(n) }));
   // Comissões permanentes, na borda do setor
-  const comissoes = g.nos.filter((n) => n.comissao).sort((a, b) => (a.sigla ?? "").localeCompare(b.sigla ?? ""));
+  const comissoes = g.nos.filter((n) => n.comissao && !n.cpi).sort((a, b) => (a.sigla ?? "").localeCompare(b.sigla ?? ""));
   for (const [casas, lado] of [[["CD"], -1], [["SF", "CN"], 1]] as const) {
     const l = comissoes.filter((n) => (casas as readonly string[]).includes(n.casa ?? ""));
     const porLinha = Math.ceil(l.length / 2), passo = Math.min(3.2, (lg.a1 - 7) / Math.max(1, porLinha));
@@ -212,6 +213,19 @@ export function montaRoda(g: Grafo): Roda {
     for (const n of membros) relJud.push([n.id, corte.id, BASE_TRIB[corte.sigla ?? ""] ?? CF["2"]]);
   }
 
+  // ---- Funções Essenciais à Justiça: MPU (PGR e os quatro ramos) e DPU ----
+  const fj = SETORES[3];
+  const mf = (fj.a0 + fj.a1) / 2;
+  const FEJ = "Funções Essenciais à Justiça" as const;
+  const mpu = porSigla("MPU", FEJ), dpu = porSigla("DPU", FEJ);
+  add(mpu, { a: mf - 3, r: 222, t: 11, forma: "circulo", poder: FEJ, tom: 1, detalhe: "chefiado pelo Procurador-Geral da República" });
+  const ramos = ["MPF", "MPT", "MPM", "MPDFT"].map((s) => porSigla(s, FEJ)).filter(Boolean) as No[];
+  ramos.forEach((n, i) => add(n, { a: fj.a0 + 2.5 + ((fj.a1 - fj.a0 - 5) * (i + 0.5)) / ramos.length, r: 285, t: 6, forma: "circulo", poder: FEJ, tom: 0.75 }));
+  add(dpu, { a: mf + 4, r: 340, t: 8, forma: "circulo", poder: FEJ, tom: 0.9, detalhe: "chefiada pelo Defensor Público-Geral Federal" });
+  const outrosFej = ["CNMP", "ESMPU"].map((s) => porSigla(s, FEJ)).filter(Boolean) as No[];
+  outrosFej.forEach((n, i) => add(n, { a: fj.a0 + 3 + i * 4, r: 340, t: 4, forma: "ponto", poder: FEJ, tom: 0.5 }));
+  faixas.push({ poder: FEJ, r: 250, a0: fj.a0 + 1, a1: fj.a1 - 1, rotulo: "MPU" });
+
   // ---- Relações (o que cada um faz) ----
   const porId = new Map(itens.map((i) => [i.id, i]));
   const relacoes: Relacao[] = [];
@@ -232,6 +246,14 @@ export function montaRoda(g: Grafo): Roda {
     rel("casa:senado", alvo, "aprova a escolha", CF["52iii"]);
   }
   for (const [de, para, base] of relJud) rel(de, para, "compõe o tribunal", base);
+  // MP e Defensoria: quem escolhe os chefes
+  rel("u:26", mpu?.id, "nomeia o Procurador-Geral da República, após aprovação do Senado", CF["128p1"]);
+  rel("casa:senado", mpu?.id, "aprova o Procurador-Geral da República", CF["128p1"]);
+  rel("u:26", dpu?.id, "nomeia o Defensor Público-Geral Federal, após aprovação do Senado", LEI.lc80a6);
+  rel("casa:senado", dpu?.id, "aprova o Defensor Público-Geral Federal", LEI.lc80a6);
+  rel(mpu?.id, porSigla("MPT", FEJ)?.id, "o PGR nomeia o Procurador-Geral do Trabalho", LEI.lc75a88);
+  rel(mpu?.id, porSigla("MPM", FEJ)?.id, "o PGR nomeia o Procurador-Geral da Justiça Militar", LEI.lc75a121);
+  rel("u:26", porSigla("MPDFT", FEJ)?.id, "nomeia o Procurador-Geral de Justiça, de lista tríplice", CF["128p3"]);
   rel("casa:camara", "mesa:cd:1", "elege a Mesa", CF["57p4"]);
   rel("casa:senado", "mesa:sf:1", "elege a Mesa", CF["57p4"]);
   // quem escolhe quem dentro do Legislativo (Regimentos Internos de cada Casa)
@@ -283,18 +305,23 @@ export const DESCRICAO: Record<string, Base[]> = {
   "mesa:cn:1": [CF["57p5"]],
 };
 export const DESCRICAO_POR_SIGLA: Record<string, Base[]> = {
+  MPU: [CF["128"], CF["128p1"]],
+  MPDFT: [CF["128p3"]],
+  MPT: [LEI.lc75a88],
+  MPM: [LEI.lc75a121],
+  DPU: [CF["134"], LEI.lc80a6],
   STF: [CF["101u"], CF["102"]],
   CN: [CF["44"], CF["49x"]],
 };
 
 // O que ainda não está coberto pelos dados: aparece no painel em vez de deixá-lo vazio
 export const COBERTURA: Record<string, string> = {
-  "poder:Judiciário": "Ainda não coletamos quem ocupa os cargos do Judiciário (ministros, desembargadores, juízes e servidores). O SIORG traz a estrutura dos tribunais; o Portal da Transparência cobre só o Executivo.",
-  "poder:Funções Essenciais à Justiça": "O SIORG traz poucos órgãos deste grupo (CNMP, MPDFT, ESMPU). Ministério Público Federal, Procuradoria-Geral da República e Defensoria Pública da União ainda não estão no mapa. A AGU aparece no Executivo, como no SIORG.",
-  "poder:Legislativo": "Deputados, senadores, Mesas, lideranças e comissões permanentes vêm dos dados abertos da Câmara e do Senado; a estrutura administrativa e os servidores de cada Casa também (abra a Câmara ou o Senado). Comissões temporárias (CPIs, especiais, mistas de medida provisória) e frentes parlamentares ainda não estão no mapa.",
+  "poder:Judiciário": "Ministros dos tribunais superiores e conselheiros do CNJ vêm dos sites oficiais de cada tribunal. Desembargadores, juízes e servidores ainda não foram coletados; o SIORG traz a estrutura dos tribunais.",
+  "poder:Funções Essenciais à Justiça": "Ministério Público da União (PGR e os quatro ramos: MPF, MPT, MPM e MPDFT) e Defensoria Pública da União, com os chefes de cada um, pelas páginas oficiais de cada instituição (consultadas em 07/10/2026). Os Ministérios Públicos e Defensorias dos estados ficam fora, como o resto do mapa estadual. A AGU aparece no Executivo, como no SIORG.",
+  "poder:Legislativo": "Deputados, senadores, Mesas, lideranças, comissões permanentes e CPIs em funcionamento vêm dos dados abertos da Câmara e do Senado; a estrutura administrativa e os servidores de cada Casa também (abra a Câmara ou o Senado). Comissões especiais, mistas de medida provisória e frentes parlamentares ainda não estão no mapa.",
 };
 export const COBERTURA_PODER: Record<string, string> = {
   Judiciário: "Estrutura vinda do SIORG. Quem ocupa os cargos deste órgão ainda não foi coletado.",
-  "Funções Essenciais à Justiça": "Estrutura vinda do SIORG. Quem ocupa os cargos deste órgão ainda não foi coletado.",
+  "Funções Essenciais à Justiça": "Chefes de cada instituição pelas páginas oficiais (consultadas em 07/10/2026); demais cargos ainda não foram coletados.",
   Legislativo: "Estrutura administrativa e servidores vêm dos dados abertos da própria Casa (Câmara: arquivo Funcionários; Senado: Portal de Dados Administrativos).",
 };
