@@ -3,9 +3,9 @@ orgaos do Portal casados com o SIORG: 216/218 (pessoas: 104771/104882)
   orgao sem casamento: 'Poder Executivo Federal' (melhor: 'Fundação de Previdência Complementar do Servidor Público Federal do Poder Executivo' 1.00/0.43)
 
 resultado por pessoa:
-  sigla                     2146  (2.0%)
-  cargo+nome               56306  (53.7%)
+  sigla                     2142  (2.0%)
+  cargo+nome               56315  (53.7%)
   so nome                    907  (0.9%)
-  so orgao                 45412  (43.3%)
+  so orgao                 45407  (43.3%)
   sem orgao                  111  (0.1%)
-  ligados a uma unidade do SIORG: 59359 (56.6%)
+  ligados a uma unidade do SIORG: 59364 (56.6%)
