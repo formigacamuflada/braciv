@@ -1,4 +1,4 @@
-"""Legislativo além dos parlamentares: Mesa do Congresso, lideranças, comissões permanentes e servidores.
+"""Legislativo além dos parlamentares: Mesa do Congresso, lideranças, comissões permanentes, CPIs em funcionamento e servidores.
 
 Fontes (todas oficiais e abertas, sem chave):
   Senado  https://legis.senado.leg.br/dadosabertos/composicao/mesaCN.json        Mesa do Congresso Nacional
@@ -9,7 +9,7 @@ Fontes (todas oficiais e abertas, sem chave):
   Câmara  https://dadosabertos.camara.leg.br/api/v2/orgaos?codTipoOrgao=2 + /orgaos/{id}/membros   comissões permanentes
           https://dadosabertos.camara.leg.br/arquivos/funcionarios/json/funcionarios.json            funcionários
 
-Grava em dados/: cn_mesa.json, lideranca.json, comissoes_sf.json, comissoes_cd.json,
+Grava em dados/: cn_mesa.json, lideranca.json, comissoes_sf.json, comissoes_cd.json, cpis_sf.json, cpis_cd.json,
 senado_estrutura.json, senado_servidores.json, camara_funcionarios.json e legislativo_relatorio.txt.
 Cada parte é independente: se uma fonte falhar, as outras seguem e o erro vai para o relatório.
 Uso: python coletores/legislativo.py
@@ -70,9 +70,13 @@ def liderancas():
     diz(f"lideranças (SF, CD e CN): {len(j)} registros, {sum(1 for x in j if x.get('siglaTipoLideranca') == 'L')} líderes")
 
 
-def comissoes_sf():
+def comissoes_sf(tipo="permanentes"):
     cols = lista(pega(f"{LEG}/comissao/lista/colegiados.json")["ListaColegiados"]["Colegiados"]["Colegiado"])
-    alvo = [c for c in cols if c.get("SiglaCasa") in ("SF", "CN") and c.get("DescricaoTipoColegiado") == "Comissão Permanente"]
+    if tipo == "permanentes":
+        alvo = [c for c in cols if c.get("SiglaCasa") in ("SF", "CN") and c.get("DescricaoTipoColegiado") == "Comissão Permanente"]
+    else:   # CPIs do Senado e CPMIs do Congresso em funcionamento
+        alvo = [c for c in cols if c.get("SiglaCasa") in ("SF", "CN") and "Inquérito" in (c.get("DescricaoTipoColegiado") or "")]
+        diz("tipos de colegiado no Senado:", sorted({c.get("DescricaoTipoColegiado") for c in cols if c.get("DescricaoTipoColegiado")}))
     saida = []
     for c in alvo:
         try:
@@ -85,12 +89,55 @@ def comissoes_sf():
             for pb in lista((d.get(chave) or {}).get("PartidoBloco")):
                 for m in lista((pb.get("MembrosSF") or pb.get("MembrosCD") or {}).get("Membro")):
                     membros.append({k: m.get(k) for k in ("NomeParlamentar", "CodigoParlamentar", "SiglaUf", "Partido", "TipoVaga", "OrigemParlamentar")})
-        saida.append({"codigo": c["Codigo"], "sigla": c.get("Sigla"), "nome": c.get("Nome"), "casa": c.get("SiglaCasa"),
+        saida.append({"codigo": c["Codigo"], "sigla": c.get("Sigla"), "nome": c.get("Nome"), "casa": c.get("SiglaCasa"), "tipo": c.get("DescricaoTipoColegiado"),
+                      "finalidade": c.get("Finalidade") or d.get("Finalidade") or (d.get("DadosBasicosColegiado") or {}).get("Finalidade"),
+                      "criacao": c.get("DataInicio") or d.get("DataInicio"),
                       "cargos": [{k: x.get(k) for k in ("TipoCargo", "NomeParlamentar", "CodigoParlamentar", "Bancada")} for x in lista((d.get("Cargos") or {}).get("Cargo"))],
                       "membros": membros})
         time.sleep(0.3)
-    grava("comissoes_sf.json", saida)
-    diz(f"comissões permanentes do Senado e do Congresso: {len(saida)}")
+    if tipo == "permanentes":
+        grava("comissoes_sf.json", saida)
+        diz(f"comissões permanentes do Senado e do Congresso: {len(saida)}")
+    else:
+        grava("cpis_sf.json", saida)
+        diz(f"CPIs do Senado e CPMIs do Congresso em funcionamento: {len(saida)} {[c['sigla'] for c in saida]}")
+
+
+def cpis_sf():
+    comissoes_sf("cpis")
+
+
+def cpis_cd():
+    """CPIs da Câmara em funcionamento: tipo de órgão 'Comissão Parlamentar de Inquérito', sem data de fim."""
+    tipos = pega(f"{CAM}/referencias/orgaos/codTipoOrgao")["dados"]
+    cod = next((t["cod"] for t in tipos if "Inquérito" in (t.get("nome") or "") and "Mista" not in (t.get("nome") or "")), None)
+    diz("Câmara: tipo de órgão CPI =", cod)
+    if not cod:
+        return
+    orgs = pega(f"{CAM}/orgaos?codTipoOrgao={cod}&dataInicio=2023-02-01&itens=100")["dados"]
+    hoje = time.strftime("%Y-%m-%d")
+    saida = []
+    for o in orgs:
+        try:
+            det = pega(f"{CAM}/orgaos/{o['id']}")["dados"]
+        except Exception as e:      # noqa: BLE001
+            diz(f"  CPI {o.get('sigla')}: {type(e).__name__}")
+            continue
+        fim = (det.get("dataFim") or "")[:10]
+        if fim and fim < hoje:
+            continue
+        try:
+            ms = [m for m in pega(f"{CAM}/orgaos/{o['id']}/membros?itens=200")["dados"] if not m.get("dataFim")]
+        except Exception:
+            ms = []
+        if not ms:
+            continue
+        saida.append({"id": o["id"], "sigla": o.get("sigla"), "nome": o.get("nome") or det.get("nome"), "apelido": det.get("apelido"),
+                      "criacao": (det.get("dataInicio") or "")[:10] or None, "fimPrevisto": fim or (det.get("dataFimOriginal") or "")[:10] or None,
+                      "membros": [{k: m.get(k) for k in ("id", "nome", "siglaPartido", "siglaUf", "titulo", "codTitulo")} for m in ms]})
+        time.sleep(0.5)
+    grava("cpis_cd.json", saida)
+    diz(f"CPIs da Câmara em funcionamento: {len(saida)} {[c['sigla'] for c in saida]}")
 
 
 def comissoes_cd():
@@ -139,7 +186,7 @@ def camara_funcionarios():
 
 
 def main():
-    for parte in (mesa_cn, liderancas, comissoes_sf, comissoes_cd, senado_adm, camara_funcionarios):
+    for parte in (mesa_cn, liderancas, comissoes_sf, comissoes_cd, cpis_sf, cpis_cd, senado_adm, camara_funcionarios):
         try:
             parte()
         except Exception as e:      # noqa: BLE001
