@@ -81,7 +81,8 @@ def procura(s, slug, pessoa):
             continue
         t = r.text
         for alt, src in imagens(t):
-            if bate(alt, pessoa):
+            arq = src.split("?")[0].rsplit("/@@images", 1)[0].rsplit("/", 1)[-1]
+            if bate(alt, pessoa) or bate(arq.replace("-", " ").replace("_", " "), pessoa):
                 return requests.compat.urljoin(url, src), url
         titulo = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S)
         if titulo and bate(re.sub(r"<[^>]+>", " ", titulo.group(1)), pessoa):

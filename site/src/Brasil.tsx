@@ -53,7 +53,7 @@ function Foto({ p, t = 36, aoClicar }: { p: Parlamentar; t?: number; aoClicar?: 
   return (
     <button onClick={aoClicar} title={`${p.nome}${p.partido ? ` · ${p.partido}` : ""}${p.sub ? ` — ${p.sub}` : p.outroCargo2026 ? ` — ${subSenador(p, "o cargo atual")}` : ""}`}
       className={`shrink-0 overflow-hidden rounded-full bg-stone-200 dark:bg-stone-800 ${p.vaga ? "opacity-60" : ""}`}
-      style={{ width: t, height: t, boxShadow: p.vaga ? `0 0 0 2px ${corPartido(p.partido)}88` : p.outroCargo2026 ? `0 0 0 2px ${corPartido(p.partido)}, 0 0 0 4px #f59e0b` : `0 0 0 2px ${corPartido(p.partido)}` }}>
+      style={{ width: t, height: t, ...(p.provavel ? { outline: `2px dashed ${corPartido(p.partido)}`, outlineOffset: 1 } : {}), boxShadow: p.provavel ? "none" : p.vaga ? `0 0 0 2px ${corPartido(p.partido)}88` : p.outroCargo2026 ? `0 0 0 2px ${corPartido(p.partido)}, 0 0 0 4px #f59e0b` : `0 0 0 2px ${corPartido(p.partido)}` }}>
       {p.vaga ? <span className="grid h-full w-full place-items-center text-[11px] font-semibold text-stone-500">?</span> : u && !erro ? <img src={u} alt={p.nome} loading="lazy" referrerPolicy="no-referrer" onError={() => setErro(true)} className="h-full w-full object-cover object-top" />
         : <span className="grid h-full w-full place-items-center text-[10px] font-semibold text-stone-500">{iniciais(p.nome)}</span>}
     </button>
@@ -329,7 +329,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
             </li>
           ))}
         </ul>
-        <p className="mt-3 text-[11px] text-stone-500">Ocupantes: lista oficial do Planalto. Fotos e partido do Presidente e do Vice: candidatura eleita em 2022 (TSE). Fotos dos ministros ainda não coletadas.</p>
+        <p className="mt-3 text-[11px] text-stone-500">Ocupantes: lista oficial do Planalto. Fotos e partido do Presidente e do Vice: candidatura eleita em 2022 (TSE). Fotos dos ministros: página “Quem é Quem” de cada ministério no gov.br; sem foto onde não foi encontrada.</p>
       </>
     );
     if (aba === "governadores") {
@@ -464,16 +464,20 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
               </>
             )}
             {!em2026 && (() => {
-              const vagas = lista.filter((p) => p.vaga), outros = lista.filter((p) => p.outroCargo2026);
+              const vagas = lista.filter((p) => p.vaga || p.provavel), outros = lista.filter((p) => p.outroCargo2026);
+              const calc = vagas.filter((p) => p.provavel);
               if (!vagas.length && !outros.length) return null;
               return (
                 <div className="mt-4 rounded-lg border border-amber-300/60 bg-amber-50 p-2.5 text-xs dark:border-amber-500/30 dark:bg-amber-500/10">
                   {vagas.length > 0 && (
                     <>
                       <p className="font-semibold">{vagas.length} {vagas.length === 1 ? "eleito(a) em 2022 deixou" : "eleitos em 2022 deixaram"} a Assembleia</p>
-                      <p className="mt-0.5 text-stone-600 dark:text-stone-400">Foram eleitos prefeitos ou vice-prefeitos em 2024. As vagas são de suplentes que este mapa ainda não identifica (aparecem com “?”, na cor do partido do titular).</p>
-                      <details className="mt-1"><summary className="cursor-pointer text-stone-500">ver quem saiu</summary>
-                        <ul className="mt-1 space-y-0.5">{vagas.map((p) => <li key={p.id}>{p.sub!.replace(/; quem assumiu.*$/, "")}</li>)}</ul>
+                      <p className="mt-0.5 text-stone-600 dark:text-stone-400">
+                        Foram eleitos prefeitos ou vice-prefeitos em 2024.{calc.length > 0 && <> Em {calc.length === vagas.length ? "todas as vagas" : `${calc.length} vagas`}, mostramos o suplente pela regra do Código Eleitoral: “os mais votados sob a mesma legenda e não eleitos” (art. 112), contando a federação como uma legenda só (Lei 9.096/1995, art. 11-A). É um cálculo com os votos de 2022: não conferimos na Assembleia se ele de fato assumiu (contorno tracejado).</>}
+                        {vagas.length > calc.length && <> {vagas.length - calc.length} vagas ainda sem suplente identificado (aparecem com “?”).</>}
+                      </p>
+                      <details className="mt-1"><summary className="cursor-pointer text-stone-500">ver as vagas</summary>
+                        <ul className="mt-1 space-y-0.5">{vagas.map((p) => <li key={p.id}>{p.provavel ? <><b>{p.nome}</b> <span style={{ color: corPartido(p.partido) }}>{p.partido}</span> · {p.sub}</> : p.sub!.replace(/; quem assumiu.*$/, "")}</li>)}</ul>
                       </details>
                     </>
                   )}
@@ -503,7 +507,7 @@ export default function Brasil({ uf, aoEscolherUf, aoAbrirNo }: Props) {
               ))}
             </div>
             {em2026 ? <><p className="mt-3 text-[11px] text-stone-500">Eleitos em 2026. Posse a partir de 1º de fevereiro de 2027 (CF, art. 57, § 4º).</p>{fonte26}</>
-              : esfera === "estaduais" && <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Quem foi eleito prefeito ou vice em 2024 aparece como vaga de suplente; licenças para secretarias e outras trocas ainda não são acompanhadas.</p>}
+              : esfera === "estaduais" && <p className="mt-3 text-[11px] text-stone-500">Eleitos em 2022 (TSE). Quem virou prefeito ou vice em 2024 dá lugar ao suplente calculado pela votação de 2022; licenças para secretarias e outras trocas ainda não são acompanhadas.</p>}
           </>
         )}
       </>

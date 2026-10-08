@@ -104,6 +104,7 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
                 outro_cargo[norm(e.get("nomeCompleto") or "")] = {"cargo": e["cargo"], "situacao": e["situacao"], "uf": e["uf"]}
     # convergencia entre cargos (coletores/convergencia.py): quem saiu ou vai sair para outro cargo
     conv = le("convergencia.json") if (DADOS / "convergencia.json").exists() else {}
+    sup_vagas = (le("suplentes_2022.json") if (DADOS / "suplentes_2022.json").exists() else {}).get("vagas", {})
     sup22 = le("tse_suplentes_senado_2022.json") if (DADOS / "tse_suplentes_senado_2022.json").exists() else {}
     for n in nos.values():
         if n["tipo"] != "cargo" or not n["id"].startswith(("dep:", "sen:")):
@@ -173,6 +174,13 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
             c24 = cv.get("2024")
             if c24 and c24["cargo"] in ("Prefeito", "Vice-prefeito"):
                 cargo24 = c24["cargo"].lower().replace("prefeito", "prefeito(a)")
+                sup = sup_vagas.get(e["sq"])
+                if sup:
+                    item = {"id": f"tse:{sup['sq']}", "nome": sup["nome"], "partido": sup.get("partido"), "foto": sup.get("foto"), "provavel": True,
+                            "titular": e["nome"],
+                            "sub": f"suplente na vaga de {e['nome']}, eleito(a) {cargo24} de {c24['municipio']} em 2024 · {sup['ordem']}º da fila de {sup['legenda']} pela votação de 2022 (cálculo; não conferido na Assembleia)"}
+                    saida[e["uf"]].setdefault("estaduais", []).append(item)
+                    continue
                 item = {"id": f"vaga:{e['sq']}", "nome": f"Suplente de {e['nome']}", "partido": item["partido"], "foto": None, "vaga": True,
                         "sub": f"{e['nome']} foi eleito(a) {cargo24} de {c24['municipio']} em 2024; quem assumiu a vaga não é acompanhado aqui"}
             elif c26 and c26["cargo"] not in ("Deputado Estadual", "Deputado Distrital") and c26["situacao"] in ("eleito", "segundoTurno"):
@@ -206,13 +214,14 @@ def grava_por_uf(nos, pessoas, unid, orgao_de, cupula):
     # uma foto valida colocada a mao em dados/fotos/Executivo tem prioridade
     tse_br = {{"Presidente": "PR", "Vice-presidente": "VPR"}.get(e["cargo"]): e for e in tse if e["uf"] == "BR"}
     cup_tse = le("tse_cupula.json") if (DADOS / "tse_cupula.json").exists() else {}
+    min_fotos = le("ministros_fotos.json") if (DADOS / "ministros_fotos.json").exists() else {}
     def foto_exec(cod):
         arq = {"PR": "fotos/Executivo/Presidente.jpg", "VPR": "fotos/Executivo/Vice_Presidente.jpg"}.get(cod)
         if arq and (DADOS / arq).exists() and (DADOS / arq).read_bytes()[:4] in (b"\xff\xd8\xff\xe0", b"\xff\xd8\xff\xe1", b"\xff\xd8\xff\xdb", b"\x89PNG"):
             return arq
         return (tse_br.get(cod) or {}).get("foto")
     nacional = [{"cargo": c["cargo"], "nome": c["pessoa"], "codigoCargo": c["codigoCargo"], "orgaoCodigo": c.get("orgaoSiorg"),
-                 "foto": foto_exec(c["codigoCargo"]) or (cup_tse.get(c["pessoa"]) or {}).get("foto"),
+                 "foto": foto_exec(c["codigoCargo"]) or (min_fotos.get(c["pessoa"]) or {}).get("foto") or (cup_tse.get(c["pessoa"]) or {}).get("foto"),
                  "partido": (tse_br.get(c["codigoCargo"]) or {}).get("partido")}
                 for c in cupula.get("cargos", []) if c.get("pessoa")]
     # eleicao de 2026 (coletores/tse2026.py): eleitos e candidatos no 2o turno; posse em 2027
@@ -407,6 +416,13 @@ def main():
     n_cupula = 0
     # foto oficial da candidatura de 2022 no TSE, para quem foi candidato (coletores/tse.py)
     fotos_cup = le("tse_cupula.json") if (DADOS / "tse_cupula.json").exists() else {}
+    fotos_min = le("ministros_fotos.json") if (DADOS / "ministros_fotos.json").exists() else {}
+    def foto_cup(pessoa):
+        if (fotos_min.get(pessoa) or {}).get("foto"):
+            return fotos_min[pessoa]["foto"], "gov.br, Quem é Quem do ministério"
+        if (fotos_cup.get(pessoa) or {}).get("foto"):
+            return fotos_cup[pessoa]["foto"], "TSE, candidatura de 2022"
+        return None, None
     for c in cupula["cargos"]:
         if not c.get("pessoa") or not c.get("orgaoSiorg"):
             continue
@@ -419,8 +435,7 @@ def main():
         pessoas[pid]["no"]["papel"] = c["cargo"]
         pessoas[pid]["cargos"].append({"de": pid, "para": id_u(c["orgaoSiorg"]), "tipo": "ocupa", "codigoCargo": c["codigoCargo"],
                                        "funcao": c["cargo"], "exata": True, "fonte": "planalto", "url": c.get("fonte") or cupula.get("fonte"),
-                                       "foto": (fotos_cup.get(c["pessoa"]) or {}).get("foto"),
-                                       "fotoFonte": "TSE, candidatura de 2022" if (fotos_cup.get(c["pessoa"]) or {}).get("foto") else None})
+                                       "foto": foto_cup(c["pessoa"])[0], "fotoFonte": foto_cup(c["pessoa"])[1]})
         n_cupula += 1
     resumo.append(f"Planalto: {n_cupula} cargos da cupula ligados (fonte atualizada em {cupula.get('atualizadoNaFonte')})")
 
