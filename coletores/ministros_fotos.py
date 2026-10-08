@@ -26,6 +26,14 @@ SLUG = {"CC-PR": "casacivil", "SG": "secretariageral", "SRI/PR": "sri", "SECOM":
         "MIR": "igualdaderacial", "MIDR": "mdr", "MJSP": "mj", "MMA": "mma", "MME": "mme", "MMULHERES": "mulheres", "MPA": "mpa",
         "MPO": "planejamento", "MPOR": "portos-e-aeroportos", "MPI": "povosindigenas", "MPS": "previdencia", "MRE": "mre", "MS": "saude",
         "MTE": "trabalho-e-emprego", "MT": "transportes", "MTur": "turismo"}
+# fotos achadas a mao no navegador (07/10/2026), onde a pagina do ministerio nao segue o padrao;
+# so valem enquanto o ministro for o mesmo (o nome e conferido)
+MANUAL = {
+    "CGU": ("Vinicius Marques de Carvalho", "https://www.gov.br/cgu/pt-br/composicao/ministro/VinciusMarquesdeCarvalho.jpg",
+            "https://www.gov.br/cgu/pt-br/composicao/ministro"),
+    "MRE": ("Mauro Luiz Iecker Vieira", "https://www.gov.br/mre/pt-br/composicao/gabinete-do-ministro-das-relacoes-exteriores/embaixador-mauro-luiz-iecker-vieira/@@images/image",
+            "https://www.gov.br/mre/pt-br/composicao/quem-e-quem"),
+}
 CAMINHOS = ["composicao/quem-e-quem", "acesso-a-informacao/institucional/quem-e-quem", "composicao", "acesso-a-informacao/institucional/composicao",
             "composicao/ministro", "composicao/ministra", "acesso-a-informacao/institucional/ministro", "acesso-a-informacao/institucional/ministra",
             "composicao/gabinete-do-ministro", "composicao/gabinete-da-ministra", "acesso-a-informacao/quem-e-quem", "assuntos/quem-e-quem"]
@@ -123,14 +131,21 @@ def main():
         if not slug:
             sem.append(f"{c['pessoa']} ({sigla}): ministerio sem endereco conhecido no gov.br")
             continue
-        achou = procura(s, slug, c["pessoa"])
+        man = MANUAL.get(sigla)
+        achou = (man[1], man[2]) if man and bate(man[0], c["pessoa"]) else procura(s, slug, c["pessoa"])
         if not achou:
             sem.append(f"{c['pessoa']} ({sigla}, gov.br/{slug}): foto nao encontrada")
             continue
         img_url = re.sub(r"/@@images/.*$", "/@@images/image", achou[0])
         try:
-            r = s.get(img_url, timeout=60)
-            r.raise_for_status()
+            for tent in range(3):
+                try:
+                    r = s.get(img_url, timeout=60)
+                    r.raise_for_status()
+                    break
+                except requests.RequestException:
+                    if tent == 2:
+                        raise
             arq = destino / f"{re.sub(r'[^A-Za-z0-9]+', '_', sigla)}.jpg"
             if Image:
                 im = Image.open(io.BytesIO(r.content)).convert("RGB")
