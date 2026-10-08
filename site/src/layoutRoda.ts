@@ -137,7 +137,9 @@ export function montaRoda(g: Grafo): Roda {
     cursor += w;
   });
   faixas.push({ poder: "Executivo", r: 330, a0: ex.a0 + 3, a1: ex.a1 - 3, rotulo: "MINISTÉRIOS E ÓRGÃOS DA PRESIDÊNCIA" });
-  faixas.push({ poder: "Executivo", r: 352, a0: ex.a0 + 3, a1: ex.a1 - 3, rotulo: "AUTARQUIAS, FUNDAÇÕES E EMPRESAS VINCULADAS" });
+  // rótulo das entidades depois da última fileira de pontos (até 7 fileiras a partir de r = 362, de 12 em 12),
+  // deslocado para o lado para não cair em cima do nome do setor ("EXECUTIVO", no meio do arco)
+  faixas.push({ poder: "Executivo", r: 444, a0: meio + 15, a1: ex.a1 - 3, rotulo: "AUTARQUIAS, FUNDAÇÕES E EMPRESAS VINCULADAS" });
 
   // ---- Legislativo ----
   const lg = SETORES[0];
