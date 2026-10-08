@@ -14,6 +14,7 @@
   ok  MJSP       Wellington César Lima e Silva  <- https://www.gov.br/mj/pt-br/acesso-a-informacao/institucional/galeria-de-ministros-da-justica?b_start:int=135
   ok  MME        Alexandre Silveira de Oliveira  <- https://www.gov.br/mme/pt-br/composicao/quem-e-quem
   ok  MPS        Wolney Queiroz Maciel  <- https://www.gov.br/previdencia/pt-br/composicao/ministro-e-secretarios
+  ok  MRE        Mauro Luiz Iecker Vieira  <- https://www.gov.br/mre/pt-br/composicao/quem-e-quem
   ok  MS         Alexandre Rocha Santos Padilha  <- https://www.gov.br/saude/pt-br/composicao/quem-e-quem
   ok  MTE        Luiz Marinho  <- https://www.gov.br/trabalho-e-emprego/pt-br/composicao/ministro-e-secretarios
   sem Guilherme Castro Boulos (SG, gov.br/secretariageral): foto nao encontrada
@@ -33,7 +34,6 @@
   sem Bruno Moretti (MPO, gov.br/planejamento): foto nao encontrada
   sem Tomé Monteiro da Franca (MPOR, gov.br/portos-e-aeroportos): foto nao encontrada
   sem Luiz Henrique Eloy Amado (MPI, gov.br/povosindigenas): foto nao encontrada
-  sem Mauro Luiz Iecker Vieira (MRE): falha ao baixar a imagem (ConnectionError)
   sem George Santoro (MT, gov.br/transportes): foto nao encontrada
   sem Gustavo Costa Feliciano (MTur, gov.br/turismo): foto nao encontrada
-ministros com foto: 18/38
+ministros com foto: 19/38
