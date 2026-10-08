@@ -288,12 +288,16 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
             <g key={i} pointerEvents="none">
               <path d={caminhoTexto(f.a0, f.a1, f.r)} fill="none" stroke={COR_RODA[f.poder].base} strokeOpacity={0.18} strokeDasharray="2 5" />
               <path id={`faixa-${i}`} d={embaixo((f.a0 + f.a1) / 2) ? caminhoTexto(f.a0, f.a1, f.r + 10, true) : caminhoTexto(f.a0, f.a1, f.r + 4)} fill="none" />
-              <text fontSize="8.5" letterSpacing="2" fill={COR_RODA[f.poder].base} fillOpacity={0.75}>
-                <textPath href={`#faixa-${i}`} startOffset="50%" textAnchor="middle">{f.rotulo}</textPath>
-              </text>
             </g>
           ))}
           {roda.itens.filter((i) => i.id !== "povo").map(forma)}
+          {/* rótulos das faixas por cima dos pontos, com contorno da cor do fundo para não se misturarem */}
+          {roda.faixas.map((f, i) => (
+            <text key={`t${i}`} pointerEvents="none" fontSize="8.5" letterSpacing="2" fill={COR_RODA[f.poder].base} fillOpacity={0.9}
+              className="stroke-stone-100 dark:stroke-stone-950" strokeWidth={3.5} strokeOpacity={0.9} strokeLinejoin="round" paintOrder="stroke">
+              <textPath href={`#faixa-${i}`} startOffset="50%" textAnchor="middle">{f.rotulo}</textPath>
+            </text>
+          ))}
         </g>
 
         {/* miolo fixo: não gira */}
