@@ -1,7 +1,5 @@
-baixando candidatos de 2022 (1o suplentes do Senado) ...
-1o suplentes do Senado (2022): 27, com foto: 27
 baixando lista de candidatos de 2026 ...
-arquivo gerado pelo TSE em: 07/10/2026 16:30:39
+arquivo gerado pelo TSE em: 07/10/2026 19:30:41
   Deputado Distrital   eleito        24
   Deputado Estadual    eleito        1035
   Deputado Federal     eleito        513
