@@ -235,8 +235,9 @@ export default function Roda({ dados, selecionado, aoSelecionar }: Props) {
       case "casa":
         return (
           <g {...comum}>
-            <rect x={x - it.t * 1.9} y={y - it.t * 0.75} width={it.t * 3.8} height={it.t * 1.5} rx={it.t * 0.75}
-              transform={`rotate(${it.a} ${x} ${y})`} fill={COR_RODA.Legislativo.fundo} stroke={traco} strokeWidth={largura} />
+            {/* faixa curva, no mesmo ângulo da roda (em vez de pílula reta) */}
+            <path d={arco(it.a - ((it.t * 1.9) / it.r) * (180 / Math.PI), it.a + ((it.t * 1.9) / it.r) * (180 / Math.PI), it.r - it.t * 0.75, it.r + it.t * 0.75)}
+              fill={COR_RODA.Legislativo.fundo} stroke={traco} strokeWidth={largura} strokeLinejoin="round" />
           </g>
         );
       case "quadrado":
