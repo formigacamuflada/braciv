@@ -21,7 +21,7 @@
  },
  "Luciana Barbosa de Oliveira Santos": {
   "foto": "fotos/ministros/MCTI.jpg",
-  "fonte": "https://www.gov.br/mcti/pt-br/composicao/gm/ministra",
+  "fonte": "https://www.gov.br/mcti/pt-br/acesso-a-informacao/institucional/quem-e-quem",
   "sigla": "MCTI"
  },
  "Frederico de Siqueira Filho": {
@@ -83,5 +83,10 @@
   "foto": "fotos/ministros/MS.jpg",
   "fonte": "https://www.gov.br/saude/pt-br/composicao/quem-e-quem",
   "sigla": "MS"
+ },
+ "Luiz Marinho": {
+  "foto": "fotos/ministros/MTE.jpg",
+  "fonte": "https://www.gov.br/trabalho-e-emprego/pt-br/composicao/ministro-e-secretarios",
+  "sigla": "MTE"
  }
 }

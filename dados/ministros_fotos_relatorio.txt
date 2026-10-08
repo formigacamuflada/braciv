@@ -2,7 +2,7 @@
   ok  SRI/PR     José Nobre Guimarães  <- https://www.gov.br/sri/pt-br/composicao/ministra-1
   ok  GSI/PR     Marcos Antonio Amaro dos Santos  <- https://www.gov.br/gsi/pt-br/composicao/gabinete/ministro
   ok  MCID       Antonio Vladimir Moura Lima  <- https://www.gov.br/cidades/pt-br/composicao/ministro-das-cidades
-  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/composicao/gm/ministra
+  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MCOM       Frederico de Siqueira Filho  <- https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MD         José Mucio Monteiro Filho  <- https://www.gov.br/defesa/pt-br/composicao/quem-e-quem
   ok  MDS        José Wellington Barroso de Araujo Dias  <- https://www.gov.br/mds/pt-br/composicao/quem-e-quem
@@ -15,6 +15,7 @@
   ok  MME        Alexandre Silveira de Oliveira  <- https://www.gov.br/mme/pt-br/composicao/quem-e-quem
   ok  MPS        Wolney Queiroz Maciel  <- https://www.gov.br/previdencia/pt-br/composicao/ministro-e-secretarios
   ok  MS         Alexandre Rocha Santos Padilha  <- https://www.gov.br/saude/pt-br/composicao/quem-e-quem
+  ok  MTE        Luiz Marinho  <- https://www.gov.br/trabalho-e-emprego/pt-br/composicao/ministro-e-secretarios
   sem Guilherme Castro Boulos (SG, gov.br/secretariageral): foto nao encontrada
   sem Sidônio Palmeira (SECOM, gov.br/secom): foto nao encontrada
   sem Jorge Rodrigo Araújo Messias (AGU, gov.br/agu): foto nao encontrada
@@ -33,7 +34,6 @@
   sem Tomé Monteiro da Franca (MPOR, gov.br/portos-e-aeroportos): foto nao encontrada
   sem Luiz Henrique Eloy Amado (MPI, gov.br/povosindigenas): foto nao encontrada
   sem Mauro Luiz Iecker Vieira (MRE): falha ao baixar a imagem (ConnectionError)
-  sem Luiz Marinho (MTE, gov.br/trabalho-e-emprego): foto nao encontrada
   sem George Santoro (MT, gov.br/transportes): foto nao encontrada
   sem Gustavo Costa Feliciano (MTur, gov.br/turismo): foto nao encontrada
-ministros com foto: 17/38
+ministros com foto: 18/38
