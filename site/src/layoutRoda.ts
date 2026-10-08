@@ -144,9 +144,10 @@ export function montaRoda(g: Grafo): Roda {
   // ---- Legislativo ----
   const lg = SETORES[0];
   const CN = porSigla("CN", "Legislativo");
-  add(CN, { a: 0, r: 218, t: 30, forma: "casa", poder: "Legislativo", tom: 0.3 });
-  add(nos.get("casa:camara"), { a: -6.5, r: 218, t: 13, forma: "circulo", poder: "Legislativo", tom: 0.9 });
-  add(nos.get("casa:senado"), { a: 6.5, r: 218, t: 13, forma: "circulo", poder: "Legislativo", tom: 0.9 });
+  // Congresso mais perto do centro (a pílula vai de r = 175 a 220), para não cobrir as Mesas (r ≈ 235–250) e as lideranças
+  add(CN, { a: 0, r: 197, t: 30, forma: "casa", poder: "Legislativo", tom: 0.3 });
+  add(nos.get("casa:camara"), { a: -7, r: 197, t: 13, forma: "circulo", poder: "Legislativo", tom: 0.9 });
+  add(nos.get("casa:senado"), { a: 7, r: 197, t: 13, forma: "circulo", poder: "Legislativo", tom: 0.9 });
   const senadores = g.nos.filter((n) => n.id.startsWith("sen:")).sort((a, b) => (a.partido ?? "").localeCompare(b.partido ?? "") || a.rotulo.localeCompare(b.rotulo));
   const deputados = g.nos.filter((n) => n.id.startsWith("dep:")).sort((a, b) => (a.partido ?? "").localeCompare(b.partido ?? "") || a.rotulo.localeCompare(b.rotulo));
   const tomPartido = (lista: No[]) => { const ps = [...new Set(lista.map((n) => n.partido))]; return (n: No) => (ps.indexOf(n.partido) % 2 ? 0.45 : 0.75); };
