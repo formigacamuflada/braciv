@@ -1,10 +1,10 @@
-6/12 feeds responderam; 111 noticias guardadas
-erro ConnectionError ANATEL https://www.gov.br/anatel/pt-br/assuntos/noticias/RSS
-erro ConnectionError ANPD https://www.gov.br/anpd/pt-br/assuntos/noticias/RSS
-erro ConnectionError ANTAQ https://www.gov.br/antaq/pt-br/assuntos/noticias/RSS
-erro ConnectionError CNEN https://gov.br/cnen/pt-br/assuntos/noticias/RSS
-erro ConnectionError INPI https://www.gov.br/inpi/pt-br/assuntos/noticias/RSS
-erro ConnectionError Portal gov.br https://www.gov.br/pt-br/assuntos/noticias/RSS
+7/12 feeds responderam; 114 noticias guardadas
+HTTP 200       INPI https://www.gov.br/inpi/pt-br/assuntos/noticias/RSS
+HTTP 404       ANATEL https://www.gov.br/anatel/pt-br/assuntos/noticias/RSS
+HTTP 404       ANPD https://www.gov.br/anpd/pt-br/assuntos/noticias/RSS
+HTTP 404       ANTAQ https://www.gov.br/antaq/pt-br/assuntos/noticias/RSS
+HTTP 404       CNEN https://gov.br/cnen/pt-br/assuntos/noticias/RSS
+ok 1           Portal gov.br https://www.gov.br/pt-br/assuntos/noticias/RSS
 ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/economia/feed.xml
 ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/justica/feed.xml
 ok 10          Agência Brasil https://agenciabrasil.ebc.com.br/rss/politica/feed.xml
