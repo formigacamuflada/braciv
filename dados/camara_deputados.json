@@ -4191,6 +4191,17 @@
     "email": "dep.otonidepaula@camara.leg.br"
   },
   {
+    "id": 220706,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/220706",
+    "nome": "Padovani",
+    "siglaPartido": "PP",
+    "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/37903",
+    "siglaUf": "PR",
+    "idLegislatura": 57,
+    "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/220706.jpg",
+    "email": "dep.padovani@camara.leg.br"
+  },
+  {
     "id": 160556,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160556",
     "nome": "Padre João",
@@ -5047,17 +5058,6 @@
     "idLegislatura": 57,
     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160621.jpg",
     "email": "dep.sandroalex@camara.leg.br"
-  },
-  {
-    "id": 236518,
-    "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/236518",
-    "nome": "Santin Roveda",
-    "siglaPartido": "UNIÃO",
-    "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/38009",
-    "siglaUf": "PR",
-    "idLegislatura": 57,
-    "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/236518.jpg",
-    "email": "dep.santinroveda@camara.leg.br"
   },
   {
     "id": 204387,
