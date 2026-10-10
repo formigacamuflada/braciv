@@ -1,6 +1,6 @@
 {
- "geradoTse": "10/10/2026 12:30:36",
- "coletadoEm": "2026-10-10T17:23+00:00",
+ "geradoTse": "10/10/2026 16:31:05",
+ "coletadoEm": "2026-10-10T21:51+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -15217,27 +15217,14 @@
    "sq": "190002542887",
    "uf": "RJ",
    "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
    "turno": 1,
    "nome": "Douglas Ruas",
    "nomeCompleto": "Douglas Ruas Dos Santos",
    "partido": "PL",
    "numero": "22",
    "foto": "fotos/tse2026/190002542887.jpg"
-  },
-  {
-   "sq": "190002543380",
-   "uf": "RJ",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Eduardo Paes",
-   "nomeCompleto": "Eduardo Da Costa Paes",
-   "partido": "PSD",
-   "numero": "55",
-   "foto": "fotos/tse2026/190002543380.jpg"
   },
   {
    "sq": "190002542888",
@@ -15269,27 +15256,14 @@
    "sq": "190002542886",
    "uf": "RJ",
    "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
    "turno": 1,
    "nome": "Fernanda Louback",
    "nomeCompleto": "Fernanda Anchieta Louback",
    "partido": "PL",
    "numero": "22",
    "foto": "fotos/tse2026/190002542886.jpg"
-  },
-  {
-   "sq": "190002543379",
-   "uf": "RJ",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Jane Reis",
-   "nomeCompleto": "Jeannie Mayr Reis De Oliveira",
-   "partido": "MDB",
-   "numero": "55",
-   "foto": "fotos/tse2026/190002543379.jpg"
   },
   {
    "sq": "200002534419",
