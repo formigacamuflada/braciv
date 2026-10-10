@@ -1,6 +1,6 @@
 {
- "geradoTse": "09/10/2026 19:30:40",
- "coletadoEm": "2026-10-10T00:57+00:00",
+ "geradoTse": "10/10/2026 05:30:51",
+ "coletadoEm": "2026-10-10T09:58+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -420,32 +420,6 @@
    "foto": "fotos/tse2026/10002545229.jpg"
   },
   {
-   "sq": "10002532492",
-   "uf": "AC",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Alan Rick",
-   "nomeCompleto": "Alan Rick Miranda",
-   "partido": "REPUBLICANOS",
-   "numero": "10",
-   "foto": "fotos/tse2026/10002532492.jpg"
-  },
-  {
-   "sq": "10002544107",
-   "uf": "AC",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Mailza Assis",
-   "nomeCompleto": "Mailza Assis Cameli",
-   "partido": "PP",
-   "numero": "11",
-   "foto": "fotos/tse2026/10002544107.jpg"
-  },
-  {
    "sq": "10002533895",
    "uf": "AC",
    "cargo": "Senador",
@@ -470,32 +444,6 @@
    "partido": "PL",
    "numero": "222",
    "foto": "fotos/tse2026/10002548050.jpg"
-  },
-  {
-   "sq": "10002544108",
-   "uf": "AC",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Jessica Sales",
-   "nomeCompleto": "Jessica Rojas Sales",
-   "partido": "MDB",
-   "numero": "11",
-   "foto": "fotos/tse2026/10002544108.jpg"
-  },
-  {
-   "sq": "10002532493",
-   "uf": "AC",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Ricardo Leite",
-   "nomeCompleto": "Fabio Ricardo Leite",
-   "partido": "REPUBLICANOS",
-   "numero": "10",
-   "foto": "fotos/tse2026/10002532493.jpg"
   },
   {
    "sq": "20002548094",
@@ -1018,32 +966,6 @@
    "foto": "fotos/tse2026/20002553351.jpg"
   },
   {
-   "sq": "40002532272",
-   "uf": "AM",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Omar Aziz",
-   "nomeCompleto": "Omar Jose Abdelaziz",
-   "partido": "PSD",
-   "numero": "55",
-   "foto": "fotos/tse2026/40002532272.jpg"
-  },
-  {
-   "sq": "40002541626",
-   "uf": "AM",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Professora Maria Do Carmo",
-   "nomeCompleto": "Maria Do Carmo Seffair Lins De Albuquerque",
-   "partido": "PL",
-   "numero": "22",
-   "foto": "fotos/tse2026/40002541626.jpg"
-  },
-  {
    "sq": "40002531447",
    "uf": "AM",
    "cargo": "Senador",
@@ -1068,32 +990,6 @@
    "partido": "PSDB",
    "numero": "455",
    "foto": "fotos/tse2026/40002537344.jpg"
-  },
-  {
-   "sq": "40002532271",
-   "uf": "AM",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Alessandra Campelo",
-   "nomeCompleto": "Alessandra Campelo Da Silva",
-   "partido": "PSD",
-   "numero": "55",
-   "foto": "fotos/tse2026/40002532271.jpg"
-  },
-  {
-   "sq": "40002541627",
-   "uf": "AM",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Coronel Anibal",
-   "nomeCompleto": "Mario Anibal Gomes Da Costa Junior",
-   "partido": "PL",
-   "numero": "22",
-   "foto": "fotos/tse2026/40002541627.jpg"
   },
   {
    "sq": "30002533721",
