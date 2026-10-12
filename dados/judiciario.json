@@ -1,15 +1,17 @@
 {
- "coletadoEm": "2026-10-07",
+ "coletadoEm": "2026-10-12",
  "tribunais": {
   "TST": {
    "url": "https://www.tst.jus.br/ministros",
    "membros": [],
-   "vagasLegais": 27
+   "vagasLegais": 27,
+   "mantidoDaColetaAnterior": true
   },
   "STM": {
    "url": "https://www.stm.jus.br/institucional/conheca-o-superior-tribunal-militar/composicao-da-corte",
    "membros": [],
-   "vagasLegais": 15
+   "vagasLegais": 15,
+   "mantidoDaColetaAnterior": true
   },
   "CNJ": {
    "url": "https://www.cnj.jus.br/composicao-atual/",
