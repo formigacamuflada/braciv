@@ -2,7 +2,7 @@
   ok  SRI/PR     José Nobre Guimarães  <- https://www.gov.br/sri/pt-br/composicao/ministra-1
   ok  GSI/PR     Marcos Antonio Amaro dos Santos  <- https://www.gov.br/gsi/pt-br/composicao/gabinete/ministro
   ok  MCID       Antonio Vladimir Moura Lima  <- https://www.gov.br/cidades/pt-br/composicao/ministro-das-cidades
-  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/acesso-a-informacao/institucional/quem-e-quem
+  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/composicao/gm/ministra/luciana-santos
   ok  MCOM       Frederico de Siqueira Filho  <- https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MD         José Mucio Monteiro Filho  <- https://www.gov.br/defesa/pt-br/composicao/quem-e-quem
   ok  MDS        José Wellington Barroso de Araujo Dias  <- https://www.gov.br/mds/pt-br/composicao/quem-e-quem
