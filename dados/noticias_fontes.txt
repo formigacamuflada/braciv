@@ -1,4 +1,4 @@
-7/11 feeds responderam; 311 noticias guardadas
+7/11 feeds responderam; 329 noticias guardadas
 HTTP 200       INPI https://www.gov.br/inpi/pt-br/assuntos/noticias/RSS
 HTTP 404       ANPD https://www.gov.br/anpd/pt-br/assuntos/noticias/RSS
 HTTP 404       ANTAQ https://www.gov.br/antaq/pt-br/assuntos/noticias/RSS
