@@ -1,6 +1,6 @@
 {
- "geradoTse": "15/10/2026 08:31:24",
- "coletadoEm": "2026-10-15T11:41+00:00",
+ "geradoTse": "15/10/2026 12:30:57",
+ "coletadoEm": "2026-10-15T17:09+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -21246,32 +21246,6 @@
    "foto": "fotos/tse2026/270002548433.jpg"
   },
   {
-   "sq": "270002544599",
-   "uf": "TO",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Professora Dorinha",
-   "nomeCompleto": "Maria Auxiliadora Seabra Rezende",
-   "partido": "UNIÃO",
-   "numero": "44",
-   "foto": "fotos/tse2026/270002544599.jpg"
-  },
-  {
-   "sq": "270002544544",
-   "uf": "TO",
-   "cargo": "Governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Vicentinho Júnior",
-   "nomeCompleto": "Vicente Alves De Oliveira Júnior",
-   "partido": "PSDB",
-   "numero": "45",
-   "foto": "fotos/tse2026/270002544544.jpg"
-  },
-  {
    "sq": "270002548344",
    "uf": "TO",
    "cargo": "Senador",
@@ -21296,32 +21270,6 @@
    "partido": "PL",
    "numero": "222",
    "foto": "fotos/tse2026/270002546333.jpg"
-  },
-  {
-   "sq": "270002544545",
-   "uf": "TO",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Amélio Cayres",
-   "nomeCompleto": "Amelio Cayres De Almeida",
-   "partido": "MDB",
-   "numero": "45",
-   "foto": "fotos/tse2026/270002544545.jpg"
-  },
-  {
-   "sq": "270002544600",
-   "uf": "TO",
-   "cargo": "Vice-governador",
-   "situacao": "segundoTurno",
-   "situacaoTse": "2º TURNO",
-   "turno": 1,
-   "nome": "Atos Gomes",
-   "nomeCompleto": "Atos Gomes De Araújo",
-   "partido": "REPUBLICANOS",
-   "numero": "44",
-   "foto": "fotos/tse2026/270002544600.jpg"
   }
  ]
 }
