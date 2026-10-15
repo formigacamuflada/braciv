@@ -153,6 +153,15 @@
       "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador6358.jpg",
       "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/6358",
       "EmailParlamentar": "sen.anapaulalobato@senado.leg.br",
+      "Telefones": {
+        "Telefone": [
+          {
+            "NumeroTelefone": "33032967",
+            "OrdemPublicacao": "1",
+            "IndicadorFax": "Não"
+          }
+        ]
+      },
       "SiglaPartidoParlamentar": "PSB",
       "UfParlamentar": "MA",
       "Bloco": {
