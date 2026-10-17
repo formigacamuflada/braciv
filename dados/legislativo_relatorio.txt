@@ -6,6 +6,6 @@ tipos de colegiado no Senado: ['Comissão Parlamentar de Inquérito', 'Comissão
 CPIs do Senado e CPMIs do Congresso em funcionamento: 2 ['CPIPED', 'CPIVD']
 Câmara: tipo de órgão CPI = 4
 CPIs da Câmara em funcionamento: 0 []
-Senado, estrutura administrativa: 233 setores com titular
-Senado, servidores ativos: 6705 (5636 com função)
-Câmara, funcionários: 14674 (3415 com função)
+Senado, estrutura administrativa: 234 setores com titular
+Senado, servidores ativos: 6707 (5632 com função)
+Câmara, funcionários: 14686 (3418 com função)
