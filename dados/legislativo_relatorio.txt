@@ -8,4 +8,4 @@ Câmara: tipo de órgão CPI = 4
 CPIs da Câmara em funcionamento: 0 []
 Senado, estrutura administrativa: 234 setores com titular
 Senado, servidores ativos: 6707 (5632 com função)
-Câmara, funcionários: 14686 (3418 com função)
+Câmara, funcionários: 14709 (3416 com função)
