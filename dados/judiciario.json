@@ -1,6 +1,72 @@
 {
- "coletadoEm": "2026-10-12",
+ "coletadoEm": "2026-10-19",
  "tribunais": {
+  "STF": {
+   "url": "https://portal.stf.jus.br/ostf/",
+   "membros": [
+    {
+     "nome": "Edson Fachin",
+     "papel": "Presidente",
+     "desde": "29/09/2025",
+     "foto": "fotos/jud/STF/edson-fachin.jpg"
+    },
+    {
+     "nome": "Gilmar Mendes",
+     "papel": null,
+     "desde": "20/06/2002",
+     "foto": "fotos/jud/STF/gilmar-mendes.jpg"
+    },
+    {
+     "nome": "Cármen Lúcia",
+     "papel": null,
+     "desde": "21/06/2006",
+     "foto": "fotos/jud/STF/carmen-lucia.jpg"
+    },
+    {
+     "nome": "Dias Toffoli",
+     "papel": null,
+     "desde": "23/10/2009",
+     "foto": "fotos/jud/STF/dias-toffoli.jpg"
+    },
+    {
+     "nome": "Luiz Fux",
+     "papel": null,
+     "desde": "03/03/2011",
+     "foto": "fotos/jud/STF/luiz-fux.jpg"
+    },
+    {
+     "nome": "Alexandre de Moraes",
+     "papel": null,
+     "desde": "22/03/2017",
+     "foto": "fotos/jud/STF/alexandre-de-moraes.jpg"
+    },
+    {
+     "nome": "Nunes Marques",
+     "papel": null,
+     "desde": "05/11/2020",
+     "foto": "fotos/jud/STF/nunes-marques.jpg"
+    },
+    {
+     "nome": "André Mendonça",
+     "papel": null,
+     "desde": "16/12/2021",
+     "foto": "fotos/jud/STF/andre-mendonca.jpg"
+    },
+    {
+     "nome": "Cristiano Zanin",
+     "papel": null,
+     "desde": "03/08/2023",
+     "foto": "fotos/jud/STF/cristiano-zanin.jpg"
+    },
+    {
+     "nome": "Flávio Dino",
+     "papel": null,
+     "desde": "22/02/2024",
+     "foto": "fotos/jud/STF/flavio-dino.jpg"
+    }
+   ],
+   "vagasLegais": 11
+  },
   "TST": {
    "url": "https://www.tst.jus.br/ministros",
    "membros": [],
