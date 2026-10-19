@@ -2,9 +2,10 @@
   ok  SRI/PR     José Nobre Guimarães  <- https://www.gov.br/sri/pt-br/composicao/ministra-1
   ok  GSI/PR     Marcos Antonio Amaro dos Santos  <- https://www.gov.br/gsi/pt-br/composicao/gabinete/ministro
   ok  MCID       Antonio Vladimir Moura Lima  <- https://www.gov.br/cidades/pt-br/composicao/ministro-das-cidades
-  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/composicao/gm/ministra/luciana-santos
+  ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MCOM       Frederico de Siqueira Filho  <- https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MD         José Mucio Monteiro Filho  <- https://www.gov.br/defesa/pt-br/composicao/quem-e-quem
+  ok  MDA        Fernanda Machiaveli Morão de Oliveira  <- https://www.gov.br/mda/pt-br/noticias/2026/10/ministra-fernanda-machiaveli-participa-de-entrega-de-espaco-para-comerciantes-atingidos-por-incendio-na-ceagesp
   ok  MDS        José Wellington Barroso de Araujo Dias  <- https://www.gov.br/mds/pt-br/composicao/quem-e-quem
   ok  MDIC       Márcio Fernando Elias Rosa  <- https://www.gov.br/mdic/pt-br/composicao/quem-e-quem
   ok  MEC        Leonardo Osvaldo Barchini Rosa  <- https://www.gov.br/mec/pt-br/composicao/gabinete-do-ministro/leonardo-osvaldo-barchini-rosa
@@ -23,7 +24,6 @@
   sem Vinícius Marques de Carvalho (CGU): falha ao baixar a imagem (UnidentifiedImageError)
   sem André Carlos Alves de Paula Filho (MAPA, gov.br/agricultura): foto nao encontrada
   sem Margareth Menezes da Purificação Costa (MinC, gov.br/cultura): foto nao encontrada
-  sem Fernanda Machiaveli Morão de Oliveira (MDA, gov.br/mda): foto nao encontrada
   sem Janine Mello dos Santos (MDHC, gov.br/mdh): foto nao encontrada
   sem Paulo Henrique Rodrigues Pereira (MEMP, gov.br/memp): foto nao encontrada
   sem Paulo Henrique Perna Cordeiro (MESP, gov.br/esporte): foto nao encontrada
@@ -36,4 +36,4 @@
   sem Luiz Henrique Eloy Amado (MPI, gov.br/povosindigenas): foto nao encontrada
   sem George Santoro (MT, gov.br/transportes): foto nao encontrada
   sem Gustavo Costa Feliciano (MTur, gov.br/turismo): foto nao encontrada
-ministros com foto: 19/38
+ministros com foto: 20/38
