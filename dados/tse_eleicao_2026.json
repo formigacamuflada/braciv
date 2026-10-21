@@ -1,6 +1,6 @@
 {
- "geradoTse": "21/10/2026 12:31:33",
- "coletadoEm": "2026-10-21T17:39+00:00",
+ "geradoTse": "21/10/2026 16:31:26",
+ "coletadoEm": "2026-10-21T21:49+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -10922,58 +10922,6 @@
    "partido": "REPUBLICANOS",
    "numero": "1010",
    "foto": "fotos/tse2026/150002544208.jpg"
-  },
-  {
-   "sq": "150002551789",
-   "uf": "PB",
-   "cargo": "Governador",
-   "situacao": "eleito",
-   "situacaoTse": "ELEITO",
-   "turno": 1,
-   "nome": "Lucas Ribeiro",
-   "nomeCompleto": "Lucas Ribeiro Novais De Araujo",
-   "partido": "PP",
-   "numero": "11",
-   "foto": "fotos/tse2026/150002551789.jpg"
-  },
-  {
-   "sq": "150002549793",
-   "uf": "PB",
-   "cargo": "Senador",
-   "situacao": "eleito",
-   "situacaoTse": "ELEITO",
-   "turno": 1,
-   "nome": "Joao Azevêdo",
-   "nomeCompleto": "João Azevêdo Lins Filho",
-   "partido": "PSB",
-   "numero": "400",
-   "foto": "fotos/tse2026/150002549793.jpg"
-  },
-  {
-   "sq": "150002544905",
-   "uf": "PB",
-   "cargo": "Senador",
-   "situacao": "eleito",
-   "situacaoTse": "ELEITO",
-   "turno": 1,
-   "nome": "Veneziano",
-   "nomeCompleto": "Veneziano Vital Do Rêgo Segundo Neto",
-   "partido": "MDB",
-   "numero": "155",
-   "foto": "fotos/tse2026/150002544905.jpg"
-  },
-  {
-   "sq": "150002551788",
-   "uf": "PB",
-   "cargo": "Vice-governador",
-   "situacao": "eleito",
-   "situacaoTse": "ELEITO",
-   "turno": 1,
-   "nome": "Ligia Feliciano",
-   "nomeCompleto": "Ana Ligia Costa Feliciano",
-   "partido": "UNIÃO",
-   "numero": "11",
-   "foto": "fotos/tse2026/150002551788.jpg"
   },
   {
    "sq": "170002539230",
