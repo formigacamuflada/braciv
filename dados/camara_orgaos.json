@@ -16588,6 +16588,28 @@
     "nomeResumido": null
   },
   {
+    "id": 103077,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/103077",
+    "sigla": "MPV139726",
+    "nome": "Comissão Mista da MPV 1397/2026",
+    "apelido": "MPV139726",
+    "codTipoOrgao": 9,
+    "tipoOrgao": "Comissão Medida Provisória",
+    "nomePublicacao": null,
+    "nomeResumido": null
+  },
+  {
+    "id": 103078,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/103078",
+    "sigla": "MPV139826",
+    "nome": "Comissão Mista da MPV 1398/2026",
+    "apelido": "MPV139826",
+    "codTipoOrgao": 9,
+    "tipoOrgao": "Comissão Medida Provisória",
+    "nomePublicacao": null,
+    "nomeResumido": null
+  },
+  {
     "id": 526390,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/526390",
     "sigla": "REP-0706",
