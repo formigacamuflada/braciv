@@ -7,5 +7,5 @@ CPIs do Senado e CPMIs do Congresso em funcionamento: 2 ['CPIPED', 'CPIVD']
 Câmara: tipo de órgão CPI = 4
 CPIs da Câmara em funcionamento: 0 []
 Senado, estrutura administrativa: 234 setores com titular
-Senado, servidores ativos: 6717 (5647 com função)
-Câmara, funcionários: 14727 (3419 com função)
+Senado, servidores ativos: 6725 (5656 com função)
+Câmara, funcionários: 14736 (3420 com função)
