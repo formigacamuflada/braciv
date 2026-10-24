@@ -1,9 +1,9 @@
 baixando lista de candidatos de 2026 ...
-arquivo gerado pelo TSE em: 23/10/2026 16:30:44
+arquivo gerado pelo TSE em: 23/10/2026 19:31:27
   Deputado Distrital   eleito        24
-  Deputado Estadual    eleito        1035
-  Deputado Federal     eleito        513
+  Deputado Estadual    eleito        1011
+  Deputado Federal     eleito        505
   Governador           eleito        21
   Senador              eleito        54
   Vice-governador      eleito        21
-com foto: 1668/1668
+com foto: 1636/1636
