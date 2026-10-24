@@ -1,94 +1,94 @@
 Camara: CPF de 513/513 deputados em exercicio
 baixando candidatos de 2022 ...
   2022: 17821 candidaturas lidas
-  eleitos 2022: {'DEPUTADO ESTADUAL': 1035, 'GOVERNADOR': 27, 'DEPUTADO DISTRITAL': 24, 'VICE-GOVERNADOR': 27}
+  eleitos 2022: {'DEPUTADO ESTADUAL': 1035, 'GOVERNADOR': 27, 'VICE-GOVERNADOR': 27, 'DEPUTADO DISTRITAL': 24}
 baixando candidatos de 2024 ...
   2024: 463677 candidaturas lidas
   2024: CPF publicado em 0 linhas; DT_NASCIMENTO em 463631
 baixando candidatos de 2026 ...
   2026: 20989 candidaturas lidas
-eleitos de 2022 que se elegeram em 2024: {('Deputado Estadual', 'Prefeito'): 38, ('Deputado Estadual', 'Vice-prefeito'): 4}
-  RJ Deputado Estadual Leo Vieira -> Prefeito de São João De Meriti
-  RJ Deputado Estadual Dr Serginho -> Prefeito de Cabo Frio
-  SC Deputado Estadual Massocco -> Prefeito de Concórdia
-  RJ Deputado Estadual Tande Vieira -> Prefeito de Resende
-  PA Deputado Estadual Igor Normando -> Prefeito de Belém
-  SP Deputado Estadual Vinicius Camarinha -> Prefeito de Marília
-  PR Deputado Estadual Douglas Fabricio -> Prefeito de Campo Mourão
-  SP Deputado Estadual Helinho Zanatta -> Prefeito de Piracicaba
-  RJ Deputado Estadual Márcio Canella -> Prefeito de Belford Roxo
-  RJ Deputado Estadual Andrezinho Ceciliano -> Prefeito de Paracambi
-  MG Deputado Estadual Coronel Sandro -> Prefeito de Governador Valadares
-  PI Deputado Estadual Jeová Alencar -> Vice-prefeito de Teresina
-  BA Deputado Estadual Eures Ribeiro -> Prefeito de Bom Jesus Da Lapa
-  MA Deputado Estadual Rildo Amaral -> Prefeito de Imperatriz
-  MA Deputado Estadual Juscelino Marreca -> Prefeito de Santa Luzia
-  MA Deputado Estadual Roberto Costa -> Prefeito de Bacabal
-  AP Deputado Estadual Delegado Inacio -> Prefeito de Oiapoque
-  SP Deputado Estadual Edmir Chedid -> Prefeito de Bragança Paulista
-  PE Deputado Estadual Lula Cabral -> Prefeito de Cabo De Santo Agostinho
-  PE Deputado Estadual Chaparral -> Prefeito de Surubim
-  SP Deputado Estadual Gerson Pessoa -> Prefeito de Osasco
-  SC Deputado Estadual Delegado Egidio Ferrari -> Prefeito de Blumenau
-  MG Deputado Estadual Douglas Melo -> Prefeito de Sete Lagoas
-  RO Deputado Estadual Affonso Candido -> Prefeito de Ji-Paraná
-  MT Deputado Estadual Claudio Ferreira -> Prefeito de Rondonópolis
+eleitos de 2022 que se elegeram em 2024: {('Deputado Estadual', 'Vice-prefeito'): 4, ('Deputado Estadual', 'Prefeito'): 38}
   BA Deputado Estadual Pablo Roberto  -> Vice-prefeito de Feira De Santana
+  MG Deputado Estadual Coronel Sandro -> Prefeito de Governador Valadares
+  PR Deputado Estadual Douglas Fabricio -> Prefeito de Campo Mourão
+  MA Deputado Estadual Rafael Leitoa -> Prefeito de Timon
+  SP Deputado Estadual Helinho Zanatta -> Prefeito de Piracicaba
+  CE Deputado Estadual Dr. Oscar Rodrigues -> Prefeito de Sobral
+  PE Deputado Estadual Chaparral -> Prefeito de Surubim
+  RJ Deputado Estadual Eduardo Cavaliere -> Vice-prefeito de Rio De Janeiro
+  MG Deputado Estadual Douglas Melo -> Prefeito de Sete Lagoas
+  PI Deputado Estadual Jeová Alencar -> Vice-prefeito de Teresina
+  SP Deputado Estadual Vinicius Camarinha -> Prefeito de Marília
+  SC Deputado Estadual Delegado Egidio Ferrari -> Prefeito de Blumenau
+  MG Deputado Estadual Fábio Avelar -> Prefeito de Nova Serrana
+  MT Deputado Estadual Claudio Ferreira -> Prefeito de Rondonópolis
+  PA Deputado Estadual Igor Normando -> Prefeito de Belém
+  MA Deputado Estadual Roberto Costa -> Prefeito de Bacabal
+  RJ Deputado Estadual Leo Vieira -> Prefeito de São João De Meriti
+  SC Deputado Estadual Soratto -> Prefeito de Tubarão
+  RJ Deputado Estadual Tande Vieira -> Prefeito de Resende
+  TO Deputado Estadual Fabion Gomes -> Prefeito de Tocantinópolis
+  PR Deputado Estadual Marcel Micheletto -> Prefeito de Assis Chateaubriand
+  MA Deputado Estadual Rildo Amaral -> Prefeito de Imperatriz
   CE Deputado Estadual Gabriella Aguiar -> Vice-prefeito de Fortaleza
-  GO Deputado Estadual Renato De Castro -> Prefeito de Goianésia
+  RJ Deputado Estadual Dr Serginho -> Prefeito de Cabo Frio
+  RS Deputado Estadual Mainardi -> Prefeito de Bagé
   ES Deputado Estadual Ferraço -> Prefeito de Cachoeiro De Itapemirim
   ES Deputado Estadual Lucas Scaramussa -> Prefeito de Linhares
-  MA Deputado Estadual Rafael Leitoa -> Prefeito de Timon
-  RS Deputado Estadual Mainardi -> Prefeito de Bagé
+  RJ Deputado Estadual Andrezinho Ceciliano -> Prefeito de Paracambi
+  BA Deputado Estadual Eures Ribeiro -> Prefeito de Bom Jesus Da Lapa
+  MA Deputado Estadual Juscelino Marreca -> Prefeito de Santa Luzia
+  SP Deputado Estadual Edmir Chedid -> Prefeito de Bragança Paulista
   CE Deputado Estadual Evandro Leitão -> Prefeito de Fortaleza
-  CE Deputado Estadual Dr. Oscar Rodrigues -> Prefeito de Sobral
-  RJ Deputado Estadual Eduardo Cavaliere -> Vice-prefeito de Rio De Janeiro
-  SC Deputado Estadual Soratto -> Prefeito de Tubarão
-  TO Deputado Estadual Fabion Gomes -> Prefeito de Tocantinópolis
-  MG Deputado Estadual Fábio Avelar -> Prefeito de Nova Serrana
+  AP Deputado Estadual Delegado Inacio -> Prefeito de Oiapoque
+  GO Deputado Estadual Renato De Castro -> Prefeito de Goianésia
+  PA Deputado Estadual Delegado Toni Cunha -> Prefeito de Marabá
+  SP Deputado Estadual Gerson Pessoa -> Prefeito de Osasco
+  PE Deputado Estadual Lula Cabral -> Prefeito de Cabo De Santo Agostinho
+  RJ Deputado Estadual Márcio Canella -> Prefeito de Belford Roxo
+  SC Deputado Estadual Massocco -> Prefeito de Concórdia
   PI Deputado Estadual Dr Pablo Santos -> Prefeito de Picos
   PR Deputado Estadual Tiago Amaral -> Prefeito de Londrina
-  PR Deputado Estadual Marcel Micheletto -> Prefeito de Assis Chateaubriand
-  PA Deputado Estadual Delegado Toni Cunha -> Prefeito de Marabá
+  RO Deputado Estadual Affonso Candido -> Prefeito de Ji-Paraná
 governadores de 2022 candidatos a OUTRO cargo em 2026 (renuncia obrigatoria): 8
-  AP Governador CLÉCIO: 2026 {'cargo': 'Governador', 'uf': 'AP', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
-  BA Governador JERÔNIMO: 2026 {'cargo': 'Governador', 'uf': 'BA', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
-  TO Vice-governador LAUREZ MOREIRA: 2026 {'cargo': 'Governador', 'uf': 'TO', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
-  PI Vice-governador THEMISTOCLES FILHO: 2026 {'cargo': 'Deputado Estadual', 'uf': 'PI', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
-  AP Vice-governador TELES JR: 2026 {'cargo': 'Vice-governador', 'uf': 'AP', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PDT'}
-  MA Vice-governador FELIPE CAMARÃO: 2026 {'cargo': 'Governador', 'uf': 'MA', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PT'}
-  PB Vice-governador LUCAS RIBEIRO: 2026 {'cargo': 'Governador', 'uf': 'PB', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PP'}
-  PI Governador RAFAEL FONTELES: 2026 {'cargo': 'Governador', 'uf': 'PI', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
-  ES Governador RENATO CASAGRANDE: 2026 {'cargo': 'Senador', 'uf': 'ES', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSB'}
-  MS Governador EDUARDO RIEDEL: 2026 {'cargo': 'Governador', 'uf': 'MS', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PP'}
-  SP Governador TARCÍSIO: 2026 {'cargo': 'Governador', 'uf': 'SP', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'REPUBLICANOS'}
-  PE Vice-governador PRISCILA KRAUSE: 2026 {'cargo': 'Vice-governador', 'uf': 'PE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSD'}
-  MT Vice-governador OTAVIANO PIVETTA: 2026 {'cargo': 'Governador', 'uf': 'MT', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'REPUBLICANOS'}
   PE Governador RAQUEL LYRA: 2026 {'cargo': 'Governador', 'uf': 'PE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSD'}
-  AM Governador WILSON LIMA: 2026 {'cargo': 'Senador', 'uf': 'AM', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
-  AM Vice-governador TADEU DE SOUZA: 2026 {'cargo': 'Deputado Federal', 'uf': 'AM', 'situacao': 'suplente', 'candidatura': '#Ne', 'partido': 'PP'}
-  BA Vice-governador GERALDO JÚNIOR: 2026 {'cargo': 'Vice-governador', 'uf': 'BA', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
-  RS Vice-governador GABRIEL SOUZA: 2026 {'cargo': 'Governador', 'uf': 'RS', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'MDB'}
-  CE Vice-governador JADE ROMERO: 2026 {'cargo': 'Deputado Estadual', 'uf': 'CE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
-  SE Governador FÁBIO: 2026 {'cargo': 'Governador', 'uf': 'SE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSD'}
-  PB Governador JOÃO: 2026 {'cargo': 'Senador', 'uf': 'PB', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSB'}
-  PA Vice-governador HANA: 2026 {'cargo': 'Governador', 'uf': 'PA', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'MDB'}
-  PA Governador HELDER: 2026 {'cargo': 'Senador', 'uf': 'PA', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
-  GO Governador RONALDO CAIADO: 2026 {'cargo': 'Presidente', 'uf': 'BR', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
-  MT Governador MAURO MENDES: 2026 {'cargo': 'Senador', 'uf': 'MT', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
-  SC Governador JORGINHO MELLO: 2026 {'cargo': 'Governador', 'uf': 'SC', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PL'}
-  MS Vice-governador BARBOSINHA: 2026 {'cargo': 'Vice-governador', 'uf': 'MS', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'REPUBLICANOS'}
-  GO Vice-governador DANIEL VILELA: 2026 {'cargo': 'Governador', 'uf': 'GO', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
-  AC Governador GLADSON CAMELI: 2026 {'cargo': 'Senador', 'uf': 'AC', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PP'}
-  RR Vice-governador EDILSON DAMIÃO: 2026 {'cargo': 'Deputado Federal', 'uf': 'RR', 'situacao': 'suplente', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
-  MG Vice-governador PROFESSOR MATEUS : 2026 {'cargo': 'Governador', 'uf': 'MG', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
-  SE Vice-governador ZEZINHO: 2026 {'cargo': 'Deputado Estadual', 'uf': 'SE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSB'}
-  SP Vice-governador FELICIO RAMUTH: 2026 {'cargo': 'Vice-governador', 'uf': 'SP', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
   MG Governador ZEMA: 2026 {'cargo': 'Presidente', 'uf': 'BR', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'NOVO'}
-  CE Governador ELMANO DE FREITAS: 2026 {'cargo': 'Governador', 'uf': 'CE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
-  ES Vice-governador RICARDO FERRAÇO: 2026 {'cargo': 'Governador', 'uf': 'ES', 'situacao': 'outra', 'candidatura': '#Ne', 'partido': 'MDB'}
+  ES Governador RENATO CASAGRANDE: 2026 {'cargo': 'Senador', 'uf': 'ES', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSB'}
+  SC Governador JORGINHO MELLO: 2026 {'cargo': 'Governador', 'uf': 'SC', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PL'}
+  GO Vice-governador DANIEL VILELA: 2026 {'cargo': 'Governador', 'uf': 'GO', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
+  SE Vice-governador ZEZINHO: 2026 {'cargo': 'Deputado Estadual', 'uf': 'SE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSB'}
+  MT Vice-governador OTAVIANO PIVETTA: 2026 {'cargo': 'Governador', 'uf': 'MT', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'REPUBLICANOS'}
+  MT Governador MAURO MENDES: 2026 {'cargo': 'Senador', 'uf': 'MT', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
   RN Vice-governador WALTER ALVES: 2026 {'cargo': 'Deputado Estadual', 'uf': 'RN', 'situacao': 'suplente', 'candidatura': '#Ne', 'partido': 'MDB'}
   AC Vice-governador MAILZA: 2026 {'cargo': 'Governador', 'uf': 'AC', 'situacao': 'outra', 'candidatura': '#Ne', 'partido': 'PP'}
   DF Vice-governador CELINA LEÃO: 2026 {'cargo': 'Governador', 'uf': 'DF', 'situacao': 'outra', 'candidatura': '#Ne', 'partido': 'PP'}
+  PB Vice-governador LUCAS RIBEIRO: 2026 {'cargo': 'Governador', 'uf': 'PB', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PP'}
+  BA Governador JERÔNIMO: 2026 {'cargo': 'Governador', 'uf': 'BA', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
+  PA Governador HELDER: 2026 {'cargo': 'Senador', 'uf': 'PA', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
+  BA Vice-governador GERALDO JÚNIOR: 2026 {'cargo': 'Vice-governador', 'uf': 'BA', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
+  MS Governador EDUARDO RIEDEL: 2026 {'cargo': 'Governador', 'uf': 'MS', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PP'}
+  MS Vice-governador BARBOSINHA: 2026 {'cargo': 'Vice-governador', 'uf': 'MS', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'REPUBLICANOS'}
+  TO Vice-governador LAUREZ MOREIRA: 2026 {'cargo': 'Governador', 'uf': 'TO', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
+  SP Vice-governador FELICIO RAMUTH: 2026 {'cargo': 'Vice-governador', 'uf': 'SP', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
+  AP Vice-governador TELES JR: 2026 {'cargo': 'Vice-governador', 'uf': 'AP', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PDT'}
+  SE Governador FÁBIO: 2026 {'cargo': 'Governador', 'uf': 'SE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSD'}
+  AC Governador GLADSON CAMELI: 2026 {'cargo': 'Senador', 'uf': 'AC', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PP'}
+  RS Vice-governador GABRIEL SOUZA: 2026 {'cargo': 'Governador', 'uf': 'RS', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'MDB'}
+  PB Governador JOÃO: 2026 {'cargo': 'Senador', 'uf': 'PB', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSB'}
+  MG Vice-governador PROFESSOR MATEUS : 2026 {'cargo': 'Governador', 'uf': 'MG', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
+  AP Governador CLÉCIO: 2026 {'cargo': 'Governador', 'uf': 'AP', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
+  AM Governador WILSON LIMA: 2026 {'cargo': 'Senador', 'uf': 'AM', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
+  CE Governador ELMANO DE FREITAS: 2026 {'cargo': 'Governador', 'uf': 'CE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
+  AM Vice-governador TADEU DE SOUZA: 2026 {'cargo': 'Deputado Federal', 'uf': 'AM', 'situacao': 'suplente', 'candidatura': '#Ne', 'partido': 'PP'}
+  PE Vice-governador PRISCILA KRAUSE: 2026 {'cargo': 'Vice-governador', 'uf': 'PE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PSD'}
+  PI Vice-governador THEMISTOCLES FILHO: 2026 {'cargo': 'Deputado Estadual', 'uf': 'PI', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'MDB'}
+  CE Vice-governador JADE ROMERO: 2026 {'cargo': 'Deputado Estadual', 'uf': 'CE', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
+  SP Governador TARCÍSIO: 2026 {'cargo': 'Governador', 'uf': 'SP', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'REPUBLICANOS'}
+  MA Vice-governador FELIPE CAMARÃO: 2026 {'cargo': 'Governador', 'uf': 'MA', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PT'}
+  PI Governador RAFAEL FONTELES: 2026 {'cargo': 'Governador', 'uf': 'PI', 'situacao': 'eleito', 'candidatura': '#Ne', 'partido': 'PT'}
+  GO Governador RONALDO CAIADO: 2026 {'cargo': 'Presidente', 'uf': 'BR', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
+  RR Vice-governador EDILSON DAMIÃO: 2026 {'cargo': 'Deputado Federal', 'uf': 'RR', 'situacao': 'suplente', 'candidatura': '#Ne', 'partido': 'UNIÃO'}
+  ES Vice-governador RICARDO FERRAÇO: 2026 {'cargo': 'Governador', 'uf': 'ES', 'situacao': 'outra', 'candidatura': '#Ne', 'partido': 'MDB'}
+  PA Vice-governador HANA: 2026 {'cargo': 'Governador', 'uf': 'PA', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'MDB'}
 federais de hoje em 2026: {('Senador', 'naoEleito'): 25, ('Deputado Federal', 'eleito'): 302, ('Deputado Federal', 'suplente'): 114, ('Senador', 'eleito'): 18, ('Deputado Estadual', 'suplente'): 3, ('Vice-presidente', 'outra'): 1, ('Deputado Estadual', 'eleito'): 6, ('Deputado Federal', 'naoEleito'): 17, ('Vice-governador', 'naoEleito'): 1, ('Deputado Federal', 'outra'): 3, ('Governador', 'naoEleito'): 3, ('Governador', 'outra'): 1, ('Governador', 'eleito'): 1}
-estaduais de 2022 em 2026: {('Deputado Estadual', 'eleito'): 601, ('Deputado Federal', 'naoEleito'): 4, ('Deputado Federal', 'suplente'): 41, ('Deputado Estadual', 'suplente'): 198, ('Deputado Estadual', 'naoEleito'): 13, ('Deputado Federal', 'eleito'): 51, ('Deputado Distrital', 'eleito'): 17, ('Senador', 'naoEleito'): 9, ('Governador', 'naoEleito'): 5, ('Senador', 'eleito'): 2, ('Vice-governador', 'eleito'): 4, ('Vice-governador', 'naoEleito'): 4, ('Vice-governador', 'outra'): 3, ('Governador', 'eleito'): 1, ('Deputado Distrital', 'suplente'): 2, ('Deputado Distrital', 'naoEleito'): 1, ('Deputado Estadual', 'outra'): 3, ('Deputado Federal', 'outra'): 2}
+estaduais de 2022 em 2026: {('Deputado Estadual', 'eleito'): 601, ('Deputado Estadual', 'suplente'): 198, ('Deputado Federal', 'eleito'): 51, ('Vice-governador', 'eleito'): 4, ('Senador', 'naoEleito'): 9, ('Deputado Federal', 'outra'): 2, ('Deputado Federal', 'suplente'): 41, ('Deputado Estadual', 'outra'): 3, ('Deputado Distrital', 'eleito'): 17, ('Governador', 'naoEleito'): 5, ('Vice-governador', 'outra'): 3, ('Vice-governador', 'naoEleito'): 4, ('Deputado Federal', 'naoEleito'): 4, ('Deputado Distrital', 'suplente'): 2, ('Deputado Estadual', 'naoEleito'): 13, ('Senador', 'eleito'): 2, ('Governador', 'eleito'): 1, ('Deputado Distrital', 'naoEleito'): 1}
