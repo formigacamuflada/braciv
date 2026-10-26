@@ -75809,7 +75809,7 @@
 {"idPortal": "1767793", "orgaoSiorg": 2852, "unidadeSiorg": 318074, "metodo": "cargo+nome", "semelhanca": 1.0},
 {"idPortal": "3200053", "orgaoSiorg": 2852, "unidadeSiorg": 72109, "metodo": "cargo+nome", "semelhanca": 1.0},
 {"idPortal": "1620282", "orgaoSiorg": 2852, "unidadeSiorg": 35348, "metodo": "cargo+nome", "semelhanca": 1.0},
-{"idPortal": "1099049", "orgaoSiorg": 2852, "unidadeSiorg": 635151, "metodo": "cargo+nome", "semelhanca": 1.0},
+{"idPortal": "1099049", "orgaoSiorg": 2852, "unidadeSiorg": null, "metodo": null, "semelhanca": null},
 {"idPortal": "4124762", "orgaoSiorg": 2852, "unidadeSiorg": 317999, "metodo": "cargo+nome", "semelhanca": 0.83},
 {"idPortal": "3689050", "orgaoSiorg": 2852, "unidadeSiorg": 317999, "metodo": "cargo+nome", "semelhanca": 0.83},
 {"idPortal": "445854", "orgaoSiorg": 2852, "unidadeSiorg": 35364, "metodo": "cargo+nome", "semelhanca": 1.0},
