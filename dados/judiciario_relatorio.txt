@@ -1,5 +1,5 @@
 STF: 10 pessoas, 10 com foto
-STJ: FALHOU (HTTPError: 403 Client Error: Forbidden for url: https://www.stj.jus.br/web/verMinistrosSTJ?parametro=1)
+STJ: 32 pessoas, 26 com foto
 TST: 0 pessoas, 0 com foto
 TSE: FALHOU (HTTPError: 403 Client Error: Forbidden for url: https://www.tse.jus.br/institucional/ministros)
 STM: 0 pessoas, 0 com foto

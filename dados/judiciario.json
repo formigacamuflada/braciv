@@ -1,5 +1,5 @@
 {
- "coletadoEm": "2026-10-19",
+ "coletadoEm": "2026-10-26",
  "tribunais": {
   "STF": {
    "url": "https://portal.stf.jus.br/ostf/",
@@ -66,6 +66,204 @@
     }
    ],
    "vagasLegais": 11
+  },
+  "STJ": {
+   "url": "https://www.stj.jus.br/web/verMinistrosSTJ?parametro=1",
+   "membros": [
+    {
+     "nome": "Antonio Carlos Ferreira",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/antonio-carlos-ferreira.jpg"
+    },
+    {
+     "nome": "Antonio Herman de Vasconcellos e Benjamin",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Benedito GonÓalves",
+     "papel": null,
+     "funcao": "Diretor-Geral da ENFAM",
+     "foto": "fotos/jud/STJ/benedito-gonoalves.jpg"
+    },
+    {
+     "nome": "Carlos Augusto Pires BrandÐo",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Daniela Rodrigues Teixeira",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/daniela-rodrigues-teixeira.jpg"
+    },
+    {
+     "nome": "FÃtima Nancy Andrighi",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Francisco Cãndido de Melo FalcÐo Neto",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/francisco-candido-de-melo-falco-neto.jpg"
+    },
+    {
+     "nome": "Geraldo Og NicÕas Marques Fernandes",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/geraldo-og-nicoas-marques-fernandes.jpg"
+    },
+    {
+     "nome": "Humberto EustÃquio Soares Martins",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/humberto-eustaquio-soares-martins.jpg"
+    },
+    {
+     "nome": "JoÐo OtÃvio de Noronha",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/joo-otavio-de-noronha.jpg"
+    },
+    {
+     "nome": "Joel Ilan Paciornik",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/joel-ilan-paciornik.jpg"
+    },
+    {
+     "nome": "JosÕ Afrãnio Vilela",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/joso-afranio-vilela.jpg"
+    },
+    {
+     "nome": "Luis Felipe SalomÐo",
+     "papel": null,
+     "funcao": "Presidente",
+     "foto": "fotos/jud/STJ/luis-felipe-salomo.jpg"
+    },
+    {
+     "nome": "Luiz Alberto Gurgel de Faria",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/luiz-alberto-gurgel-de-faria.jpg"
+    },
+    {
+     "nome": "Marcelo Navarro Ribeiro Dantas",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/marcelo-navarro-ribeiro-dantas.jpg"
+    },
+    {
+     "nome": "Marco AurÕlio Bellizze Oliveira",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/marco-aurolio-bellizze-oliveira.jpg"
+    },
+    {
+     "nome": "Marco AurÕlio Gastaldi Buzzi",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/marco-aurolio-gastaldi-buzzi.jpg"
+    },
+    {
+     "nome": "Maria Isabel Diniz Gallotti Rodrigues",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/maria-isabel-diniz-gallotti-rodrigues.jpg"
+    },
+    {
+     "nome": "Maria Marluce Caldas Bezerra",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Maria Thereza Rocha de Assis Moura",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Mauro Luiz Campbell Marques",
+     "papel": "Vice-Presidente",
+     "funcao": "Vice-Presidente e Corregedor-Geral da JustiÓa Federal",
+     "foto": "fotos/jud/STJ/mauro-luiz-campbell-marques.jpg"
+    },
+    {
+     "nome": "Messod Azulay Neto",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/messod-azulay-neto.jpg"
+    },
+    {
+     "nome": "Paulo Dias de Moura Ribeiro",
+     "papel": null,
+     "funcao": null,
+     "foto": null
+    },
+    {
+     "nome": "Paulo SÕrgio Domingues",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/paulo-sorgio-domingues.jpg"
+    },
+    {
+     "nome": "Raul Araºjo Filho",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/raul-araojo-filho.jpg"
+    },
+    {
+     "nome": "Regina Helena Costa",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/regina-helena-costa.jpg"
+    },
+    {
+     "nome": "Reynaldo Soares da Fonseca",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/reynaldo-soares-da-fonseca.jpg"
+    },
+    {
+     "nome": "Ricardo Villas B¶as Cueva",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/ricardo-villas-bas-cueva.jpg"
+    },
+    {
+     "nome": "Rogerio Schietti Machado Cruz",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/rogerio-schietti-machado-cruz.jpg"
+    },
+    {
+     "nome": "SebastiÐo Alves dos Reis Jºnior",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/sebastio-alves-dos-reis-jonior.jpg"
+    },
+    {
+     "nome": "SÕrgio LuÚz Kukina",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/sorgio-luuz-kukina.jpg"
+    },
+    {
+     "nome": "Teodoro Silva Santos",
+     "papel": null,
+     "funcao": null,
+     "foto": "fotos/jud/STJ/teodoro-silva-santos.jpg"
+    }
+   ],
+   "vagasLegais": 33
   },
   "TST": {
    "url": "https://www.tst.jus.br/ministros",
