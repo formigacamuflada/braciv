@@ -5,7 +5,6 @@
   ok  MCTI       Luciana Barbosa de Oliveira Santos  <- https://www.gov.br/mcti/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MCOM       Frederico de Siqueira Filho  <- https://www.gov.br/mcom/pt-br/acesso-a-informacao/institucional/quem-e-quem
   ok  MD         José Mucio Monteiro Filho  <- https://www.gov.br/defesa/pt-br/composicao/quem-e-quem
-  ok  MDA        Fernanda Machiaveli Morão de Oliveira  <- https://www.gov.br/mda/pt-br/noticias/2026/10/ministra-fernanda-machiaveli-participa-de-entrega-de-espaco-para-comerciantes-atingidos-por-incendio-na-ceagesp
   ok  MDS        José Wellington Barroso de Araujo Dias  <- https://www.gov.br/mds/pt-br/composicao/quem-e-quem
   ok  MDIC       Márcio Fernando Elias Rosa  <- https://www.gov.br/mdic/pt-br/composicao/quem-e-quem
   ok  MEC        Leonardo Osvaldo Barchini Rosa  <- https://www.gov.br/mec/pt-br/composicao/gabinete-do-ministro/leonardo-osvaldo-barchini-rosa
@@ -14,6 +13,7 @@
   ok  MIDR       Antônio Waldez Góes da Silva  <- https://www.gov.br/mdr/pt-br/composicao/ministro-e-secretarios
   ok  MJSP       Wellington César Lima e Silva  <- https://www.gov.br/mj/pt-br/acesso-a-informacao/institucional/galeria-de-ministros-da-justica?b_start:int=135
   ok  MME        Alexandre Silveira de Oliveira  <- https://www.gov.br/mme/pt-br/composicao/quem-e-quem
+  ok  MPOR       Tomé Monteiro da Franca  <- https://www.gov.br/portos-e-aeroportos/pt-br
   ok  MPS        Wolney Queiroz Maciel  <- https://www.gov.br/previdencia/pt-br/composicao/ministro-e-secretarios
   ok  MRE        Mauro Luiz Iecker Vieira  <- https://www.gov.br/mre/pt-br/composicao/quem-e-quem
   ok  MS         Alexandre Rocha Santos Padilha  <- https://www.gov.br/saude/pt-br/composicao/quem-e-quem
@@ -24,6 +24,7 @@
   sem Vinícius Marques de Carvalho (CGU): falha ao baixar a imagem (UnidentifiedImageError)
   sem André Carlos Alves de Paula Filho (MAPA, gov.br/agricultura): foto nao encontrada
   sem Margareth Menezes da Purificação Costa (MinC, gov.br/cultura): foto nao encontrada
+  sem Fernanda Machiaveli Morão de Oliveira (MDA, gov.br/mda): foto nao encontrada
   sem Janine Mello dos Santos (MDHC, gov.br/mdh): foto nao encontrada
   sem Paulo Henrique Rodrigues Pereira (MEMP, gov.br/memp): foto nao encontrada
   sem Paulo Henrique Perna Cordeiro (MESP, gov.br/esporte): foto nao encontrada
@@ -32,7 +33,6 @@
   sem Márcia Helena Carvalho Lopes (MMULHERES, gov.br/mulheres): foto nao encontrada
   sem Rivetla Edipo Araujo Cruz (MPA, gov.br/mpa): foto nao encontrada
   sem Bruno Moretti (MPO, gov.br/planejamento): foto nao encontrada
-  sem Tomé Monteiro da Franca (MPOR, gov.br/portos-e-aeroportos): foto nao encontrada
   sem Luiz Henrique Eloy Amado (MPI, gov.br/povosindigenas): foto nao encontrada
   sem George Santoro (MT, gov.br/transportes): foto nao encontrada
   sem Gustavo Costa Feliciano (MTur, gov.br/turismo): foto nao encontrada

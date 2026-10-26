@@ -34,11 +34,6 @@
   "fonte": "https://www.gov.br/defesa/pt-br/composicao/quem-e-quem",
   "sigla": "MD"
  },
- "Fernanda Machiaveli Morão de Oliveira": {
-  "foto": "fotos/ministros/MDA.jpg",
-  "fonte": "https://www.gov.br/mda/pt-br/noticias/2026/10/ministra-fernanda-machiaveli-participa-de-entrega-de-espaco-para-comerciantes-atingidos-por-incendio-na-ceagesp",
-  "sigla": "MDA"
- },
  "José Wellington Barroso de Araujo Dias": {
   "foto": "fotos/ministros/MDS.jpg",
   "fonte": "https://www.gov.br/mds/pt-br/composicao/quem-e-quem",
@@ -78,6 +73,11 @@
   "foto": "fotos/ministros/MME.jpg",
   "fonte": "https://www.gov.br/mme/pt-br/composicao/quem-e-quem",
   "sigla": "MME"
+ },
+ "Tomé Monteiro da Franca": {
+  "foto": "fotos/ministros/MPOR.jpg",
+  "fonte": "https://www.gov.br/portos-e-aeroportos/pt-br",
+  "sigla": "MPOR"
  },
  "Wolney Queiroz Maciel": {
   "foto": "fotos/ministros/MPS.jpg",
