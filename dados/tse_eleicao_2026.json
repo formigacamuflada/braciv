@@ -1,6 +1,6 @@
 {
- "geradoTse": "25/10/2026 12:30:51",
- "coletadoEm": "2026-10-27T15:25+00:00",
+ "geradoTse": "27/10/2026 16:30:56",
+ "coletadoEm": "2026-10-27T22:24+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -420,6 +420,19 @@
    "foto": "fotos/tse2026/10002545229.jpg"
   },
   {
+   "sq": "10002544107",
+   "uf": "AC",
+   "cargo": "Governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Mailza Assis",
+   "nomeCompleto": "Mailza Assis Cameli",
+   "partido": "PP",
+   "numero": "11",
+   "foto": "fotos/tse2026/10002544107.jpg"
+  },
+  {
    "sq": "10002533895",
    "uf": "AC",
    "cargo": "Senador",
@@ -444,6 +457,19 @@
    "partido": "PL",
    "numero": "222",
    "foto": "fotos/tse2026/10002548050.jpg"
+  },
+  {
+   "sq": "10002544108",
+   "uf": "AC",
+   "cargo": "Vice-governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Jessica Sales",
+   "nomeCompleto": "Jessica Rojas Sales",
+   "partido": "MDB",
+   "numero": "11",
+   "foto": "fotos/tse2026/10002544108.jpg"
   },
   {
    "sq": "20002548094",
@@ -1382,6 +1408,19 @@
    "foto": "fotos/tse2026/40002532761.jpg"
   },
   {
+   "sq": "40002532272",
+   "uf": "AM",
+   "cargo": "Governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Omar Aziz",
+   "nomeCompleto": "Omar Jose Abdelaziz",
+   "partido": "PSD",
+   "numero": "55",
+   "foto": "fotos/tse2026/40002532272.jpg"
+  },
+  {
    "sq": "40002531447",
    "uf": "AM",
    "cargo": "Senador",
@@ -1406,6 +1445,19 @@
    "partido": "PSDB",
    "numero": "455",
    "foto": "fotos/tse2026/40002537344.jpg"
+  },
+  {
+   "sq": "40002532271",
+   "uf": "AM",
+   "cargo": "Vice-governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Alessandra Campelo",
+   "nomeCompleto": "Alessandra Campelo Da Silva",
+   "partido": "PSD",
+   "numero": "55",
+   "foto": "fotos/tse2026/40002532271.jpg"
   },
   {
    "sq": "30002533721",
@@ -3254,6 +3306,32 @@
    "foto": "fotos/tse2026/50002536315.jpg"
   },
   {
+   "sq": "280002542548",
+   "uf": "BR",
+   "cargo": "Presidente",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Lula",
+   "nomeCompleto": "Luiz Inácio Lula Da Silva",
+   "partido": "PT",
+   "numero": "13",
+   "foto": "fotos/tse2026/280002542548.jpg"
+  },
+  {
+   "sq": "280002542549",
+   "uf": "BR",
+   "cargo": "Vice-presidente",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Geraldo Alckmin",
+   "nomeCompleto": "Geraldo Jose Rodrigues Alckmin Filho",
+   "partido": "PSB",
+   "numero": "13",
+   "foto": "fotos/tse2026/280002542549.jpg"
+  },
+  {
    "sq": "60002542833",
    "uf": "CE",
    "cargo": "Deputado Estadual",
@@ -4606,6 +4684,19 @@
    "foto": "fotos/tse2026/70002550319.jpg"
   },
   {
+   "sq": "70002553055",
+   "uf": "DF",
+   "cargo": "Governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Celina Leão",
+   "nomeCompleto": "Celina Leao Hizim Ferreira",
+   "partido": "PP",
+   "numero": "11",
+   "foto": "fotos/tse2026/70002553055.jpg"
+  },
+  {
    "sq": "70002552934",
    "uf": "DF",
    "cargo": "Senador",
@@ -4630,6 +4721,19 @@
    "partido": "PL",
    "numero": "222",
    "foto": "fotos/tse2026/70002552936.jpg"
+  },
+  {
+   "sq": "70002553056",
+   "uf": "DF",
+   "cargo": "Vice-governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Gustavo Rocha",
+   "nomeCompleto": "Gustavo Do Vale Rocha",
+   "partido": "REPUBLICANOS",
+   "numero": "11",
+   "foto": "fotos/tse2026/70002553056.jpg"
   },
   {
    "sq": "80002549439",
@@ -5152,6 +5256,19 @@
    "foto": "fotos/tse2026/80002542404.jpg"
   },
   {
+   "sq": "80002552682",
+   "uf": "ES",
+   "cargo": "Governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Lorenzo Pazolini",
+   "nomeCompleto": "Lorenzo Silva De Pazolini",
+   "partido": "REPUBLICANOS",
+   "numero": "10",
+   "foto": "fotos/tse2026/80002552682.jpg"
+  },
+  {
    "sq": "80002553265",
    "uf": "ES",
    "cargo": "Senador",
@@ -5176,6 +5293,19 @@
    "partido": "PSB",
    "numero": "400",
    "foto": "fotos/tse2026/80002551370.jpg"
+  },
+  {
+   "sq": "80002553263",
+   "uf": "ES",
+   "cargo": "Vice-governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Eliane Leal",
+   "nomeCompleto": "Eliane Leal Vieira",
+   "partido": "PL",
+   "numero": "10",
+   "foto": "fotos/tse2026/80002553263.jpg"
   },
   {
    "sq": "90002548664",
@@ -15682,6 +15812,19 @@
    "foto": "fotos/tse2026/200002533868.jpg"
   },
   {
+   "sq": "200002534001",
+   "uf": "RN",
+   "cargo": "Governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Cadu De Lula",
+   "nomeCompleto": "Carlos Eduardo Xavier",
+   "partido": "PT",
+   "numero": "13",
+   "foto": "fotos/tse2026/200002534001.jpg"
+  },
+  {
    "sq": "200002533841",
    "uf": "RN",
    "cargo": "Senador",
@@ -15706,6 +15849,19 @@
    "partido": "PODE",
    "numero": "200",
    "foto": "fotos/tse2026/200002534448.jpg"
+  },
+  {
+   "sq": "200002534002",
+   "uf": "RN",
+   "cargo": "Vice-governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Larissa",
+   "nomeCompleto": "Larissa Daniela Escossia Rosado",
+   "partido": "PSB",
+   "numero": "13",
+   "foto": "fotos/tse2026/200002534002.jpg"
   },
   {
    "sq": "220002537562",
@@ -21662,6 +21818,19 @@
    "foto": "fotos/tse2026/270002548433.jpg"
   },
   {
+   "sq": "270002544544",
+   "uf": "TO",
+   "cargo": "Governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Vicentinho Júnior",
+   "nomeCompleto": "Vicente Alves De Oliveira Júnior",
+   "partido": "PSDB",
+   "numero": "45",
+   "foto": "fotos/tse2026/270002544544.jpg"
+  },
+  {
    "sq": "270002548344",
    "uf": "TO",
    "cargo": "Senador",
@@ -21686,6 +21855,19 @@
    "partido": "PL",
    "numero": "222",
    "foto": "fotos/tse2026/270002546333.jpg"
+  },
+  {
+   "sq": "270002544545",
+   "uf": "TO",
+   "cargo": "Vice-governador",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO",
+   "turno": 2,
+   "nome": "Amélio Cayres",
+   "nomeCompleto": "Amelio Cayres De Almeida",
+   "partido": "MDB",
+   "numero": "45",
+   "foto": "fotos/tse2026/270002544545.jpg"
   }
  ]
 }
