@@ -18128,17 +18128,6 @@
     "nomeResumido": "Sergurança Pública"
   },
   {
-    "id": 539843,
-    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539843",
-    "sigla": "SUBSPBC",
-    "nome": "Subcomissão Especial destinada a acompanhar, avaliar e propor medidas relacionadas à Segurança Privada e aos Bombeiros Civis, no que concerne às matérias afetas à segurança pública, à prevenção de ilícitos, ao combate à clandestinidade e ao fortalecimento da fiscalização do setor",
-    "apelido": "CSPCCO - Segurança Privada e Bombeiros Civis",
-    "codTipoOrgao": 25,
-    "tipoOrgao": "Subcomissão",
-    "nomePublicacao": "Subcomissão Especial da Segurança Privada e Bombeiros Civis (CSPCCO/SUBSPBC)",
-    "nomeResumido": "Segurança Pública"
-  },
-  {
     "id": 539844,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539844",
     "sigla": "PLP10821",
