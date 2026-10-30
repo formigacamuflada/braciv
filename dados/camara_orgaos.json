@@ -18236,5 +18236,16 @@
     "tipoOrgao": "Grupo de Trabalho",
     "nomePublicacao": null,
     "nomeResumido": null
+  },
+  {
+    "id": 539868,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539868",
+    "sigla": "GTPROELE",
+    "nome": "Grupo de Trabalho destinado a discutir a regulamentação da Propaganda Eleitoral em Plataformas Digitais",
+    "apelido": "GT - Propaganda Eleitoral em Plataformas Digitais",
+    "codTipoOrgao": 10,
+    "tipoOrgao": "Grupo de Trabalho",
+    "nomePublicacao": null,
+    "nomeResumido": null
   }
 ]
