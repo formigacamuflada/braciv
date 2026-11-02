@@ -1,5 +1,5 @@
 {
- "coletadoEm": "2026-10-26",
+ "coletadoEm": "2026-11-02",
  "tribunais": {
   "STF": {
    "url": "https://portal.stf.jus.br/ostf/",
@@ -83,13 +83,13 @@
      "foto": null
     },
     {
-     "nome": "Benedito GonÓalves",
+     "nome": "Benedito Gonçalves",
      "papel": null,
      "funcao": "Diretor-Geral da ENFAM",
-     "foto": "fotos/jud/STJ/benedito-gonoalves.jpg"
+     "foto": "fotos/jud/STJ/benedito-goncalves.jpg"
     },
     {
-     "nome": "Carlos Augusto Pires BrandÐo",
+     "nome": "Carlos Augusto Pires Brandăo",
      "papel": null,
      "funcao": null,
      "foto": null
@@ -101,34 +101,34 @@
      "foto": "fotos/jud/STJ/daniela-rodrigues-teixeira.jpg"
     },
     {
-     "nome": "FÃtima Nancy Andrighi",
+     "nome": "Fátima Nancy Andrighi",
      "papel": null,
      "funcao": null,
      "foto": null
     },
     {
-     "nome": "Francisco Cãndido de Melo FalcÐo Neto",
+     "nome": "Francisco Cândido de Melo Falcăo Neto",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/francisco-candido-de-melo-falco-neto.jpg"
+     "foto": "fotos/jud/STJ/francisco-candido-de-melo-falcao-neto.jpg"
     },
     {
-     "nome": "Geraldo Og NicÕas Marques Fernandes",
+     "nome": "Geraldo Og Nicéas Marques Fernandes",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/geraldo-og-nicoas-marques-fernandes.jpg"
+     "foto": "fotos/jud/STJ/geraldo-og-niceas-marques-fernandes.jpg"
     },
     {
-     "nome": "Humberto EustÃquio Soares Martins",
+     "nome": "Humberto Eustáquio Soares Martins",
      "papel": null,
      "funcao": null,
      "foto": "fotos/jud/STJ/humberto-eustaquio-soares-martins.jpg"
     },
     {
-     "nome": "JoÐo OtÃvio de Noronha",
+     "nome": "Joăo Otávio de Noronha",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/joo-otavio-de-noronha.jpg"
+     "foto": "fotos/jud/STJ/joao-otavio-de-noronha.jpg"
     },
     {
      "nome": "Joel Ilan Paciornik",
@@ -137,16 +137,16 @@
      "foto": "fotos/jud/STJ/joel-ilan-paciornik.jpg"
     },
     {
-     "nome": "JosÕ Afrãnio Vilela",
+     "nome": "José Afrânio Vilela",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/joso-afranio-vilela.jpg"
+     "foto": "fotos/jud/STJ/jose-afranio-vilela.jpg"
     },
     {
-     "nome": "Luis Felipe SalomÐo",
-     "papel": null,
+     "nome": "Luis Felipe Salomăo",
+     "papel": "Presidente",
      "funcao": "Presidente",
-     "foto": "fotos/jud/STJ/luis-felipe-salomo.jpg"
+     "foto": "fotos/jud/STJ/luis-felipe-salomao.jpg"
     },
     {
      "nome": "Luiz Alberto Gurgel de Faria",
@@ -161,16 +161,16 @@
      "foto": "fotos/jud/STJ/marcelo-navarro-ribeiro-dantas.jpg"
     },
     {
-     "nome": "Marco AurÕlio Bellizze Oliveira",
+     "nome": "Marco Aurélio Bellizze Oliveira",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/marco-aurolio-bellizze-oliveira.jpg"
+     "foto": "fotos/jud/STJ/marco-aurelio-bellizze-oliveira.jpg"
     },
     {
-     "nome": "Marco AurÕlio Gastaldi Buzzi",
+     "nome": "Marco Aurélio Gastaldi Buzzi",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/marco-aurolio-gastaldi-buzzi.jpg"
+     "foto": "fotos/jud/STJ/marco-aurelio-gastaldi-buzzi.jpg"
     },
     {
      "nome": "Maria Isabel Diniz Gallotti Rodrigues",
@@ -193,7 +193,7 @@
     {
      "nome": "Mauro Luiz Campbell Marques",
      "papel": "Vice-Presidente",
-     "funcao": "Vice-Presidente e Corregedor-Geral da JustiÓa Federal",
+     "funcao": "Vice-Presidente e Corregedor-Geral da Justiça Federal",
      "foto": "fotos/jud/STJ/mauro-luiz-campbell-marques.jpg"
     },
     {
@@ -209,16 +209,16 @@
      "foto": null
     },
     {
-     "nome": "Paulo SÕrgio Domingues",
+     "nome": "Paulo Sérgio Domingues",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/paulo-sorgio-domingues.jpg"
+     "foto": "fotos/jud/STJ/paulo-sergio-domingues.jpg"
     },
     {
-     "nome": "Raul Araºjo Filho",
+     "nome": "Raul Araújo Filho",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/raul-araojo-filho.jpg"
+     "foto": "fotos/jud/STJ/raul-araujo-filho.jpg"
     },
     {
      "nome": "Regina Helena Costa",
@@ -233,10 +233,10 @@
      "foto": "fotos/jud/STJ/reynaldo-soares-da-fonseca.jpg"
     },
     {
-     "nome": "Ricardo Villas B¶as Cueva",
+     "nome": "Ricardo Villas Bôas Cueva",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/ricardo-villas-bas-cueva.jpg"
+     "foto": "fotos/jud/STJ/ricardo-villas-boas-cueva.jpg"
     },
     {
      "nome": "Rogerio Schietti Machado Cruz",
@@ -245,16 +245,16 @@
      "foto": "fotos/jud/STJ/rogerio-schietti-machado-cruz.jpg"
     },
     {
-     "nome": "SebastiÐo Alves dos Reis Jºnior",
+     "nome": "Sebastiăo Alves dos Reis Júnior",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/sebastio-alves-dos-reis-jonior.jpg"
+     "foto": "fotos/jud/STJ/sebastiao-alves-dos-reis-junior.jpg"
     },
     {
-     "nome": "SÕrgio LuÚz Kukina",
+     "nome": "Sérgio Luíz Kukina",
      "papel": null,
      "funcao": null,
-     "foto": "fotos/jud/STJ/sorgio-luuz-kukina.jpg"
+     "foto": "fotos/jud/STJ/sergio-luiz-kukina.jpg"
     },
     {
      "nome": "Teodoro Silva Santos",
