@@ -44,10 +44,10 @@
   "fonte": "https://www.gov.br/mdic/pt-br/composicao/quem-e-quem",
   "sigla": "MDIC"
  },
- "Leonardo Osvaldo Barchini Rosa": {
-  "foto": "fotos/ministros/MEC.jpg",
-  "fonte": "https://www.gov.br/mec/pt-br/composicao/gabinete-do-ministro/leonardo-osvaldo-barchini-rosa",
-  "sigla": "MEC"
+ "Paulo Henrique Rodrigues Pereira": {
+  "foto": "fotos/ministros/MEMP.jpg",
+  "fonte": "https://www.gov.br/memp/pt-br",
+  "sigla": "MEMP"
  },
  "Dario Carnevalli Durigan": {
   "foto": "fotos/ministros/MF.jpg",
@@ -98,5 +98,10 @@
   "foto": "fotos/ministros/MTE.jpg",
   "fonte": "https://www.gov.br/trabalho-e-emprego/pt-br/composicao/ministro-e-secretarios",
   "sigla": "MTE"
+ },
+ "Gustavo Costa Feliciano": {
+  "foto": "fotos/ministros/MTur.jpg",
+  "fonte": "https://www.gov.br/turismo/pt-br",
+  "sigla": "MTur"
  }
 }
