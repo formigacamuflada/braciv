@@ -1,5 +1,5 @@
 {
- "geradoEm": "2026-11-01T16:38+00:00",
+ "geradoEm": "2026-11-02T19:49+00:00",
  "federais": {
   "dep:204379": {
    "2026": {
@@ -71,6 +71,15 @@
     "situacao": "eleito",
     "candidatura": "#Ne",
     "partido": "PT"
+   }
+  },
+  "dep:136811": {
+   "2026": {
+    "cargo": "Deputado Federal",
+    "uf": "RS",
+    "situacao": "eleito",
+    "candidatura": "#Ne",
+    "partido": "PP"
    }
   },
   "dep:178835": {
@@ -172,6 +181,15 @@
     "partido": "UNIÃO"
    }
   },
+  "dep:220554": {
+   "2026": {
+    "cargo": "Deputado Federal",
+    "uf": "RS",
+    "situacao": "suplente",
+    "candidatura": "#Ne",
+    "partido": "PT"
+   }
+  },
   "dep:221148": {
    "2026": {
     "cargo": "Deputado Federal",
@@ -206,6 +224,15 @@
     "situacao": "eleito",
     "candidatura": "#Ne",
     "partido": "PV"
+   }
+  },
+  "dep:204353": {
+   "2026": {
+    "cargo": "Deputado Federal",
+    "uf": "AP",
+    "situacao": "eleito",
+    "candidatura": "#Ne",
+    "partido": "UNIÃO"
    }
   },
   "dep:178937": {

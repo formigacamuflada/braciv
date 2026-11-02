@@ -1,4 +1,4 @@
-Camara: CPF de 510/513 deputados em exercicio
+Camara: CPF de 513/513 deputados em exercicio
 baixando candidatos de 2022 ...
   2022: 17821 candidaturas lidas
   eleitos 2022: {'GOVERNADOR': 27, 'DEPUTADO ESTADUAL': 1035, 'VICE-GOVERNADOR': 27, 'DEPUTADO DISTRITAL': 24}
@@ -90,5 +90,5 @@ governadores de 2022 candidatos a OUTRO cargo em 2026 (renuncia obrigatoria): 8
   AC Governador GLADSON CAMELI: 2026 {'cargo': 'Senador', 'uf': 'AC', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PP'}
   MG Vice-governador PROFESSOR MATEUS : 2026 {'cargo': 'Governador', 'uf': 'MG', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PSD'}
   MA Vice-governador FELIPE CAMARÃO: 2026 {'cargo': 'Governador', 'uf': 'MA', 'situacao': 'naoEleito', 'candidatura': '#Ne', 'partido': 'PT'}
-federais de hoje em 2026: {('Senador', 'naoEleito'): 25, ('Deputado Federal', 'eleito'): 301, ('Deputado Federal', 'suplente'): 113, ('Senador', 'eleito'): 18, ('Deputado Estadual', 'suplente'): 3, ('Vice-presidente', 'naoEleito'): 1, ('Deputado Estadual', 'eleito'): 6, ('Deputado Federal', 'naoEleito'): 17, ('Vice-governador', 'naoEleito'): 1, ('Deputado Federal', 'outra'): 3, ('Governador', 'naoEleito'): 3, ('Governador', 'eleito'): 2}
+federais de hoje em 2026: {('Senador', 'naoEleito'): 25, ('Deputado Federal', 'eleito'): 303, ('Deputado Federal', 'suplente'): 114, ('Senador', 'eleito'): 18, ('Deputado Estadual', 'suplente'): 3, ('Vice-presidente', 'naoEleito'): 1, ('Deputado Estadual', 'eleito'): 6, ('Deputado Federal', 'naoEleito'): 17, ('Vice-governador', 'naoEleito'): 1, ('Deputado Federal', 'outra'): 3, ('Governador', 'naoEleito'): 3, ('Governador', 'eleito'): 2}
 estaduais de 2022 em 2026: {('Deputado Estadual', 'eleito'): 601, ('Deputado Estadual', 'outra'): 3, ('Deputado Federal', 'outra'): 2, ('Deputado Estadual', 'suplente'): 198, ('Deputado Estadual', 'naoEleito'): 13, ('Governador', 'naoEleito'): 5, ('Deputado Federal', 'eleito'): 51, ('Vice-governador', 'eleito'): 6, ('Senador', 'naoEleito'): 9, ('Deputado Distrital', 'eleito'): 17, ('Deputado Federal', 'suplente'): 41, ('Governador', 'eleito'): 1, ('Deputado Distrital', 'suplente'): 2, ('Deputado Federal', 'naoEleito'): 4, ('Deputado Distrital', 'naoEleito'): 1, ('Vice-governador', 'naoEleito'): 5, ('Senador', 'eleito'): 2}
