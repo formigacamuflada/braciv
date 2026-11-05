@@ -16610,6 +16610,17 @@
     "nomeResumido": null
   },
   {
+    "id": 103079,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/103079",
+    "sigla": "MPV139926",
+    "nome": "Comissão Mista da MPV 1399/2026",
+    "apelido": "MPV139926",
+    "codTipoOrgao": 9,
+    "tipoOrgao": "Comissão Medida Provisória",
+    "nomePublicacao": null,
+    "nomeResumido": null
+  },
+  {
     "id": 526390,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/526390",
     "sigla": "REP-0706",
@@ -18137,17 +18148,6 @@
     "tipoOrgao": "Comissão Especial",
     "nomePublicacao": "Comissão Especial sobre o Novo Enquadramento do Microempreendedor Individual (PLP 108/21)",
     "nomeResumido": "Novo Enquadramento MEI"
-  },
-  {
-    "id": 539845,
-    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539845",
-    "sigla": "PEC22119",
-    "nome": "Comissão Especial destinada a proferir parecer à Proposta de Emenda à Constituição nº 221, de 2019, do Senhor Reginaldo Lopes, que \"altera o Art. 7º inciso XII da constituição Federal, reduzindo a jornada de trabalho a 36 horas semanais em 10 anos\", e apensada",
-    "apelido": "PEC 221/19 - Redução da Jornada de Trabalho",
-    "codTipoOrgao": 3,
-    "tipoOrgao": "Comissão Especial",
-    "nomePublicacao": "Comissão Especial sobre o Fim da Escala 6x1 Vida Digna ao Trabalhador (PEC 221/19)",
-    "nomeResumido": "Fim da Escala 6x1"
   },
   {
     "id": 539846,
