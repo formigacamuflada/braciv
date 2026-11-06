@@ -3212,17 +3212,6 @@
     "email": "dep.leoprates@camara.leg.br"
   },
   {
-    "id": 122195,
-    "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/122195",
-    "nome": "Leonardo Gadelha",
-    "siglaPartido": "PODE",
-    "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36896",
-    "siglaUf": "PB",
-    "idLegislatura": 57,
-    "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/122195.jpg",
-    "email": "dep.leonardogadelha@camara.leg.br"
-  },
-  {
     "id": 74156,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/74156",
     "nome": "Leonardo Monteiro",
@@ -4926,6 +4915,17 @@
     "idLegislatura": 57,
     "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/204480.jpg",
     "email": "dep.rogeriocorreia@camara.leg.br"
+  },
+  {
+    "id": 160629,
+    "uri": "https://dadosabertos.camara.leg.br/api/v2/deputados/160629",
+    "nome": "Romero Rodrigues",
+    "siglaPartido": "PODE",
+    "uriPartido": "https://dadosabertos.camara.leg.br/api/v2/partidos/36896",
+    "siglaUf": "PB",
+    "idLegislatura": 57,
+    "urlFoto": "https://www.camara.leg.br/internet/deputado/bandep/160629.jpg",
+    "email": "dep.romerorodrigues@camara.leg.br"
   },
   {
     "id": 204525,
