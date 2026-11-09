@@ -34,6 +34,11 @@
   "fonte": "https://www.gov.br/defesa/pt-br/composicao/quem-e-quem",
   "sigla": "MD"
  },
+ "Fernanda Machiaveli Morão de Oliveira": {
+  "foto": "fotos/ministros/MDA.jpg",
+  "fonte": "https://www.gov.br/mda/pt-br/noticias/2026/11/ministra-fernanda-machiaveli-recebe-titulo-de-doutora-honoris-causa-da-ufrpe",
+  "sigla": "MDA"
+ },
  "José Wellington Barroso de Araujo Dias": {
   "foto": "fotos/ministros/MDS.jpg",
   "fonte": "https://www.gov.br/mds/pt-br/composicao/quem-e-quem",
@@ -59,6 +64,11 @@
   "fonte": "https://www.gov.br/gestao/pt-br/composicao/quem-e-quem/ministra-e-orgaos-de-assistencia-direta",
   "sigla": "MGI"
  },
+ "Rachel Barros de Oliveira": {
+  "foto": "fotos/ministros/MIR.jpg",
+  "fonte": "https://www.gov.br/igualdaderacial/pt-br",
+  "sigla": "MIR"
+ },
  "Antônio Waldez Góes da Silva": {
   "foto": "fotos/ministros/MIDR.jpg",
   "fonte": "https://www.gov.br/mdr/pt-br/composicao/ministro-e-secretarios",
@@ -73,11 +83,6 @@
   "foto": "fotos/ministros/MME.jpg",
   "fonte": "https://www.gov.br/mme/pt-br/composicao/quem-e-quem",
   "sigla": "MME"
- },
- "Tomé Monteiro da Franca": {
-  "foto": "fotos/ministros/MPOR.jpg",
-  "fonte": "https://www.gov.br/portos-e-aeroportos/pt-br",
-  "sigla": "MPOR"
  },
  "Wolney Queiroz Maciel": {
   "foto": "fotos/ministros/MPS.jpg",
@@ -98,10 +103,5 @@
   "foto": "fotos/ministros/MTE.jpg",
   "fonte": "https://www.gov.br/trabalho-e-emprego/pt-br/composicao/ministro-e-secretarios",
   "sigla": "MTE"
- },
- "Gustavo Costa Feliciano": {
-  "foto": "fotos/ministros/MTur.jpg",
-  "fonte": "https://www.gov.br/turismo/pt-br",
-  "sigla": "MTur"
  }
 }
