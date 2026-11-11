@@ -42644,7 +42644,7 @@
 {"idPortal": "2552769", "orgaoSiorg": 100921, "unidadeSiorg": null, "metodo": null, "semelhanca": null},
 {"idPortal": "3678362", "orgaoSiorg": 100921, "unidadeSiorg": 281126, "metodo": "cargo+nome", "semelhanca": 1.0},
 {"idPortal": "144605", "orgaoSiorg": 100921, "unidadeSiorg": 240461, "metodo": "cargo+nome", "semelhanca": 1.0},
-{"idPortal": "525191", "orgaoSiorg": 100921, "unidadeSiorg": 293785, "metodo": "cargo+nome", "semelhanca": 1.0},
+{"idPortal": "525191", "orgaoSiorg": 100921, "unidadeSiorg": null, "metodo": null, "semelhanca": null},
 {"idPortal": "805238", "orgaoSiorg": 100921, "unidadeSiorg": 281138, "metodo": "cargo+nome", "semelhanca": 0.75},
 {"idPortal": "3066548", "orgaoSiorg": 100921, "unidadeSiorg": 281129, "metodo": "cargo+nome", "semelhanca": 1.0},
 {"idPortal": "393495", "orgaoSiorg": 100921, "unidadeSiorg": 108476, "metodo": "cargo+nome", "semelhanca": 1.0},

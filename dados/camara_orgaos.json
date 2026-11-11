@@ -17721,17 +17721,6 @@
     "nomeResumido": "Inteligência Artificial"
   },
   {
-    "id": 539777,
-    "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539777",
-    "sigla": "PL261424",
-    "nome": "Comissão Especial destinada a proferir parecer ao Projeto de Lei n. 2614, de 2024, do Poder Executivo, que \"aprova o Plano Nacional de Educação para o decênio 2024-2034\"",
-    "apelido": "PL 2614/24 - Plano Nacional de Educação decênio 2024-2034",
-    "codTipoOrgao": 3,
-    "tipoOrgao": "Comissão Especial",
-    "nomePublicacao": "Comissão Especial sobre o Plano Nacional de Educação 2024-2034 (PL 2614/24)",
-    "nomeResumido": "PNE 2024-2034"
-  },
-  {
     "id": 539779,
     "uri": "https://dadosabertos.camara.leg.br/api/v2/orgaos/539779",
     "sigla": "SEEMPLEG",
