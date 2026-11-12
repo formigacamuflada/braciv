@@ -1,6 +1,6 @@
 {
- "geradoTse": "12/11/2026 05:30:30",
- "coletadoEm": "2026-11-12T11:28+00:00",
+ "geradoTse": "12/11/2026 16:31:14",
+ "coletadoEm": "2026-11-12T20:05+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -13758,19 +13758,6 @@
    "foto": "fotos/tse2026/190002541635.jpg"
   },
   {
-   "sq": "190002533687",
-   "uf": "RJ",
-   "cargo": "Deputado Estadual",
-   "situacao": "eleito",
-   "situacaoTse": "ELEITO POR MÉDIA",
-   "turno": 1,
-   "nome": "Felipe Tropa",
-   "nomeCompleto": "Felipe Ferreira",
-   "partido": "PL",
-   "numero": "22200",
-   "foto": "fotos/tse2026/190002533687.jpg"
-  },
-  {
    "sq": "190002541653",
    "uf": "RJ",
    "cargo": "Deputado Estadual",
@@ -14003,6 +13990,19 @@
    "partido": "PSOL",
    "numero": "50180",
    "foto": "fotos/tse2026/190002536108.jpg"
+  },
+  {
+   "sq": "190002550277",
+   "uf": "RJ",
+   "cargo": "Deputado Estadual",
+   "situacao": "eleito",
+   "situacaoTse": "ELEITO POR QP",
+   "turno": 1,
+   "nome": "Luiz Martins",
+   "nomeCompleto": "Luiz Antonio Martins",
+   "partido": "PSDB",
+   "numero": "45200",
+   "foto": "fotos/tse2026/190002550277.jpg"
   },
   {
    "sq": "190002538037",
