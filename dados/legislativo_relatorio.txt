@@ -1,5 +1,5 @@
 Mesa do Congresso: 7 cargos
-lideranças (SF, CD e CN): 296 registros, 47 líderes
+lideranças (SF, CD e CN): 297 registros, 47 líderes
 comissões permanentes do Senado e do Congresso: 21
 comissões permanentes da Câmara: 30
 tipos de colegiado no Senado: ['Comissão Parlamentar de Inquérito', 'Comissão Permanente', 'Comissão Temporária Externa', 'Comissão Temporária Interna', 'Comissão de Medida Provisória', 'Comitê da CMO', 'Conselho', 'Frente Parlamentar', 'Grupo Parlamentar', 'Mesa', 'Plenário', 'Relatores Setoriais do PLOA', 'Subcomissão Permanente', 'Subcomissão Temporária', 'Órgão', 'Órgãos de Representação Internacional']
@@ -8,4 +8,4 @@ Câmara: tipo de órgão CPI = 4
 CPIs da Câmara em funcionamento: 0 []
 Senado, estrutura administrativa: 234 setores com titular
 Senado, servidores ativos: 6723 (5653 com função)
-Câmara, funcionários: 14607 (3421 com função)
+Câmara, funcionários: 14607 (3424 com função)
