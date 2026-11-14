@@ -1,6 +1,6 @@
 {
- "geradoTse": "13/11/2026 12:31:40",
- "coletadoEm": "2026-11-14T01:29+00:00",
+ "geradoTse": "14/11/2026 05:31:39",
+ "coletadoEm": "2026-11-14T10:39+00:00",
  "fonte": "https://cdn.tse.jus.br/estatistica/sead/odsele/consulta_cand/consulta_cand_2026.zip",
  "candidatos": [
   {
@@ -17181,7 +17181,7 @@
    "uf": "RS",
    "cargo": "Deputado Federal",
    "situacao": "eleito",
-   "situacaoTse": "ELEITO POR MÉDIA",
+   "situacaoTse": "ELEITO POR QP",
    "turno": 1,
    "nome": "Carlos Gomes",
    "nomeCompleto": "Antonio Carlos Gomes Da Silva",
