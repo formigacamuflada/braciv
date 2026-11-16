@@ -36,7 +36,7 @@
  },
  "Fernanda Machiaveli Morão de Oliveira": {
   "foto": "fotos/ministros/MDA.jpg",
-  "fonte": "https://www.gov.br/mda/pt-br/noticias/2026/11/ministra-fernanda-machiaveli-recebe-titulo-de-doutora-honoris-causa-da-ufrpe",
+  "fonte": "https://www.gov.br/mda/pt-br/noticias/2026/11/ministra-fernanda-machiaveli-recebe-titulo-de-doutora-honoris-causa-da-ufrpe-1",
   "sigla": "MDA"
  },
  "José Wellington Barroso de Araujo Dias": {
@@ -49,11 +49,6 @@
   "fonte": "https://www.gov.br/mdic/pt-br/composicao/quem-e-quem",
   "sigla": "MDIC"
  },
- "Paulo Henrique Rodrigues Pereira": {
-  "foto": "fotos/ministros/MEMP.jpg",
-  "fonte": "https://www.gov.br/memp/pt-br",
-  "sigla": "MEMP"
- },
  "Dario Carnevalli Durigan": {
   "foto": "fotos/ministros/MF.jpg",
   "fonte": "https://www.gov.br/fazenda/pt-br/composicao/quem-e-quem",
@@ -63,11 +58,6 @@
   "foto": "fotos/ministros/MGI.jpg",
   "fonte": "https://www.gov.br/gestao/pt-br/composicao/quem-e-quem/ministra-e-orgaos-de-assistencia-direta",
   "sigla": "MGI"
- },
- "Rachel Barros de Oliveira": {
-  "foto": "fotos/ministros/MIR.jpg",
-  "fonte": "https://www.gov.br/igualdaderacial/pt-br",
-  "sigla": "MIR"
  },
  "Antônio Waldez Góes da Silva": {
   "foto": "fotos/ministros/MIDR.jpg",
@@ -83,6 +73,21 @@
   "foto": "fotos/ministros/MME.jpg",
   "fonte": "https://www.gov.br/mme/pt-br/composicao/quem-e-quem",
   "sigla": "MME"
+ },
+ "Márcia Helena Carvalho Lopes": {
+  "foto": "fotos/ministros/MMULHERES.jpg",
+  "fonte": "https://www.gov.br/mulheres/pt-br",
+  "sigla": "MMULHERES"
+ },
+ "Rivetla Edipo Araujo Cruz": {
+  "foto": "fotos/ministros/MPA.jpg",
+  "fonte": "https://www.gov.br/mpa/pt-br",
+  "sigla": "MPA"
+ },
+ "Tomé Monteiro da Franca": {
+  "foto": "fotos/ministros/MPOR.jpg",
+  "fonte": "https://www.gov.br/portos-e-aeroportos/pt-br",
+  "sigla": "MPOR"
  },
  "Wolney Queiroz Maciel": {
   "foto": "fotos/ministros/MPS.jpg",
@@ -103,5 +108,10 @@
   "foto": "fotos/ministros/MTE.jpg",
   "fonte": "https://www.gov.br/trabalho-e-emprego/pt-br/composicao/ministro-e-secretarios",
   "sigla": "MTE"
+ },
+ "Gustavo Costa Feliciano": {
+  "foto": "fotos/ministros/MTur.jpg",
+  "fonte": "https://www.gov.br/turismo/pt-br",
+  "sigla": "MTur"
  }
 }
