@@ -3214,13 +3214,6 @@
         ]
       },
       "SiglaPartidoParlamentar": "PSD",
-      "UfParlamentar": "PI",
-      "Bloco": {
-        "CodigoBloco": "335",
-        "NomeBloco": "Bloco Parlamentar da Resistência Democrática",
-        "NomeApelido": "BLPRD",
-        "DataCriacao": "2023-02-01"
-      },
       "MembroMesa": "Não",
       "MembroLideranca": "Não"
     },
@@ -3256,7 +3249,10 @@
         "Exercicio": [
           {
             "CodigoExercicio": "3106",
-            "DataInicio": "2026-05-06"
+            "DataInicio": "2026-05-06",
+            "DataFim": "2026-11-19",
+            "SiglaCausaAfastamento": "RET",
+            "DescricaoCausaAfastamento": "Retorno do titular"
           },
           {
             "CodigoExercicio": "3086",
@@ -5875,6 +5871,94 @@
             "DataFim": "2020-09-23",
             "SiglaCausaAfastamento": "LP ",
             "DescricaoCausaAfastamento": "Licença Particular"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "IdentificacaoParlamentar": {
+      "CodigoParlamentar": "5016",
+      "CodigoPublicoNaLegAtual": "880",
+      "NomeParlamentar": "Wellington Dias",
+      "NomeCompletoParlamentar": "José Wellington Barroso de Araujo Dias",
+      "SexoParlamentar": "Masculino",
+      "FormaTratamento": "Senador ",
+      "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5016.jpg",
+      "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5016",
+      "EmailParlamentar": "wellington.dias@senador.leg.br",
+      "SiglaPartidoParlamentar": "PT",
+      "UfParlamentar": "PI",
+      "Bloco": {
+        "CodigoBloco": "359",
+        "NomeBloco": "Bloco Parlamentar Pelo Brasil",
+        "NomeApelido": "BLPBR",
+        "DataCriacao": "2025-02-18"
+      },
+      "MembroMesa": "Não",
+      "MembroLideranca": "Não"
+    },
+    "Mandato": {
+      "CodigoMandato": "607",
+      "UfParlamentar": "PI",
+      "PrimeiraLegislaturaDoMandato": {
+        "NumeroLegislatura": "57",
+        "DataInicio": "2023-02-01",
+        "DataFim": "2027-01-31"
+      },
+      "SegundaLegislaturaDoMandato": {
+        "NumeroLegislatura": "58",
+        "DataInicio": "2027-02-01",
+        "DataFim": "2031-01-31"
+      },
+      "DescricaoParticipacao": "Titular",
+      "Suplentes": {
+        "Suplente": [
+          {
+            "DescricaoParticipacao": "1º Suplente",
+            "CodigoParlamentar": "6369",
+            "NomeParlamentar": "Jussara Lima"
+          },
+          {
+            "DescricaoParticipacao": "2º Suplente",
+            "CodigoParlamentar": "5849",
+            "NomeParlamentar": "José Amauri"
+          }
+        ]
+      },
+      "Exercicios": {
+        "Exercicio": [
+          {
+            "CodigoExercicio": "3113",
+            "DataInicio": "2026-11-19"
+          },
+          {
+            "CodigoExercicio": "3104",
+            "DataInicio": "2026-04-28",
+            "DataFim": "2026-05-06",
+            "SiglaCausaAfastamento": "AFO",
+            "DescricaoCausaAfastamento": "Afastamento do exercício"
+          },
+          {
+            "CodigoExercicio": "3082",
+            "DataInicio": "2025-02-01",
+            "DataFim": "2025-02-02",
+            "SiglaCausaAfastamento": "AFO",
+            "DescricaoCausaAfastamento": "Afastamento do exercício"
+          },
+          {
+            "CodigoExercicio": "3051",
+            "DataInicio": "2023-12-13",
+            "DataFim": "2023-12-13",
+            "SiglaCausaAfastamento": "AFO",
+            "DescricaoCausaAfastamento": "Afastamento do exercício"
+          },
+          {
+            "CodigoExercicio": "3010",
+            "DataInicio": "2023-02-01",
+            "DataFim": "2023-02-03",
+            "SiglaCausaAfastamento": "AFO",
+            "DescricaoCausaAfastamento": "Afastamento do exercício"
           }
         ]
       }
