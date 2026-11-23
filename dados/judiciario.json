@@ -1,5 +1,5 @@
 {
- "coletadoEm": "2026-11-16",
+ "coletadoEm": "2026-11-23",
  "tribunais": {
   "STF": {
    "url": "https://portal.stf.jus.br/ostf/",
@@ -62,7 +62,7 @@
      "nome": "Flávio Dino",
      "papel": null,
      "desde": "22/02/2024",
-     "foto": "fotos/jud/STF/flavio-dino.jpg"
+     "foto": null
     }
    ],
    "vagasLegais": 11

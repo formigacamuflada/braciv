@@ -1,4 +1,5 @@
-STF: 10 pessoas, 10 com foto
+  STF: foto de Flávio Dino falhou (ChunkedEncodingError)
+STF: 10 pessoas, 9 com foto
 STJ: 31 pessoas, 25 com foto
 TST: 0 pessoas, 0 com foto
 TSE: FALHOU (HTTPError: 403 Client Error: Forbidden for url: https://www.tse.jus.br/institucional/ministros)
