@@ -5801,6 +5801,15 @@
       "UrlFotoParlamentar": "http://www.senado.leg.br/senadores/img/fotos-oficiais/senador5016.jpg",
       "UrlPaginaParlamentar": "http://www25.senado.leg.br/web/senadores/senador/-/perfil/5016",
       "EmailParlamentar": "wellington.dias@senador.leg.br",
+      "Telefones": {
+        "Telefone": [
+          {
+            "NumeroTelefone": "33035800",
+            "OrdemPublicacao": "1",
+            "IndicadorFax": "Não"
+          }
+        ]
+      },
       "SiglaPartidoParlamentar": "PT",
       "UfParlamentar": "PI",
       "Bloco": {
